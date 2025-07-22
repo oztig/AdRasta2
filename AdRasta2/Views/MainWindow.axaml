@@ -16,6 +16,6 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <views:AdRastaMainView/>
+    <views:AdRastaMainView DataContext="{Binding AdRastaMainViewVM}"/>
 
 </Window>

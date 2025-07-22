@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AdRasta2.Views.AdRastaMainView">
+
+    <DockPanel>
+
+        <!-- 🔹 Fixed Header -->
+        <Border DockPanel.Dock="Top" Background="#2A2A2A" Height="60">
+            <TextBlock Text="Ad Rasta" Foreground="White"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" />
+        </Border>
+
+        <!-- 🔹 Bottom Strip with Dummy Previews -->
+        <Border DockPanel.Dock="Bottom" Height="100" Background="#E0E0E0">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <StackPanel Orientation="Horizontal">
+                    <Border Margin="5" Width="80" Cursor="Hand" Background="White">
+                        <StackPanel>
+                            <Image Source="avares://AdRasta2/Assets/3sheep.jpeg" Height="60" />
+                            <TextBlock Text="3sheep.jpeg" FontSize="12" TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="5" Width="80" Cursor="Hand" Background="White">
+                        <StackPanel>
+                            <Image Source="avares://AdRasta2/Assets/2001-ape.jpg" Height="60" />
+                            <TextBlock Text="2001-ape.jpg" FontSize="12" TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="5" Width="80" Cursor="Hand" Background="White">
+                        <StackPanel>
+                            <Image Source="avares://AdRasta2/Assets/2001_monolith.jpg" Height="60" />
+                            <TextBlock Text="2001-monolith.jpg" FontSize="12" TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <!-- 🔹 Middle Shared Region -->
+        <Border Background="#F8F8F8" Padding="10">
+            <TextBlock Text="Conversion Details Appear Here"
+                       FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
+
+    </DockPanel>
+</UserControl>

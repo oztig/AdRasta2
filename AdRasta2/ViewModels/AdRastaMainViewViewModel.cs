@@ -47,8 +47,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
         });
 
         // Optional: set default selection
-        SelectedConversion = RastaConversions[0];
-        SetIsSelected(0);
+        ChangeSelected(RastaConversions[0]);
+        // SelectedConversion = RastaConversions[0];
+        // SetIsSelected(0);
     }
 
     private void ChangeSelected(RastaConversion conversion)

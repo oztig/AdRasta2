@@ -2,9 +2,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.Reactive;
 using AdRasta2.Models;
-using Avalonia;
-using Avalonia.Platform;
-using Microsoft.VisualBasic;
 using ReactiveUI;
 
 namespace AdRasta2.ViewModels;
@@ -23,9 +20,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     }
 
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
-    public ReactiveCommand<Unit, Unit> MyClickCommand { get; }
-    
-    public ReactiveCommand<Unit, Unit> NewConversionCommand { get; }
+
+    public ReactiveCommand<Unit, Unit> NewConversionCommand;
     private int _panelCounter = 4;
 
     public AdRastaMainViewViewModel()
@@ -41,11 +37,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
             new RastaConversion("2001 Monolith ", @"/home/nickp/Pictures/2001_monolith.jpg")
         };
 
-        MyClickCommand = ReactiveCommand.Create(() =>
-        {
-            // Handle the click here
-        });
-
         // Optional: set default selection
         ChangeSelected(RastaConversions[0]);
         // SelectedConversion = RastaConversions[0];
@@ -58,6 +49,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion = conversion;
         SetIsSelected(index);
 
+        // DEBUG
         Console.WriteLine($"Clicked item '{conversion.Title}' at index {index}");
     }
 

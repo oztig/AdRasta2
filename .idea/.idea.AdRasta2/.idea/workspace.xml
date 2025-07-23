@@ -100,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753163506021</updated>
       <workItem from="1753163507153" duration="8220000" />
-      <workItem from="1753196833351" duration="23880000" />
+      <workItem from="1753196833351" duration="24236000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -166,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753286800297</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Simplify currentselected on intial load">
+      <option name="closed" value="true" />
+      <created>1753286900682</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1753286900682</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +192,8 @@
     <MESSAGE value="add hove over highlighting" />
     <MESSAGE value="Add 'New Conversion' Button and add to bottom panel" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="Simplify currentselected on intial load" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplify currentselected on intial load" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

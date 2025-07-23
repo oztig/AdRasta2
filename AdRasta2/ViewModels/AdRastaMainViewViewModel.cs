@@ -24,10 +24,14 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
     public ReactiveCommand<Unit, Unit> MyClickCommand { get; }
+    
+    public ReactiveCommand<Unit, Unit> NewConversionCommand { get; }
+    private int _panelCounter = 1;
 
     public AdRastaMainViewViewModel()
     {
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
+        NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
 
         // DEBUG - this wil be done via creatinga new conversion (Button or similar)
         RastaConversions = new ObservableCollection<RastaConversion>
@@ -44,6 +48,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         // Optional: set default selection
         SelectedConversion = RastaConversions[0];
+        SetIsSelected(0);
     }
 
     private void ChangeSelected(RastaConversion conversion)
@@ -59,5 +64,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         for (int i = 0; i < RastaConversions.Count; i++)
             RastaConversions[i].IsSelected = selectedIndex == i;
+    }
+    
+    public void AddNewConversion()
+    {
+        var title = $"Panel {_panelCounter++}";
+        var imagePath = "/home/nickp/Pictures/Glasses.jpg";
+        RastaConversions.Add(new RastaConversion(title, imagePath));
     }
 }

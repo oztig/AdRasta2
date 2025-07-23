@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +38,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1579bf835158dd6aec6bad778df36f37e1ed9bdaa7c2b533f598f5c59bd4/StandardAssetLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e49d9521ff091d353928d1c44539ba0a4c93a9ebb2e65190880b4fe5eb8/StyledElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -99,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753163506021</updated>
       <workItem from="1753163507153" duration="8220000" />
-      <workItem from="1753196833351" duration="18983000" />
+      <workItem from="1753196833351" duration="21987000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -141,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753250838735</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add hove over highlighting">
+      <option name="closed" value="true" />
+      <created>1753280442508</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753280442508</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,7 +167,8 @@
     <MESSAGE value="ideas" />
     <MESSAGE value="Ad selection of 'Conversion' logic and basic highlighting - to be sorted later" />
     <MESSAGE value="change comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="change comments" />
+    <MESSAGE value="add hove over highlighting" />
+    <option name="LAST_COMMIT_MESSAGE" value="add hove over highlighting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

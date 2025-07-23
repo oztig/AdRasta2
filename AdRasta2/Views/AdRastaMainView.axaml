@@ -13,59 +13,78 @@
         <local:BoolToBrushConverter x:Key="BoolToBrushConverter" />
     </UserControl.Resources>
 
-    <DockPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" /> <!-- Top area -->
+            <RowDefinition Height="*" /> <!-- Expansion area -->
+            <RowDefinition Height="Auto" /> <!-- Bottom dock -->
+        </Grid.RowDefinitions>
 
         <!-- 🔹 Fixed Header -->
         <Border DockPanel.Dock="Top" Background="#2A2A2A" Height="60">
-            <TextBlock Text="Ad Rasta" Foreground="White"
-                       VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" />
-        </Border>
-
-        <!-- 🔹 Bottom Preview Strip -->
-        <Border DockPanel.Dock="Bottom" Height="100" Background="#E0E0E0">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-                <ItemsControl ItemsSource="{Binding RastaConversions}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <!--Background="AntiqueWhite"-->
-                            <Button
-                                Background="{Binding IsSelected, Converter={StaticResource BoolToBrushConverter}, FallbackValue=Red}"
-                                Command="{Binding $parent[ItemsControl].((vm:AdRastaMainViewViewModel)DataContext).PanelClickedCommand}"
-                                CommandParameter="{Binding}">
-                                <Button.Styles>
-                                    <Style Selector="Button:pointerover /template/ ContentPresenter">
-                                        <Setter Property="Background" Value="LightBlue" />
-                                    </Style>
-                                </Button.Styles>
-                                <StackPanel ToolTip.Tip="{Binding Title}">
-                                    <Image Source="{Binding Image}"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           HorizontalAlignment="Center"
-                                           Margin="0,10,0,5" />
-                                    <TextBlock Text="{Binding Title}"
-                                               HorizontalAlignment="Center"
-                                               FontSize="12"
-                                               TextTrimming="CharacterEllipsis" />
-                                </StackPanel>
-                            </Button>
-                            <!--</Border>-->
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
+            <TextBlock Text="Ad Rasta"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="24" />
         </Border>
 
         <!-- 🔹 Middle Shared Region -->
-        <Border Background="#F8F8F8" Padding="10">
+        <Border Grid.Row="1" Background="#F8F8F8" Padding="10">
             <TextBlock Text="{Binding SelectedConversion.Title}"
-                       FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                       FontSize="16"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
         </Border>
 
-    </DockPanel>
+        <!-- 🔹 Bottom Preview Strip -->
+        <Border Grid.Row="2" DockPanel.Dock="Bottom" Height="100" Background="#E0E0E0">
+            <Grid>
+                <Grid.ColumnDefinitions>150,*</Grid.ColumnDefinitions>
+                <Button Content="New Conversion"
+                        Command="{Binding AddNewConversion}"
+                        Margin="10"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch" />
+                <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                    <ItemsControl ItemsSource="{Binding RastaConversions}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <!--Background="AntiqueWhite"-->
+                                <Button
+                                    Background="{Binding IsSelected, Converter={StaticResource BoolToBrushConverter}, FallbackValue=Red}"
+                                    Command="{Binding $parent[ItemsControl].((vm:AdRastaMainViewViewModel)DataContext).PanelClickedCommand}"
+                                    CommandParameter="{Binding}">
+                                    <Button.Styles>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="LightBlue" />
+                                        </Style>
+                                    </Button.Styles>
+                                    <StackPanel ToolTip.Tip="{Binding Title}">
+                                        <Image Source="{Binding Image}"
+                                               Height="60"
+                                               Stretch="Uniform"
+                                               HorizontalAlignment="Center"
+                                               Margin="0,10,0,5" />
+                                        <TextBlock Text="{Binding Title}"
+                                                   HorizontalAlignment="Center"
+                                                   FontSize="12"
+                                                   TextTrimming="CharacterEllipsis" />
+                                    </StackPanel>
+                                </Button>
+                                <!--</Border>-->
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+    </Grid>
 </UserControl>

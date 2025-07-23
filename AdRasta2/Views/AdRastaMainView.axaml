@@ -5,7 +5,6 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AdRasta2.Views.AdRastaMainView"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
-             xmlns:global="clr-namespace:"
              xmlns:local="clr-namespace:AdRasta2.Converters"
              x:DataType="vm:AdRastaMainViewViewModel">
 

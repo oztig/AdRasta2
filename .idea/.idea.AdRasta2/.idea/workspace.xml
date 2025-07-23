@@ -8,7 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Run",
+    ".NET Project.AdRasta2.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -100,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753163506021</updated>
       <workItem from="1753163507153" duration="8220000" />
-      <workItem from="1753196833351" duration="24236000" />
+      <workItem from="1753196833351" duration="24414000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -174,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753286900682</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="tidy up redundant code">
+      <option name="closed" value="true" />
+      <created>1753287265401</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1753287265401</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +202,8 @@
     <MESSAGE value="Add 'New Conversion' Button and add to bottom panel" />
     <MESSAGE value="stuff" />
     <MESSAGE value="Simplify currentselected on intial load" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simplify currentselected on intial load" />
+    <MESSAGE value="tidy up redundant code" />
+    <option name="LAST_COMMIT_MESSAGE" value="tidy up redundant code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

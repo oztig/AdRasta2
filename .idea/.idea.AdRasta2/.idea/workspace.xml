@@ -7,22 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/.idea/.idea.AdRasta2.dir/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/.idea/.idea.AdRasta2.dir/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/.idea/.idea.AdRasta2.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/.idea/.idea.AdRasta2.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/BoolToBrushConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Assets/2001-ape.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Assets/2001_monolith.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Assets/3sheep.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml.cs" afterDir="false" />
-    </list>
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753163506021</updated>
       <workItem from="1753163507153" duration="8220000" />
-      <workItem from="1753196833351" duration="16091000" />
+      <workItem from="1753196833351" duration="16861000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -137,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753167735093</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ad selection of 'Conversion' logic and basic highlighting - to be sorted later">
+      <option name="closed" value="true" />
+      <created>1753249787986</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753249787986</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +143,8 @@
     <MESSAGE value="push workspace" />
     <MESSAGE value="HAr Coded test view" />
     <MESSAGE value="ideas" />
-    <option name="LAST_COMMIT_MESSAGE" value="ideas" />
+    <MESSAGE value="Ad selection of 'Conversion' logic and basic highlighting - to be sorted later" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ad selection of 'Conversion' logic and basic highlighting - to be sorted later" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

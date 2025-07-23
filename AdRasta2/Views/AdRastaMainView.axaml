@@ -37,6 +37,11 @@
                                 Background="{Binding IsSelected, Converter={StaticResource BoolToBrushConverter}, FallbackValue=Red}"
                                 Command="{Binding $parent[ItemsControl].((vm:AdRastaMainViewViewModel)DataContext).PanelClickedCommand}"
                                 CommandParameter="{Binding}">
+                                <Button.Styles>
+                                    <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                        <Setter Property="Background" Value="LightBlue" />
+                                    </Style>
+                                </Button.Styles>
                                 <StackPanel ToolTip.Tip="{Binding Title}">
                                     <Image Source="{Binding Image}"
                                            Height="60"

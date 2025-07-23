@@ -3,7 +3,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AdRasta2.Views.AdRastaMainView">
+             x:Class="AdRasta2.Views.AdRastaMainView"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             xmlns:global="clr-namespace:"
+             xmlns:local="clr-namespace:AdRasta2.Converters"
+             x:DataType="vm:AdRastaMainViewViewModel">
+
+    <UserControl.Resources>
+        <local:BoolToBrushConverter x:Key="BoolToBrushConverter" />
+    </UserControl.Resources>
 
     <DockPanel>
 
@@ -13,35 +21,44 @@
                        VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" />
         </Border>
 
-        <!-- 🔹 Bottom Strip with Dummy Previews -->
+        <!-- 🔹 Bottom Preview Strip -->
         <Border DockPanel.Dock="Bottom" Height="100" Background="#E0E0E0">
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-                <StackPanel Orientation="Horizontal">
-                    <Border Margin="5" Width="80" Cursor="Hand" Background="White">
-                        <StackPanel>
-                            <Image Source="avares://AdRasta2/Assets/3sheep.jpeg" Height="60" />
-                            <TextBlock Text="3sheep.jpeg" FontSize="12" TextAlignment="Center" />
-                        </StackPanel>
-                    </Border>
-                    <Border Margin="5" Width="80" Cursor="Hand" Background="White">
-                        <StackPanel>
-                            <Image Source="avares://AdRasta2/Assets/2001-ape.jpg" Height="60" />
-                            <TextBlock Text="2001-ape.jpg" FontSize="12" TextAlignment="Center" />
-                        </StackPanel>
-                    </Border>
-                    <Border Margin="5" Width="80" Cursor="Hand" Background="White">
-                        <StackPanel>
-                            <Image Source="avares://AdRasta2/Assets/2001_monolith.jpg" Height="60" />
-                            <TextBlock Text="2001-monolith.jpg" FontSize="12" TextAlignment="Center" />
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
+                <ItemsControl ItemsSource="{Binding RastaConversions}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <!--Background="AntiqueWhite"-->
+                            <Button
+                                Background="{Binding IsSelected, Converter={StaticResource BoolToBrushConverter}, FallbackValue=Red}"
+                                Command="{Binding $parent[ItemsControl].((vm:AdRastaMainViewViewModel)DataContext).PanelClickedCommand}"
+                                CommandParameter="{Binding}">
+                                <StackPanel ToolTip.Tip="{Binding Title}">
+                                    <Image Source="{Binding Image}"
+                                           Height="60"
+                                           Stretch="Uniform"
+                                           HorizontalAlignment="Center"
+                                           Margin="0,10,0,5" />
+                                    <TextBlock Text="{Binding Title}"
+                                               HorizontalAlignment="Center"
+                                               FontSize="12"
+                                               TextTrimming="CharacterEllipsis" />
+                                </StackPanel>
+                            </Button>
+                            <!--</Border>-->
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </ScrollViewer>
         </Border>
 
         <!-- 🔹 Middle Shared Region -->
         <Border Background="#F8F8F8" Padding="10">
-            <TextBlock Text="Conversion Details Appear Here"
+            <TextBlock Text="{Binding SelectedConversion.Title}"
                        FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Border>
 

@@ -10,7 +10,6 @@
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Debug",
+    ".NET Project.AdRasta2.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -102,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753163506021</updated>
       <workItem from="1753163507153" duration="8220000" />
-      <workItem from="1753196833351" duration="21987000" />
+      <workItem from="1753196833351" duration="23542000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -152,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753280442508</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add 'New Conversion' Button and add to bottom panel">
+      <option name="closed" value="true" />
+      <created>1753283434871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1753283434871</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +175,8 @@
     <MESSAGE value="Ad selection of 'Conversion' logic and basic highlighting - to be sorted later" />
     <MESSAGE value="change comments" />
     <MESSAGE value="add hove over highlighting" />
-    <option name="LAST_COMMIT_MESSAGE" value="add hove over highlighting" />
+    <MESSAGE value="Add 'New Conversion' Button and add to bottom panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add 'New Conversion' Button and add to bottom panel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -26,7 +26,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> MyClickCommand { get; }
     
     public ReactiveCommand<Unit, Unit> NewConversionCommand { get; }
-    private int _panelCounter = 1;
+    private int _panelCounter = 4;
 
     public AdRastaMainViewViewModel()
     {
@@ -68,7 +68,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     
     public void AddNewConversion()
     {
-        var title = $"Panel {_panelCounter++}";
+        var title = $"Conversion {_panelCounter++}";
         var imagePath = "/home/nickp/Pictures/Glasses.jpg";
         RastaConversions.Add(new RastaConversion(title, imagePath));
     }

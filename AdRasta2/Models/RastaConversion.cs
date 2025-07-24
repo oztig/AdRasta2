@@ -47,4 +47,9 @@ public class RastaConversion : ReactiveObject
         Title = title;
         ImagePath = imagePath;
     }
+
+    public RastaConversion()
+    {
+        
+    }
 }

@@ -6,6 +6,7 @@
              x:Class="AdRasta2.Views.AdRastaMainView"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:local="clr-namespace:AdRasta2.Converters"
+             xmlns:views="clr-namespace:AdRasta2.Views"
              x:DataType="vm:AdRastaMainViewViewModel">
 
     <UserControl.Resources>
@@ -30,10 +31,11 @@
 
         <!-- 🔹 Middle Shared Region -->
         <Border Grid.Row="1" Background="#F8F8F8" Padding="10">
-            <TextBlock Text="{Binding SelectedConversion.Title}"
-                       FontSize="16"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
+            <views:SharedPanelView DataContext="{Binding SelectedConversion}" />
+            <!-- <TextBlock Text="{Binding SelectedConversion.Title}" -->
+            <!--            FontSize="16" -->
+            <!--            VerticalAlignment="Center" -->
+            <!--            HorizontalAlignment="Center" /> -->
         </Border>
 
         <!-- 🔹 Bottom Preview Strip -->

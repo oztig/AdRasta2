@@ -64,5 +64,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var title = $"Conversion {_panelCounter++}";
         var imagePath = "/home/nickp/Pictures/Glasses.jpg";
         RastaConversions.Add(new RastaConversion(title, imagePath));
+        ChangeSelected(RastaConversions[^1]);
     }
 }

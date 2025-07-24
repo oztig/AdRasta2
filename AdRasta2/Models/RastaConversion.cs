@@ -10,7 +10,14 @@ namespace AdRasta2.Models;
 
 public class RastaConversion : ReactiveObject
 {
-    public string Title { get; }
+
+    private string _title;
+    public string Title
+    {
+        get => _title;
+        set => this.RaiseAndSetIfChanged(ref _title, value);
+    }
+
     public string ImagePath { get; }
     private Bitmap? _image;
     public Bitmap? Image

@@ -8,14 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753163506021</updated>
       <workItem from="1753163507153" duration="8220000" />
-      <workItem from="1753196833351" duration="28728000" />
+      <workItem from="1753196833351" duration="29139000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -198,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753287473447</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add shared control central panel - with test bindings to 'selectedconversion'">
+      <option name="closed" value="true" />
+      <created>1753334202160</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1753334202160</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +221,8 @@
     <MESSAGE value="Simplify currentselected on intial load" />
     <MESSAGE value="tidy up redundant code" />
     <MESSAGE value="stuff again" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff again" />
+    <MESSAGE value="Add shared control central panel - with test bindings to 'selectedconversion'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add shared control central panel - with test bindings to 'selectedconversion'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

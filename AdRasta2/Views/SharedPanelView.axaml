@@ -11,7 +11,11 @@
         <Grid.RowDefinitions>*,*,*,*</Grid.RowDefinitions>
         <TextBox Grid.Row="0" Text="{Binding Title}" Margin="5" />
         <TextBox Grid.Row="1" Text="{Binding ImagePath}" Margin="5" />
-        <Image Grid.Row="2" Source="{Binding Image}"/>
+
+        <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1" Margin="5" HorizontalAlignment="Left" MaxWidth="324">
+            <Image Source="{Binding Image}" Margin="1" MaxWidth="320" MaxHeight="240" Stretch="Uniform" />
+        </Border>
+
         <CheckBox Grid.Row="3" IsChecked="{Binding IsSelected}" Content="Selected" Margin="5" />
     </Grid>
 </UserControl>

@@ -8,6 +8,8 @@
         x:Class="AdRasta2.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
+        MaxWidth="1920"
+        MaxHeight="1080"
         Title="AdRasta2">
 
     <Design.DataContext>

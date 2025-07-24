@@ -7,9 +7,9 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AdRasta2.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
         MaxWidth="1920"
         MaxHeight="1080"
+        Icon="{Binding AppIcon}"
         Title="AdRasta2">
 
     <Design.DataContext>
@@ -17,5 +17,5 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel />
     </Design.DataContext>
-        <views:AdRastaMainView DataContext="{Binding AdRastaMainViewVM}" />
+    <views:AdRastaMainView DataContext="{Binding AdRastaMainViewVM}" />
 </Window>

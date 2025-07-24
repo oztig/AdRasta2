@@ -58,7 +58,6 @@ public class RastaConversion : ReactiveObject
             }
             catch(Exception ex)
             {
-                // optional: log or fallback
                 _image = null;
             }
 

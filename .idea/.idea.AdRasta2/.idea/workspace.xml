@@ -8,14 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Assets/AdRasta-Debug.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Assets/AdRasta-Icon2.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Assets/AdRasta-Icon2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Assets/avalonia-logo.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Converters/BoolToBrushConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Converters/BoolToBrushConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +44,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bdbec2d9559e6c1b5824704d5f3d7bfd5b20a25275ede5cba6bbd7fa2b2a/Dispatcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf532557e1d8544b48c54c27b05b69b5b6c73c44c5ecb71777b05059e9192cb/Layoutable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e49d9521ff091d353928d1c44539ba0a4c93a9ebb2e65190880b4fe5eb8/StyledElement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConversion.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConversion.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConversion.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConversion.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///usr/lib/dotnet/sdk/9.0.108/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -63,24 +56,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.AdRasta2.executor": "Run",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/nickp/RiderProjects/AdRasta/AdRasta/Assets/AdRasta-Icon2.ico",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.AdRasta2.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/nickp/RiderProjects/AdRasta/AdRasta/Assets/AdRasta-Icon2.ico&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="AdRasta2" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -114,7 +107,10 @@
       <option name="presentableId" value="Default" />
       <updated>1753163506021</updated>
       <workItem from="1753163507153" duration="8220000" />
-      <workItem from="1753196833351" duration="50429000" />
+      <workItem from="1753196833351" duration="51025000" />
+      <workItem from="1753439479255" duration="3410000" />
+      <workItem from="1753445126950" duration="774000" />
+      <workItem from="1753451448152" duration="6110000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -244,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753354598380</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="latest changes">
+      <option name="closed" value="true" />
+      <created>1753372574796</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1753372574796</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +274,8 @@
     <MESSAGE value="Playing with layout" />
     <MESSAGE value="Add Blank Image + watermark if no sourceimage selected / it cant be found" />
     <MESSAGE value="Resize scroller so scrollbar doesnt overlay onto details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resize scroller so scrollbar doesnt overlay onto details" />
+    <MESSAGE value="latest changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

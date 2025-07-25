@@ -22,46 +22,46 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _title, value);
     }
 
-    private string _imagePath;
+    private string _sourceImagePath;
 
-    public string ImagePath
+    public string SourceImagePath
     {
-        get => _imagePath;
+        get => _sourceImagePath;
         set
         {
             // Manully check if changed, so we can force re-load of the Image.
-            if (_imagePath != value)
+            if (_sourceImagePath != value)
             {
-                _imagePath = value;
-                this.RaisePropertyChanged(nameof(ImagePath));
-                _image = null;
-                this.RaisePropertyChanged(nameof(Image));
+                _sourceImagePath = value;
+                this.RaisePropertyChanged();
+                _sourceImage = null;
+                this.RaisePropertyChanged(nameof(SourceImage));
             }
         }
     }
 
-    private Bitmap? _image;
-    public Bitmap? Image
+    private Bitmap? _sourceImage;
+    public Bitmap? SourceImage
     {
         get
         {
-            if (_image != null) return _image;
+            if (_sourceImage != null) return _sourceImage;
 
             try
             {
-                if (File.Exists(ImagePath))
-                    _image = new Bitmap(ImagePath);
+                if (File.Exists(SourceImagePath))
+                    _sourceImage = new Bitmap(SourceImagePath);
                 else
                 {
-                    _image = ImageUtils.CreateBlankImage(320, 240);
+                    _sourceImage = ImageUtils.CreateBlankImage(320, 240);
                 }
             }
             catch(Exception ex)
             {
-                _image = null;
+                _sourceImage = null;
             }
 
-            return _image;
+            return _sourceImage;
         }
     }
 
@@ -76,11 +76,6 @@ public class RastaConversion : ReactiveObject
     public RastaConversion(string title, string imagePath)
     {
         Title = title;
-        ImagePath = imagePath;
-    }
-
-    public RastaConversion()
-    {
-        
+        SourceImagePath = imagePath;
     }
 }

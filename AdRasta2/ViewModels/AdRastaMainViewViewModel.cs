@@ -9,6 +9,10 @@ namespace AdRasta2.ViewModels;
 public class AdRastaMainViewViewModel : ReactiveObject
 {
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
+    
+    public ObservableCollection<int> LeftSprockets { get; } = new();
+    
+    
     public ObservableCollection<RastaConversion> RastaConversions { get; }
 
     private RastaConversion? _selectedConversion;
@@ -26,6 +30,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public AdRastaMainViewViewModel()
     {
+        PopulateSprockets();
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
 
@@ -41,6 +46,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ChangeSelected(RastaConversions[0]);
         // SelectedConversion = RastaConversions[0];
         // SetIsSelected(0);
+    }
+
+    private void PopulateSprockets()
+    {
+        const int sprocketCount = 7;
+        for (int i = 0; i < sprocketCount; i++)
+        {
+            // TopSprockets.Add(i);
+            // BottomSprockets.Add(i);
+            LeftSprockets.Add(i);
+            // RightSprockets.Add(i);
+        }
     }
 
     private void ChangeSelected(RastaConversion conversion)

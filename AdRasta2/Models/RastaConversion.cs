@@ -14,8 +14,8 @@ namespace AdRasta2.Models;
 
 public class RastaConversion : ReactiveObject
 {
-
     private string _title;
+
     public string Title
     {
         get => _title;
@@ -41,6 +41,7 @@ public class RastaConversion : ReactiveObject
     }
 
     private Bitmap? _sourceImage;
+
     public Bitmap? SourceImage
     {
         get
@@ -56,7 +57,7 @@ public class RastaConversion : ReactiveObject
                     _sourceImage = ImageUtils.CreateBlankImage(320, 240);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _sourceImage = null;
             }
@@ -65,17 +66,63 @@ public class RastaConversion : ReactiveObject
         }
     }
 
+    private string _sourceImageMaskPath;
+
+    public string SourceImageMaskPath
+    {
+        get => _sourceImageMaskPath;
+        set
+        {
+            // Manully check if changed, so we can force re-load of the Image.
+            if (_sourceImageMaskPath != value)
+            {
+                _sourceImageMaskPath = value;
+                this.RaisePropertyChanged();
+                _sourceImageMask = null;
+                this.RaisePropertyChanged(nameof(SourceImageMaskPath));
+            }
+        }
+    }
+
+    private Bitmap? _sourceImageMask;
+
+    public Bitmap? SourceImageMask
+    {
+        get
+        {
+            if (_sourceImageMask != null) return _sourceImageMask;
+
+            try
+            {
+                if (File.Exists(SourceImageMaskPath))
+                    _sourceImageMask = new Bitmap(SourceImageMaskPath);
+                else
+                {
+                    _sourceImageMask = ImageUtils.CreateBlankImage(320, 240);
+                }
+            }
+            catch (Exception ex)
+            {
+                _sourceImageMask = null;
+            }
+
+            return _sourceImageMask;
+        }
+    }
+
+
     private bool _isSelected;
-    
+
     public bool IsSelected
     {
         get => _isSelected;
         set => this.RaiseAndSetIfChanged(ref _isSelected, value);
     }
 
-    public RastaConversion(string title, string imagePath)
+    public RastaConversion(string title, string imagePath, string maskPath)
     {
         Title = title;
         SourceImagePath = imagePath;
+        SourceImageMaskPath = maskPath;
     }
 }

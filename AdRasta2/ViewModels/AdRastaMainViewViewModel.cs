@@ -37,9 +37,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
         // DEBUG - this wil be done via creatinga new conversion (Button or similar)
         RastaConversions = new ObservableCollection<RastaConversion>
         {
-            new RastaConversion("3 Sheep", @"/home/nickp/Pictures/3sheep.jpeg"),
-            new RastaConversion("2001 Intro - Ape ", @"/home/nickp/Pictures/2001-ape.jpg"),
-            new RastaConversion("2001 Monolith ", @"/home/nickp/Pictures/2001_monolith.jpg")
+            new RastaConversion("Yellow Submarine", @"/home/nickp/Pictures/RC conversions/Yellow-submarine-seofholes.webp",@"/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png"),
+            new RastaConversion("2001 Intro - Ape ", @"/home/nickp/Pictures/2001-ape.jpg",null),
+            new RastaConversion("2001 Monolith ", @"/home/nickp/Pictures/2001_monolith.jpg",null)
         };
 
         // Optional: set default selection
@@ -80,7 +80,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         var title = $"Conversion {_panelCounter++}";
         var imagePath = "/home/nickp/Pictures/Glasses.jpg";
-        RastaConversions.Add(new RastaConversion(title, imagePath));
+        var maskPath = "/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png";
+        RastaConversions.Add(new RastaConversion(title, imagePath,maskPath));
+        
         ChangeSelected(RastaConversions[^1]);
     }
 }

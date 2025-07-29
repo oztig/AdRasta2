@@ -9,7 +9,14 @@ namespace AdRasta2.ViewModels;
 public class AdRastaMainViewViewModel : ReactiveObject
 {
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
-    
+
+    private string _currentConversionTitle = "" ;
+    public string CurrentConversionTitle
+    {
+        get => SelectedConversion?.Title;
+        set => this.RaiseAndSetIfChanged(ref _currentConversionTitle, value);
+    }
+
     public ObservableCollection<int> LeftSprockets { get; } = new();
     
     
@@ -64,6 +71,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         var index = RastaConversions.IndexOf(conversion);
         SelectedConversion = conversion;
+        CurrentConversionTitle = conversion.Title;
+        
         SetIsSelected(index);
 
         // DEBUG

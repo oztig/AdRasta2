@@ -22,7 +22,7 @@
 
         <!--  Fixed Header -->
         <Border DockPanel.Dock="Top" Background="#2A2A2A" Height="60">
-            <TextBlock Text="Ad Rasta"
+            <TextBlock Text="{Binding CurrentConversionTitle }"
                        Foreground="White"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"

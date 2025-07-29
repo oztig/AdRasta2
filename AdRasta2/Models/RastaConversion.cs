@@ -109,8 +109,51 @@ public class RastaConversion : ReactiveObject
             return _sourceImageMask;
         }
     }
+    
+    private string _imagePreviewPath;
 
+    public string ImagePreviewPath
+    {
+        get => _imagePreviewPath;
+        set
+        {
+            // Manully check if changed, so we can force re-load of the Image.
+            if (_imagePreviewPath != value)
+            {
+                _imagePreviewPath = value;
+                this.RaisePropertyChanged();
+                _imagePreview = null;
+                this.RaisePropertyChanged(nameof(ImagePreviewPath));
+            }
+        }
+    }
 
+    private Bitmap? _imagePreview;
+
+    public Bitmap? ImagePreview
+    {
+        get
+        {
+            if (_imagePreview != null) return _imagePreview;
+
+            try
+            {
+                if (File.Exists(ImagePreviewPath))
+                    _imagePreview = new Bitmap(ImagePreviewPath);
+                else
+                {
+                    _imagePreview = ImageUtils.CreateBlankImage(320, 240);
+                }
+            }
+            catch (Exception ex)
+            {
+                _imagePreview = null;
+            }
+
+            return _imagePreview;
+        }
+    }
+    
     private bool _isSelected;
 
     public bool IsSelected

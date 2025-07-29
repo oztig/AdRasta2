@@ -7,37 +7,53 @@
              x:DataType="model:RastaConversion"
              x:Class="AdRasta2.Views.SharedPanelView">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid.RowDefinitions>*,*,*,*</Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Text="{Binding Title}" Margin="5" />
-        <TextBox Grid.Row="1" Text="{Binding SourceImagePath}" Margin="5" />
-
-        <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto,*">
-            <Border Grid.Column="0" 
-                    BorderBrush="Black" 
-                    BorderThickness="1" 
-                    HorizontalAlignment="Left" 
-                    Margin="5"
-                    Padding="1" 
-                    Background="Black">
-                <Image Source="{Binding SourceImage}"
-                       MaxWidth="320"
-                       MaxHeight="240"
-                       Stretch="Uniform" />
-            </Border>
-            <Border Grid.Column="1" 
-                    BorderBrush="Black" 
-                    BorderThickness="1" 
-                    HorizontalAlignment="Left"
-                    Padding="1" 
-                    Background="Black" 
-                    Margin="5">
-                <Image Source="{Binding SourceImageMask}"
-                       MaxWidth="320"
-                       MaxHeight="240"
-                       Stretch="Uniform" />
-            </Border>
+    <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="*,*,*,*">
+            <Grid Grid.Row="0" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,*">
+                <TextBlock Grid.Row="0" Margin="5" FontSize="18" FontWeight="DemiBold" Grid.Column="0">Source</TextBlock>
+                <Border Grid.Row="1" Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        HorizontalAlignment="Left"
+                        Margin="5"
+                        Padding="1"
+                        Background="Black">
+                    <Image Source="{Binding SourceImage}"
+                           MaxWidth="320"
+                           MaxHeight="240"
+                           Stretch="Uniform" />
+                </Border>
+                <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="DemiBold">Mask</TextBlock>
+                <Border Grid.Row="1" Grid.Column="1"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        HorizontalAlignment="Left"
+                        Padding="1"
+                        Background="Black"
+                        Margin="5">
+                    <Image Source="{Binding SourceImageMask}"
+                           MaxWidth="320"
+                           MaxHeight="240"
+                           Stretch="Uniform" />
+                </Border>
+                <TextBlock Margin="5" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
+                <Border Grid.Row="1" Grid.Column="2"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        HorizontalAlignment="Left"
+                        Padding="1"
+                        Background="Black"
+                        Margin="5">
+                    <Image Source="{Binding ImagePreview}"
+                           MaxWidth="320"
+                           MaxHeight="240"
+                           Stretch="Uniform" />
+                </Border>
+            </Grid>
+            <TextBox Grid.Row="1" Text="{Binding Title}" Margin="5" />
+            <TextBox Grid.Row="2" Text="{Binding SourceImagePath}" Margin="5" />
+            <CheckBox Grid.Row="3" IsChecked="{Binding IsSelected}" Content="Selected" Margin="5" />
         </Grid>
-        <CheckBox Grid.Row="3" IsChecked="{Binding IsSelected}" Content="Selected" Margin="5" />
-    </Grid>
+    </Border>
+
 </UserControl>

@@ -12,23 +12,32 @@
         <TextBox Grid.Row="0" Text="{Binding Title}" Margin="5" />
         <TextBox Grid.Row="1" Text="{Binding SourceImagePath}" Margin="5" />
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="5"
-                    Padding="1">
-                <Image Source="{Binding SourceImage}" 
-                       MaxWidth="320" 
-                       MaxHeight="240" 
-                       Stretch="Uniform"  />
-            </Border>
-            <Border  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left"
-                     Padding="1">
-                <Image Source="{Binding SourceImageMask}"
-                       MaxWidth="320" 
-                       MaxHeight="240" 
+        <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto,*">
+            <Border Grid.Column="0" 
+                    BorderBrush="Black" 
+                    BorderThickness="1" 
+                    HorizontalAlignment="Left" 
+                    Margin="5"
+                    Padding="1" 
+                    Background="Black">
+                <Image Source="{Binding SourceImage}"
+                       MaxWidth="320"
+                       MaxHeight="240"
                        Stretch="Uniform" />
             </Border>
-        </StackPanel>
-
+            <Border Grid.Column="1" 
+                    BorderBrush="Black" 
+                    BorderThickness="1" 
+                    HorizontalAlignment="Left"
+                    Padding="1" 
+                    Background="Black" 
+                    Margin="5">
+                <Image Source="{Binding SourceImageMask}"
+                       MaxWidth="320"
+                       MaxHeight="240"
+                       Stretch="Uniform" />
+            </Border>
+        </Grid>
         <CheckBox Grid.Row="3" IsChecked="{Binding IsSelected}" Content="Selected" Margin="5" />
     </Grid>
 </UserControl>

@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,7 @@
       <workItem from="1753439479255" duration="3410000" />
       <workItem from="1753445126950" duration="774000" />
       <workItem from="1753451448152" duration="10054000" />
-      <workItem from="1753712391688" duration="9545000" />
+      <workItem from="1753712391688" duration="11669000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -277,7 +276,23 @@
       <option name="project" value="LOCAL" />
       <updated>1753775380684</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="jiggle with column spacing and sizing around images">
+      <option name="closed" value="true" />
+      <created>1753779209845</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1753779209845</updated>
+    </task>
+    <task id="LOCAL-00023" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1753785724797</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1753785724797</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +309,6 @@
     <MESSAGE value="change comments" />
     <MESSAGE value="add hove over highlighting" />
     <MESSAGE value="Add 'New Conversion' Button and add to bottom panel" />
-    <MESSAGE value="stuff" />
     <MESSAGE value="Simplify currentselected on intial load" />
     <MESSAGE value="tidy up redundant code" />
     <MESSAGE value="stuff again" />
@@ -308,7 +322,9 @@
     <MESSAGE value="latest" />
     <MESSAGE value="add mask properties" />
     <MESSAGE value="fiddle with image dimensions" />
-    <option name="LAST_COMMIT_MESSAGE" value="fiddle with image dimensions" />
+    <MESSAGE value="jiggle with column spacing and sizing around images" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

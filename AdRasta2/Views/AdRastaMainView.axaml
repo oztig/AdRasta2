@@ -75,7 +75,7 @@
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
 
-                                    <!-- Content -->
+                                    <!-- Content  -->
                                     <Button Grid.Column="1" MaxWidth="160" Margin="0"
                                             BorderThickness="0"
                                             CornerRadius="0"

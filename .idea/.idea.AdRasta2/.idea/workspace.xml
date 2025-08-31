@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +108,7 @@
       <workItem from="1753451448152" duration="10054000" />
       <workItem from="1753712391688" duration="11669000" />
       <workItem from="1753801897028" duration="4379000" />
-      <workItem from="1756535733109" duration="15098000" />
+      <workItem from="1756535733109" duration="17735000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -324,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756631280544</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="add .ignore">
+      <option name="closed" value="true" />
+      <created>1756632132541</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1756632132541</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +344,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="push workspace" />
     <MESSAGE value="HAr Coded test view" />
     <MESSAGE value="ideas" />
     <MESSAGE value="Ad selection of 'Conversion' logic and basic highlighting - to be sorted later" />
@@ -359,7 +368,8 @@
     <MESSAGE value="Start New Layout" />
     <MESSAGE value="Add Defaults, and Converter and Conversion classes" />
     <MESSAGE value="Split out bottom panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split out bottom panel" />
+    <MESSAGE value="add .ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .ignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

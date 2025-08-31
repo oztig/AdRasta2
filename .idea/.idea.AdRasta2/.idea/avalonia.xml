@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AdRasta2/Views/AdRastaMainView.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Views/BottomPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/MainWindow.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/SharedPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />
       </map>

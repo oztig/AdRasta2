@@ -55,7 +55,7 @@ public class RastaConversion : ReactiveObject
                     _sourceImage = new Bitmap(SourceImagePath);
                 else
                 {
-                    _sourceImage = ImageUtils.CreateBlankImage(320, 240);
+                    _sourceImage = ImageUtils.CreateBlankImage(320, 240,Brushes.WhiteSmoke);
                 }
             }
             catch (Exception ex)
@@ -99,7 +99,7 @@ public class RastaConversion : ReactiveObject
                     _sourceImageMask = new Bitmap(SourceImageMaskPath);
                 else
                 {
-                    _sourceImageMask = ImageUtils.CreateBlankImage(320, 240);
+                    _sourceImageMask = ImageUtils.CreateBlankImage(320, 240,Brushes.WhiteSmoke);
                 }
             }
             catch (Exception ex)
@@ -151,7 +151,7 @@ public class RastaConversion : ReactiveObject
                     _imagePreview = new Bitmap(ImagePreviewPath);
                 else
                 {
-                    _imagePreview = ImageUtils.CreateBlankImage(320, 240);
+                    _imagePreview = ImageUtils.CreateBlankImage(320, 240,Brushes.WhiteSmoke);
                 }
             }
             catch (Exception ex)

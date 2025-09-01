@@ -8,14 +8,14 @@ namespace AdRasta2.Utils;
 
 public class ImageUtils
 {
-    public static Bitmap CreateBlankImage(int width, int height)
+    public static Bitmap CreateBlankImage(int width, int height,IBrush brush)
     {
         var renderTarget = new RenderTargetBitmap(new PixelSize(width, height), new Vector(96, 96));
 
         using (var ctx = renderTarget.CreateDrawingContext(true))
         {
             // fill with transparent or solid color
-            ctx.FillRectangle(Brushes.WhiteSmoke, new Rect(0, 0, width, height));
+            ctx.FillRectangle(brush, new Rect(0, 0, width, height));
             
             // Prepare watermark text
             var text = new FormattedText(

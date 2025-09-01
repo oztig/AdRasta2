@@ -2,12 +2,15 @@ using System;
 using System.Collections.ObjectModel;
 using System.Reactive;
 using AdRasta2.Models;
+using AdRasta2.Services;
+using Avalonia.Controls;
 using ReactiveUI;
 
 namespace AdRasta2.ViewModels;
 
 public class AdRastaMainViewViewModel : ReactiveObject
 {
+    private Window? _window;
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
 
     private string _currentConversionTitle = "" ;
@@ -35,8 +38,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
     private int _panelCounter = 4;
 
-    public AdRastaMainViewViewModel()
+    public AdRastaMainViewViewModel(Window window)
     {
+        _window = window;
         PopulateSprockets();
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
@@ -53,6 +57,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ChangeSelected(RastaConversions[0]);
         // SelectedConversion = RastaConversions[0];
         // SetIsSelected(0);
+    }
+    
+    public void SetWindow(Window window)
+    {
+        _window = window;
     }
 
     private void PopulateSprockets()
@@ -85,12 +94,14 @@ public class AdRastaMainViewViewModel : ReactiveObject
             RastaConversions[i].IsSelected = selectedIndex == i;
     }
     
-    public void AddNewConversion()
+    public async void AddNewConversion()
     {
-        var title = $"Conversion {_panelCounter++}";
-        var imagePath = "/home/nickp/Pictures/Glasses.jpg";
-        var maskPath = "/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png";
-        RastaConversions.Add(new RastaConversion(title, imagePath,maskPath));
+        var userInput = await DialogService.ShowInputDialogAsync("New Conversion",
+          "Name:",  "", "New Conversion Name", _window);
+        if (!(userInput.confirmed ?? false))
+            return;
+
+        RastaConversions.Add(new RastaConversion(userInput.value.Trim(), "",""));
         
         ChangeSelected(RastaConversions[^1]);
     }

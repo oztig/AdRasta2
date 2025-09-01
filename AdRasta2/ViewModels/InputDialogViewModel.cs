@@ -6,6 +6,14 @@ using ReactiveUI;
 
 public class InputDialogViewModel : ViewModelBase
 {
+    private string _userPrompt;
+
+    public string UserPrompt
+    {
+        get => _userPrompt;
+        set => this.RaiseAndSetIfChanged(ref _userPrompt, value);
+    }
+    
     private string _userInput;
     public string UserInput
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
@@ -9,7 +10,7 @@ namespace AdRasta2.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    public AdRastaMainViewViewModel AdRastaMainViewVM { get; } = new AdRastaMainViewViewModel();
+    public AdRastaMainViewViewModel AdRastaMainViewVM { get; } 
 
     private WindowIcon? _icon;
     public WindowIcon? AppIcon
@@ -18,9 +19,15 @@ public class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _icon, value);
     }
     
-    public MainWindowViewModel()
+    public MainWindowViewModel(Window window)
     {
+       AdRastaMainViewVM = new AdRastaMainViewViewModel(window);
         SetIcon();
+    }
+
+    public async Task Initialize(Window window)
+    {
+        AdRastaMainViewVM.SetWindow(window);
     }
     
     private void SetIcon()

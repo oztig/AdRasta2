@@ -15,13 +15,14 @@ public partial class InputDialog : Window
     private bool? _confirmed;
     private string _input = string.Empty;
 
-    public InputDialog(string title, string defaultInput,string inputWatermark, Window owner)
+    public InputDialog(string title,string defaultPrompt, string defaultInput,string inputWatermark, Window owner)
     {
         InitializeComponent();
         this.Owner = owner;
 
         var vm = new InputDialogViewModel();
         vm.Title = title;
+        vm.UserPrompt = defaultPrompt;
         vm.UserInput = defaultInput;
         vm.InputWatermark = inputWatermark;
         vm.CloseAction = confirmed =>

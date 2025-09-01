@@ -7,7 +7,7 @@
         Title="{Binding Title}" Width="400" Height="130">
 
     <StackPanel Margin="20 " Spacing="10">
-        <TextBlock Text="Destination Filename:" FontSize="14" />
+        <TextBlock Text="{Binding UserPrompt}" FontSize="14" />
         <TextBox Text="{Binding UserInput}" Watermark="{Binding InputWatermark}" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
             <Button BorderThickness="1" BorderBrush="Black" HorizontalContentAlignment="Center"

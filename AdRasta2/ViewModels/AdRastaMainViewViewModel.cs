@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AdRasta2.Models;
 using AdRasta2.Services;
 using Avalonia.Controls;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -137,8 +139,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
     
     private async Task ShowAboutMessage()
     {
-        var aboutMessage = "RastaConverter by Jakub Debski 2012-2025\n";
-        aboutMessage += "AdRasta by oztig (Nick Pearson)\n";
+        var dateNow = DateTime.Now;
+        var iconPath = new Uri($"avares://AdRasta2/Assets/AdRasta-Icon2.ico");
+        var customIcon = new Bitmap(AssetLoader.Open(iconPath));
+        
+        var aboutMessage = "RastaConverter by Jakub 'Ilmenit' Debski 2012-" + dateNow.Year + "\n";
+        aboutMessage += "AdRasta2 by Nick 'oztig' Pearson\n";
         aboutMessage += "MADS and RC2MCH by Tomasz Biela\n\n";
         aboutMessage += "Special Thanks to:\n";
         aboutMessage += "Arkadiusz Lubaszka for the original RC GUI\n\n";
@@ -147,8 +153,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
         {
-            ContentTitle = "AdRasta (version 1.3.2-1 Beta)",
-            Icon = Icon.Info,
+            ContentTitle = "AdRasta2 (0.1 Bodge It and Scarper Version)",
+            ImageIcon = customIcon,
             ContentMessage = aboutMessage,
             ButtonDefinitions = new List<ButtonDefinition>
             {

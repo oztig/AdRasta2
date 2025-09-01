@@ -9,14 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +118,7 @@
       <workItem from="1753801897028" duration="4379000" />
       <workItem from="1756535733109" duration="17848000" />
       <workItem from="1756678737264" duration="811000" />
-      <workItem from="1756719124035" duration="3432000" />
+      <workItem from="1756719124035" duration="6385000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -373,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756719920069</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="New Conversion Dialog">
+      <option name="closed" value="true" />
+      <created>1756723014036</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1756723014036</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +386,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="change comments" />
     <MESSAGE value="add hove over highlighting" />
     <MESSAGE value="Add 'New Conversion' Button and add to bottom panel" />
     <MESSAGE value="Simplify currentselected on intial load" />
@@ -408,7 +410,8 @@
     <MESSAGE value="s" />
     <MESSAGE value="1" />
     <MESSAGE value="Add Dialog Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Dialog Service" />
+    <MESSAGE value="New Conversion Dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Conversion Dialog" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

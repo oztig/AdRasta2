@@ -15,13 +15,23 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Menu-->
             <RowDefinition Height="Auto" /> <!-- Top area -->
             <RowDefinition Height="*" /> <!-- Expansion area -->
             <RowDefinition Height="Auto" /> <!-- Bottom dock -->
         </Grid.RowDefinitions>
 
+        <!-- Menu -->
+        <Menu Grid.Row="0" DockPanel.Dock="Top">
+            <MenuItem Header="_Help">
+                <MenuItem Header="_Show Help File" Command="{Binding  ShowHelpCommand}" />
+                <Separator />
+                <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
+            </MenuItem>
+        </Menu>
+        
         <!--  Fixed Header -->
-        <Border DockPanel.Dock="Top" Background="#2A2A2A" Height="60">
+        <Border Grid.Row="1" DockPanel.Dock="Top" Background="#2A2A2A" Height="60">
             <TextBlock Text="{Binding CurrentConversionTitle }"
                        Foreground="White"
                        VerticalAlignment="Center"
@@ -30,12 +40,12 @@
         </Border>
 
         <!--  Middle Shared Region -->
-        <Border Grid.Row="1" Background="#F8F8F8">
+        <Border Grid.Row="2" Background="#F8F8F8">
             <views:SharedPanelView DataContext="{Binding SelectedConversion}" />
         </Border>
 
         <!--  Bottom Preview Strip -->
-        <Border Grid.Row="2" DockPanel.Dock="Bottom" Height="130" Background="#E0E0E0">
+        <Border Grid.Row="3" DockPanel.Dock="Bottom" Height="130" Background="#E0E0E0">
             <views:BottomPanelView />
         </Border>
         

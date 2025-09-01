@@ -1,9 +1,15 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reactive;
+using System.Threading.Tasks;
 using AdRasta2.Models;
 using AdRasta2.Services;
 using Avalonia.Controls;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Enums;
+using MsBox.Avalonia.Models;
 using ReactiveUI;
 
 namespace AdRasta2.ViewModels;
@@ -12,6 +18,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
+    
+    
+    public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
+    public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
+    
 
     private string _currentConversionTitle = "" ;
     public string CurrentConversionTitle
@@ -42,6 +53,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         _window = window;
         PopulateSprockets();
+        ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
+        ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
 
@@ -104,5 +117,46 @@ public class AdRastaMainViewViewModel : ReactiveObject
         RastaConversions.Add(new RastaConversion(userInput.value.Trim(), "",""));
         
         ChangeSelected(RastaConversions[^1]);
+    }
+    
+    private async Task ShowHelpMessage()
+    {
+        try
+        {
+            // var result = await Cli.Wrap(_settings.DefaultExecuteCommand)
+            //     .WithArguments(SafeCommand.QuoteIfNeeded(_settings.HelpFileLocation))
+            //     .WithValidation(CommandResultValidation.None)
+            //     .ExecuteAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+    private async Task ShowAboutMessage()
+    {
+        var aboutMessage = "RastaConverter by Jakub Debski 2012-2025\n";
+        aboutMessage += "AdRasta by oztig (Nick Pearson)\n";
+        aboutMessage += "MADS and RC2MCH by Tomasz Biela\n\n";
+        aboutMessage += "Special Thanks to:\n";
+        aboutMessage += "Arkadiusz Lubaszka for the original RC GUI\n\n";
+        aboutMessage += "Developed using JetBrains Rider and Avalonia UI \n";
+
+
+        var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
+        {
+            ContentTitle = "AdRasta (version 1.3.2-1 Beta)",
+            Icon = Icon.Info,
+            ContentMessage = aboutMessage,
+            ButtonDefinitions = new List<ButtonDefinition>
+            {
+                new ButtonDefinition { Name = "OK" },
+            },
+            ShowInCenter = true, WindowStartupLocation = WindowStartupLocation.CenterOwner
+        });
+
+        var result = await messageBox.ShowWindowDialogAsync(_window);
     }
 }

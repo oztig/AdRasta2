@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reactive;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AdRasta2.Interfaces;
 using AdRasta2.Models;
 using AdRasta2.Services;
 using Avalonia.Controls;
@@ -22,15 +24,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
-    
-    
+
+
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
+    public ReactiveCommand<Unit, Unit> PickFileCommand { get; private set; }
+    private IFilePickerService _filePickerService;
+
     public string ViewModelType => GetType().Name;
 
     public ObservableCollection<int> LeftSprockets { get; } = new();
-    
-    
+
+
     public ObservableCollection<RastaConversion> RastaConversions { get; }
 
     private RastaConversion? _selectedConversion;
@@ -54,14 +59,17 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
+        _filePickerService = new FilePickerService(_window);
 
-        // DEBUG - this wil be done via creating a new conversion (Button or similar)
+        // DEBUG - this will be done via creating a new conversion (Button or similar)
         RastaConversions = new ObservableCollection<RastaConversion>
         {
-            new RastaConversion("", @"",@""),
-            new RastaConversion("Yellow Submarine", @"/home/nickp/Pictures/RC conversions/Yellow-submarine-seofholes.webp",@"/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png"),
-            new RastaConversion("2001 Intro - Ape ", @"/home/nickp/Pictures/2001-ape.jpg",null),
-            new RastaConversion("2001 Monolith ", @"/home/nickp/Pictures/2001_monolith.jpg",null)
+            new RastaConversion("", @"", @""),
+            // new RastaConversion("Yellow Submarine",
+            //     @"/home/nickp/Pictures/RC conversions/Yellow-submarine-seofholes.webp",
+            //     @"/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png"),
+            // new RastaConversion("2001 Intro - Ape ", @"/home/nickp/Pictures/2001-ape.jpg", null),
+            // new RastaConversion("2001 Monolith ", @"/home/nickp/Pictures/2001_monolith.jpg", null)
         };
 
         // Optional: set default selection
@@ -69,7 +77,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         // SelectedConversion = RastaConversions[0];
         // SetIsSelected(0);
     }
-    
+
     public void SetWindow(Window window)
     {
         _window = window;
@@ -91,8 +99,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         var index = RastaConversions.IndexOf(conversion);
         SelectedConversion = conversion;
-       // CurrentConversionTitle = conversion.Title;
-        
+        // CurrentConversionTitle = conversion.Title;
+
         SetIsSelected(index);
 
         // DEBUG
@@ -104,19 +112,19 @@ public class AdRastaMainViewViewModel : ReactiveObject
         for (int i = 0; i < RastaConversions.Count; i++)
             RastaConversions[i].IsSelected = selectedIndex == i;
     }
-    
+
     public async void AddNewConversion()
     {
         var userInput = await DialogService.ShowInputDialogAsync("New Conversion",
-          "Name:",  "", "New Conversion Name", _window);
+            "Name:", "", "New Conversion Name", _window);
         if (!(userInput.confirmed ?? false))
             return;
 
-        RastaConversions.Add(new RastaConversion(userInput.value.Trim(), "",""));
-        
+        RastaConversions.Add(new RastaConversion(userInput.value.Trim(), "", ""));
+
         ChangeSelected(RastaConversions[^1]);
     }
-    
+
     private async Task ShowHelpMessage()
     {
         try
@@ -132,13 +140,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
             throw;
         }
     }
-    
+
     private async Task ShowAboutMessage()
     {
         var dateNow = DateTime.Now;
         var iconPath = new Uri($"avares://AdRasta2/Assets/AdRasta-Icon2.ico");
         var customIcon = new Bitmap(AssetLoader.Open(iconPath));
-        
+
         var aboutMessage = "RastaConverter by Jakub 'Ilmenit' Debski 2012-" + dateNow.Year + "\n";
         aboutMessage += "AdRasta2 by Nick 'oztig' Pearson\n";
         aboutMessage += "MADS and RC2MCH by Tomasz Biela\n\n";
@@ -161,18 +169,19 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         var result = await messageBox.ShowWindowDialogAsync(_window);
     }
-    
-    private async Task OpenFilePicker(FilePickerFileType fileType, Action<string> setPath)
+
+    public async void SelectSourceImage()
     {
-        if (_window is null) return;
+        SelectedConversion.SourceImagePath = await SelectFiles(FilePickerFileTypes.ImageAll);
+    }
 
-        var files = await _window.StorageProvider.OpenFilePickerAsync(new()
-        {
-            Title = "Select a file",
-            AllowMultiple = false,
-            FileTypeFilter = new[] { fileType },
-        });
+    public async void SelectSourceMask()
+    {
+        SelectedConversion.SourceImageMaskPath = await SelectFiles(FilePickerFileTypes.ImageAll);
+    }
 
-        setPath(files.Count > 0 ? Uri.UnescapeDataString(files[0].Path.AbsolutePath) : string.Empty);
+    private async Task<string> SelectFiles(FilePickerFileType fileType)
+    {
+        return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
     }
 }

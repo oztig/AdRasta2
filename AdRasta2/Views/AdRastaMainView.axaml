@@ -32,12 +32,13 @@
         </Menu>
         
         <!--  Fixed Header -->
-        <Border Grid.Row="1" DockPanel.Dock="Top" Background="#2A2A2A" Height="60">
+        <Border Grid.Row="1" DockPanel.Dock="Top" Background="LightGray" Height="30">
             <TextBlock Text="{Binding SelectedConversion.Title }"
-                       Foreground="White"
+                       Foreground="Black"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       FontSize="24" />
+                       HorizontalAlignment="Left"
+                       Margin="12,0,0,0"
+                       FontSize="20" />
         </Border>
 
         <!--  Middle Shared Region -->

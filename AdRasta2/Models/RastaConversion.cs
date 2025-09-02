@@ -80,7 +80,7 @@ public class RastaConversion : ReactiveObject
                 _sourceImageMaskPath = value;
                 this.RaisePropertyChanged();
                 _sourceImageMask = null;
-                this.RaisePropertyChanged(nameof(SourceImageMaskPath));
+                this.RaisePropertyChanged(nameof(SourceImageMask));
             }
         }
     }

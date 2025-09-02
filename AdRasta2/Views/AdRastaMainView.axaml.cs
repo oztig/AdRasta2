@@ -12,12 +12,4 @@ public partial class AdRastaMainView : UserControl
         InitializeComponent();
         DataContext = new AdRastaMainViewViewModel(new Window());
     }
-
-    private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
-    {
-        if ((sender as Control)?.DataContext is RastaConversion conversion)
-        {
-            var fred = "sleep stuff";
-        }
-    }
 }

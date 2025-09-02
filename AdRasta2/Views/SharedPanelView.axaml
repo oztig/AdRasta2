@@ -21,7 +21,7 @@
             <Grid Grid.Row="1" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,*">
                 <TextBlock Grid.Row="0" Margin="5" FontSize="18" FontWeight="DemiBold" Grid.Column="0">Source</TextBlock>
                 <Button Grid.Row="1" Grid.Column="0"
-                        Command="{Binding ShowAboutCommand}"
+                        Command="{Binding SelectSourceImage}"
                         BorderBrush="Black"
                         BorderThickness="1"
                         HorizontalAlignment="Left"
@@ -37,7 +37,7 @@
 
                 <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="DemiBold">Mask</TextBlock>
                 <Button Grid.Row="1" Grid.Column="1"
-                        Command="{Binding ShowAboutCommand}"
+                        Command="{Binding SelectSourceMask}"
                         BorderBrush="Black"
                         BorderThickness="1"
                         HorizontalAlignment="Left"

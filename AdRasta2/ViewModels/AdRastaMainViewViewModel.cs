@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using AdRasta2.Models;
 using AdRasta2.Services;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Avalonia.Platform.Storage;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -25,13 +27,14 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
     
-
     private string _currentConversionTitle = "" ;
     public string CurrentConversionTitle
     {
         get => SelectedConversion?.Title;
         set => this.RaiseAndSetIfChanged(ref _currentConversionTitle, value);
     }
+    
+    public string ViewModelType => GetType().Name;
 
     public ObservableCollection<int> LeftSprockets { get; } = new();
     
@@ -60,7 +63,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
 
-        // DEBUG - this wil be done via creatinga new conversion (Button or similar)
+        // DEBUG - this wil be done via creating a new conversion (Button or similar)
         RastaConversions = new ObservableCollection<RastaConversion>
         {
             new RastaConversion("Yellow Submarine", @"/home/nickp/Pictures/RC conversions/Yellow-submarine-seofholes.webp",@"/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png"),
@@ -164,5 +167,19 @@ public class AdRastaMainViewViewModel : ReactiveObject
         });
 
         var result = await messageBox.ShowWindowDialogAsync(_window);
+    }
+    
+    private async Task OpenFilePicker(FilePickerFileType fileType, Action<string> setPath)
+    {
+        if (_window is null) return;
+
+        var files = await _window.StorageProvider.OpenFilePickerAsync(new()
+        {
+            Title = "Select a file",
+            AllowMultiple = false,
+            FileTypeFilter = new[] { fileType },
+        });
+
+        setPath(files.Count > 0 ? Uri.UnescapeDataString(files[0].Path.AbsolutePath) : string.Empty);
     }
 }

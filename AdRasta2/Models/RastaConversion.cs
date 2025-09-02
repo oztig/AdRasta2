@@ -30,7 +30,7 @@ public class RastaConversion : ReactiveObject
         get => _sourceImagePath;
         set
         {
-            // Manully check if changed, so we can force re-load of the Image.
+            // Manually check if changed, so we can force re-load of the Image.
             if (_sourceImagePath != value)
             {
                 _sourceImagePath = value;

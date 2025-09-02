@@ -7,8 +7,9 @@
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:local="clr-namespace:AdRasta2.Converters"
              xmlns:views="clr-namespace:AdRasta2.Views"
-             x:DataType="vm:AdRastaMainViewViewModel">
-
+             x:DataType="vm:AdRastaMainViewViewModel"
+             x:Name="MainView">
+    
     <UserControl.Resources>
         <local:BoolToBrushConverter x:Key="BoolToBrushConverter" />
     </UserControl.Resources>
@@ -41,9 +42,9 @@
 
         <!--  Middle Shared Region -->
         <Border Grid.Row="2" Background="#F8F8F8">
-            <views:SharedPanelView DataContext="{Binding SelectedConversion}" />
+            <views:SharedPanelView />
         </Border>
-
+        
         <!--  Bottom Preview Strip -->
         <Border Grid.Row="3" DockPanel.Dock="Bottom" Height="130" Background="#E0E0E0">
             <views:BottomPanelView />

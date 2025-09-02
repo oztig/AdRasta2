@@ -3,47 +3,53 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             xmlns:model="clr-namespace:AdRasta2.Models"
-             x:DataType="model:RastaConversion"
+             xmlns:views="clr-namespace:AdRasta2.Views"
+             x:DataType="vm:AdRastaMainViewViewModel"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              x:Class="AdRasta2.Views.SharedPanelView">
-    
+
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,*">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,*,*">
             <Grid Grid.Row="0" ColumnDefinitions="Auto,8,Auto" Margin="5">
                 <TextBlock Grid.Column="0"
                            Text="Dual Frame Mode"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center" />
                 <ToggleSwitch Grid.Column="2"
-                              IsChecked="{Binding DualFrameMode}"
-                              VerticalAlignment="Center"/>
+                              IsChecked="{Binding  SelectedConversion.DualFrameMode}"
+                              VerticalAlignment="Center" />
             </Grid>
             <Grid Grid.Row="1" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,*">
                 <TextBlock Grid.Row="0" Margin="5" FontSize="18" FontWeight="DemiBold" Grid.Column="0">Source</TextBlock>
-                <Border Grid.Row="1" Grid.Column="0"
+                <Button Grid.Row="1" Grid.Column="0"
+                        Command="{Binding ShowAboutCommand}"
                         BorderBrush="Black"
                         BorderThickness="1"
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="1"
                         Background="Black">
-                    <Image Source="{Binding SourceImage}"
+                    <Image Source="{Binding SelectedConversion.SourceImage}"
                            MaxWidth="320"
                            MaxHeight="240"
                            Stretch="Uniform" />
-                </Border>
+                </Button>
+
+
                 <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="DemiBold">Mask</TextBlock>
-                <Border Grid.Row="1" Grid.Column="1"
+                <Button Grid.Row="1" Grid.Column="1"
+                        Command="{Binding ShowAboutCommand}"
                         BorderBrush="Black"
                         BorderThickness="1"
                         HorizontalAlignment="Left"
+                        Margin="5"
                         Padding="1"
-                        Background="Black"
-                        Margin="5">
-                    <Image Source="{Binding SourceImageMask}"
+                        Background="Black">
+                    <Image Source="{Binding SelectedConversion.SourceImageMask}"
                            MaxWidth="320"
                            MaxHeight="240"
                            Stretch="Uniform" />
-                </Border>
+                </Button>
+                
                 <TextBlock Margin="5" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
                 <Border Grid.Row="1" Grid.Column="2"
                         BorderBrush="Black"
@@ -52,15 +58,22 @@
                         Padding="1"
                         Background="Black"
                         Margin="5">
-                    <Image Source="{Binding ImagePreview}"
+                    <Image Source="{Binding SelectedConversion.ImagePreview}"
                            MaxWidth="320"
                            MaxHeight="240"
                            Stretch="Uniform" />
                 </Border>
             </Grid>
-            <TextBox Grid.Row="2" Text="{Binding Title}" Margin="5" />
-            <TextBox Grid.Row="3" Text="{Binding SourceImagePath}" Margin="5" />
-            <CheckBox Grid.Row="4" IsChecked="{Binding IsSelected}" Content="Selected" Margin="5" />
+            <TextBox Grid.Row="2" Text="{Binding SelectedConversion.Title}" Margin="5" />
+            <TextBox Grid.Row="3" Text="{Binding SelectedConversion.SourceImagePath}" Margin="5" />
+            <CheckBox Grid.Row="4" IsChecked="{Binding SelectedConversion.IsSelected}" Content="Selected" Margin="5" />
+            <Expander Grid.Row="5" Grid.Column="0" 
+                      HorizontalAlignment="Stretch" Header="Dual Frame Mode" 
+                      IsExpanded="{Binding SelectedConversion.DualFrameMode,Mode=OneWay}"
+                      IsEnabled="{Binding SelectedConversion.DualFrameMode}">
+                <TextBlock Text="Put Dual Mode stuff in here" />
+            </Expander>
+
         </Grid>
     </Border>
 </UserControl>

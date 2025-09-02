@@ -33,7 +33,7 @@
         
         <!--  Fixed Header -->
         <Border Grid.Row="1" DockPanel.Dock="Top" Background="#2A2A2A" Height="60">
-            <TextBlock Text="{Binding CurrentConversionTitle }"
+            <TextBlock Text="{Binding SelectedConversion.Title }"
                        Foreground="White"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"

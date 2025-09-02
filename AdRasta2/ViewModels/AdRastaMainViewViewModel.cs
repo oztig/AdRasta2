@@ -26,14 +26,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
     
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
-    
-    private string _currentConversionTitle = "" ;
-    public string CurrentConversionTitle
-    {
-        get => SelectedConversion?.Title;
-        set => this.RaiseAndSetIfChanged(ref _currentConversionTitle, value);
-    }
-    
     public string ViewModelType => GetType().Name;
 
     public ObservableCollection<int> LeftSprockets { get; } = new();
@@ -66,6 +58,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         // DEBUG - this wil be done via creating a new conversion (Button or similar)
         RastaConversions = new ObservableCollection<RastaConversion>
         {
+            new RastaConversion("", @"",@""),
             new RastaConversion("Yellow Submarine", @"/home/nickp/Pictures/RC conversions/Yellow-submarine-seofholes.webp",@"/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png"),
             new RastaConversion("2001 Intro - Ape ", @"/home/nickp/Pictures/2001-ape.jpg",null),
             new RastaConversion("2001 Monolith ", @"/home/nickp/Pictures/2001_monolith.jpg",null)
@@ -98,7 +91,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         var index = RastaConversions.IndexOf(conversion);
         SelectedConversion = conversion;
-        CurrentConversionTitle = conversion.Title;
+       // CurrentConversionTitle = conversion.Title;
         
         SetIsSelected(index);
 

@@ -9,13 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Debug",
+    ".NET Project.AdRasta2.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -124,7 +118,7 @@
       <workItem from="1753801897028" duration="4379000" />
       <workItem from="1756535733109" duration="17848000" />
       <workItem from="1756678737264" duration="811000" />
-      <workItem from="1756719124035" duration="20234000" />
+      <workItem from="1756719124035" duration="22327000" />
     </task>
     <task id="LOCAL-00001" summary="push workspace">
       <option name="closed" value="true" />
@@ -406,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756732690169</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Re-Bind common section, plus add Dual Mode Expander">
+      <option name="closed" value="true" />
+      <created>1756795928317</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1756795928317</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +418,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="tidy up redundant code" />
     <MESSAGE value="stuff again" />
     <MESSAGE value="Add shared control central panel - with test bindings to 'selectedconversion'" />
     <MESSAGE value="Update RastaConversion object to Rasi property Changed etc" />
@@ -441,7 +442,8 @@
     <MESSAGE value="Ad Dual Mode and Menus" />
     <MESSAGE value="Add About menu" />
     <MESSAGE value="paramaterise 'No Image' creation (add background colour)" />
-    <option name="LAST_COMMIT_MESSAGE" value="paramaterise 'No Image' creation (add background colour)" />
+    <MESSAGE value="Re-Bind common section, plus add Dual Mode Expander" />
+    <option name="LAST_COMMIT_MESSAGE" value="Re-Bind common section, plus add Dual Mode Expander" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -460,13 +462,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
-          <line>173</line>
+          <line>174</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'OpenFilePicker'">
             <startOffsets>
-              <option value="5989" />
+              <option value="6035" />
             </startOffsets>
             <endOffsets>
-              <option value="6009" />
+              <option value="6055" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />

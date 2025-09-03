@@ -66,28 +66,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         PopulateSprockets();
         CreateInitialEntry();
     }
-
-    // private async void CheckIniFileExists()
-    // {
-    //     if (!_settings.CheckIniFileExists())
-    //     {
-    //         // Show a warning and exit
-    //         var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
-    //         {
-    //             ContentTitle = "Cannot find Adrasta2.ini file",
-    //             ContentMessage = "Unable to find :" + _settings.IniFileLocation,
-    //             ButtonDefinitions = new List<ButtonDefinition>
-    //             {
-    //                 new ButtonDefinition { Name = "Okay" },
-    //             },
-    //             ShowInCenter = true, WindowStartupLocation = WindowStartupLocation.CenterOwner
-    //         });
-    //
-    //         var result = await messageBox.ShowWindowDialogAsync(_window);
-    //         Environment.Exit(-1);
-    //     }
-    // }
-
+    
     private void CreateInitialEntry()
     {
         RastaConversions = new ObservableCollection<RastaConversion>

@@ -11,6 +11,14 @@
 
     <Application.Styles>
         <FluentTheme />
+        <!-- <Style Selector="TextBlock"> -->
+        <!--     <Setter Property="FontSize" Value="11" /> -->
+        <!-- </Style> -->
+        <!-- -->
+        <!-- <Style Selector="Button"> -->
+        <!--     <Setter Property="Padding" Value="4,2" /> -->
+        <!-- </Style> -->
+
         <Style Selector="HeaderedContentControl">
             <Setter Property="Template">
                 <ControlTemplate>

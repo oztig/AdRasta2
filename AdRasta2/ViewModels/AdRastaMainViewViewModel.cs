@@ -8,6 +8,7 @@ using System.Windows.Input;
 using AdRasta2.Interfaces;
 using AdRasta2.Models;
 using AdRasta2.Services;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
@@ -25,7 +26,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private Window? _window;
     private Settings _settings = new();
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
-    
+
     public SourceData SourceData { get; } = new();
 
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
@@ -64,8 +65,28 @@ public class AdRastaMainViewViewModel : ReactiveObject
         
         PopulateSprockets();
         CreateInitialEntry();
-        
     }
+
+    // private async void CheckIniFileExists()
+    // {
+    //     if (!_settings.CheckIniFileExists())
+    //     {
+    //         // Show a warning and exit
+    //         var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
+    //         {
+    //             ContentTitle = "Cannot find Adrasta2.ini file",
+    //             ContentMessage = "Unable to find :" + _settings.IniFileLocation,
+    //             ButtonDefinitions = new List<ButtonDefinition>
+    //             {
+    //                 new ButtonDefinition { Name = "Okay" },
+    //             },
+    //             ShowInCenter = true, WindowStartupLocation = WindowStartupLocation.CenterOwner
+    //         });
+    //
+    //         var result = await messageBox.ShowWindowDialogAsync(_window);
+    //         Environment.Exit(-1);
+    //     }
+    // }
 
     private void CreateInitialEntry()
     {
@@ -73,7 +94,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         {
             new RastaConversion("Conversion 1"),
         };
-        
+
         ChangeSelected(RastaConversions[0]);
     }
 

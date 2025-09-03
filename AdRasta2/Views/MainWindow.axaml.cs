@@ -1,7 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using AdRasta2.Models;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Threading;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Models;
 
 namespace AdRasta2.Views;
 
@@ -10,47 +16,37 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        this.Opened += (_, _) =>
+        {
+            Dispatcher.UIThread.Post(async () =>
+            {
+                // This runs after the window is painted
+                _ = await CheckIniFileExists();
+            }, DispatcherPriority.Background);
+        };
+    }
 
-        // Code for restricing resize etc - Do we need !?
-        // this.GetObservable(Window.WindowStateProperty).Subscribe(state =>
-        // {
-        //     this.GetObservable(Window.ClientSizeProperty)
-        //         .Subscribe(size =>
-        //         {
-        //             this.Title = $"AdRasta2 {size.Width}x{size.Height}";
-        //             //         var maxWidth = 1920;
-        //             //         var maxHeight = 1080;
-        //             //
-        //             //         if (size.Width > maxWidth || size.Height > maxHeight)
-        //             //         {
-        //             //             this.Width = Math.Min(size.Width, maxWidth);
-        //             //             this.Height = Math.Min(size.Height, maxHeight);
-        //             //         }
-        //         });
+    private async Task<bool> CheckIniFileExists()
+    {
+        if (!Settings.CheckIniFileExists())
+        {
+            // Show a warning and exit
+            var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
+            {
+                ContentTitle = "Cannot find Adrasta2.ini file",
+                ContentMessage = "Unable to find :" + Settings.IniFileLocation,
+                ButtonDefinitions = new List<ButtonDefinition>
+                {
+                    new ButtonDefinition { Name = "Okay" },
+                },
+                ShowInCenter = true, WindowStartupLocation = WindowStartupLocation.CenterOwner
+            });
 
-        // this.GetObservable(Window.WindowStateProperty).Subscribe(state =>
-        // {
-        //     if (state == WindowState.Maximized)
-        //     {
-        //         Dispatcher.UIThread.Post(() =>
-        //         {
-        //             if (Bounds.Width > MaxWidth || Bounds.Height > MaxHeight)
-        //             {
-        //                 WindowState = WindowState.Normal;
-        //                 Width = MaxWidth;
-        //                 Height = MaxHeight;
-        //             }
-        //         }, DispatcherPriority.Background);
-        //     }
-        // });
+            var result = await messageBox.ShowWindowDialogAsync(this);
+            Environment.Exit(-1);
+            return false;
+        }
 
-        //
-        // if (state == WindowState.Maximized)
-        // {
-        //     WindowState = WindowState.Normal;
-        //     Width = Math.Min(this.ClientSize.Width, MaxWidth);
-        //     Height = Math.Min(this.ClientSize.Height, MaxHeight);
-        // }
-        //  });
+        return true;
     }
 }

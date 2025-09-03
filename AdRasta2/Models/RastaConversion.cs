@@ -55,7 +55,7 @@ public class RastaConversion : ReactiveObject
                     _sourceImage = new Bitmap(SourceImagePath);
                 else
                 {
-                    _sourceImage = ImageUtils.CreateBlankImage(320, 240,Brushes.WhiteSmoke);
+                    _sourceImage = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
                 }
             }
             catch (Exception ex)
@@ -99,7 +99,7 @@ public class RastaConversion : ReactiveObject
                     _sourceImageMask = new Bitmap(SourceImageMaskPath);
                 else
                 {
-                    _sourceImageMask = ImageUtils.CreateBlankImage(320, 240,Brushes.WhiteSmoke);
+                    _sourceImageMask = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
                 }
             }
             catch (Exception ex)
@@ -118,7 +118,7 @@ public class RastaConversion : ReactiveObject
         get => _destinationFullFilePath;
         set => this.RaiseAndSetIfChanged(ref _destinationFullFilePath, value);
     }
-    
+
     private string _imagePreviewPath;
 
     public string ImagePreviewPath
@@ -151,7 +151,7 @@ public class RastaConversion : ReactiveObject
                     _imagePreview = new Bitmap(ImagePreviewPath);
                 else
                 {
-                    _imagePreview = ImageUtils.CreateBlankImage(320, 240,Brushes.WhiteSmoke);
+                    _imagePreview = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
                 }
             }
             catch (Exception ex)
@@ -162,10 +162,10 @@ public class RastaConversion : ReactiveObject
             return _imagePreview;
         }
     }
-    
-    private decimal? _height = 240;
 
-    public decimal? Height
+    private int? _height = 240;
+
+    public int? Height
     {
         get => _height;
         set
@@ -174,7 +174,7 @@ public class RastaConversion : ReactiveObject
             this.RaiseAndSetIfChanged(ref _height, value);
         }
     }
-    
+
     private string _resizeFilter;
 
     public string ResizeFilter
@@ -182,7 +182,7 @@ public class RastaConversion : ReactiveObject
         get => _resizeFilter;
         set => this.RaiseAndSetIfChanged(ref _resizeFilter, value);
     }
-    
+
     private string _palette;
 
     public string Palette
@@ -190,7 +190,7 @@ public class RastaConversion : ReactiveObject
         get => _palette;
         set => this.RaiseAndSetIfChanged(ref _palette, value);
     }
-    
+
     private string _preColourDistance;
 
     public string PreColourDistance
@@ -200,10 +200,10 @@ public class RastaConversion : ReactiveObject
         {
             this.RaiseAndSetIfChanged(ref _preColourDistance, value);
             // If ciede and knoll - display a warning on Preview button - LATER
-           // SetPreviewButtonWarning();
+            // SetPreviewButtonWarning();
         }
     }
-    
+
     private string _dithering;
 
     public string Dithering
@@ -212,10 +212,10 @@ public class RastaConversion : ReactiveObject
         set
         {
             this.RaiseAndSetIfChanged(ref _dithering, value);
-          //  SetPreviewButtonWarning();
+            //  SetPreviewButtonWarning();
         }
     }
-    
+
     private decimal? _ditheringStrength = 1;
 
     public decimal? DitheringStrength
@@ -223,7 +223,7 @@ public class RastaConversion : ReactiveObject
         get => _ditheringStrength;
         set => this.RaiseAndSetIfChanged(ref _ditheringStrength, value);
     }
-    
+
     private decimal? _ditheringRandomness = 0;
 
     public decimal? DitheringRandomness
@@ -231,7 +231,7 @@ public class RastaConversion : ReactiveObject
         get => _ditheringRandomness;
         set => this.RaiseAndSetIfChanged(ref _ditheringRandomness, value);
     }
-    
+
     private decimal? _brightness = 0;
 
     public decimal? Brightness
@@ -279,7 +279,7 @@ public class RastaConversion : ReactiveObject
             this.RaiseAndSetIfChanged(ref _maskStrength, value);
         }
     }
-    
+
     private string _registerOnOffFilePath = string.Empty;
 
     public string RegisterOnOffFilePath
@@ -292,7 +292,7 @@ public class RastaConversion : ReactiveObject
             // RegisterOnOffFileBasename = value;
         }
     }
-    
+
     private string _colourDistance;
 
     public string ColourDistance
@@ -300,7 +300,7 @@ public class RastaConversion : ReactiveObject
         get => _colourDistance;
         set => this.RaiseAndSetIfChanged(ref _colourDistance, value);
     }
-    
+
     private string _initialState;
 
     public string InitialState
@@ -308,7 +308,7 @@ public class RastaConversion : ReactiveObject
         get => _initialState;
         set => this.RaiseAndSetIfChanged(ref _initialState, value);
     }
-    
+
     private decimal? _solutionHistoryLength = 1;
 
     public decimal? SolutionHistoryLength
@@ -320,7 +320,7 @@ public class RastaConversion : ReactiveObject
             this.RaiseAndSetIfChanged(ref _solutionHistoryLength, value);
         }
     }
-    
+
     private string _autoSavePeriod;
 
     public string AutoSavePeriod
@@ -328,15 +328,15 @@ public class RastaConversion : ReactiveObject
         get => _autoSavePeriod;
         set => this.RaiseAndSetIfChanged(ref _autoSavePeriod, value);
     }
-    
-    private string _threads;
 
-    public string Threads
+    private int _threads;
+
+    public int Threads
     {
         get => _threads;
         set => this.RaiseAndSetIfChanged(ref _threads, value);
     }
-    
+
     // New, Previosuly unset Params in previous AdRasta
     private decimal _randomSeed;
 
@@ -369,7 +369,7 @@ public class RastaConversion : ReactiveObject
         get => _cacheInMB;
         set => this.RaiseAndSetIfChanged(ref _cacheInMB, value);
     }
-    
+
     // Dual Mode specific
     private bool _dualFrameMode;
 
@@ -418,7 +418,7 @@ public class RastaConversion : ReactiveObject
         get => _dualLuma;
         set => this.RaiseAndSetIfChanged(ref _dualLuma, value);
     }
-    
+
     private decimal _dualChroma = (decimal)0.1;
 
     public decimal DualChroma
@@ -426,8 +426,8 @@ public class RastaConversion : ReactiveObject
         get => _dualChroma;
         set => this.RaiseAndSetIfChanged(ref _dualChroma, value);
     }
-    
-    
+
+
     // Current Conversion ?
     private bool _isSelected;
 
@@ -437,11 +437,46 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _isSelected, value);
     }
 
-    // Dummy for testing Purposes!
-    public RastaConversion(string title, string imagePath, string maskPath)
+    public RastaConversion(string title)
     {
+        PopulateDefaultValues();
         Title = title;
-        SourceImagePath = imagePath;
-        SourceImageMaskPath = maskPath;
+    }
+
+    private void PopulateDefaultValues()
+    {
+        Threads = RastaConverterDefaultValues.DefaultThreads;
+        MaxEvaluations = RastaConverterDefaultValues.DefaultMaxEvaluations;
+        AutoSavePeriod = RastaConverterDefaultValues.DefaultAutoSavePeriod;
+        RandomSeed = RastaConverterDefaultValues.DefaultRandomSeed;
+        Height = RastaConverterDefaultValues.DefaultHeight;
+        Palette = RastaConverterDefaultValues.DefaultPalette;
+        Dithering = RastaConverterDefaultValues.DefaultDithering;
+        DitheringStrength = RastaConverterDefaultValues.DefaultDitheringStrength;
+        DitheringRandomness = RastaConverterDefaultValues.DefaultDitheringRandomness;
+        MaskStrength = RastaConverterDefaultValues.DefaultMaskStrength;
+        ResizeFilter = RastaConverterDefaultValues.DefaultResizeFilter;
+        Brightness = RastaConverterDefaultValues.DefaultBrightness;
+        Contrast = RastaConverterDefaultValues.DefaultContrast;
+        Gamma = RastaConverterDefaultValues.DefaultGamma;
+        InitialState = RastaConverterDefaultValues.DefaultInitialState;
+        SolutionHistoryLength = RastaConverterDefaultValues.DefaultSolutionHistoryLength;
+        Optimiser = RastaConverterDefaultValues.DefultOptimiser;
+        ColourDistance = RastaConverterDefaultValues.DefaultColourDistance;
+        PreColourDistance = RastaConverterDefaultValues.DefaultPreColourDistance;
+        CacheInMB = RastaConverterDefaultValues.DefaultCacheInMB;
+        DualFrameMode = RastaConverterDefaultValues.DefaultDualFrameMode;
+        FirstDualSteps = RastaConverterDefaultValues.DefualtFirstDualSteps;
+        AfterDualSteps = RastaConverterDefaultValues.DefaultAfterDualSteps;
+        AlternatingDualSteps = RastaConverterDefaultValues.DefaultAlternatingDualSteps;
+        DualBlending = RastaConverterDefaultValues.DefaultDualBlending;
+        DualLuma = RastaConverterDefaultValues.DefaultDualLuma;
+        DualChroma = RastaConverterDefaultValues.DefaultDualChroma;
+        SourceImagePath = RastaConverterDefaultValues.DefaultSourceImagePath;
+        SourceImageMaskPath = RastaConverterDefaultValues.DefaultSourceImageMaskPath;
+        DestinationFilePath = RastaConverterDefaultValues.DefaultDestinationFilePath;
+        RegisterOnOffFilePath = RastaConverterDefaultValues.DefaultRegisterOnOffFilePath;
+        
+        // public static string DefaultDestantionFilePrefix;
     }
 }

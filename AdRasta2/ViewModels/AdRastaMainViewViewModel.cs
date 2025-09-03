@@ -24,7 +24,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
-
+    
+    public SourceData SourceData { get; } = new();
 
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
@@ -36,7 +37,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ObservableCollection<int> LeftSprockets { get; } = new();
 
 
-    public ObservableCollection<RastaConversion> RastaConversions { get; }
+    public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
 
     private RastaConversion? _selectedConversion;
 
@@ -54,28 +55,25 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public AdRastaMainViewViewModel(Window window)
     {
         _window = window;
-        PopulateSprockets();
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
         _filePickerService = new FilePickerService(_window);
+        
+        PopulateSprockets();
+        CreateInitialEntry();
+        
+    }
 
-        // DEBUG - this will be done via creating a new conversion (Button or similar)
+    private void CreateInitialEntry()
+    {
         RastaConversions = new ObservableCollection<RastaConversion>
         {
-            new RastaConversion("", @"", @""),
-            // new RastaConversion("Yellow Submarine",
-            //     @"/home/nickp/Pictures/RC conversions/Yellow-submarine-seofholes.webp",
-            //     @"/home/nickp/Pictures/Yellow-submarine-seofholes-mask.png"),
-            // new RastaConversion("2001 Intro - Ape ", @"/home/nickp/Pictures/2001-ape.jpg", null),
-            // new RastaConversion("2001 Monolith ", @"/home/nickp/Pictures/2001_monolith.jpg", null)
+            new RastaConversion("Conversion 1"),
         };
-
-        // Optional: set default selection
+        
         ChangeSelected(RastaConversions[0]);
-        // SelectedConversion = RastaConversions[0];
-        // SetIsSelected(0);
     }
 
     public void SetWindow(Window window)
@@ -120,8 +118,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         if (!(userInput.confirmed ?? false))
             return;
 
-        RastaConversions.Add(new RastaConversion(userInput.value.Trim(), "", ""));
-
+        RastaConversions.Add(new RastaConversion(userInput.value.Trim()));
         ChangeSelected(RastaConversions[^1]);
     }
 

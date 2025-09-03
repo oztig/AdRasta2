@@ -49,7 +49,7 @@
                            MaxHeight="240"
                            Stretch="Uniform" />
                 </Button>
-                
+
                 <TextBlock Margin="5" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
                 <Border Grid.Row="1" Grid.Column="2"
                         BorderBrush="Black"
@@ -67,11 +67,22 @@
             <TextBox Grid.Row="2" Text="{Binding SelectedConversion.Title}" Margin="5" />
             <TextBox Grid.Row="3" Text="{Binding SelectedConversion.SourceImagePath}" Margin="5" />
             <CheckBox Grid.Row="4" IsChecked="{Binding SelectedConversion.IsSelected}" Content="Selected" Margin="5" />
-            <Expander Grid.Row="5" Grid.Column="0" 
-                      HorizontalAlignment="Stretch" Header="Dual Frame Mode" 
+            <Expander Grid.Row="5" Grid.Column="0"
+                      HorizontalAlignment="Stretch" Header="Dual Frame Mode"
                       IsExpanded="{Binding SelectedConversion.DualFrameMode,Mode=OneWay}"
                       IsEnabled="{Binding SelectedConversion.DualFrameMode}">
-                <TextBlock Text="Put Dual Mode stuff in here" />
+                <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="15">
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="First Dual Steps">
+                        <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
+                                       Increment="1" Value="{Binding SelectedConversion.FirstDualSteps}">
+                        </NumericUpDown>
+                    </HeaderedContentControl>
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="1" Header="After Dual Steps">
+                        <ComboBox ItemsSource="{Binding SourceData.AfterDualSteps}"
+                                  SelectedItem="{Binding SelectedConversion.AfterDualSteps}"
+                                  HorizontalAlignment="Stretch" />
+                    </HeaderedContentControl>
+                </Grid>
             </Expander>
 
         </Grid>

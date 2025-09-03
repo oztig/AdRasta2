@@ -33,6 +33,6 @@ public class RastaConverterDefaultValues
     public static string DefaultSourceImagePath = string.Empty;
     public static string DefaultSourceImageMaskPath  = string.Empty;
     public static string DefaultDestinationFilePath  = string.Empty;
-    public static string DefaultDistantionFilePrefix = "output";
+    public static string DefaultDestantionFilePrefix = "output";
     public static string DefaultRegisterOnOffFilePath = string.Empty;
 }

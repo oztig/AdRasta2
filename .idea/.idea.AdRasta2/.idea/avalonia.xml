@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="AdRasta2/App.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/AdRastaMainView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/BottomPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/MainWindow.axaml" value="AdRasta2/AdRasta2.csproj" />

@@ -9,14 +9,14 @@
              xmlns:views="clr-namespace:AdRasta2.Views"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Name="MainView">
-    
+
     <UserControl.Resources>
         <local:BoolToBrushConverter x:Key="BoolToBrushConverter" />
     </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- Menu-->
+            <RowDefinition Height="Auto" /> <!-- Menu-->
             <RowDefinition Height="Auto" /> <!-- Top area -->
             <RowDefinition Height="*" /> <!-- Expansion area -->
             <RowDefinition Height="Auto" /> <!-- Bottom dock -->
@@ -30,26 +30,29 @@
                 <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
             </MenuItem>
         </Menu>
-        
+
         <!--  Fixed Header -->
-        <Border Grid.Row="1" DockPanel.Dock="Top" Background="LightGray" Height="30">
-            <TextBlock Text="{Binding SelectedConversion.Title }"
-                       Foreground="Black"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Left"
-                       Margin="12,0,0,0"
-                       FontSize="20" />
+        <Border Grid.Row="1" DockPanel.Dock="Top" Background="LightGray">
+            <TextBox Text="{Binding SelectedConversion.Title }"
+                     BorderThickness="0"
+                     BorderBrush="LightGray"
+                     Background="LightGray"
+                     Foreground="Black"
+                     VerticalAlignment="Stretch"
+                     HorizontalAlignment="Left"
+                     Margin="5,0,0,0"
+                     FontSize="20" />
         </Border>
 
         <!--  Middle Shared Region -->
         <Border Grid.Row="2" Background="#F8F8F8">
             <views:SharedPanelView />
         </Border>
-        
+
         <!--  Bottom Preview Strip -->
         <Border Grid.Row="3" DockPanel.Dock="Bottom" Height="130" Background="#E0E0E0">
             <views:BottomPanelView />
         </Border>
-        
+
     </Grid>
 </UserControl>

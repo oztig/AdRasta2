@@ -23,6 +23,7 @@ namespace AdRasta2.ViewModels;
 public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
+    private Settings _settings = new();
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
     
     public SourceData SourceData { get; } = new();
@@ -34,7 +35,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public string ViewModelType => GetType().Name;
 
-    public ObservableCollection<int> LeftSprockets { get; } = new();
+    public ObservableCollection<int> Sprockets { get; } = new();
 
 
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
@@ -86,10 +87,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         const int sprocketCount = 7;
         for (int i = 0; i < sprocketCount; i++)
         {
-            // TopSprockets.Add(i);
-            // BottomSprockets.Add(i);
-            LeftSprockets.Add(i);
-            // RightSprockets.Add(i);
+            Sprockets.Add(i); // Used for left and right !
         }
     }
 

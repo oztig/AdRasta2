@@ -9,7 +9,7 @@
              x:Class="AdRasta2.Views.SharedPanelView">
 
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,*,*">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,*,Auto">
             <Grid Grid.Row="0" ColumnDefinitions="Auto,8,Auto" Margin="5">
                 <TextBlock Grid.Column="0"
                            Text="Dual Frame Mode"
@@ -64,27 +64,44 @@
                            Stretch="Uniform" />
                 </Border>
             </Grid>
-            <TextBox Grid.Row="2" Text="{Binding SelectedConversion.Title}" Margin="5" />
-            <TextBox Grid.Row="3" Text="{Binding SelectedConversion.SourceImagePath}" Margin="5" />
-            <CheckBox Grid.Row="4" IsChecked="{Binding SelectedConversion.IsSelected}" Content="Selected" Margin="5" />
+
             <Expander Grid.Row="5" Grid.Column="0"
                       HorizontalAlignment="Stretch" Header="Dual Frame Mode"
                       IsExpanded="{Binding SelectedConversion.DualFrameMode,Mode=OneWay}"
                       IsEnabled="{Binding SelectedConversion.DualFrameMode}">
-                <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="15">
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="First Dual Steps">
+                <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="First Steps">
                         <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
                                        Increment="1" Value="{Binding SelectedConversion.FirstDualSteps}">
                         </NumericUpDown>
                     </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="1" Header="After Dual Steps">
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="1" Header="After Steps">
                         <ComboBox ItemsSource="{Binding SourceData.AfterDualSteps}"
                                   SelectedItem="{Binding SelectedConversion.AfterDualSteps}"
                                   HorizontalAlignment="Stretch" />
                     </HeaderedContentControl>
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="2" Header="Altering Steps">
+                        <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
+                                       Increment="1" Value="{Binding SelectedConversion.AlternatingDualSteps}">
+                        </NumericUpDown>
+                    </HeaderedContentControl>
+                    <HeaderedContentControl Grid.Row="1" Grid.Column="0" Header="Blending">
+                        <ComboBox ItemsSource="{Binding SourceData.DualBlending}"
+                                  SelectedItem="{Binding SelectedConversion.DualBlending}"
+                                  HorizontalAlignment="Stretch" />
+                    </HeaderedContentControl>
+                    <HeaderedContentControl Grid.Row="1" Grid.Column="1" Header="Luma">
+                        <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
+                                       Increment="0.1" Value="{Binding SelectedConversion.DualLuma}">
+                        </NumericUpDown>
+                    </HeaderedContentControl>
+                    <HeaderedContentControl Grid.Row="1" Grid.Column="2" Header="Chroma">
+                        <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
+                                       Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
+                        </NumericUpDown>
+                    </HeaderedContentControl>
                 </Grid>
             </Expander>
-
         </Grid>
     </Border>
 </UserControl>

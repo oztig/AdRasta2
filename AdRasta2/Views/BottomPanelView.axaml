@@ -36,7 +36,7 @@
                                 <!-- Left Sprocket -->
                                 <ItemsControl Grid.Column="0"
                                               Background="{Binding IsSelected, Converter={StaticResource  BoolToBrushConverter}, FallbackValue=Red}"
-                                              ItemsSource="{Binding $parent[UserControl].((vm:AdRastaMainViewViewModel)DataContext).LeftSprockets}">
+                                              ItemsSource="{Binding $parent[UserControl].((vm:AdRastaMainViewViewModel)DataContext).Sprockets}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <StackPanel Orientation="Vertical" VerticalAlignment="Center"
@@ -86,7 +86,7 @@
                                 <!-- Right Sprocket -->
                                 <ItemsControl Grid.Column="2"
                                               Background="{Binding IsSelected, Converter={StaticResource BoolToBrushConverter}, FallbackValue=Red}"
-                                              ItemsSource="{Binding $parent[UserControl].((vm:AdRastaMainViewViewModel)DataContext).LeftSprockets}">
+                                              ItemsSource="{Binding $parent[UserControl].((vm:AdRastaMainViewViewModel)DataContext).Sprockets}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <StackPanel Orientation="Vertical" VerticalAlignment="Center" />

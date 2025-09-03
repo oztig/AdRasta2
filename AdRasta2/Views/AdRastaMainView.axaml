@@ -17,9 +17,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" /> <!-- Menu-->
-            <RowDefinition Height="Auto" /> <!-- Top area -->
-            <RowDefinition Height="*" /> <!-- Expansion area -->
-            <RowDefinition Height="Auto" /> <!-- Bottom dock -->
+            <RowDefinition Height="Auto" /> <!-- Conversion Title -->
+            <RowDefinition Height="*" /> <!-- Shared Conversion Params -->
+            <RowDefinition Height="Auto" /> <!-- Conversions Panel -->
         </Grid.RowDefinitions>
 
         <!-- Menu -->

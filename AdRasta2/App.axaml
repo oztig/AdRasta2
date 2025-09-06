@@ -2,6 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AdRasta2.App"
              xmlns:local="using:AdRasta2"
+             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             xmlns:semi="https://irihi.tech/semi"
              RequestedThemeVariant="Default">
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -10,7 +12,9 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <FluentTheme />
+        <FluentTheme>
+        </FluentTheme>
+        <!-- <ClassicTheme /> -->
         <!-- <Style Selector="TextBlock"> -->
         <!--     <Setter Property="FontSize" Value="11" /> -->
         <!-- </Style> -->

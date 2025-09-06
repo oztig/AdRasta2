@@ -10,7 +10,7 @@
 
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,Auto,Auto">
-            <Grid Grid.Row="0" ColumnDefinitions="Auto,8,Auto" Margin="5">
+            <Grid Grid.Row="0" ColumnDefinitions="Auto,8,Auto" Margin=" 10,5,5,5">
                 <TextBlock Grid.Column="0"
                            Text="Dual Frame Mode"
                            VerticalAlignment="Center" />
@@ -18,7 +18,7 @@
                               IsChecked="{Binding  SelectedConversion.DualFrameMode}"
                               VerticalAlignment="Center" />
             </Grid>
-            <Border Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray" Margin="5" CornerRadius="5">
                 <Grid Grid.Row="0" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,*">
                     <TextBlock Grid.Row="0" Margin="5" FontSize="18" FontWeight="DemiBold" Grid.Column="0">Source</TextBlock>
                     <Button Grid.Row="1" Grid.Column="0"

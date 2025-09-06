@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -495,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757144306932</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Add Image TooltIp">
+      <option name="closed" value="true" />
+      <created>1757145700936</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1757145700936</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +514,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fiddle with image dimensions" />
     <MESSAGE value="jiggle with column spacing and sizing around images" />
     <MESSAGE value="stuff" />
     <MESSAGE value="Start New Layout" />
@@ -530,7 +538,8 @@
     <MESSAGE value="Change MessageBox Service" />
     <MESSAGE value="Bind Preview and Convert IsEnabled" />
     <MESSAGE value="Hide Mask if Dual Mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hide Mask if Dual Mode" />
+    <MESSAGE value="Add Image TooltIp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Image TooltIp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

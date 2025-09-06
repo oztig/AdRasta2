@@ -16,6 +16,8 @@ public class RastaConversion : ReactiveObject
 {
     private string _title;
 
+    public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);
+    
     public string Title
     {
         get => _title;
@@ -37,6 +39,7 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged();
                 _sourceImage = null;
                 this.RaisePropertyChanged(nameof(SourceImage));
+                this.RaisePropertyChanged(nameof(CanProcess));
             }
         }
     }

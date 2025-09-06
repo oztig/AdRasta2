@@ -106,8 +106,8 @@
             </Expander>
             <HeaderedContentControl Grid.Row="5" Grid.Column="0" Header="Generate">
                 <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="15">
-                    <Button Grid.Column="0">Preview</Button>
-                    <Button Grid.Column="1">Convert</Button>
+                    <Button Grid.Column="0" IsEnabled="{Binding SelectedConversion.CanProcess}">Preview</Button>
+                    <Button Grid.Column="1" IsEnabled="{Binding SelectedConversion.CanProcess}">Convert</Button>
                     <Button Grid.Column="2">Create MCH</Button>
                     <Button Grid.Column="3">Create Executable</Button>
                     <Button Grid.Column="4" Command="{Binding ResetCurrentConversionValues }">Reset All Settings</Button>

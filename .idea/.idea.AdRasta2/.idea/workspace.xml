@@ -8,7 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,15 +126,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="5799000" />
-    </task>
-    <task id="LOCAL-00002" summary="HAr Coded test view">
-      <option name="closed" value="true" />
-      <created>1753166738234</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1753166738234</updated>
+      <workItem from="1757194237191" duration="5992000" />
     </task>
     <task id="LOCAL-00003" summary="ideas">
       <option name="closed" value="true" />
@@ -521,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757198491558</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Add Bound Height Slider">
+      <option name="closed" value="true" />
+      <created>1757200540590</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1757200540590</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +530,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Defaults, and Converter and Conversion classes" />
     <MESSAGE value="Split out bottom panel" />
     <MESSAGE value="add .ignore" />
     <MESSAGE value="s" />
@@ -556,7 +554,8 @@
     <MESSAGE value="group images" />
     <MESSAGE value="Toy with themes - Fail!" />
     <MESSAGE value="Inject services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inject services" />
+    <MESSAGE value="Add Bound Height Slider" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Bound Height Slider" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

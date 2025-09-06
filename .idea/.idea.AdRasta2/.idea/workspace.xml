@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -488,7 +487,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757143320184</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Hide Mask if Dual Mode">
+      <option name="closed" value="true" />
+      <created>1757144306932</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1757144306932</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +505,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="add mask properties" />
     <MESSAGE value="fiddle with image dimensions" />
     <MESSAGE value="jiggle with column spacing and sizing around images" />
     <MESSAGE value="stuff" />
@@ -523,7 +529,8 @@
     <MESSAGE value="Plug in Remove and Reset buttons, add MessageBox service" />
     <MESSAGE value="Change MessageBox Service" />
     <MESSAGE value="Bind Preview and Convert IsEnabled" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bind Preview and Convert IsEnabled" />
+    <MESSAGE value="Hide Mask if Dual Mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hide Mask if Dual Mode" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

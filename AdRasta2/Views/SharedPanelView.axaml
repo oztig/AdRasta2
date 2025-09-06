@@ -18,54 +18,60 @@
                               IsChecked="{Binding  SelectedConversion.DualFrameMode}"
                               VerticalAlignment="Center" />
             </Grid>
-            <Grid Grid.Row="1" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,*">
-                <TextBlock Grid.Row="0" Margin="5" FontSize="18" FontWeight="DemiBold" Grid.Column="0">Source</TextBlock>
-                <Button Grid.Row="1" Grid.Column="0"
-                        Command="{Binding SelectSourceImage}"
-                        BorderBrush="Black"
-                        BorderThickness="1"
-                        HorizontalAlignment="Left"
-                        Margin="5"
-                        Padding="1"
-                        Background="Black">
-                    <Image Source="{Binding SelectedConversion.SourceImage}"
-                           MaxWidth="320"
-                           MaxHeight="240"
-                           Stretch="Uniform" />
-                </Button>
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
+                <Grid Grid.Row="0" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,*">
+                    <TextBlock Grid.Row="0" Margin="5" FontSize="18" FontWeight="DemiBold" Grid.Column="0">Source</TextBlock>
+                    <Button Grid.Row="1" Grid.Column="0"
+                            Command="{Binding SelectSourceImage}"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Left"
+                            Margin="5"
+                            Padding="1"
+                            Background="Black">
+                        <Image Source="{Binding SelectedConversion.SourceImage}"
+                               MaxWidth="320"
+                               MaxHeight="240"
+                               ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
+                               Stretch="Uniform" />
+                    </Button>
 
+                    <TextBlock IsVisible="{Binding SelectedConversion.IsSingleFrameMode}" Margin="5" Grid.Row="0"
+                               Grid.Column="1" FontSize="18" FontWeight="DemiBold">
+                        Mask
+                    </TextBlock>
+                    <Button Grid.Row="1" Grid.Column="1"
+                            IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
+                            IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
+                            Command="{Binding SelectSourceMask}"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Left"
+                            Margin="5"
+                            Padding="1"
+                            Background="Black">
+                        <Image Source="{Binding SelectedConversion.SourceImageMask}"
+                               MaxWidth="320"
+                               MaxHeight="240"
+                               ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}"
+                               Stretch="Uniform" />
+                    </Button>
 
-                <TextBlock IsVisible="{Binding SelectedConversion.IsSingleFrameMode}" Margin="5" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="DemiBold">Mask</TextBlock>
-                <Button Grid.Row="1" Grid.Column="1"
-                        IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
-                        IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
-                        Command="{Binding SelectSourceMask}"
-                        BorderBrush="Black"
-                        BorderThickness="1"
-                        HorizontalAlignment="Left"
-                        Margin="5"
-                        Padding="1"
-                        Background="Black">
-                    <Image Source="{Binding SelectedConversion.SourceImageMask}"
-                           MaxWidth="320"
-                           MaxHeight="240"
-                           Stretch="Uniform" />
-                </Button>
-
-                <TextBlock Margin="5" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
-                <Border Grid.Row="1" Grid.Column="2"
-                        BorderBrush="Black"
-                        BorderThickness="1"
-                        HorizontalAlignment="Left"
-                        Padding="1"
-                        Background="Black"
-                        Margin="5">
-                    <Image Source="{Binding SelectedConversion.ImagePreview}"
-                           MaxWidth="320"
-                           MaxHeight="240"
-                           Stretch="Uniform" />
-                </Border>
-            </Grid>
+                    <TextBlock Margin="5" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
+                    <Border Grid.Row="1" Grid.Column="2"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Left"
+                            Padding="1"
+                            Background="Black"
+                            Margin="5">
+                        <Image Source="{Binding SelectedConversion.ImagePreview}"
+                               MaxWidth="320"
+                               MaxHeight="240"
+                               Stretch="Uniform" />
+                    </Border>
+                </Grid>
+            </Border>
 
             <!-- Dual Mode Expander -->
             <Expander Grid.Row="4" Grid.Column="0"

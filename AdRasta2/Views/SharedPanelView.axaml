@@ -10,7 +10,7 @@
 
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,Auto,Auto">
-            <Grid Grid.Row="0" ColumnDefinitions="Auto,8,Auto" Margin=" 10,5,5,5">
+            <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Margin=" 10,5,5,5">
                 <TextBlock Grid.Column="0"
                            Text="Dual Frame Mode"
                            VerticalAlignment="Center" />
@@ -19,7 +19,7 @@
                               VerticalAlignment="Center" />
             </Grid>
             <Border Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray" Margin="5" CornerRadius="5">
-                <Grid Grid.Row="0" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,*">
+                <Grid Grid.Row="0" RowDefinitions="Auto,*" ColumnDefinitions="Auto,Auto,Auto,Auto,*">
                     <TextBlock Grid.Row="0" Margin="5" FontSize="18" FontWeight="DemiBold" Grid.Column="0">Source</TextBlock>
                     <Button Grid.Row="1" Grid.Column="0"
                             Command="{Binding SelectSourceImage}"
@@ -35,12 +35,23 @@
                                ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
                                Stretch="Uniform" />
                     </Button>
+                    <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="*,Auto">
+                        <Slider Orientation="Vertical"
+                                Margin="0,5,0,5"
+                                Minimum="0"
+                                Maximum="240"
+                                Value="{Binding SelectedConversion.Height}"
+                                VerticalAlignment="Stretch"
+                                ToolTip.Tip="Height"
+                                HorizontalAlignment="Center" />
+                        <TextBlock Grid.Row="1" TextAlignment="Center" Text="{Binding SelectedConversion.Height}" Margin="0,0,0,5" />
+                    </Grid>
 
                     <TextBlock IsVisible="{Binding SelectedConversion.IsSingleFrameMode}" Margin="5" Grid.Row="0"
-                               Grid.Column="1" FontSize="18" FontWeight="DemiBold">
+                               Grid.Column="2" FontSize="18" FontWeight="DemiBold">
                         Mask
                     </TextBlock>
-                    <Button Grid.Row="1" Grid.Column="1"
+                    <Button Grid.Row="1" Grid.Column="2"
                             IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
                             IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
                             Command="{Binding SelectSourceMask}"
@@ -57,8 +68,8 @@
                                Stretch="Uniform" />
                     </Button>
 
-                    <TextBlock Margin="5" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
-                    <Border Grid.Row="1" Grid.Column="2"
+                    <TextBlock Margin="5" Grid.Row="0" Grid.Column="3" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
+                    <Border Grid.Row="1" Grid.Column="3"
                             BorderBrush="Black"
                             BorderThickness="1"
                             HorizontalAlignment="Left"

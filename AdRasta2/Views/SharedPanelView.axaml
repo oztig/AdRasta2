@@ -26,7 +26,7 @@
                             BorderBrush="Black"
                             BorderThickness="1"
                             HorizontalAlignment="Left"
-                            Margin="5"
+                            Margin="5,5,1,5"
                             Padding="1"
                             Background="Black">
                         <Image Source="{Binding SelectedConversion.SourceImage}"
@@ -44,7 +44,7 @@
                                 VerticalAlignment="Stretch"
                                 ToolTip.Tip="Height"
                                 HorizontalAlignment="Center" />
-                        <TextBlock Grid.Row="1" TextAlignment="Center" Text="{Binding SelectedConversion.Height}" Margin="0,0,0,5" />
+                        <NumericUpDown Grid.Row="1" BorderThickness="0" Maximum="240" Minimum="0" Increment="1" TextAlignment="Center" ShowButtonSpinner="False" Value="{Binding SelectedConversion.Height}" Margin="0,0,0,5" />
                     </Grid>
 
                     <TextBlock IsVisible="{Binding SelectedConversion.IsSingleFrameMode}" Margin="5" Grid.Row="0"

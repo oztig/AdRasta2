@@ -10,7 +10,6 @@
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
@@ -504,7 +504,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757145700936</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="group images">
+      <option name="closed" value="true" />
+      <created>1757147183822</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1757147183822</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +522,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="jiggle with column spacing and sizing around images" />
     <MESSAGE value="stuff" />
     <MESSAGE value="Start New Layout" />
     <MESSAGE value="Add Defaults, and Converter and Conversion classes" />
@@ -539,7 +546,8 @@
     <MESSAGE value="Bind Preview and Convert IsEnabled" />
     <MESSAGE value="Hide Mask if Dual Mode" />
     <MESSAGE value="Add Image TooltIp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Image TooltIp" />
+    <MESSAGE value="group images" />
+    <option name="LAST_COMMIT_MESSAGE" value="group images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

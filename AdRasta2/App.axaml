@@ -10,7 +10,7 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <SimpleTheme />
+        <FluentTheme />
         <!-- <Style Selector="TextBlock"> -->
         <!--     <Setter Property="FontSize" Value="11" /> -->
         <!-- </Style> -->

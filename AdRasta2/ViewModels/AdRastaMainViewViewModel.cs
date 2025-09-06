@@ -8,11 +8,13 @@ using System.Windows.Input;
 using AdRasta2.Interfaces;
 using AdRasta2.Models;
 using AdRasta2.Services;
+using AdRasta2.Utils;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Platform.Storage;
+using CliWrap;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -25,6 +27,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
     private Settings _settings = new();
+    private int _selectedIndex = 0;
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
 
     public SourceData SourceData { get; } = new();
@@ -33,6 +36,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
     public ReactiveCommand<Unit, Unit> PickFileCommand { get; private set; }
     private IFilePickerService _filePickerService;
+    private IMessageBoxService _messageBoxService = new MessageBoxService();
 
     public string ViewModelType => GetType().Name;
 
@@ -62,16 +66,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
         _filePickerService = new FilePickerService(_window);
-        
+
         PopulateSprockets();
         CreateInitialEntry();
     }
-    
+
     private void CreateInitialEntry()
     {
         RastaConversions = new ObservableCollection<RastaConversion>
         {
-            new RastaConversion("Conversion 1"),
+            new RastaConversion("New Conversion"),
         };
 
         ChangeSelected(RastaConversions[0]);
@@ -93,14 +97,14 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private void ChangeSelected(RastaConversion conversion)
     {
-        var index = RastaConversions.IndexOf(conversion);
+        _selectedIndex = RastaConversions.IndexOf(conversion);
         SelectedConversion = conversion;
         // CurrentConversionTitle = conversion.Title;
 
-        SetIsSelected(index);
+        SetIsSelected(_selectedIndex);
 
         // DEBUG
-        Console.WriteLine($"Clicked item '{conversion.Title}' at index {index}");
+        Console.WriteLine($"Clicked item '{conversion.Title}' at index {_selectedIndex}");
     }
 
     private void SetIsSelected(int selectedIndex)
@@ -124,15 +128,42 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         try
         {
-            // var result = await Cli.Wrap(_settings.DefaultExecuteCommand)
-            //     .WithArguments(SafeCommand.QuoteIfNeeded(_settings.HelpFileLocation))
-            //     .WithValidation(CommandResultValidation.None)
-            //     .ExecuteAsync();
+            var result = await Cli.Wrap(_settings.DefaultExecuteCommand)
+                .WithArguments(SafeCommand.QuoteIfNeeded(_settings.HelpFileLocation))
+                .WithValidation(CommandResultValidation.None)
+                .ExecuteAsync();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
+        }
+    }
+
+    public async Task ResetCurrentConversionValues()
+    {
+        var result = await _messageBoxService.ShowConfirmationAsync("Reset all settings?",
+            "This will reset all values of the currently selected conversion." + Environment.NewLine + "Are You Sure?");
+
+        if (result.ToLower() == "okay")
+            SelectedConversion.PopulateDefaultValues();
+    }
+
+    public async Task RemoveCurrentConversion()
+    {
+        if (RastaConversions.Count <= 1)
+        {
+            await _messageBoxService.ShowInfoAsync("Cannot Remove!", "Cannot Remove the initial conversion");
+            return;
+        }
+
+        var result = await _messageBoxService.ShowConfirmationAsync("Remove Selected Conversion?",
+            "This will remove the currently selected conversion." + Environment.NewLine  + " Are You Sure?");
+
+        if (result.ToLower() == "okay")
+        {
+            RastaConversions.Remove(SelectedConversion);
+            ChangeSelected(RastaConversions[^1]);
         }
     }
 

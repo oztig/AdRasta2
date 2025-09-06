@@ -443,8 +443,9 @@ public class RastaConversion : ReactiveObject
         Title = title;
     }
 
-    private void PopulateDefaultValues()
+    public void PopulateDefaultValues()
     {
+        Title = "New Conversion";
         Threads = RastaConverterDefaultValues.DefaultThreads;
         MaxEvaluations = RastaConverterDefaultValues.DefaultMaxEvaluations;
         AutoSavePeriod = RastaConverterDefaultValues.DefaultAutoSavePeriod;

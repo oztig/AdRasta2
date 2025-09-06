@@ -8,7 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Services/MessageBoxService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,34 +42,25 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e777cf0c0c7c4c38af1ea95eef7a413c104400/3e/b699f21f/ItemsControl.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1579bf835158dd6aec6bad778df36f37e1ed9bdaa7c2b533f598f5c59bd4/StandardAssetLoader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ad855a3c5b26899e6ce6c55f0fe1a42f2b81c878868b79f7ae064f634f0d9f8/Window.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/361a699e458c7dd7e36f166c5bfc015c144ce804e503733b0713aaf72f7af3/Button.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3c92637ae2e83da0a63791071c41eae291d594156062866d8621b7ed7245c/CastHelpers.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7cd2b62f072ca5b3d2f42f76a5dd52a4b5f34996c7e08db6e2afbbb2a3d49a/ReactiveCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/958adb23bbf45b54ff5cc0aa6aeb4b1c73525512fe1bffdfa8fd9b526564/InputElement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9f9a2bceaa5614134b985ff3cf8e75e9763fc96d24b8d55a73df638444d4a0/MethodCommandNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43372be196aeba386415bc8f8d3f99862b4a472b7d74e3b3217d5e1c443cb8/TopLevel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/efc955cfa3be895774b4ee113a8993439466ca1641dd6b84b29c84236f85dc/ExceptionMixins.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/App.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Settings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Services/MessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -75,7 +74,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Run",
+    ".NET Project.AdRasta2.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",

@@ -35,8 +35,10 @@
                 </Button>
 
 
-                <TextBlock Margin="5" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="DemiBold">Mask</TextBlock>
+                <TextBlock IsVisible="{Binding SelectedConversion.IsSingleFrameMode}" Margin="5" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="DemiBold">Mask</TextBlock>
                 <Button Grid.Row="1" Grid.Column="1"
+                        IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
+                        IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
                         Command="{Binding SelectSourceMask}"
                         BorderBrush="Black"
                         BorderThickness="1"
@@ -65,12 +67,13 @@
                 </Border>
             </Grid>
 
+            <!-- Dual Mode Expander -->
             <Expander Grid.Row="4" Grid.Column="0"
                       Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
-                      HorizontalAlignment="Left" Header="Dual Frame Mode"
+                      HorizontalAlignment="Stretch" Header="Dual Frame Mode"
                       IsExpanded="{Binding SelectedConversion.DualFrameMode,Mode=OneWay}"
                       IsEnabled="{Binding SelectedConversion.DualFrameMode}">
-                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="10"
+                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
                       RowSpacing="10">
                     <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="First Steps">
                         <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
@@ -87,17 +90,17 @@
                                        Increment="1" Value="{Binding SelectedConversion.AlternatingDualSteps}">
                         </NumericUpDown>
                     </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="1" Grid.Column="0" Header="Blending">
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="3" Header="Blending">
                         <ComboBox ItemsSource="{Binding SourceData.DualBlending}"
                                   SelectedItem="{Binding SelectedConversion.DualBlending}"
                                   HorizontalAlignment="Stretch" />
                     </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="1" Grid.Column="1" Header="Luma">
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="4" Header="Luma">
                         <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
                                        Increment="0.1" Value="{Binding SelectedConversion.DualLuma}">
                         </NumericUpDown>
                     </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="1" Grid.Column="2" Header="Chroma">
+                    <HeaderedContentControl Grid.Row="0" Grid.Column="5" Header="Chroma">
                         <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
                                        Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
                         </NumericUpDown>

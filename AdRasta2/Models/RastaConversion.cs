@@ -17,7 +17,7 @@ public class RastaConversion : ReactiveObject
     private string _title;
 
     public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);
-    
+
     public string Title
     {
         get => _title;
@@ -374,12 +374,22 @@ public class RastaConversion : ReactiveObject
     }
 
     // Dual Mode specific
+    public bool IsSingleFrameMode => !DualFrameMode;
+
     private bool _dualFrameMode;
 
     public bool DualFrameMode
     {
         get => _dualFrameMode;
-        set => this.RaiseAndSetIfChanged(ref _dualFrameMode, value);
+        set
+        {
+            if (DualFrameMode != value)
+            {
+                _dualFrameMode = value;
+                this.RaisePropertyChanged(nameof(DualFrameMode));
+                this.RaisePropertyChanged(nameof(IsSingleFrameMode));
+            }
+        }
     }
 
     private int _firstDualSteps = 100000;
@@ -480,7 +490,7 @@ public class RastaConversion : ReactiveObject
         SourceImageMaskPath = RastaConverterDefaultValues.DefaultSourceImageMaskPath;
         DestinationFilePath = RastaConverterDefaultValues.DefaultDestinationFilePath;
         RegisterOnOffFilePath = RastaConverterDefaultValues.DefaultRegisterOnOffFilePath;
-        
+
         // public static string DefaultDestantionFilePrefix;
     }
 }

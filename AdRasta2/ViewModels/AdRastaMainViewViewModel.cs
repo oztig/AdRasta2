@@ -143,7 +143,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task ResetCurrentConversionValues()
     {
         var result = await _messageBoxService.ShowConfirmationAsync("Reset all settings?",
-            "This will reset all values of the currently selected conversion." + Environment.NewLine + "Are You Sure?");
+            "This will reset all values of the currently selected conversion." + Environment.NewLine + "Are You Sure?",Icon.Question);
 
         if (result.ToLower() == "okay")
             SelectedConversion.PopulateDefaultValues();
@@ -158,7 +158,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         }
 
         var result = await _messageBoxService.ShowConfirmationAsync("Remove Selected Conversion?",
-            "This will remove the currently selected conversion." + Environment.NewLine  + " Are You Sure?");
+            "This will remove the currently selected conversion." + Environment.NewLine  + " Are You Sure?",Icon.Question);
 
         if (result.ToLower() == "okay")
         {

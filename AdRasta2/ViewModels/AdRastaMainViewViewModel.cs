@@ -35,8 +35,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
     public ReactiveCommand<Unit, Unit> PickFileCommand { get; private set; }
-    private IFilePickerService _filePickerService;
-    private IMessageBoxService _messageBoxService = new MessageBoxService();
+    private readonly IFilePickerService _filePickerService;
+    private readonly IMessageBoxService _messageBoxService;
 
     public string ViewModelType => GetType().Name;
 
@@ -58,14 +58,15 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
     private int _panelCounter = 4;
 
-    public AdRastaMainViewViewModel(Window window)
+    public AdRastaMainViewViewModel(Window window,IFilePickerService filePickerService, IMessageBoxService messageBoxService)
     {
         _window = window;
+        _filePickerService = filePickerService;
+        _messageBoxService = messageBoxService;
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
-        _filePickerService = new FilePickerService(_window);
 
         PopulateSprockets();
         CreateInitialEntry();

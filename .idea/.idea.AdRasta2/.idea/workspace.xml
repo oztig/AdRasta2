@@ -127,15 +127,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="12422000" />
-    </task>
-    <task id="LOCAL-00006" summary="add hove over highlighting">
-      <option name="closed" value="true" />
-      <created>1753280442508</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1753280442508</updated>
+      <workItem from="1757194237191" duration="14450000" />
     </task>
     <task id="LOCAL-00007" summary="Add 'New Conversion' Button and add to bottom panel">
       <option name="closed" value="true" />
@@ -521,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757230133434</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Re-Jig source image setup">
+      <option name="closed" value="true" />
+      <created>1757233256010</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1757233256010</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +531,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="1" />
     <MESSAGE value="Add Dialog Service" />
     <MESSAGE value="New Conversion Dialog" />
     <MESSAGE value="Ad Dual Mode and Menus" />
@@ -556,7 +555,8 @@
     <MESSAGE value="height tooltip" />
     <MESSAGE value="Add num up down bound to slider for height" />
     <MESSAGE value="Layout Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout Changes" />
+    <MESSAGE value="Re-Jig source image setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Re-Jig source image setup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

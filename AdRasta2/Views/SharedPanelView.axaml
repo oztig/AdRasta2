@@ -19,73 +19,85 @@
                               VerticalAlignment="Center" />
             </Grid>
             <!-- <Border Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray" Margin="5" CornerRadius="5"> -->
-                <Grid Grid.Row="1" RowDefinitions="*,*" ColumnDefinitions="Auto,Auto,Auto,Auto,*">
-                    
-                    <!-- Source -->
-                    <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="Source"
-                                            Margin="5,0,5,5">
-                        <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,Auto">
-                            <Button Grid.Row="0" Grid.Column="0"
-                                    Command="{Binding SelectSourceImage}"
-                                    BorderBrush="Black"
-                                    BorderThickness="1"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
-                                    Margin="0,0,0,3"
-                                    Padding="1"
-                                    Background="Black">
-                                <Image Source="{Binding SelectedConversion.SourceImage}"
-                                       MaxWidth="320"
-                                       MaxHeight="240"
-                                       ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
-                                       Stretch="Uniform" />
-                            </Button>
-                            <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
-                                <Slider Orientation="Vertical"
-                                        Minimum="0"
-                                        Maximum="240"
-                                        Value="{Binding SelectedConversion.Height}"
-                                        VerticalAlignment="Stretch"
-                                        ToolTip.Tip="Height"
-                                        HorizontalAlignment="Center" />
-                                <NumericUpDown Grid.Row="1" BorderThickness="0" Maximum="240" Minimum="0" Increment="1"
-                                               Padding="1"
-                                               TextAlignment="Center" ShowButtonSpinner="False"
-                                               VerticalContentAlignment="Center"
-                                               Value="{Binding SelectedConversion.Height}" Margin="0" />
-                            </Grid>
-                            <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="Auto,*">
-                                <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Resize Filter</Label>
-                                <ComboBox Grid.Column="1" HorizontalAlignment="Stretch"
-                                          ItemsSource="{Binding   SourceData.ResizeFilters}"
-                                          SelectedItem="{Binding  SelectedConversion.ResizeFilter}" />
-                            </Grid>
-                        </Grid>
-                    </HeaderedContentControl>
+            <Grid Grid.Row="1" RowDefinitions="*,*" ColumnDefinitions="Auto,Auto,Auto,Auto,*">
 
-                    <!-- MASK -->
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Header="Mask" Margin="5,0,5,5" IsVisible="{Binding SelectedConversion.IsSingleFrameMode}">
-                        <Button Grid.Row="1" Grid.Column="2"
+                <!-- Source -->
+                <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="Source"
+                                        Margin="5,0,5,5">
+                    <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,Auto">
+                        <Button Grid.Row="0" Grid.Column="0"
+                                Command="{Binding SelectSourceImage}"
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Margin="0,0,0,3"
+                                Padding="1"
+                                Background="Black">
+                            <Image Source="{Binding SelectedConversion.SourceImage}"
+                                   MaxWidth="320"
+                                   MaxHeight="240"
+                                   ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
+                                   Stretch="Uniform" />
+                        </Button>
+                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
+                            <Slider Orientation="Vertical"
+                                    Minimum="0"
+                                    Maximum="240"
+                                    Value="{Binding SelectedConversion.Height}"
+                                    VerticalAlignment="Stretch"
+                                    ToolTip.Tip="Height"
+                                    HorizontalAlignment="Center" />
+                            <NumericUpDown Grid.Row="1" BorderThickness="0" Maximum="240" Minimum="0" Increment="1"
+                                           Padding="1"
+                                           TextAlignment="Center" ShowButtonSpinner="False"
+                                           VerticalContentAlignment="Center"
+                                           Value="{Binding SelectedConversion.Height}" Margin="0" />
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="Auto,*">
+                            <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Resize Filter</Label>
+                            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,0,0,0"
+                                      ItemsSource="{Binding   SourceData.ResizeFilters}"
+                                      SelectedItem="{Binding  SelectedConversion.ResizeFilter}" />
+                        </Grid>
+                    </Grid>
+                </HeaderedContentControl>
+
+                <!-- Mask -->
+                <HeaderedContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Header="Mask" Margin="5,0,5,5"
+                                        IsVisible="{Binding SelectedConversion.IsSingleFrameMode}">
+                    <Grid RowDefinitions="*,Auto">
+                        <Button Grid.Row="0"
                                 IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
                                 IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
                                 Command="{Binding SelectSourceMask}"
-                                BorderBrush="Black"
-                                BorderThickness="1"
-                                HorizontalAlignment="Left"
-                                Margin="5"
+                                HorizontalAlignment="Stretch"
+                                Margin="0,0,0,3"
                                 Padding="1"
-                                Background="Black">
+                                Background="Black"
+                                BorderBrush="Black"
+                                BorderThickness="1">
                             <Image Source="{Binding SelectedConversion.SourceImageMask}"
                                    MaxWidth="320"
                                    MaxHeight="240"
-                                   ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}"
-                                   Stretch="Uniform" />
+                                   Stretch="Uniform"
+                                   ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}" />
                         </Button>
-                    </HeaderedContentControl>
+                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*" >
+                            <Label Grid.Column="0" VerticalAlignment="Center">Strength</Label>
+                            <NumericUpDown Grid.Column="1" Maximum="1000" Minimum="0" Increment="1"
+                                           TextAlignment="Center"
+                                           Margin="5,0,0,0"
+                                           VerticalContentAlignment="Center"
+                                           Value="{Binding SelectedConversion.MaskStrength}" />
+                        </Grid>
+                    </Grid>
+                </HeaderedContentControl>
 
-                    <TextBlock Margin="5" Grid.Row="0" Grid.Column="3" FontSize="18" FontWeight="DemiBold">Preview</TextBlock>
-                    <Border Grid.Row="1" Grid.Column="3"
-                            BorderBrush="Black"
+                <!-- Preview -->
+                <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Header="Preview"
+                                        Margin="5,0,5,5">
+                    <Border BorderBrush="Black"
                             BorderThickness="1"
                             HorizontalAlignment="Left"
                             Padding="1"
@@ -96,7 +108,8 @@
                                MaxHeight="240"
                                Stretch="Uniform" />
                     </Border>
-                </Grid>
+                </HeaderedContentControl>
+            </Grid>
             <!-- </Border> -->
 
             <!-- Dual Mode Expander -->

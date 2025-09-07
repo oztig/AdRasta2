@@ -18,7 +18,7 @@
                               IsChecked="{Binding  SelectedConversion.DualFrameMode}"
                               VerticalAlignment="Center" />
             </Grid>
-            <!-- <Border Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray" Margin="5" CornerRadius="5"> -->
+
             <Grid Grid.Row="1" RowDefinitions="*,*" ColumnDefinitions="Auto,Auto,Auto,Auto,*">
 
                 <!-- Source -->
@@ -122,7 +122,6 @@
                     </Border>
                 </HeaderedContentControl>
             </Grid>
-            <!-- </Border> -->
 
             <!-- Dual Mode Expander -->
             <Expander Grid.Row="4" Grid.Column="0"

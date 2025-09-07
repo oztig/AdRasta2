@@ -58,7 +58,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
     private int _panelCounter = 4;
 
-    public AdRastaMainViewViewModel(Window window,IFilePickerService filePickerService, IMessageBoxService messageBoxService)
+    public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,
+        IMessageBoxService messageBoxService)
     {
         _window = window;
         _filePickerService = filePickerService;
@@ -125,6 +126,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ChangeSelected(RastaConversions[^1]);
     }
 
+    public async void HFlipSourceImage()
+    {
+        await _messageBoxService.ShowInfoAsync("H-Flip Source Image", "Not Implemented Yet!");
+    }
+
+    public async void HFlipMaskImage()
+    {
+        await _messageBoxService.ShowInfoAsync("H-Flip Mask Image", "Not Implemented Yet!");
+    }
+
     private async Task ShowHelpMessage()
     {
         try
@@ -144,7 +155,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task ResetCurrentConversionValues()
     {
         var result = await _messageBoxService.ShowConfirmationAsync("Reset all settings?",
-            "This will reset all values of the currently selected conversion." + Environment.NewLine + "Are You Sure?",Icon.Question);
+            "This will reset all values of the currently selected conversion." + Environment.NewLine + "Are You Sure?",
+            Icon.Question);
 
         if (result.ToLower() == "okay")
             SelectedConversion.PopulateDefaultValues();
@@ -159,7 +171,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
         }
 
         var result = await _messageBoxService.ShowConfirmationAsync("Remove Selected Conversion?",
-            "This will remove the currently selected conversion." + Environment.NewLine  + " Are You Sure?",Icon.Question);
+            "This will remove the currently selected conversion." + Environment.NewLine + " Are You Sure?",
+            Icon.Question);
 
         if (result.ToLower() == "okay")
         {

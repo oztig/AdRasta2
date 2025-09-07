@@ -38,7 +38,13 @@
                                    MaxWidth="320"
                                    MaxHeight="240"
                                    ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
-                                   Stretch="Uniform" />
+                                   Stretch="Uniform">
+                                <Image.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="H-Flip" Command="{Binding HFlipSourceImage}" />
+                                    </ContextMenu>
+                                </Image.ContextMenu>
+                            </Image>
                         </Button>
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
                             <Slider Orientation="Vertical"
@@ -81,9 +87,15 @@
                                    MaxWidth="320"
                                    MaxHeight="240"
                                    Stretch="Uniform"
-                                   ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}" />
+                                   ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}">
+                                <Image.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="H-Flip" Command="{Binding HFlipMaskImage}" />
+                                    </ContextMenu>
+                                </Image.ContextMenu>
+                            </Image>
                         </Button>
-                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*" >
+                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
                             <Label Grid.Column="0" VerticalAlignment="Center">Strength</Label>
                             <NumericUpDown Grid.Column="1" Maximum="1000" Minimum="0" Increment="1"
                                            TextAlignment="Center"

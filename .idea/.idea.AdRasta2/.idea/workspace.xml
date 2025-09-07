@@ -8,9 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,15 +126,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="16258000" />
-    </task>
-    <task id="LOCAL-00008" summary="stuff">
-      <option name="closed" value="true" />
-      <created>1753286800297</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1753286800297</updated>
+      <workItem from="1757194237191" duration="16585000" />
     </task>
     <task id="LOCAL-00009" summary="Simplify currentselected on intial load">
       <option name="closed" value="true" />
@@ -522,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757236531687</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Add context menus">
+      <option name="closed" value="true" />
+      <created>1757237755244</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1757237755244</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +530,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="New Conversion Dialog" />
     <MESSAGE value="Ad Dual Mode and Menus" />
     <MESSAGE value="Add About menu" />
     <MESSAGE value="paramaterise 'No Image' creation (add background colour)" />
@@ -557,7 +554,8 @@
     <MESSAGE value="Layout Changes" />
     <MESSAGE value="Re-Jig source image setup" />
     <MESSAGE value="Format Mask box" />
-    <option name="LAST_COMMIT_MESSAGE" value="Format Mask box" />
+    <MESSAGE value="Add context menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add context menus" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

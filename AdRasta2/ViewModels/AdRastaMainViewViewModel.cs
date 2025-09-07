@@ -41,12 +41,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public string ViewModelType => GetType().Name;
 
     public ObservableCollection<int> Sprockets { get; } = new();
-
-
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
 
     private RastaConversion? _selectedConversion;
-
     public RastaConversion? SelectedConversion
     {
         get => _selectedConversion;
@@ -54,9 +51,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     }
 
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
-
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
-    private int _panelCounter = 4;
 
     public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,
         IMessageBoxService messageBoxService)
@@ -92,17 +87,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         const int sprocketCount = 7;
         for (int i = 0; i < sprocketCount; i++)
-        {
             Sprockets.Add(i); // Used for left and right !
-        }
     }
 
     private void ChangeSelected(RastaConversion conversion)
     {
         _selectedIndex = RastaConversions.IndexOf(conversion);
         SelectedConversion = conversion;
-        // CurrentConversionTitle = conversion.Title;
-
         SetIsSelected(_selectedIndex);
 
         // DEBUG

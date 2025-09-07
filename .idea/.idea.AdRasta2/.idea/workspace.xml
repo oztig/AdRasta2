@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,15 +127,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="9835000" />
-    </task>
-    <task id="LOCAL-00005" summary="change comments">
-      <option name="closed" value="true" />
-      <created>1753250838735</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1753250838735</updated>
+      <workItem from="1757194237191" duration="12422000" />
     </task>
     <task id="LOCAL-00006" summary="add hove over highlighting">
       <option name="closed" value="true" />
@@ -522,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757201005234</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Layout Changes">
+      <option name="closed" value="true" />
+      <created>1757230133434</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1757230133434</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +531,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="s" />
     <MESSAGE value="1" />
     <MESSAGE value="Add Dialog Service" />
     <MESSAGE value="New Conversion Dialog" />
@@ -557,7 +555,8 @@
     <MESSAGE value="Add Bound Height Slider" />
     <MESSAGE value="height tooltip" />
     <MESSAGE value="Add num up down bound to slider for height" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add num up down bound to slider for height" />
+    <MESSAGE value="Layout Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Layout Changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

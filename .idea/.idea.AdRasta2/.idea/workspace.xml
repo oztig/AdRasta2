@@ -8,7 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/HeightValueConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/IsAutoConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +40,9 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/HeightValueConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,10 +58,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.xaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -126,23 +131,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="16585000" />
-    </task>
-    <task id="LOCAL-00009" summary="Simplify currentselected on intial load">
-      <option name="closed" value="true" />
-      <created>1753286900682</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1753286900682</updated>
-    </task>
-    <task id="LOCAL-00010" summary="tidy up redundant code">
-      <option name="closed" value="true" />
-      <created>1753287265401</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1753287265401</updated>
+      <workItem from="1757194237191" duration="22418000" />
     </task>
     <task id="LOCAL-00011" summary="stuff again">
       <option name="closed" value="true" />
@@ -520,7 +509,23 @@
       <option name="project" value="LOCAL" />
       <updated>1757237755244</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Tidy up">
+      <option name="closed" value="true" />
+      <created>1757237938336</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1757237938336</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Tidy up 2">
+      <option name="closed" value="true" />
+      <created>1757238062709</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1757238062709</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,8 +535,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Ad Dual Mode and Menus" />
-    <MESSAGE value="Add About menu" />
     <MESSAGE value="paramaterise 'No Image' creation (add background colour)" />
     <MESSAGE value="Re-Bind common section, plus add Dual Mode Expander" />
     <MESSAGE value="Bind Title" />
@@ -555,7 +558,9 @@
     <MESSAGE value="Re-Jig source image setup" />
     <MESSAGE value="Format Mask box" />
     <MESSAGE value="Add context menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add context menus" />
+    <MESSAGE value="Tidy up" />
+    <MESSAGE value="Tidy up 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tidy up 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

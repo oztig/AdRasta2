@@ -49,16 +49,30 @@
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
                             <Slider Orientation="Vertical"
                                     Minimum="0"
-                                    Maximum="240"
+                                    Maximum="241"
                                     Value="{Binding SelectedConversion.Height}"
                                     VerticalAlignment="Stretch"
-                                    ToolTip.Tip="Height"
+                                    ToolTip.Tip="Height (241 = Auto)"
                                     HorizontalAlignment="Center" />
-                            <NumericUpDown Grid.Row="1" BorderThickness="0" Maximum="240" Minimum="0" Increment="1"
+                            <NumericUpDown Grid.Row="1"
+                                           x:Name="HeightUpnDown"
+                                           BorderThickness="0" Maximum="241" Minimum="0" Increment="1"
+                                           IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsNotAutoConverter}}"
                                            Padding="1"
+                                           ToolTip.Tip="Height (241 = Auto)"
                                            TextAlignment="Center" ShowButtonSpinner="False"
                                            VerticalContentAlignment="Center"
                                            Value="{Binding SelectedConversion.Height}" Margin="0" />
+                            <TextBox Grid.Row="1" Text="Auto"
+                                     IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsAutoConverter}}"
+                                     Height="{Binding ElementName=HeightUpnDown, Path=Height}"
+                                     BorderThickness="0"
+                                     TextAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     VerticalContentAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Background="Transparent"
+                                     IsHitTestVisible="False" />
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="Auto,*">
                             <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Resize Filter</Label>

@@ -8,12 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/HeightValueConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/IsAutoConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,15 +126,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="22418000" />
-    </task>
-    <task id="LOCAL-00011" summary="stuff again">
-      <option name="closed" value="true" />
-      <created>1753287473447</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1753287473447</updated>
+      <workItem from="1757194237191" duration="22760000" />
     </task>
     <task id="LOCAL-00012" summary="Add shared control central panel - with test bindings to 'selectedconversion'">
       <option name="closed" value="true" />
@@ -525,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757238062709</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Add Auto to Source Image Height">
+      <option name="closed" value="true" />
+      <created>1757316387994</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1757316387994</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +530,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="paramaterise 'No Image' creation (add background colour)" />
     <MESSAGE value="Re-Bind common section, plus add Dual Mode Expander" />
     <MESSAGE value="Bind Title" />
     <MESSAGE value="Add File pickers for source and Image Mask" />
@@ -560,7 +554,8 @@
     <MESSAGE value="Add context menus" />
     <MESSAGE value="Tidy up" />
     <MESSAGE value="Tidy up 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tidy up 2" />
+    <MESSAGE value="Add Auto to Source Image Height" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Auto to Source Image Height" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

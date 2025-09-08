@@ -68,10 +68,12 @@
                                      Height="{Binding ElementName=HeightUpnDown, Path=Height}"
                                      BorderThickness="0"
                                      TextAlignment="Center"
+                                     IsReadOnly="True"
                                      VerticalAlignment="Center"
                                      VerticalContentAlignment="Center"
                                      HorizontalAlignment="Center"
                                      Background="Transparent"
+                                     IsTabStop="False"
                                      IsHitTestVisible="False" />
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="Auto,*">

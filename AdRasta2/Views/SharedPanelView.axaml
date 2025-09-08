@@ -6,8 +6,13 @@
              xmlns:views="clr-namespace:AdRasta2.Views"
              x:DataType="vm:AdRastaMainViewViewModel"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             xmlns:local="clr-namespace:AdRasta2.Converters"
              x:Class="AdRasta2.Views.SharedPanelView">
 
+    <UserControl.Resources>
+        <local:StatusToColourConverter x:Key="StatusToColourConverter" />
+    </UserControl.Resources>
+    
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,Auto,Auto">
             <Grid Grid.Row="0" ColumnDefinitions="Auto,Auto,*" Margin=" 10,5,5,5" ColumnSpacing="5">
@@ -34,18 +39,68 @@
                                 Margin="0,0,0,3"
                                 Padding="1"
                                 Background="Black">
-                            <Image Source="{Binding SelectedConversion.SourceImage}"
-                                   MaxWidth="320"
-                                   MaxHeight="240"
-                                   ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
-                                   Stretch="Uniform">
-                                <Image.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="H-Flip" Command="{Binding HFlipSourceImage}" />
-                                    </ContextMenu>
-                                </Image.ContextMenu>
-                            </Image>
+                            <Grid>
+                                <!-- Source Image -->
+                                <Image Source="{Binding SelectedConversion.SourceImage}"
+                                       MaxWidth="320"
+                                       MaxHeight="240"
+                                       ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
+                                       Stretch="Uniform">
+                                    <Image.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="H-Flip" Command="{Binding HFlipSourceImage}" />
+                                        </ContextMenu>
+                                    </Image.ContextMenu>
+                                </Image>
+
+                                <!-- Status Dot Overlay -->
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Bottom"
+                                            Margin="4">
+                                    <ItemsControl ItemsSource="{Binding SelectedConversion.UniqueLatestStatuses}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Ellipse Width="8" Height="8"
+                                                         Fill="{Binding Status, Converter={StaticResource StatusToColourConverter}}"
+                                                         Stroke="White"
+                                                         StrokeThickness="1"
+                                                         Margin="2"
+                                                         ToolTip.Tip="{Binding  TooltipText}"
+                                                         IsHitTestVisible="True" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Grid>
                         </Button>
+
+                        <!-- <Button Grid.Row="0" Grid.Column="0" -->
+                        <!--         Command="{Binding SelectSourceImage}" -->
+                        <!--         BorderBrush="Black" -->
+                        <!--         BorderThickness="1" -->
+                        <!--         HorizontalAlignment="Stretch" -->
+                        <!--         VerticalAlignment="Stretch" -->
+                        <!--         Margin="0,0,0,3" -->
+                        <!--         Padding="1" -->
+                        <!--         Background="Black"> -->
+                        <!--     <Image Source="{Binding SelectedConversion.SourceImage}" -->
+                        <!--            MaxWidth="320" -->
+                        <!--            MaxHeight="240" -->
+                        <!--            ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}" -->
+                        <!--            Stretch="Uniform"> -->
+                        <!--         <Image.ContextMenu> -->
+                        <!--             <ContextMenu> -->
+                        <!--                 <MenuItem Header="H-Flip" Command="{Binding HFlipSourceImage}" /> -->
+                        <!--             </ContextMenu> -->
+                        <!--         </Image.ContextMenu> -->
+                        <!--     </Image> -->
+                        <!-- </Button> -->
                         <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
                             <Slider Orientation="Vertical"
                                     Minimum="0"

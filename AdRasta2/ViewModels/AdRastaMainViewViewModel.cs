@@ -5,6 +5,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AdRasta2.Enums;
 using AdRasta2.Interfaces;
 using AdRasta2.Models;
 using AdRasta2.Services;
@@ -66,6 +67,21 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         PopulateSprockets();
         CreateInitialEntry();
+        
+        // DEBUG
+        var newStat = new StatusEntry
+        {
+            Status = ConversionStatus.PreviewGenerated,
+            Timestamp = DateTime.Now
+        };
+        SelectedConversion.Statuses.Add(newStat);
+        
+        newStat = new StatusEntry
+        {
+            Status = ConversionStatus.ExecutableGenerated,
+            Timestamp = DateTime.Now.AddDays(-3)
+        };
+        SelectedConversion.Statuses.Add(newStat);
     }
 
     private void CreateInitialEntry()

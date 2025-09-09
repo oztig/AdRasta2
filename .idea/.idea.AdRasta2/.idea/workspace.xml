@@ -8,12 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,15 +132,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="36523000" />
-    </task>
-    <task id="LOCAL-00015" summary="Add Blank Image + watermark if no sourceimage selected / it cant be found">
-      <option name="closed" value="true" />
-      <created>1753348415368</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1753348415368</updated>
+      <workItem from="1757194237191" duration="37024000" />
     </task>
     <task id="LOCAL-00016" summary="Resize scroller so scrollbar doesnt overlay onto details">
       <option name="closed" value="true" />
@@ -532,7 +518,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757371673796</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Add Status dots, plus colour to buttons to match statuses">
+      <option name="closed" value="true" />
+      <created>1757403611916</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1757403611916</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +536,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Defaults, start mapping dual mode to GUI" />
     <MESSAGE value="Change sprocket binding, add defaults and ini file" />
     <MESSAGE value="Check ini file exists - if not display message and error" />
     <MESSAGE value="New stuff" />
@@ -567,7 +560,8 @@
     <MESSAGE value="Make Height overlay textbox readonly, and none tab stop" />
     <MESSAGE value="Add conversion status, plus coloured dots on source image to show progress" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="Add Status dots, plus colour to buttons to match statuses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Status dots, plus colour to buttons to match statuses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

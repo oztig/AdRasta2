@@ -80,29 +80,7 @@
                                 </StackPanel>
                             </Grid>
                         </Button>
-
-                        <!-- <Button Grid.Row="0" Grid.Column="0" -->
-                        <!--         Command="{Binding SelectSourceImage}" -->
-                        <!--         BorderBrush="Black" -->
-                        <!--         BorderThickness="1" -->
-                        <!--         HorizontalAlignment="Stretch" -->
-                        <!--         VerticalAlignment="Stretch" -->
-                        <!--         Margin="0,0,0,3" -->
-                        <!--         Padding="1" -->
-                        <!--         Background="Black"> -->
-                        <!--     <Image Source="{Binding SelectedConversion.SourceImage}" -->
-                        <!--            MaxWidth="320" -->
-                        <!--            MaxHeight="240" -->
-                        <!--            ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}" -->
-                        <!--            Stretch="Uniform"> -->
-                        <!--         <Image.ContextMenu> -->
-                        <!--             <ContextMenu> -->
-                        <!--                 <MenuItem Header="H-Flip" Command="{Binding HFlipSourceImage}" /> -->
-                        <!--             </ContextMenu> -->
-                        <!--         </Image.ContextMenu> -->
-                        <!--     </Image> -->
-                        <!-- </Button> -->
-                        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
+                       <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
                             <Slider Orientation="Vertical"
                                     Minimum="0"
                                     Maximum="241"

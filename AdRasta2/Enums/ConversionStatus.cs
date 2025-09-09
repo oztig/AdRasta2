@@ -5,6 +5,6 @@ public enum ConversionStatus
     PreviewGenerated,
     ConversionActive,
     ConversionComplete,
-    ExecutableGenerated,
+    XexGenerated,
     MCHGenerated
 }

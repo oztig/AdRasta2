@@ -11,7 +11,7 @@ public static class StatusColours
         { ConversionStatus.PreviewGenerated, Colors.SkyBlue },
         { ConversionStatus.ConversionActive, Colors.Orange },
         { ConversionStatus.ConversionComplete ,Colors.LimeGreen},
-        { ConversionStatus.ExecutableGenerated, Colors.Blue },
+        { ConversionStatus.XexGenerated, Colors.Blue },
         { ConversionStatus.MCHGenerated, Colors.MediumPurple }
     };
 }

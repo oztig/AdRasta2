@@ -29,8 +29,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private Window? _window;
     private Settings _settings = new();
     private int _selectedIndex = 0;
-    public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
+    public object Dummy => null;
 
+    public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
+    
+    // Button Colours
+    public ConversionStatus PreviewButtonColour => ConversionStatus.PreviewGenerated;
+    public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
+    public ConversionStatus XexButtonColour => ConversionStatus.XexGenerated;
+    public ConversionStatus ConversionButtonColour => ConversionStatus.ConversionComplete;
+    
     public SourceData SourceData { get; } = new();
 
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
@@ -78,7 +86,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         
         newStat = new StatusEntry
         {
-            Status = ConversionStatus.ExecutableGenerated,
+            Status = ConversionStatus.XexGenerated,
             Timestamp = DateTime.Now.AddDays(-3)
         };
         SelectedConversion.Statuses.Add(newStat);

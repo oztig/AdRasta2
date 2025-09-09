@@ -7,12 +7,13 @@
              x:DataType="vm:AdRastaMainViewViewModel"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:local="clr-namespace:AdRasta2.Converters"
+             xmlns:enums="clr-namespace:AdRasta2.Enums"
              x:Class="AdRasta2.Views.SharedPanelView">
 
     <UserControl.Resources>
         <local:StatusToColourConverter x:Key="StatusToColourConverter" />
     </UserControl.Resources>
-    
+
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,*,*,Auto,Auto">
             <Grid Grid.Row="0" ColumnDefinitions="Auto,Auto,*" Margin=" 10,5,5,5" ColumnSpacing="5">
@@ -236,10 +237,34 @@
             </Expander>
             <HeaderedContentControl Grid.Row="5" Grid.Column="0" Header="Generate">
                 <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="15">
-                    <Button Grid.Column="0" IsEnabled="{Binding SelectedConversion.CanProcess}">Preview</Button>
-                    <Button Grid.Column="1" IsEnabled="{Binding SelectedConversion.CanProcess}">Convert</Button>
-                    <Button Grid.Column="2">Create MCH</Button>
-                    <Button Grid.Column="3">Create Executable</Button>
+                    <Button Grid.Column="0" IsEnabled="{Binding SelectedConversion.CanProcess}">
+                        <Grid>
+                            <Rectangle Width="4" HorizontalAlignment="Left"
+                                       Fill="{Binding PreviewButtonColour, Converter={StaticResource StatusToColourConverter}}" />
+                            <TextBlock Text="Preview" Margin="8,0,0,0" />
+                        </Grid>
+                    </Button>
+                    <Button Grid.Column="1" IsEnabled="{Binding SelectedConversion.CanProcess}">
+                        <Grid>
+                            <Rectangle Width="4" HorizontalAlignment="Left"
+                                       Fill="{Binding ConversionButtonColour, Converter={StaticResource StatusToColourConverter}}" />
+                            <TextBlock Text="Convert" Margin="8,0,0,0" />
+                        </Grid>
+                    </Button>
+                    <Button Grid.Column="2">
+                        <Grid>
+                            <Rectangle Width="4" HorizontalAlignment="Left"
+                                       Fill="{Binding MCHButtonColour, Converter={StaticResource StatusToColourConverter}}" />
+                            <TextBlock Text="Create MCH" Margin="8,0,0,0" />
+                        </Grid>
+                    </Button>
+                    <Button Grid.Column="3">
+                        <Grid>
+                            <Rectangle Width="4" HorizontalAlignment="Left"
+                                       Fill="{Binding XexButtonColour, Converter={StaticResource StatusToColourConverter}}" />
+                            <TextBlock Text="Create Executable" Margin="8,0,0,0" />
+                        </Grid>
+                    </Button>
                     <Button Grid.Column="4" Command="{Binding ResetCurrentConversionValues }">Reset All Settings</Button>
                     <Button Grid.Column="5" Command="{Binding RemoveCurrentConversion }">Remove Conversion</Button>
                 </Grid>

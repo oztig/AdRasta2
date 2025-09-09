@@ -8,10 +8,10 @@ public class StatusEntry
     public ConversionStatus Status { get; set; }
     public DateTime Timestamp { get; set; }
     
-    public string TooltipText => $"{Status} -> {Timestamp:dd/MM HH:mm}";
+    public string TooltipText => $"{Status}: {Timestamp:dd/MM HH:mm}";
 
     public override string ToString()
     {
-        return $"{Status} – {Timestamp:dd/MM HH:mm}";
+        return $"{Status}: {Timestamp:dd/MM HH:mm}";
     }
 }

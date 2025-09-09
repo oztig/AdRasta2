@@ -7,7 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +42,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/457530be4752476295767457c3639889d1a000/dd/a567ff02/Collection`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fc0d6602d124ae69bd3ab449adb63ebe800/20/2079cf65/ObservableCollection`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/HeightValueConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -129,15 +138,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="32835000" />
-    </task>
-    <task id="LOCAL-00014" summary="Playing with layout">
-      <option name="closed" value="true" />
-      <created>1753338753911</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1753338753911</updated>
+      <workItem from="1757194237191" duration="36523000" />
     </task>
     <task id="LOCAL-00015" summary="Add Blank Image + watermark if no sourceimage selected / it cant be found">
       <option name="closed" value="true" />
@@ -523,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757371221468</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1757371673796</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1757371673796</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +542,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add File pickers for source and Image Mask" />
     <MESSAGE value="Add Defaults, start mapping dual mode to GUI" />
     <MESSAGE value="Change sprocket binding, add defaults and ini file" />
     <MESSAGE value="Check ini file exists - if not display message and error" />
@@ -558,7 +566,8 @@
     <MESSAGE value="Add Auto to Source Image Height" />
     <MESSAGE value="Make Height overlay textbox readonly, and none tab stop" />
     <MESSAGE value="Add conversion status, plus coloured dots on source image to show progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add conversion status, plus coloured dots on source image to show progress" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

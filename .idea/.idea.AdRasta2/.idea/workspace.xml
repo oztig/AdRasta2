@@ -8,6 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +63,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -132,15 +137,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="37024000" />
-    </task>
-    <task id="LOCAL-00016" summary="Resize scroller so scrollbar doesnt overlay onto details">
-      <option name="closed" value="true" />
-      <created>1753354598380</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1753354598380</updated>
+      <workItem from="1757194237191" duration="40972000" />
     </task>
     <task id="LOCAL-00017" summary="latest changes">
       <option name="closed" value="true" />
@@ -526,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757403611916</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Tidy up sharedpanelview">
+      <option name="closed" value="true" />
+      <created>1757404237608</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1757404237608</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +541,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Change sprocket binding, add defaults and ini file" />
     <MESSAGE value="Check ini file exists - if not display message and error" />
     <MESSAGE value="New stuff" />
     <MESSAGE value="Plug in Remove and Reset buttons, add MessageBox service" />
@@ -561,7 +565,8 @@
     <MESSAGE value="Add conversion status, plus coloured dots on source image to show progress" />
     <MESSAGE value="stuff" />
     <MESSAGE value="Add Status dots, plus colour to buttons to match statuses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Status dots, plus colour to buttons to match statuses" />
+    <MESSAGE value="Tidy up sharedpanelview" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tidy up sharedpanelview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -36,7 +36,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     // Button Colours
     public ConversionStatus PreviewButtonColour => ConversionStatus.PreviewGenerated;
     public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
-    public ConversionStatus XexButtonColour => ConversionStatus.XexGenerated;
+    public ConversionStatus XexButtonColour => ConversionStatus.ExecutableGenerated;
     public ConversionStatus ConversionButtonColour => ConversionStatus.ConversionComplete;
     
     public SourceData SourceData { get; } = new();
@@ -86,7 +86,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         
         newStat = new StatusEntry
         {
-            Status = ConversionStatus.XexGenerated,
+            Status = ConversionStatus.ExecutableGenerated,
             Timestamp = DateTime.Now.AddDays(-3)
         };
         SelectedConversion.Statuses.Add(newStat);

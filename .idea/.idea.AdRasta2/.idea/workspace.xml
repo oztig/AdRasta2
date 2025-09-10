@@ -27,41 +27,40 @@
     &quot;assignee&quot;: &quot;oztig&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/oztig/AdRasta2.git&quot;,
-    &quot;accountId&quot;: &quot;ac35aaae-c741-4091-8f64-c33448ce9b7e&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/oztig/AdRasta2.git",
+    "accountId": "1d6306b1-3c54-4bfe-ab22-6e33ddc88308"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e777cf0c0c7c4c38af1ea95eef7a413c104400/3e/b699f21f/ItemsControl.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1579bf835158dd6aec6bad778df36f37e1ed9bdaa7c2b533f598f5c59bd4/StandardAssetLoader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ad855a3c5b26899e6ce6c55f0fe1a42f2b81c878868b79f7ae064f634f0d9f8/Window.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/361a699e458c7dd7e36f166c5bfc015c144ce804e503733b0713aaf72f7af3/Button.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3c92637ae2e83da0a63791071c41eae291d594156062866d8621b7ed7245c/CastHelpers.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7cd2b62f072ca5b3d2f42f76a5dd52a4b5f34996c7e08db6e2afbbb2a3d49a/ReactiveCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/958adb23bbf45b54ff5cc0aa6aeb4b1c73525512fe1bffdfa8fd9b526564/InputElement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9f9a2bceaa5614134b985ff3cf8e75e9763fc96d24b8d55a73df638444d4a0/MethodCommandNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43372be196aeba386415bc8f8d3f99862b4a472b7d74e3b3217d5e1c443cb8/TopLevel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/efc955cfa3be895774b4ee113a8993439466ca1641dd6b84b29c84236f85dc/ExceptionMixins.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/457530be4752476295767457c3639889d1a000/dd/a567ff02/Collection`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fc0d6602d124ae69bd3ab449adb63ebe800/20/2079cf65/ObservableCollection`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/App.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/HeightValueConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/StatusToColourConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Settings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Services/MessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -73,24 +72,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.AdRasta2.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nickp/RiderProjects/AdRasta/AdRasta/Assets/AdRasta-Icon2.ico&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.AdRasta2.executor": "Debug",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/nickp/RiderProjects/AdRasta/AdRasta/Assets/AdRasta-Icon2.ico",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="AdRasta2" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -134,142 +133,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-    </task>
-    <task id="LOCAL-00001" summary="push workspace">
-      <option name="closed" value="true" />
-      <created>1753165784515</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1753165784515</updated>
-    </task>
-    <task id="LOCAL-00002" summary="HAr Coded test view">
-      <option name="closed" value="true" />
-      <created>1753166738234</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1753166738234</updated>
-    </task>
-    <task id="LOCAL-00003" summary="ideas">
-      <option name="closed" value="true" />
-      <created>1753167735093</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1753167735093</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Ad selection of 'Conversion' logic and basic highlighting - to be sorted later">
-      <option name="closed" value="true" />
-      <created>1753249787986</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1753249787986</updated>
-    </task>
-    <task id="LOCAL-00005" summary="change comments">
-      <option name="closed" value="true" />
-      <created>1753250838735</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1753250838735</updated>
-    </task>
-    <task id="LOCAL-00006" summary="add hove over highlighting">
-      <option name="closed" value="true" />
-      <created>1753280442508</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1753280442508</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Add 'New Conversion' Button and add to bottom panel">
-      <option name="closed" value="true" />
-      <created>1753283434871</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1753283434871</updated>
-    </task>
-    <task id="LOCAL-00008" summary="stuff">
-      <option name="closed" value="true" />
-      <created>1753286800297</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1753286800297</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Simplify currentselected on intial load">
-      <option name="closed" value="true" />
-      <created>1753286900682</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1753286900682</updated>
-    </task>
-    <task id="LOCAL-00010" summary="tidy up redundant code">
-      <option name="closed" value="true" />
-      <created>1753287265401</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1753287265401</updated>
-    </task>
-    <task id="LOCAL-00011" summary="stuff again">
-      <option name="closed" value="true" />
-      <created>1753287473447</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1753287473447</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Add shared control central panel - with test bindings to 'selectedconversion'">
-      <option name="closed" value="true" />
-      <created>1753334202160</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1753334202160</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Update RastaConversion object to Rasi property Changed etc">
-      <option name="closed" value="true" />
-      <created>1753335408531</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1753335408531</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Playing with layout">
-      <option name="closed" value="true" />
-      <created>1753338753911</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1753338753911</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Add Blank Image + watermark if no sourceimage selected / it cant be found">
-      <option name="closed" value="true" />
-      <created>1753348415368</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1753348415368</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Resize scroller so scrollbar doesnt overlay onto details">
-      <option name="closed" value="true" />
-      <created>1753354598380</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1753354598380</updated>
-    </task>
-    <task id="LOCAL-00017" summary="latest changes">
-      <option name="closed" value="true" />
-      <created>1753372574796</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1753372574796</updated>
+      <workItem from="1757194237191" duration="42713000" />
     </task>
     <task id="LOCAL-00018" summary="Add film strip theme and other UI changes">
       <option name="closed" value="true" />
@@ -471,7 +335,199 @@
       <option name="project" value="LOCAL" />
       <updated>1756937354844</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Plug in Remove and Reset buttons, add MessageBox service">
+      <option name="closed" value="true" />
+      <created>1757140910088</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1757140910088</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Change MessageBox Service">
+      <option name="closed" value="true" />
+      <created>1757142198769</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1757142198769</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Bind Preview and Convert IsEnabled">
+      <option name="closed" value="true" />
+      <created>1757143320184</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1757143320184</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Hide Mask if Dual Mode">
+      <option name="closed" value="true" />
+      <created>1757144306932</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1757144306932</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Add Image TooltIp">
+      <option name="closed" value="true" />
+      <created>1757145700936</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1757145700936</updated>
+    </task>
+    <task id="LOCAL-00048" summary="group images">
+      <option name="closed" value="true" />
+      <created>1757147183822</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1757147183822</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Toy with themes - Fail!">
+      <option name="closed" value="true" />
+      <created>1757147396251</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1757147396251</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Inject services">
+      <option name="closed" value="true" />
+      <created>1757198491558</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1757198491558</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Add Bound Height Slider">
+      <option name="closed" value="true" />
+      <created>1757200540590</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1757200540590</updated>
+    </task>
+    <task id="LOCAL-00052" summary="height tooltip">
+      <option name="closed" value="true" />
+      <created>1757200672871</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1757200672871</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Add num up down bound to slider for height">
+      <option name="closed" value="true" />
+      <created>1757201005234</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1757201005234</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Layout Changes">
+      <option name="closed" value="true" />
+      <created>1757230133434</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1757230133434</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Re-Jig source image setup">
+      <option name="closed" value="true" />
+      <created>1757233256010</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1757233256010</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Format Mask box">
+      <option name="closed" value="true" />
+      <created>1757236531687</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1757236531687</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Add context menus">
+      <option name="closed" value="true" />
+      <created>1757237755244</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1757237755244</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Tidy up">
+      <option name="closed" value="true" />
+      <created>1757237938336</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1757237938336</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Tidy up 2">
+      <option name="closed" value="true" />
+      <created>1757238062709</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1757238062709</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Add Auto to Source Image Height">
+      <option name="closed" value="true" />
+      <created>1757316387994</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1757316387994</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Make Height overlay textbox readonly, and none tab stop">
+      <option name="closed" value="true" />
+      <created>1757316557397</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1757316557397</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Add conversion status, plus coloured dots on source image to show progress">
+      <option name="closed" value="true" />
+      <created>1757371221468</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1757371221468</updated>
+    </task>
+    <task id="LOCAL-00063" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1757371673796</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1757371673796</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Add Status dots, plus colour to buttons to match statuses">
+      <option name="closed" value="true" />
+      <created>1757403611916</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1757403611916</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Tidy up sharedpanelview">
+      <option name="closed" value="true" />
+      <created>1757404237608</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1757404237608</updated>
+    </task>
+    <task id="LOCAL-00066" summary="cant remember - to much wine">
+      <option name="closed" value="true" />
+      <created>1757447933370</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1757447933370</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,32 +537,32 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="latest changes" />
-    <MESSAGE value="Add film strip theme and other UI changes" />
-    <MESSAGE value="latest" />
-    <MESSAGE value="add mask properties" />
-    <MESSAGE value="fiddle with image dimensions" />
-    <MESSAGE value="jiggle with column spacing and sizing around images" />
-    <MESSAGE value="stuff" />
-    <MESSAGE value="Start New Layout" />
-    <MESSAGE value="Add Defaults, and Converter and Conversion classes" />
-    <MESSAGE value="Split out bottom panel" />
-    <MESSAGE value="add .ignore" />
-    <MESSAGE value="s" />
-    <MESSAGE value="1" />
-    <MESSAGE value="Add Dialog Service" />
-    <MESSAGE value="New Conversion Dialog" />
-    <MESSAGE value="Ad Dual Mode and Menus" />
-    <MESSAGE value="Add About menu" />
-    <MESSAGE value="paramaterise 'No Image' creation (add background colour)" />
-    <MESSAGE value="Re-Bind common section, plus add Dual Mode Expander" />
-    <MESSAGE value="Bind Title" />
-    <MESSAGE value="Add File pickers for source and Image Mask" />
-    <MESSAGE value="Add Defaults, start mapping dual mode to GUI" />
-    <MESSAGE value="Change sprocket binding, add defaults and ini file" />
-    <MESSAGE value="Check ini file exists - if not display message and error" />
     <MESSAGE value="New stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="New stuff" />
+    <MESSAGE value="Plug in Remove and Reset buttons, add MessageBox service" />
+    <MESSAGE value="Change MessageBox Service" />
+    <MESSAGE value="Bind Preview and Convert IsEnabled" />
+    <MESSAGE value="Hide Mask if Dual Mode" />
+    <MESSAGE value="Add Image TooltIp" />
+    <MESSAGE value="group images" />
+    <MESSAGE value="Toy with themes - Fail!" />
+    <MESSAGE value="Inject services" />
+    <MESSAGE value="Add Bound Height Slider" />
+    <MESSAGE value="height tooltip" />
+    <MESSAGE value="Add num up down bound to slider for height" />
+    <MESSAGE value="Layout Changes" />
+    <MESSAGE value="Re-Jig source image setup" />
+    <MESSAGE value="Format Mask box" />
+    <MESSAGE value="Add context menus" />
+    <MESSAGE value="Tidy up" />
+    <MESSAGE value="Tidy up 2" />
+    <MESSAGE value="Add Auto to Source Image Height" />
+    <MESSAGE value="Make Height overlay textbox readonly, and none tab stop" />
+    <MESSAGE value="Add conversion status, plus coloured dots on source image to show progress" />
+    <MESSAGE value="stuff" />
+    <MESSAGE value="Add Status dots, plus colour to buttons to match statuses" />
+    <MESSAGE value="Tidy up sharedpanelview" />
+    <MESSAGE value="cant remember - to much wine" />
+    <option name="LAST_COMMIT_MESSAGE" value="cant remember - to much wine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,6 +10,6 @@ public partial class AdRastaMainView : UserControl
     public AdRastaMainView()
     {
         InitializeComponent();
-        DataContext = new AdRastaMainViewViewModel(new Window());
+      //  DataContext = new AdRastaMainViewViewModel(new Window());
     }
 }

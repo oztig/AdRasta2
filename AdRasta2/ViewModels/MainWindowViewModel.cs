@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using AdRasta2.Interfaces;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
@@ -19,9 +20,9 @@ public class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _icon, value);
     }
     
-    public MainWindowViewModel(Window window)
+    public MainWindowViewModel(Window window,IFilePickerService filePickerService, IMessageBoxService messageBoxService)
     {
-       AdRastaMainViewVM = new AdRastaMainViewViewModel(window);
+       AdRastaMainViewVM = new AdRastaMainViewViewModel(window,filePickerService, messageBoxService);
         SetIcon();
     }
 

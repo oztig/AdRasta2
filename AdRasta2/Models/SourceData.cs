@@ -6,11 +6,14 @@ public class SourceData
 {
     public ObservableCollection<string> AfterDualSteps { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> DualBlending { get; } = new ObservableCollection<string>();
+    public ObservableCollection<string> ResizeFilters { get; } = new ObservableCollection<string>();
+    
 
     public void Populate()
     {
         PopulateAfterDualSteps();
         PopulateDualBlending();
+        PopulateResizeFilters();
     }
 
     private void PopulateAfterDualSteps()
@@ -25,6 +28,17 @@ public class SourceData
         DualBlending.Clear();
         DualBlending.Add("yuv");
         DualBlending.Add("rgb");
+    }
+    
+    private void PopulateResizeFilters()
+    {
+        ResizeFilters.Clear();
+        ResizeFilters.Add("bicubic");
+        ResizeFilters.Add("bilinear");
+        ResizeFilters.Add("box");
+        ResizeFilters.Add("bspline");
+        ResizeFilters.Add("catmullrom");
+        ResizeFilters.Add("lanczos");
     }
 
     public SourceData()

@@ -25,6 +25,7 @@ public class Settings
 
     public Settings()
     {
+        SetDefaults();
     }
 
     public static bool CheckIniFileExists()

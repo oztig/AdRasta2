@@ -7,7 +7,7 @@ public class RastaConverterDefaultValues
     public static int DefaultMaxEvaluations  = 0;
     public static string DefaultAutoSavePeriod  = "auto";
     public static decimal DefaultRandomSeed  = 0;
-    public static int DefaultHeight = 240;
+    public static int DefaultHeight = 241;
     public static string DefaultPalette  = "laoo";
     public static string DefaultDithering = "none";
     public static int DefaultDitheringStrength  = 1;

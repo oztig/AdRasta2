@@ -1,9 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Globalization;
 using Avalonia;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using AdRasta2.Utils;
 using Avalonia.Controls.Converters;
@@ -16,10 +20,56 @@ public class RastaConversion : ReactiveObject
 {
     private string _title;
 
+    public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);
+
     public string Title
     {
         get => _title;
         set => this.RaiseAndSetIfChanged(ref _title, value);
+    }
+
+    private ObservableCollection<StatusEntry> _statuses;
+
+    public ObservableCollection<StatusEntry> Statuses
+    {
+        get => _statuses;
+        set
+        {
+            if (_statuses != null)
+                _statuses.CollectionChanged -= Statuses_CollectionChanged;
+
+            var oldValue = _statuses;
+            _statuses = value;
+
+            if (_statuses != null)
+                _statuses.CollectionChanged += Statuses_CollectionChanged;
+
+            this.RaisePropertyChanged(nameof(Statuses));
+            UpdateUniqueLatestStatuses();
+        }
+    }
+
+
+    private void Statuses_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        UpdateUniqueLatestStatuses();
+    }
+
+
+    private IReadOnlyList<StatusEntry> _uniqueLatestStatuses = new List<StatusEntry>();
+
+    public IReadOnlyList<StatusEntry> UniqueLatestStatuses
+    {
+        get => _uniqueLatestStatuses;
+        private set => this.RaiseAndSetIfChanged(ref _uniqueLatestStatuses, value);
+    }
+
+    private void UpdateUniqueLatestStatuses()
+    {
+        UniqueLatestStatuses = Statuses?
+            .GroupBy(s => s.Status)
+            .Select(g => g.OrderByDescending(s => s.Timestamp).First())
+            .ToList() ?? new List<StatusEntry>();
     }
 
     // Input
@@ -37,6 +87,7 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged();
                 _sourceImage = null;
                 this.RaisePropertyChanged(nameof(SourceImage));
+                this.RaisePropertyChanged(nameof(CanProcess));
             }
         }
     }
@@ -371,12 +422,22 @@ public class RastaConversion : ReactiveObject
     }
 
     // Dual Mode specific
+    public bool IsSingleFrameMode => !DualFrameMode;
+
     private bool _dualFrameMode;
 
     public bool DualFrameMode
     {
         get => _dualFrameMode;
-        set => this.RaiseAndSetIfChanged(ref _dualFrameMode, value);
+        set
+        {
+            if (DualFrameMode != value)
+            {
+                _dualFrameMode = value;
+                this.RaisePropertyChanged(nameof(DualFrameMode));
+                this.RaisePropertyChanged(nameof(IsSingleFrameMode));
+            }
+        }
     }
 
     private int _firstDualSteps = 100000;
@@ -441,10 +502,15 @@ public class RastaConversion : ReactiveObject
     {
         PopulateDefaultValues();
         Title = title;
+
+        _statuses = new ObservableCollection<StatusEntry>();
+        _statuses.CollectionChanged += Statuses_CollectionChanged;
+
     }
 
-    private void PopulateDefaultValues()
+    public void PopulateDefaultValues()
     {
+        Title = "New Conversion";
         Threads = RastaConverterDefaultValues.DefaultThreads;
         MaxEvaluations = RastaConverterDefaultValues.DefaultMaxEvaluations;
         AutoSavePeriod = RastaConverterDefaultValues.DefaultAutoSavePeriod;
@@ -476,7 +542,7 @@ public class RastaConversion : ReactiveObject
         SourceImageMaskPath = RastaConverterDefaultValues.DefaultSourceImageMaskPath;
         DestinationFilePath = RastaConverterDefaultValues.DefaultDestinationFilePath;
         RegisterOnOffFilePath = RastaConverterDefaultValues.DefaultRegisterOnOffFilePath;
-        
+
         // public static string DefaultDestantionFilePrefix;
     }
 }

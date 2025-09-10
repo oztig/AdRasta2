@@ -19,7 +19,7 @@ sealed class Program
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace()
-            // .With(new Win32PlatformOptions
-            //     {DpiAwareness = Win32DpiAwareness.SystemDpiAware})
+            .With(new Win32PlatformOptions
+                {DpiAwareness = Win32DpiAwareness.PerMonitorDpiAware})
             .UseReactiveUI();
 }

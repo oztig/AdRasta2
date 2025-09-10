@@ -2,15 +2,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AdRasta2.App"
              xmlns:local="using:AdRasta2"
+             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             xmlns:semi="https://irihi.tech/semi"
+             xmlns:converters="clr-namespace:AdRasta2.Converters"
              RequestedThemeVariant="Default">
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
         <local:ViewLocator />
     </Application.DataTemplates>
-
+    
+    <Application.Resources>
+        <converters:HeightValueConverter x:Key="AutoValueConverter" />
+        <converters:IsAutoConverter x:Key="IsAutoConverter" />
+        <converters:IsNotAutoConverter x:Key="IsNotAutoConverter" />
+    </Application.Resources>
+    
     <Application.Styles>
-        <FluentTheme />
+        <FluentTheme>
+        </FluentTheme>
+        <!-- <ClassicTheme /> -->
         <!-- <Style Selector="TextBlock"> -->
         <!--     <Setter Property="FontSize" Value="11" /> -->
         <!-- </Style> -->

@@ -9,10 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,15 +133,7 @@
       <workItem from="1756678737264" duration="811000" />
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
-      <workItem from="1757194237191" duration="40972000" />
-    </task>
-    <task id="LOCAL-00017" summary="latest changes">
-      <option name="closed" value="true" />
-      <created>1753372574796</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1753372574796</updated>
+      <workItem from="1757194237191" duration="42713000" />
     </task>
     <task id="LOCAL-00018" summary="Add film strip theme and other UI changes">
       <option name="closed" value="true" />
@@ -531,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757404237608</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="cant remember - to much wine">
+      <option name="closed" value="true" />
+      <created>1757447933370</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1757447933370</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +537,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Check ini file exists - if not display message and error" />
     <MESSAGE value="New stuff" />
     <MESSAGE value="Plug in Remove and Reset buttons, add MessageBox service" />
     <MESSAGE value="Change MessageBox Service" />
@@ -566,7 +561,8 @@
     <MESSAGE value="stuff" />
     <MESSAGE value="Add Status dots, plus colour to buttons to match statuses" />
     <MESSAGE value="Tidy up sharedpanelview" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tidy up sharedpanelview" />
+    <MESSAGE value="cant remember - to much wine" />
+    <option name="LAST_COMMIT_MESSAGE" value="cant remember - to much wine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

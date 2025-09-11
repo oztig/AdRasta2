@@ -18,6 +18,14 @@ namespace AdRasta2.Models;
 
 public class RastaConversion : ReactiveObject
 {
+    private bool _isConversionExpanded = true;
+
+    public bool IsConversionExpanded
+    {
+        get => _isConversionExpanded;
+        set => this.RaiseAndSetIfChanged(ref _isConversionExpanded, value);
+    }
+        
     private string _title;
 
     public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);

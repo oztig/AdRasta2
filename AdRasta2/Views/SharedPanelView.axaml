@@ -193,59 +193,68 @@
             </Grid>
 
             <!-- Conversion Params -->
-            <HeaderedContentControl Grid.Row="2" Grid.Column="0" Header="Conversion" Margin="5">
-                <StackPanel Orientation="Horizontal" Spacing="15">
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="Colour distance">
-                        <ComboBox ItemsSource="{Binding SourceData.ColourDistance}"
-                                  SelectedItem="{Binding  SelectedConversion.ColourDistance}"
-                                  HorizontalAlignment="Stretch" />
-                    </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="Initial state">
-                        <ComboBox ItemsSource="{Binding SourceData.InitialState}"
-                                  SelectedItem="{Binding SelectedConversion.InitialState}"
-                                  HorizontalAlignment="Stretch" />
-                    </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="No. of solutions">
-                        <NumericUpDown Minimum="1" Maximum="999999999"
-                                       Value="{Binding  SelectedConversion.SolutionHistoryLength }"
-                                       Increment="1">
-                        </NumericUpDown>
-                    </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="Auto save period">
-                        <ComboBox ItemsSource="{Binding SourceData.AutoSavePeriods}"
-                                  SelectedItem="{Binding SelectedConversion.AutoSavePeriod}"
-                                  HorizontalAlignment="Stretch"
-                                  Margin="0,0,3,0" />
-                    </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="Threads">
-                        <ComboBox ItemsSource="{Binding SourceData.TotalThreads}"
-                                  SelectedItem="{Binding  SelectedConversion.NumberOfThreads }"
-                                  HorizontalAlignment="Stretch" />
-                    </HeaderedContentControl>
-                    <HeaderedContentControl Grid.Row="0" Grid.Column="2" Header="Register on/off">
-                        <Grid ColumnDefinitions="2*,1*" ColumnSpacing="15"
-                              HorizontalAlignment="Stretch">
-                            <Button Grid.Column="0" BorderThickness="1" BorderBrush="Black"
-                                    HorizontalAlignment="Stretch"
-                                    Content="{Binding  SelectedConversion.RegisterOnOffFileBasename}"
-                                    Command="{Binding SelectRegisterOnOffFile}"
-                                    ToolTip.Tip="{Binding SelectedConversion.RegisterOnOffFileBasename}" />
-                            <!-- CommandParameter="{Binding RegisterFileTypeAction}"  -->
-                            <Button Grid.Column="1" BorderThickness="1" BorderBrush="Black"
-                                    HorizontalAlignment="Stretch"
-                                    IsEnabled="{Binding SelectedConversion.CanEditRegisterFile}">
-                                Edit File
-                            </Button>
-                        </Grid>
-                    </HeaderedContentControl>
-                </StackPanel>
+            <Expander Grid.Row="2" Header="Conversion Settings"
+                      Margin="5"
+                      IsExpanded="{Binding  SelectedConversion.IsConversionExpanded}"
+                      HorizontalAlignment="Stretch">
+                <Grid RowDefinitions="Auto,Auto"
+                      ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                      RowSpacing="10" ColumnSpacing="10">
 
-            </HeaderedContentControl>
+                    <!-- Row 0 -->
+                    <Label Content="Colour distance"
+                           VerticalAlignment="Center"/>
+
+                    <ComboBox Grid.Row="0" Grid.Column="1"
+                              ItemsSource="{Binding SourceData.ColourDistance}"
+                              SelectedItem="{Binding SelectedConversion.ColourDistance}"
+                              HorizontalAlignment="Stretch" />
+
+                    <Label Grid.Row="0" Grid.Column="2" Content="Initial state" VerticalAlignment="Center" />
+                    <ComboBox Grid.Row="0" Grid.Column="3"
+                              ItemsSource="{Binding SourceData.InitialState}"
+                              SelectedItem="{Binding SelectedConversion.InitialState}"
+                              HorizontalAlignment="Stretch" />
+
+                    <Label Grid.Row="0" Grid.Column="4" Content="No. of solutions" VerticalAlignment="Center" />
+                    <NumericUpDown Grid.Row="0" Grid.Column="5"
+                                   Minimum="1" Maximum="999999999"
+                                   Value="{Binding SelectedConversion.SolutionHistoryLength}"
+                                   Increment="1" />
+
+                    <!-- Row 1 -->
+                    <Label Grid.Row="1" Grid.Column="0" Content="Auto save period" VerticalAlignment="Center" />
+                    <ComboBox Grid.Row="1" Grid.Column="1"
+                              ItemsSource="{Binding SourceData.AutoSavePeriods}"
+                              SelectedItem="{Binding SelectedConversion.AutoSavePeriod}"
+                              HorizontalAlignment="Stretch" />
+
+                    <Label Grid.Row="1" Grid.Column="2" Content="Threads" VerticalAlignment="Center" />
+                    <ComboBox Grid.Row="1" Grid.Column="3"
+                              ItemsSource="{Binding SourceData.TotalThreads}"
+                              SelectedItem="{Binding SelectedConversion.NumberOfThreads}"
+                              HorizontalAlignment="Stretch" />
+
+                    <Label Grid.Row="1" Grid.Column="4" Content="Register on/off" VerticalAlignment="Center" />
+                    <Grid Grid.Row="1" Grid.Column="5" ColumnDefinitions="2*,1*" ColumnSpacing="15">
+                        <Button Grid.Column="0" BorderThickness="1" BorderBrush="Black"
+                                HorizontalAlignment="Stretch"
+                                Content="{Binding SelectedConversion.RegisterOnOffFileBasename}"
+                                Command="{Binding SelectRegisterOnOffFile}"
+                                ToolTip.Tip="{Binding SelectedConversion.RegisterOnOffFileBasename}" />
+                        <Button Grid.Column="1" BorderThickness="1" BorderBrush="Black"
+                                HorizontalAlignment="Stretch"
+                                IsEnabled="{Binding SelectedConversion.CanEditRegisterFile}">
+                            Edit File
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Expander>
 
             <!-- Dual Mode Expander -->
             <Expander Grid.Row="4" Grid.Column="0"
-                      Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
                       HorizontalAlignment="Stretch" Header="Dual Frame Mode"
+                      Margin="5"
                       IsExpanded="{Binding SelectedConversion.DualFrameMode,Mode=OneWay}"
                       IsEnabled="{Binding SelectedConversion.DualFrameMode}">
                 <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
@@ -284,7 +293,7 @@
             </Expander>
 
             <!-- Action Buttons -->
-            <HeaderedContentControl Grid.Row="5" Grid.Column="0" Header="Actions">
+            <HeaderedContentControl Grid.Row="5" Grid.Column="0" Header="Actions" Margin="5">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
 
                     <!-- Group 1: Preview + Convert + Continue-->

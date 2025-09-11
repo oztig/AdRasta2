@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace AdRasta2.Models;
 
@@ -7,6 +8,10 @@ public class SourceData
     public ObservableCollection<string> AfterDualSteps { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> DualBlending { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> ResizeFilters { get; } = new ObservableCollection<string>();
+    public ObservableCollection<string> ColourDistance { get; } = new ObservableCollection<string>();
+    public ObservableCollection<string> InitialState { get; } = new ObservableCollection<string>();
+    public ObservableCollection<string> AutoSavePeriods { get; } = new ObservableCollection<string>();
+    public ObservableCollection<int> TotalThreads { get; } = new ObservableCollection<int>();
     
 
     public void Populate()
@@ -14,6 +19,10 @@ public class SourceData
         PopulateAfterDualSteps();
         PopulateDualBlending();
         PopulateResizeFilters();
+        PopulateColourDistance();
+        PopulateInitialState();
+        PopulateAutoSavePeriods();
+        PopulateThreads();
     }
 
     private void PopulateAfterDualSteps()
@@ -39,6 +48,48 @@ public class SourceData
         ResizeFilters.Add("bspline");
         ResizeFilters.Add("catmullrom");
         ResizeFilters.Add("lanczos");
+    }
+    
+    private void PopulateColourDistance()
+    {
+        ColourDistance.Clear();
+        ColourDistance.Add("cie94");
+        ColourDistance.Add("ciede");
+        ColourDistance.Add("euclid");
+        ColourDistance.Add("yuv");
+    }
+    
+    private void PopulateInitialState()
+    {
+        InitialState.Clear();
+        InitialState.Add("empty");
+        InitialState.Add("less");
+        InitialState.Add("random");
+        InitialState.Add("smart");
+    }
+    
+    private void PopulateAutoSavePeriods()
+    {
+        AutoSavePeriods.Clear();
+        AutoSavePeriods.Add("auto");
+        AutoSavePeriods.Add("0");
+        AutoSavePeriods.Add("1000");
+        AutoSavePeriods.Add("10000");
+        AutoSavePeriods.Add("50000");
+        AutoSavePeriods.Add("100000");
+        AutoSavePeriods.Add("500000");
+        AutoSavePeriods.Add("1000000");
+        AutoSavePeriods.Add("5000000");
+        AutoSavePeriods.Add("10000000");
+    }
+    
+    private void PopulateThreads()
+    {
+        TotalThreads.Clear();
+        for (int i = 1; i <= Environment.ProcessorCount; i++)
+        {
+            TotalThreads.Add(i);
+        }
     }
 
     public SourceData()

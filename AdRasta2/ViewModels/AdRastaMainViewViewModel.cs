@@ -235,6 +235,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion.SourceImageMaskPath = await SelectFiles(FilePickerFileTypes.ImageAll);
     }
 
+    public async void SelectRegisterOnOffFile()
+    {
+        SelectedConversion.RegisterOnOffFilePath = await SelectFiles(FilePickerFileTypes.TextPlain);
+    }
+
     private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;

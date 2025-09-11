@@ -339,9 +339,29 @@ public class RastaConversion : ReactiveObject
         set
         {
             this.RaiseAndSetIfChanged(ref _registerOnOffFilePath, value);
-            // LATER !
-            // RegisterOnOffFileBasename = value;
+            RegisterOnOffFileBasename = value;
         }
+    }
+
+    private string _registerOnOffFileBasename = string.Empty;
+
+    public string RegisterOnOffFileBasename
+    {
+        get => _registerOnOffFileBasename == string.Empty ? "Select a file" : _registerOnOffFileBasename;
+        set
+        {
+            SetCanEditRegisterFile(value);
+            value = Path.GetFileName(value);
+            this.RaiseAndSetIfChanged(ref _registerOnOffFileBasename, value);
+        }
+    }
+
+    private bool _canEditRegisterFile;
+
+    public bool CanEditRegisterFile
+    {
+        get => _canEditRegisterFile;
+        set => this.RaiseAndSetIfChanged(ref _canEditRegisterFile, value);
     }
 
     private string _colourDistance;
@@ -380,12 +400,12 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _autoSavePeriod, value);
     }
 
-    private int _threads;
+    private int _numberOfThreads = 1;
 
-    public int Threads
+    public int NumberOfThreads
     {
-        get => _threads;
-        set => this.RaiseAndSetIfChanged(ref _threads, value);
+        get => _numberOfThreads;
+        set => this.RaiseAndSetIfChanged(ref _numberOfThreads, value);
     }
 
     // New, Previosuly unset Params in previous AdRasta
@@ -497,6 +517,12 @@ public class RastaConversion : ReactiveObject
         get => _isSelected;
         set => this.RaiseAndSetIfChanged(ref _isSelected, value);
     }
+    
+    private void SetCanEditRegisterFile(string value)
+    {
+        CanEditRegisterFile = value != string.Empty;
+    }
+    
 
     public RastaConversion(string title)
     {
@@ -511,7 +537,7 @@ public class RastaConversion : ReactiveObject
     public void PopulateDefaultValues()
     {
         Title = "New Conversion";
-        Threads = RastaConverterDefaultValues.DefaultThreads;
+        NumberOfThreads = RastaConverterDefaultValues.DefaultThreads;
         MaxEvaluations = RastaConverterDefaultValues.DefaultMaxEvaluations;
         AutoSavePeriod = RastaConverterDefaultValues.DefaultAutoSavePeriod;
         RandomSeed = RastaConverterDefaultValues.DefaultRandomSeed;

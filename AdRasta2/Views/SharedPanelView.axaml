@@ -15,7 +15,7 @@
     </UserControl.Resources>
 
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,Auto,*,Auto,Auto"
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,Auto,Auto,*,Auto,Auto"
               ColumnDefinitions="Auto,*">
 
             <!-- Dual Mode Switch -->
@@ -34,7 +34,7 @@
                 <!-- Source -->
                 <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="Source"
                                         Margin="5,0,5,5">
-                    <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,Auto">
+                    <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,Auto" RowSpacing="5">
                         <Button Grid.Row="0" Grid.Column="0"
                                 Command="{Binding SelectSourceImage}"
                                 BorderBrush="Black"
@@ -47,8 +47,10 @@
                             <Grid>
                                 <!-- Source Image -->
                                 <Image Source="{Binding SelectedConversion.SourceImage}"
-                                       MaxWidth="320"
-                                       MaxHeight="240"
+                                       MinWidth="160"
+                                       MinHeight="120"
+                                       MaxWidth="160"
+                                       MaxHeight="120"
                                        ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
                                        Stretch="Uniform">
                                     <Image.ContextMenu>
@@ -126,7 +128,7 @@
                 <!-- Mask -->
                 <HeaderedContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Header="Mask" Margin="5,0,5,5"
                                         IsVisible="{Binding SelectedConversion.IsSingleFrameMode}">
-                    <Grid RowDefinitions="*,Auto">
+                    <Grid RowDefinitions="*,Auto" RowSpacing="5">
                         <Button Grid.Row="0"
                                 IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
                                 IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
@@ -138,8 +140,10 @@
                                 BorderBrush="Black"
                                 BorderThickness="1">
                             <Image Source="{Binding SelectedConversion.SourceImageMask}"
-                                   MaxWidth="320"
-                                   MaxHeight="240"
+                                   MinWidth="160"
+                                   MinHeight="120"
+                                   MaxWidth="160"
+                                   MaxHeight="120"
                                    Stretch="Uniform"
                                    ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}">
                                 <Image.ContextMenu>
@@ -163,7 +167,7 @@
                 <!-- Preview -->
                 <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Header="Preview"
                                         Margin="5,0,5,5" HorizontalAlignment="Right">
-                    <Grid RowDefinitions="*,Auto">
+                    <Grid RowDefinitions="*,Auto" RowSpacing="5">
                         <Border Grid.Row="0"
                                 HorizontalAlignment="Stretch"
                                 Margin="0,0,0,3"
@@ -172,8 +176,10 @@
                                 BorderBrush="Black"
                                 BorderThickness="1">
                             <Image Source="{Binding SelectedConversion.ImagePreview}"
-                                   MaxWidth="320"
-                                   MaxHeight="240"
+                                   MinWidth="160"
+                                   MinHeight="120"
+                                   MaxWidth="160"
+                                   MaxHeight="120"
                                    Stretch="Uniform" />
                         </Border>
                         <Grid Grid.Row="1" ColumnDefinitions="Auto,*">

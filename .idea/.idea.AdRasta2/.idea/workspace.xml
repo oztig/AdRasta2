@@ -74,7 +74,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Project.AdRasta2.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Project.AdRasta2.executor&quot;: &quot;Run&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -134,14 +134,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00018" summary="Add film strip theme and other UI changes">
-      <option name="closed" value="true" />
-      <created>1753457606886</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1753457606886</updated>
     </task>
     <task id="LOCAL-00019" summary="latest">
       <option name="closed" value="true" />
@@ -527,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757447933370</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1757487124580</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1757487124581</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,11 +558,11 @@
     <MESSAGE value="Add Auto to Source Image Height" />
     <MESSAGE value="Make Height overlay textbox readonly, and none tab stop" />
     <MESSAGE value="Add conversion status, plus coloured dots on source image to show progress" />
-    <MESSAGE value="stuff" />
     <MESSAGE value="Add Status dots, plus colour to buttons to match statuses" />
     <MESSAGE value="Tidy up sharedpanelview" />
     <MESSAGE value="cant remember - to much wine" />
-    <option name="LAST_COMMIT_MESSAGE" value="cant remember - to much wine" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

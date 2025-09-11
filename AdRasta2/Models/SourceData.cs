@@ -12,8 +12,8 @@ public class SourceData
     public ObservableCollection<string> InitialState { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> AutoSavePeriods { get; } = new ObservableCollection<string>();
     public ObservableCollection<int> TotalThreads { get; } = new ObservableCollection<int>();
+    public ObservableCollection<string> Palettes { get; } = new ObservableCollection<string>();
     
-
     public void Populate()
     {
         PopulateAfterDualSteps();
@@ -23,6 +23,7 @@ public class SourceData
         PopulateInitialState();
         PopulateAutoSavePeriods();
         PopulateThreads();
+        PopulatePalettes();
     }
 
     private void PopulateAfterDualSteps()
@@ -90,6 +91,19 @@ public class SourceData
         {
             TotalThreads.Add(i);
         }
+    }
+    
+    private void PopulatePalettes()
+    {
+        Palettes.Clear();
+        Palettes.Add("altirra");
+        Palettes.Add("altirra_old");
+        Palettes.Add("g2f");
+        Palettes.Add("jakub");
+        Palettes.Add("laoo");
+        Palettes.Add("ntsc");
+        Palettes.Add("oliverp");
+        Palettes.Add("real");
     }
 
     public SourceData()

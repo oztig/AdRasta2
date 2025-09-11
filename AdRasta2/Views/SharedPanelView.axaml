@@ -15,8 +15,9 @@
     </UserControl.Resources>
 
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,Auto,*,Auto,Auto" ColumnDefinitions="Auto,*">
-            
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,*,Auto,*,Auto,Auto"
+              ColumnDefinitions="Auto,*">
+
             <!-- Dual Mode Switch -->
             <Grid Grid.Row="0" ColumnDefinitions="Auto,Auto,*" Margin=" 10,5,5,5" ColumnSpacing="5">
                 <TextBlock Grid.Column="0"
@@ -160,22 +161,31 @@
                 </HeaderedContentControl>
 
                 <!-- Preview -->
-                <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Header="Preview"
+                <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Header="Preview"
                                         Margin="5,0,5,5" HorizontalAlignment="Right">
-                    <Border BorderBrush="Black"
-                            BorderThickness="1"
-                            HorizontalAlignment="Left"
-                            Padding="1"
-                            Background="Black"
-                            Margin="5">
-                        <Image Source="{Binding SelectedConversion.ImagePreview}"
-                               MaxWidth="320"
-                               MaxHeight="240"
-                               Stretch="Uniform" />
-                    </Border>
+                    <Grid RowDefinitions="*,Auto">
+                        <Border Grid.Row="0"
+                                HorizontalAlignment="Stretch"
+                                Margin="0,0,0,3"
+                                Padding="1"
+                                Background="Black"
+                                BorderBrush="Black"
+                                BorderThickness="1">
+                            <Image Source="{Binding SelectedConversion.ImagePreview}"
+                                   MaxWidth="320"
+                                   MaxHeight="240"
+                                   Stretch="Uniform" />
+                        </Border>
+                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+                            <Label Grid.Column="0" VerticalAlignment="Center">Palette</Label>
+                            <ComboBox Grid.Column="1" Margin="5,0,0,0" ItemsSource="{Binding SourceData.Palettes}"
+                                      SelectedItem="{Binding  SelectedConversion.Palette}"
+                                      HorizontalAlignment="Stretch" />
+                        </Grid>
+                    </Grid>
                 </HeaderedContentControl>
             </Grid>
-            
+
             <!-- Conversion Params -->
             <HeaderedContentControl Grid.Row="2" Grid.Column="0" Header="Conversion" Margin="5">
                 <StackPanel Orientation="Horizontal" Spacing="15">
@@ -213,8 +223,7 @@
                                     HorizontalAlignment="Stretch"
                                     Content="{Binding  SelectedConversion.RegisterOnOffFileBasename}"
                                     Command="{Binding SelectRegisterOnOffFile}"
-                                    ToolTip.Tip="{Binding SelectedConversion.RegisterOnOffFileBasename}"
-                                    />
+                                    ToolTip.Tip="{Binding SelectedConversion.RegisterOnOffFileBasename}" />
                             <!-- CommandParameter="{Binding RegisterFileTypeAction}"  -->
                             <Button Grid.Column="1" BorderThickness="1" BorderBrush="Black"
                                     HorizontalAlignment="Stretch"

@@ -15,23 +15,27 @@
     </UserControl.Resources>
 
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,Auto,Auto,*,Auto"
-              ColumnDefinitions="*,Auto">
+        <DockPanel LastChildFill="True">
 
-            <!-- Dual Mode Switch -->
-            <views:DualModeSwitchView  Grid.Row="0" />
+            <!-- Fixed Top: Dual Mode Switcher -->
+            <views:DualModeSwitchView DockPanel.Dock="Top" Margin="10,5" />
 
-            <!-- Images -->
-            <views:ImageSettingsView  Grid.Row="1" />
-            
-            <views:ConversionSettingsView Grid.Row="2" />
+            <!-- Fixed Top: Image Settings -->
+            <views:ImageSettingsView DockPanel.Dock="Top" Margin="10,5" />
 
-            <!-- Dual Mode Expander -->
-            <views:DualModeSettingsView Grid.Row="3" />
-            
-            <!-- Action Buttons -->
-            <views:ActionButtonsView Grid.Row="4" />
-            
-        </Grid>
+            <!-- Fixed Bottom: Action Buttons -->
+            <views:ActionButtonsView DockPanel.Dock="Bottom" Margin="10,5" />
+
+            <!-- Scrollable Middle -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10" Spacing="8">
+                    <views:ConversionSettingsView />
+                    <views:DualModeSettingsView />
+                </StackPanel>
+            </ScrollViewer>
+
+        </DockPanel>
     </Border>
+
+
 </UserControl>

@@ -8,9 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
@@ -152,14 +149,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00029" summary="s">
-      <option name="closed" value="true" />
-      <created>1756678671683</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1756678671683</updated>
     </task>
     <task id="LOCAL-00030" summary="1">
       <option name="closed" value="true" />
@@ -545,7 +534,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757672245180</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="further layout fiddling">
+      <option name="closed" value="true" />
+      <created>1757673115778</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1757673115778</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +552,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Bound Height Slider" />
     <MESSAGE value="height tooltip" />
     <MESSAGE value="Add num up down bound to slider for height" />
     <MESSAGE value="Layout Changes" />
@@ -580,7 +576,8 @@
     <MESSAGE value="split out remaining sections of screen into their own controls" />
     <MESSAGE value="removed commented out code" />
     <MESSAGE value="fiddling with layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="fiddling with layout" />
+    <MESSAGE value="further layout fiddling" />
+    <option name="LAST_COMMIT_MESSAGE" value="further layout fiddling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,8 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +65,10 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
@@ -140,14 +148,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00023" summary="stuff">
-      <option name="closed" value="true" />
-      <created>1753785724797</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1753785724797</updated>
     </task>
     <task id="LOCAL-00024" summary="stuff">
       <option name="closed" value="true" />
@@ -533,7 +533,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757628979094</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="fiddling with layout">
+      <option name="closed" value="true" />
+      <created>1757660846010</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1757660846010</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +551,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Hide Mask if Dual Mode" />
     <MESSAGE value="Add Image TooltIp" />
     <MESSAGE value="group images" />
     <MESSAGE value="Toy with themes - Fail!" />
@@ -568,7 +575,8 @@
     <MESSAGE value="Add and map Palette" />
     <MESSAGE value="more layout fiddling" />
     <MESSAGE value="visual fiddling" />
-    <option name="LAST_COMMIT_MESSAGE" value="visual fiddling" />
+    <MESSAGE value="fiddling with layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="fiddling with layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             x:DataType="vm:AdRastaMainViewViewModel"
+             x:Class="AdRasta2.Views.ConversionSettingsView">
+
+    <Expander Header="Conversion Settings"
+              Margin="5"
+              IsExpanded="{Binding  SelectedConversion.IsConversionExpanded}"
+              HorizontalAlignment="Stretch">
+        <Grid RowDefinitions="Auto,Auto"
+              ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+              RowSpacing="10" ColumnSpacing="10">
+
+            <!-- Row 0 -->
+            <Label Content="Colour distance"
+                   VerticalAlignment="Center" />
+
+            <ComboBox Grid.Row="0" Grid.Column="1"
+                      ItemsSource="{Binding SourceData.ColourDistance}"
+                      SelectedItem="{Binding SelectedConversion.ColourDistance}"
+                      HorizontalAlignment="Stretch" />
+
+            <Label Grid.Row="0" Grid.Column="2" Content="Initial state" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="0" Grid.Column="3"
+                      ItemsSource="{Binding SourceData.InitialState}"
+                      SelectedItem="{Binding SelectedConversion.InitialState}"
+                      HorizontalAlignment="Stretch" />
+
+            <Label Grid.Row="0" Grid.Column="4" Content="No. of solutions" VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="0" Grid.Column="5"
+                           Minimum="1" Maximum="999999999"
+                           Value="{Binding SelectedConversion.SolutionHistoryLength}"
+                           Increment="1" />
+
+            <!-- Row 1 -->
+            <Label Grid.Row="1" Grid.Column="0" Content="Auto save period" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="1" Grid.Column="1"
+                      ItemsSource="{Binding SourceData.AutoSavePeriods}"
+                      SelectedItem="{Binding SelectedConversion.AutoSavePeriod}"
+                      HorizontalAlignment="Stretch" />
+
+            <Label Grid.Row="1" Grid.Column="2" Content="Threads" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="1" Grid.Column="3"
+                      ItemsSource="{Binding SourceData.TotalThreads}"
+                      SelectedItem="{Binding SelectedConversion.NumberOfThreads}"
+                      HorizontalAlignment="Stretch" />
+
+            <Label Grid.Row="1" Grid.Column="4" Content="Register on/off" VerticalAlignment="Center" />
+            <Grid Grid.Row="1" Grid.Column="5" ColumnDefinitions="2*,1*" ColumnSpacing="15">
+                <Button Grid.Column="0" BorderThickness="1" BorderBrush="Black"
+                        HorizontalAlignment="Stretch"
+                        Content="{Binding SelectedConversion.RegisterOnOffFileBasename}"
+                        Command="{Binding SelectRegisterOnOffFile}"
+                        ToolTip.Tip="{Binding SelectedConversion.RegisterOnOffFileBasename}" />
+                <Button Grid.Column="1" BorderThickness="1" BorderBrush="Black"
+                        HorizontalAlignment="Stretch"
+                        IsEnabled="{Binding SelectedConversion.CanEditRegisterFile}">
+                    Edit File
+                </Button>
+            </Grid>
+        </Grid>
+    </Expander>
+
+</UserControl>

@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             x:DataType="vm:AdRastaMainViewViewModel"
+             x:Class="AdRasta2.Views.DualModeSettingsView">
+
+    <Expander
+        Header="Dual Frame Mode Settings"
+        HorizontalAlignment="Stretch" 
+        Margin="5"
+        IsExpanded="{Binding SelectedConversion.DualFrameMode,Mode=OneWay}"
+        IsEnabled="{Binding SelectedConversion.DualFrameMode}">
+        <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
+              RowSpacing="10">
+            <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="First Steps">
+                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
+                               Increment="1" Value="{Binding SelectedConversion.FirstDualSteps}">
+                </NumericUpDown>
+            </HeaderedContentControl>
+            <HeaderedContentControl Grid.Row="0" Grid.Column="1" Header="After Steps">
+                <ComboBox ItemsSource="{Binding SourceData.AfterDualSteps}"
+                          SelectedItem="{Binding SelectedConversion.AfterDualSteps}"
+                          HorizontalAlignment="Stretch" />
+            </HeaderedContentControl>
+            <HeaderedContentControl Grid.Row="0" Grid.Column="2" Header="Altering Steps">
+                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
+                               Increment="1" Value="{Binding SelectedConversion.AlternatingDualSteps}">
+                </NumericUpDown>
+            </HeaderedContentControl>
+            <HeaderedContentControl Grid.Row="0" Grid.Column="3" Header="Blending">
+                <ComboBox ItemsSource="{Binding SourceData.DualBlending}"
+                          SelectedItem="{Binding SelectedConversion.DualBlending}"
+                          HorizontalAlignment="Stretch" />
+            </HeaderedContentControl>
+            <HeaderedContentControl Grid.Row="0" Grid.Column="4" Header="Luma">
+                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
+                               Increment="0.1" Value="{Binding SelectedConversion.DualLuma}">
+                </NumericUpDown>
+            </HeaderedContentControl>
+            <HeaderedContentControl Grid.Row="0" Grid.Column="5" Header="Chroma">
+                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
+                               Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
+                </NumericUpDown>
+            </HeaderedContentControl>
+        </Grid>
+    </Expander>
+
+</UserControl>

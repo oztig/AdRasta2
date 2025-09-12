@@ -19,14 +19,7 @@
               ColumnDefinitions="*,Auto">
 
             <!-- Dual Mode Switch -->
-            <Grid Grid.Row="0" ColumnDefinitions="Auto,Auto,*" Margin=" 10,5,5,5" ColumnSpacing="5">
-                <TextBlock Grid.Column="0"
-                           Text="Dual Frame Mode"
-                           VerticalAlignment="Center" />
-                <ToggleSwitch Grid.Column="2"
-                              IsChecked="{Binding  SelectedConversion.DualFrameMode}"
-                              VerticalAlignment="Center" />
-            </Grid>
+            <views:DualModeSwitchView  Grid.Row="0" />
 
             <!-- Images -->
             <views:ImageSettingsView  Grid.Row="1" />

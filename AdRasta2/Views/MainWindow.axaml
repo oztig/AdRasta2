@@ -9,7 +9,6 @@
         x:DataType="vm:MainWindowViewModel"
         MaxWidth="1920"
         MaxHeight="1080"
-        SizeToContent="WidthAndHeight"
         Icon="{Binding AppIcon}"
         Title="AdRasta2">
 

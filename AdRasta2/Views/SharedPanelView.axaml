@@ -15,7 +15,7 @@
     </UserControl.Resources>
 
     <Border BorderThickness="1" BorderBrush="DarkGray" Margin="10" CornerRadius="5">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,Auto,Auto,*,Auto,Auto"
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="Auto,Auto,Auto,*,Auto"
               ColumnDefinitions="*,Auto">
 
             <!-- Dual Mode Switch -->

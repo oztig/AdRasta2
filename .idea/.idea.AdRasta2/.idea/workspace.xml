@@ -8,13 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,22 +146,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00026" summary="Add Defaults, and Converter and Conversion classes">
-      <option name="closed" value="true" />
-      <created>1756627842974</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1756627842974</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Split out bottom panel">
-      <option name="closed" value="true" />
-      <created>1756631280544</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1756631280544</updated>
     </task>
     <task id="LOCAL-00028" summary="add .ignore">
       <option name="closed" value="true" />
@@ -545,7 +523,23 @@
       <option name="project" value="LOCAL" />
       <updated>1757663292642</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="split out remaining sections of screen into their own controls">
+      <option name="closed" value="true" />
+      <created>1757664625989</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1757664625989</updated>
+    </task>
+    <task id="LOCAL-00076" summary="removed commented out code">
+      <option name="closed" value="true" />
+      <created>1757664653808</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1757664653808</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,8 +549,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Toy with themes - Fail!" />
-    <MESSAGE value="Inject services" />
     <MESSAGE value="Add Bound Height Slider" />
     <MESSAGE value="height tooltip" />
     <MESSAGE value="Add num up down bound to slider for height" />
@@ -580,7 +572,9 @@
     <MESSAGE value="fiddling with layout" />
     <MESSAGE value="Split View into individual controls" />
     <MESSAGE value="split out Dual Frame Setting into own control" />
-    <option name="LAST_COMMIT_MESSAGE" value="split out Dual Frame Setting into own control" />
+    <MESSAGE value="split out remaining sections of screen into their own controls" />
+    <MESSAGE value="removed commented out code" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed commented out code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,12 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,14 +142,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00024" summary="stuff">
-      <option name="closed" value="true" />
-      <created>1753788868920</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1753788868920</updated>
     </task>
     <task id="LOCAL-00025" summary="Start New Layout">
       <option name="closed" value="true" />
@@ -541,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757660846010</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Split View into individual controls">
+      <option name="closed" value="true" />
+      <created>1757662659931</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1757662659931</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +545,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Image TooltIp" />
     <MESSAGE value="group images" />
     <MESSAGE value="Toy with themes - Fail!" />
     <MESSAGE value="Inject services" />
@@ -576,7 +569,8 @@
     <MESSAGE value="more layout fiddling" />
     <MESSAGE value="visual fiddling" />
     <MESSAGE value="fiddling with layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="fiddling with layout" />
+    <MESSAGE value="Split View into individual controls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Split View into individual controls" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

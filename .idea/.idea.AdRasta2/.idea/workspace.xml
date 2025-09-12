@@ -8,6 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,12 +63,16 @@
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
@@ -142,14 +152,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00025" summary="Start New Layout">
-      <option name="closed" value="true" />
-      <created>1753806621160</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1753806621160</updated>
     </task>
     <task id="LOCAL-00026" summary="Add Defaults, and Converter and Conversion classes">
       <option name="closed" value="true" />
@@ -535,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757662659931</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="split out Dual Frame Setting into own control">
+      <option name="closed" value="true" />
+      <created>1757663292642</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1757663292642</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +555,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="group images" />
     <MESSAGE value="Toy with themes - Fail!" />
     <MESSAGE value="Inject services" />
     <MESSAGE value="Add Bound Height Slider" />
@@ -570,7 +579,8 @@
     <MESSAGE value="visual fiddling" />
     <MESSAGE value="fiddling with layout" />
     <MESSAGE value="Split View into individual controls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split View into individual controls" />
+    <MESSAGE value="split out Dual Frame Setting into own control" />
+    <option name="LAST_COMMIT_MESSAGE" value="split out Dual Frame Setting into own control" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

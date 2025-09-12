@@ -4,10 +4,12 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AdRasta2/App.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Views/ActionButtonsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/AdRastaMainView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/BottomPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/ConversionSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/DualModeSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Views/ImageSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/InputDialog.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/MainWindow.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/SharedPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />

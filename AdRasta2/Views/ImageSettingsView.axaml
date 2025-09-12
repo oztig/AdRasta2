@@ -1,0 +1,177 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             xmlns:converters="clr-namespace:AdRasta2.Converters"
+             x:DataType="vm:AdRastaMainViewViewModel"
+             x:Class="AdRasta2.Views.ImageSettingsView">
+
+    <UserControl.Resources>
+        <converters:StatusToColourConverter x:Key="StatusToColourConverter" />
+    </UserControl.Resources>
+
+    <Grid RowDefinitions="*,*" ColumnDefinitions="Auto,Auto,Auto,Auto">
+
+        <!-- Source -->
+        <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="Source"
+                                Margin="5,0,5,5">
+            <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,Auto" RowSpacing="5">
+                <Button Grid.Row="0" Grid.Column="0"
+                        Command="{Binding SelectSourceImage}"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Margin="0,0,0,3"
+                        Padding="1"
+                        Background="Black">
+                    <Grid>
+                        <!-- Source Image -->
+                        <Image Source="{Binding SelectedConversion.SourceImage}"
+                               MinWidth="160"
+                               MinHeight="120"
+                               MaxWidth="160"
+                               MaxHeight="120"
+                               ToolTip.Tip="{Binding SelectedConversion.SourceImagePath}"
+                               Stretch="Uniform">
+                            <Image.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="H-Flip" Command="{Binding HFlipSourceImage}" />
+                                </ContextMenu>
+                            </Image.ContextMenu>
+                        </Image>
+
+                        <!-- Status Dot Overlay -->
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Margin="4">
+                            <ItemsControl ItemsSource="{Binding SelectedConversion.UniqueLatestStatuses}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Ellipse Width="10" Height="10"
+                                                 Fill="{Binding Status, Converter={StaticResource StatusToColourConverter}}"
+                                                 Stroke="White"
+                                                 StrokeThickness="1"
+                                                 Margin="2"
+                                                 ToolTip.Tip="{Binding  TooltipText}"
+                                                 IsHitTestVisible="True" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Grid>
+                </Button>
+                <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
+                    <Slider Orientation="Vertical"
+                            Minimum="0"
+                            Maximum="241"
+                            Value="{Binding SelectedConversion.Height}"
+                            VerticalAlignment="Stretch"
+                            ToolTip.Tip="Height (241 = Auto)"
+                            HorizontalAlignment="Center" />
+                    <NumericUpDown Grid.Row="1"
+                                   x:Name="HeightUpnDown"
+                                   BorderThickness="0" Maximum="241" Minimum="0" Increment="1"
+                                   IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsNotAutoConverter}}"
+                                   Padding="1"
+                                   ToolTip.Tip="Height (241 = Auto)"
+                                   TextAlignment="Center" ShowButtonSpinner="False"
+                                   VerticalContentAlignment="Center"
+                                   Value="{Binding SelectedConversion.Height}" Margin="0" />
+                    <TextBox Grid.Row="1" Text="Auto"
+                             IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsAutoConverter}}"
+                             Height="{Binding ElementName=HeightUpnDown, Path=Height}"
+                             BorderThickness="0"
+                             TextAlignment="Center"
+                             IsReadOnly="True"
+                             VerticalAlignment="Center"
+                             VerticalContentAlignment="Center"
+                             HorizontalAlignment="Center"
+                             Background="Transparent"
+                             IsTabStop="False"
+                             IsHitTestVisible="False" />
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0" ColumnDefinitions="Auto,*">
+                    <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Resize Filter</Label>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,0,0,0"
+                              ItemsSource="{Binding   SourceData.ResizeFilters}"
+                              SelectedItem="{Binding  SelectedConversion.ResizeFilter}" />
+                </Grid>
+            </Grid>
+        </HeaderedContentControl>
+
+        <!-- Mask -->
+        <HeaderedContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Header="Mask" Margin="5,0,5,5"
+                                IsVisible="{Binding SelectedConversion.IsSingleFrameMode}">
+            <Grid RowDefinitions="*,Auto" RowSpacing="5">
+                <Button Grid.Row="0"
+                        IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
+                        IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
+                        Command="{Binding SelectSourceMask}"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,0,3"
+                        Padding="1"
+                        Background="Black"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <Image Source="{Binding SelectedConversion.SourceImageMask}"
+                           MinWidth="160"
+                           MinHeight="120"
+                           MaxWidth="160"
+                           MaxHeight="120"
+                           Stretch="Uniform"
+                           ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}">
+                        <Image.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="H-Flip" Command="{Binding HFlipMaskImage}" />
+                            </ContextMenu>
+                        </Image.ContextMenu>
+                    </Image>
+                </Button>
+                <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" VerticalAlignment="Center">Strength</Label>
+                    <NumericUpDown Grid.Column="1" Maximum="1000" Minimum="0" Increment="1"
+                                   TextAlignment="Center"
+                                   Margin="5,0,0,0"
+                                   VerticalContentAlignment="Center"
+                                   Value="{Binding SelectedConversion.MaskStrength}" />
+                </Grid>
+            </Grid>
+        </HeaderedContentControl>
+
+        <!-- Preview -->
+        <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Header="Preview"
+                                Margin="5,0,5,5" HorizontalAlignment="Right">
+            <Grid RowDefinitions="*,Auto" RowSpacing="5">
+                <Border Grid.Row="0"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,0,3"
+                        Padding="1"
+                        Background="Black"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <Image Source="{Binding SelectedConversion.ImagePreview}"
+                           MinWidth="160"
+                           MinHeight="120"
+                           MaxWidth="160"
+                           MaxHeight="120"
+                           Stretch="Uniform" />
+                </Border>
+                <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" VerticalAlignment="Center">Palette</Label>
+                    <ComboBox Grid.Column="1" Margin="5,0,0,0" ItemsSource="{Binding SourceData.Palettes}"
+                              SelectedItem="{Binding  SelectedConversion.Palette}"
+                              HorizontalAlignment="Stretch" />
+                </Grid>
+            </Grid>
+        </HeaderedContentControl>
+    </Grid>
+</UserControl>

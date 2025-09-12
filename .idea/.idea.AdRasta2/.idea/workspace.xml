@@ -8,8 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +76,8 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
@@ -149,14 +155,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00030" summary="1">
-      <option name="closed" value="true" />
-      <created>1756679796497</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1756679796497</updated>
     </task>
     <task id="LOCAL-00031" summary="Add Dialog Service">
       <option name="closed" value="true" />
@@ -542,7 +540,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757673115778</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="GUI fiddling">
+      <option name="closed" value="true" />
+      <created>1757676354264</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1757676354264</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +558,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="height tooltip" />
     <MESSAGE value="Add num up down bound to slider for height" />
     <MESSAGE value="Layout Changes" />
     <MESSAGE value="Re-Jig source image setup" />
@@ -577,7 +582,8 @@
     <MESSAGE value="removed commented out code" />
     <MESSAGE value="fiddling with layout" />
     <MESSAGE value="further layout fiddling" />
-    <option name="LAST_COMMIT_MESSAGE" value="further layout fiddling" />
+    <MESSAGE value="GUI fiddling" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI fiddling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

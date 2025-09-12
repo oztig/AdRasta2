@@ -25,6 +25,14 @@ public class RastaConversion : ReactiveObject
         get => _isConversionExpanded;
         set => this.RaiseAndSetIfChanged(ref _isConversionExpanded, value);
     }
+    
+    private bool _isDualModeExpanded = true;
+
+    public bool IsDualModeExpanded
+    {
+        get => _isDualModeExpanded && _dualFrameMode;
+        set => this.RaiseAndSetIfChanged(ref _isDualModeExpanded, value);
+    }
         
     private string _title;
 
@@ -464,6 +472,7 @@ public class RastaConversion : ReactiveObject
                 _dualFrameMode = value;
                 this.RaisePropertyChanged(nameof(DualFrameMode));
                 this.RaisePropertyChanged(nameof(IsSingleFrameMode));
+                this.RaisePropertyChanged(nameof(IsDualModeExpanded));
             }
         }
     }

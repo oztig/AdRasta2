@@ -11,7 +11,7 @@
         Header="Dual Frame Mode Settings"
         HorizontalAlignment="Stretch" 
         Margin="5"
-        IsExpanded="{Binding SelectedConversion.DualFrameMode,Mode=OneWay}"
+        IsExpanded="{Binding SelectedConversion.IsDualModeExpanded,Mode=TwoWay}"
         IsEnabled="{Binding SelectedConversion.DualFrameMode}">
         <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
               RowSpacing="10">

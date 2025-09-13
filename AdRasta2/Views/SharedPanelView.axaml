@@ -29,6 +29,7 @@
             <!-- Scrollable Middle -->
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="10" Spacing="8">
+                    <views:PreprocessSettings/>
                     <views:ConversionSettingsView />
                     <views:DualModeSettingsView />
                 </StackPanel>

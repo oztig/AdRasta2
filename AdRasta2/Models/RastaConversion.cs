@@ -18,6 +18,15 @@ namespace AdRasta2.Models;
 
 public class RastaConversion : ReactiveObject
 {
+    
+    private bool _isPreProcessExpanded = true;
+
+    public bool IsPreProcessExpanded
+    {
+        get => _isPreProcessExpanded;
+        set => this.RaiseAndSetIfChanged(ref _isPreProcessExpanded, value);
+    }
+    
     private bool _isConversionExpanded = true;
 
     public bool IsConversionExpanded

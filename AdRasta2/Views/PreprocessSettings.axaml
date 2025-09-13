@@ -7,6 +7,24 @@
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.PreprocessSettings">
-    
-    
+
+    <Expander Header="Pre-process Settings"
+              Margin="5"
+              IsExpanded="{Binding  SelectedConversion.IsPreProcessExpanded}"
+              HorizontalAlignment="Stretch">
+        <Grid RowDefinitions="Auto,Auto"
+              ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+              RowSpacing="10" ColumnSpacing="10">
+
+            <!-- Row 0 -->
+            <Label Content="Colour distance"
+                   VerticalAlignment="Center" />
+
+            <ComboBox Grid.Row="0" Grid.Column="1"
+                      ItemsSource="{Binding SourceData.PreColourDistance}"
+                      SelectedItem="{Binding SelectedConversion.PreColourDistance}"
+                      HorizontalAlignment="Stretch" />
+        </Grid>
+    </Expander>
+
 </UserControl>

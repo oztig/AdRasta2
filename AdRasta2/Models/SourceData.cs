@@ -13,6 +13,7 @@ public class SourceData
     public ObservableCollection<string> AutoSavePeriods { get; } = new ObservableCollection<string>();
     public ObservableCollection<int> TotalThreads { get; } = new ObservableCollection<int>();
     public ObservableCollection<string> Palettes { get; } = new ObservableCollection<string>();
+    public ObservableCollection<string> PreColourDistance { get; } = new ObservableCollection<string>();
     
     public void Populate()
     {
@@ -24,6 +25,7 @@ public class SourceData
         PopulateAutoSavePeriods();
         PopulateThreads();
         PopulatePalettes();
+        PopulatePreColourDistance();
     }
 
     private void PopulateAfterDualSteps()
@@ -104,6 +106,15 @@ public class SourceData
         Palettes.Add("ntsc");
         Palettes.Add("oliverp");
         Palettes.Add("real");
+    }
+    
+    private void PopulatePreColourDistance()
+    {
+        PreColourDistance.Clear();
+        PreColourDistance.Add("ciede");
+        PreColourDistance.Add("cie94");
+        PreColourDistance.Add("euclid");
+        PreColourDistance.Add("yuv");
     }
 
     public SourceData()

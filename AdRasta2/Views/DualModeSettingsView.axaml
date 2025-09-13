@@ -8,8 +8,8 @@
              x:Class="AdRasta2.Views.DualModeSettingsView">
 
     <Expander
-        Header="Dual Frame Mode Settings"
-        HorizontalAlignment="Stretch" 
+        Header="Dual Frame Mode"
+        HorizontalAlignment="Stretch"
         Margin="5"
         IsExpanded="{Binding SelectedConversion.IsDualModeExpanded,Mode=TwoWay}"
         IsEnabled="{Binding SelectedConversion.DualFrameMode}">

@@ -21,6 +21,7 @@
     <Application.Styles>
         <FluentTheme>
         </FluentTheme>
+        <StyleInclude Source="avares://IconPacks.Avalonia/Icons.axaml" />
         <!-- <ClassicTheme /> -->
         <!-- <Style Selector="TextBlock"> -->
         <!--     <Setter Property="FontSize" Value="11" /> -->

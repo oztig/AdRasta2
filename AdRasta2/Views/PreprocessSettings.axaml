@@ -5,6 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
+             xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.PreprocessSettings">
 
@@ -24,6 +25,61 @@
                       ItemsSource="{Binding SourceData.PreColourDistance}"
                       SelectedItem="{Binding SelectedConversion.PreColourDistance}"
                       HorizontalAlignment="Stretch" />
+
+            <Label Grid.Column="2" Content="Dithering"
+                   VerticalAlignment="Center" />
+
+            <ComboBox Grid.Row="0" Grid.Column="3"
+                      ItemsSource="{Binding SourceData.Dithering}"
+                      SelectedItem="{Binding SelectedConversion.Dithering}"
+                      HorizontalAlignment="Stretch" />
+
+            <Grid Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"
+                  ToolTip.Tip="Brightness" Background="BlanchedAlmond">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="520" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <iconPacks:PackIconMaterialDesign Grid.Column="0"
+                                                  Height="25"
+                                                  Width="25"
+                                                  Kind="Brightness6"
+                                                  VerticalAlignment="Center"
+                                                  Foreground="Black" />
+
+                <Slider Grid.Column="1"
+                        x:Name="SliderBrightness"
+                        VerticalAlignment="Center"
+                        Minimum="-100" Maximum="100"
+                        Value="{Binding SelectedConversion.Brightness}"
+                        TickFrequency="1" IsSnapToTickEnabled="True"
+                        IsTabStop="False" />
+
+                <NumericUpDown Grid.Column="2"
+                               Minimum="-100" Maximum="100" Increment="1"
+                               Value="{Binding SelectedConversion.Brightness}"
+                               TextAlignment="Center"
+                               BorderThickness="0"
+                               Padding="1"
+                               VerticalContentAlignment="Center"
+                               ShowButtonSpinner="False"
+                               ParsingNumberStyle="Integer" />
+            </Grid>
+
+            <!-- Row 1 -->
+            <Label Grid.Row="1" Grid.Column="0" Content="Strength"
+                   VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="3"
+                           Increment="0.1" Value="{Binding SelectedConversion.DitheringStrength}">
+            </NumericUpDown>
+
+            <Label Grid.Row="1" Grid.Column="2" Content="Randomness"
+                   VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+                           Increment="0.1" Value="{Binding  SelectedConversion.DitheringRandomness}">
+            </NumericUpDown>
         </Grid>
     </Expander>
 

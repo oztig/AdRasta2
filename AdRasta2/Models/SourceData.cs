@@ -14,6 +14,7 @@ public class SourceData
     public ObservableCollection<int> TotalThreads { get; } = new ObservableCollection<int>();
     public ObservableCollection<string> Palettes { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> PreColourDistance { get; } = new ObservableCollection<string>();
+    public ObservableCollection<string> Dithering { get; } = new ObservableCollection<string>();
     
     public void Populate()
     {
@@ -26,6 +27,7 @@ public class SourceData
         PopulateThreads();
         PopulatePalettes();
         PopulatePreColourDistance();
+        PopulateDithering();
     }
 
     private void PopulateAfterDualSteps()
@@ -115,6 +117,19 @@ public class SourceData
         PreColourDistance.Add("cie94");
         PreColourDistance.Add("euclid");
         PreColourDistance.Add("yuv");
+    }
+    
+    private void PopulateDithering()
+    {
+        Dithering.Clear();
+        Dithering.Add("2d");
+        Dithering.Add("chess");
+        Dithering.Add("floyd");
+        Dithering.Add("jarvis");
+        Dithering.Add("knoll");
+        Dithering.Add("line");
+        Dithering.Add("line2");
+        Dithering.Add("none");
     }
 
     public SourceData()

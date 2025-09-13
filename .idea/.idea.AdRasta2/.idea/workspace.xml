@@ -8,13 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,14 +157,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00032" summary="New Conversion Dialog">
-      <option name="closed" value="true" />
-      <created>1756723014036</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1756723014036</updated>
     </task>
     <task id="LOCAL-00033" summary="Ad Dual Mode and Menus">
       <option name="closed" value="true" />
@@ -552,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757685573740</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="gui fiddling">
+      <option name="closed" value="true" />
+      <created>1757751819510</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1757751819510</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +560,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Layout Changes" />
     <MESSAGE value="Re-Jig source image setup" />
     <MESSAGE value="Format Mask box" />
     <MESSAGE value="Add context menus" />
@@ -587,7 +584,8 @@
     <MESSAGE value="further layout fiddling" />
     <MESSAGE value="GUI fiddling" />
     <MESSAGE value="More Layout stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="More Layout stuff" />
+    <MESSAGE value="gui fiddling" />
+    <option name="LAST_COMMIT_MESSAGE" value="gui fiddling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

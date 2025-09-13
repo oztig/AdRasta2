@@ -7,11 +7,12 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AdRasta2.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        MaxWidth="1920"
-        MaxHeight="1080"
         SizeToContent="WidthAndHeight"
         Icon="{Binding AppIcon}"
         Title="AdRasta2">
+    
+    <!-- MaxWidth="1920" -->
+    <!-- MaxHeight="1080" -->
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,

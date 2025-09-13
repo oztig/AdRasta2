@@ -9,10 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,14 +156,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00033" summary="Ad Dual Mode and Menus">
-      <option name="closed" value="true" />
-      <created>1756726861802</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1756726861802</updated>
     </task>
     <task id="LOCAL-00034" summary="Add About menu">
       <option name="closed" value="true" />
@@ -550,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757751819510</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="layout fiddling">
+      <option name="closed" value="true" />
+      <created>1757762788039</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1757762788039</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +559,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Re-Jig source image setup" />
     <MESSAGE value="Format Mask box" />
     <MESSAGE value="Add context menus" />
     <MESSAGE value="Tidy up" />
@@ -585,7 +583,8 @@
     <MESSAGE value="GUI fiddling" />
     <MESSAGE value="More Layout stuff" />
     <MESSAGE value="gui fiddling" />
-    <option name="LAST_COMMIT_MESSAGE" value="gui fiddling" />
+    <MESSAGE value="layout fiddling" />
+    <option name="LAST_COMMIT_MESSAGE" value="layout fiddling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

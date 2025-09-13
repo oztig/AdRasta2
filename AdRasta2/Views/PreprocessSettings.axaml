@@ -13,51 +13,70 @@
               Margin="5"
               IsExpanded="{Binding  SelectedConversion.IsPreProcessExpanded}"
               HorizontalAlignment="Stretch">
-        <Grid RowDefinitions="Auto,Auto"
-              ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
-              RowSpacing="10" ColumnSpacing="10">
+        <Grid ColumnDefinitions="Auto,*">
+            <!-- Column 0 -->
+            <Grid Grid.Column="0" RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                  RowSpacing="10" ColumnSpacing="10">
 
-            <!-- Row 0 -->
-            <Label Content="Colour distance"
-                   VerticalAlignment="Center" />
+                <!-- Row 0 -->
+                <Label Content="Colour distance"
+                       VerticalAlignment="Center" />
 
-            <ComboBox Grid.Row="0" Grid.Column="1"
-                      ItemsSource="{Binding SourceData.PreColourDistance}"
-                      SelectedItem="{Binding SelectedConversion.PreColourDistance}"
-                      HorizontalAlignment="Stretch" />
+                <ComboBox Grid.Row="0" Grid.Column="1"
+                          ItemsSource="{Binding SourceData.PreColourDistance}"
+                          SelectedItem="{Binding SelectedConversion.PreColourDistance}"
+                          HorizontalAlignment="Stretch" />
 
-            <Label Grid.Column="2" Content="Dithering"
-                   VerticalAlignment="Center" />
+                <Label Grid.Column="2" Content="Dithering"
+                       VerticalAlignment="Center" />
+                <ComboBox Grid.Row="0" Grid.Column="3"
+                          ItemsSource="{Binding SourceData.Dithering}"
+                          SelectedItem="{Binding SelectedConversion.Dithering}"
+                          HorizontalAlignment="Stretch" />
 
-            <ComboBox Grid.Row="0" Grid.Column="3"
-                      ItemsSource="{Binding SourceData.Dithering}"
-                      SelectedItem="{Binding SelectedConversion.Dithering}"
-                      HorizontalAlignment="Stretch" />
+                <!-- Row 1 -->
+                <Label Grid.Row="1" Grid.Column="0" Content="Strength"
+                       VerticalAlignment="Center" />
+                <NumericUpDown Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="3"
+                               Increment="0.1" Value="{Binding SelectedConversion.DitheringStrength}">
+                </NumericUpDown>
 
-            <Grid Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"
-                  ToolTip.Tip="Brightness" Background="BlanchedAlmond">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="520" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+                <Label Grid.Row="1" Grid.Column="2" Content="Randomness"
+                       VerticalAlignment="Center" />
+                <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+                               Increment="0.1" Value="{Binding  SelectedConversion.DitheringRandomness}">
+                </NumericUpDown>
 
-                <iconPacks:PackIconMaterialDesign Grid.Column="0"
-                                                  Height="25"
-                                                  Width="25"
-                                                  Kind="Brightness6"
-                                                  VerticalAlignment="Center"
-                                                  Foreground="Black" />
+            </Grid>
 
-                <Slider Grid.Column="1"
+            <!-- Column 1 -->
+            <Grid Grid.Column="1" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto"
+                  RowSpacing="1"
+                  HorizontalAlignment="Stretch"
+                  Margin="5,0,5,0">
+
+                <!-- Brightness -->
+                <Button Grid.Row="0" Grid.Column="0"
+                        ToolTip.Tip="Brightness"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Padding="4"
+                        HorizontalAlignment="Center">
+                    <iconPacks:PackIconMaterialDesign Kind="Brightness5"
+                                                      Width="25" Height="25"
+                                                      Foreground="Black" />
+                </Button>
+
+                <Slider Grid.Row="0" Grid.Column="1"
                         x:Name="SliderBrightness"
-                        VerticalAlignment="Center"
                         Minimum="-100" Maximum="100"
+                        HorizontalAlignment="Stretch"
                         Value="{Binding SelectedConversion.Brightness}"
                         TickFrequency="1" IsSnapToTickEnabled="True"
                         IsTabStop="False" />
 
-                <NumericUpDown Grid.Column="2"
+                <NumericUpDown Grid.Row="0" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
                                Value="{Binding SelectedConversion.Brightness}"
                                TextAlignment="Center"
@@ -66,20 +85,69 @@
                                VerticalContentAlignment="Center"
                                ShowButtonSpinner="False"
                                ParsingNumberStyle="Integer" />
+
+                <!-- Contrast -->
+                <Button Grid.Row="1" Grid.Column="0"
+                        ToolTip.Tip="Contrast"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Padding="4"
+                        HorizontalAlignment="Center">
+                    <iconPacks:PackIconMaterialDesign Kind="Contrast"
+                                                      Width="25" Height="25"
+                                                      Foreground="Black" />
+                </Button>
+
+                <Slider Grid.Row="1" Grid.Column="1"
+                        x:Name="SliderContrast"
+                        Minimum="-100" Maximum="100"
+                        HorizontalAlignment="Stretch"
+                        Value="{Binding SelectedConversion.Contrast}"
+                        TickFrequency="1" IsSnapToTickEnabled="True"
+                        IsTabStop="False" />
+
+                <NumericUpDown Grid.Row="1" Grid.Column="2"
+                               Minimum="-100" Maximum="100" Increment="1"
+                               Value="{Binding SelectedConversion.Contrast}"
+                               TextAlignment="Center"
+                               BorderThickness="0"
+                               Padding="1"
+                               VerticalContentAlignment="Center"
+                               ShowButtonSpinner="False"
+                               ParsingNumberStyle="Integer" />
+                
+                <!-- Gamma -->
+                <Button Grid.Row="2" Grid.Column="0"
+                        ToolTip.Tip="Gamma"
+                        Content="γ"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Padding="4"
+                        FontSize="20"
+                        Width="35"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        HorizontalAlignment="Center">
+                </Button>
+
+                <Slider Grid.Row="2" Grid.Column="1"
+                        x:Name="SliderGamma"
+                        Minimum="-100" Maximum="100"
+                        HorizontalAlignment="Stretch"
+                        Value="{Binding SelectedConversion.Gamma}"
+                        TickFrequency="1" IsSnapToTickEnabled="True"
+                        IsTabStop="False" />
+
+                <NumericUpDown Grid.Row="2" Grid.Column="2"
+                               Minimum="-100" Maximum="100" Increment="1"
+                               Value="{Binding SelectedConversion.Gamma}"
+                               TextAlignment="Center"
+                               BorderThickness="0"
+                               Padding="1"
+                               VerticalContentAlignment="Center"
+                               ShowButtonSpinner="False"
+                               ParsingNumberStyle="Integer" />
             </Grid>
-
-            <!-- Row 1 -->
-            <Label Grid.Row="1" Grid.Column="0" Content="Strength"
-                   VerticalAlignment="Center" />
-            <NumericUpDown Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="3"
-                           Increment="0.1" Value="{Binding SelectedConversion.DitheringStrength}">
-            </NumericUpDown>
-
-            <Label Grid.Row="1" Grid.Column="2" Content="Randomness"
-                   VerticalAlignment="Center" />
-            <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
-                           Increment="0.1" Value="{Binding  SelectedConversion.DitheringRandomness}">
-            </NumericUpDown>
         </Grid>
     </Expander>
 

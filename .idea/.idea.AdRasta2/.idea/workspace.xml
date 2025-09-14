@@ -7,24 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/ExpndedArrowConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Themes/CompactBrushes.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Themes/CompactStyles.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Themes/DarkBrushes.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
-    </list>
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -187,14 +170,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00035" summary="paramaterise 'No Image' creation (add background colour)">
-      <option name="closed" value="true" />
-      <created>1756732690169</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1756732690169</updated>
     </task>
     <task id="LOCAL-00036" summary="Re-Bind common section, plus add Dual Mode Expander">
       <option name="closed" value="true" />
@@ -580,7 +555,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757804353008</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Added Framework for styling - to be properly added later">
+      <option name="closed" value="true" />
+      <created>1757841786090</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1757841786090</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +573,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add context menus" />
     <MESSAGE value="Tidy up" />
     <MESSAGE value="Tidy up 2" />
     <MESSAGE value="Add Auto to Source Image Height" />
@@ -615,7 +597,8 @@
     <MESSAGE value="gui fiddling" />
     <MESSAGE value="layout fiddling" />
     <MESSAGE value="GUI Fiddling + Mapping" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI Fiddling + Mapping" />
+    <MESSAGE value="Added Framework for styling - to be properly added later" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Framework for styling - to be properly added later" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

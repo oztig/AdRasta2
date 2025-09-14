@@ -7,8 +7,14 @@ using Avalonia.Markup.Xaml;
 using AdRasta2.ViewModels;
 using AdRasta2.Views;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
+using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Templates;
+using Avalonia.Data;
+using Avalonia.Markup.Xaml.MarkupExtensions;
 using Avalonia.Styling;
 using Avalonia.Markup.Xaml.Styling;
+using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Themes.Fluent;
 
@@ -35,7 +41,9 @@ public partial class App : Application
     {
         // Clear previous theme fragments
         Resources.MergedDictionaries.Clear();
-        RestoreBaseStyles();
+        // Re-instate once themes are enabled
+        // Will need to keep track of which themes to clear etc.
+        //  RestoreDefaults();
 
         if (themeName == "Default")
         {
@@ -96,20 +104,106 @@ public partial class App : Application
         }
     }
 
-    private void RestoreBaseStyles()
+    // private void RestoreBaseStyles()
+    // {
+    //     Application.Current.Styles.Clear();
+    //
+    //     // Re-add FluentTheme for control templates
+    //     Application.Current.Styles.Insert(0, new FluentTheme());
+    //
+    //     // Re-add icon pack styles
+    //     Application.Current.Styles.Add(new StyleInclude(new Uri("avares://AdRasta2/"))
+    //     {
+    //         Source = new Uri("avares://IconPacks.Avalonia/Icons.axaml")
+    //     });
+    //
+    //     // Add any other base styles here if needed
+    // }
+
+    private void RestoreDefaults()
     {
         Application.Current.Styles.Clear();
 
-        // Re-add FluentTheme for control templates
-        Application.Current.Styles.Insert(0, new FluentTheme());
+        // Re-add FluentTheme
+        Application.Current.Styles.Add(new FluentTheme());
 
-        // Re-add icon pack styles
+        // Re-add IconPacks.Avalonia styles
         Application.Current.Styles.Add(new StyleInclude(new Uri("avares://AdRasta2/"))
         {
             Source = new Uri("avares://IconPacks.Avalonia/Icons.axaml")
         });
 
-        // Add any other base styles here if needed
+        // Add custom style
+        Application.Current.Styles.Add(CreateHeaderedContentControlStyle());
+    }
+
+    private Style CreateHeaderedContentControlStyle()
+    {
+        return new Style(x => x.OfType<HeaderedContentControl>())
+        {
+            Setters =
+            {
+                new Setter(HeaderedContentControl.TemplateProperty, new FuncControlTemplate((control, _) =>
+                {
+                    var grid = new Grid
+                    {
+                        RowDefinitions =
+                        {
+                            new RowDefinition(GridLength.Auto),
+                            new RowDefinition(GridLength.Star)
+                        },
+                        ColumnDefinitions =
+                        {
+                            new ColumnDefinition(GridLength.Auto),
+                            new ColumnDefinition(GridLength.Star)
+                        }
+                    };
+
+                    var headerBorder = new Border
+                    {
+                        ZIndex = 1,
+                        Padding = new Thickness(5, 0, 5, 0),
+                        Margin = new Thickness(5, 0, 0, 0),
+                        Child = new TextBlock
+                        {
+                            FontWeight = FontWeight.Bold,
+                            [!TextBlock.TextProperty] = control[!HeaderedContentControl.HeaderProperty]
+                        }
+                    };
+                    headerBorder[!Border.BackgroundProperty] = new Binding
+                    {
+                        Source = Application.Current.Resources,
+                        Path = "SystemControlBackgroundAltHighBrush"
+                    };
+
+                    var contentBorder = new Border
+                    {
+                        Padding = new Thickness(0, 5, 0, 0),
+                        CornerRadius = new CornerRadius(4),
+                        Margin = new Thickness(0, 10, 0, 0),
+                        BorderThickness = new Thickness(1),
+                        Child = new ContentPresenter
+                        {
+                            Name = "PART_ContentPresenter",
+                            Padding = new Thickness(8),
+                            [!ContentPresenter.ContentProperty] = control[!HeaderedContentControl.ContentProperty]
+                        },
+                        [Grid.RowSpanProperty] = 2,
+                        [Grid.ColumnSpanProperty] = 2
+                    };
+                    contentBorder[!Border.BorderBrushProperty] = new Binding
+                    {
+                        Source = Application.Current.Resources,
+                        Path = "SystemControlForegroundBaseMediumBrush"
+                    };
+
+                    grid.Children.Add(headerBorder);
+                    grid.Children.Add(contentBorder);
+
+                    return grid;
+                }))
+            }
+        };
     }
 
 

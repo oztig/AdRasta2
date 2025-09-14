@@ -8,7 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Themes/CompactStyles.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Themes/CompactStyles.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +44,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fc0d6602d124ae69bd3ab449adb63ebe800/20/2079cf65/ObservableCollection`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/262340175512b8eb1fbf3ba15178a24384aa0ef6c1e268ed6ca51d5c249e2/NameScopeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/37e41883d8485517ecfb13c15307cf653a31798bbd2c30964f905349b6f21d/ResourceInclude.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4cd728a7a5c1151e66ce95f5f6dd9de14ca93158c17ec1eacaf81e0bbab92/DispatcherOperation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80462644bd1cc7e0b229dc4f5752b48c01cb67b46ae563b1b5078cc2556b98/AvaloniaXamlLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a5cc8ddf36e8c8f422071f068cc8edb16e814991aa851aa131f3fa14425ed/Application.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e221cc8f688c75a9bc3f0b838afc95fcd51f443803803b72c9e6614aacf384/RxApp.cs" root0="FORCE_HIGHLIGHTING" />
@@ -172,14 +177,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00037" summary="Bind Title">
-      <option name="closed" value="true" />
-      <created>1756803395113</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1756803395113</updated>
     </task>
     <task id="LOCAL-00038" summary="Add File pickers for source and Image Mask">
       <option name="closed" value="true" />
@@ -565,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757842928650</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Remove test Expander">
+      <option name="closed" value="true" />
+      <created>1757843186612</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1757843186612</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +580,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Tidy up" />
     <MESSAGE value="Tidy up 2" />
     <MESSAGE value="Add Auto to Source Image Height" />
     <MESSAGE value="Make Height overlay textbox readonly, and none tab stop" />
@@ -600,7 +604,8 @@
     <MESSAGE value="GUI Fiddling + Mapping" />
     <MESSAGE value="Added Framework for styling - to be properly added later" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="Remove test Expander" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove test Expander" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

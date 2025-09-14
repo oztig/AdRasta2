@@ -30,9 +30,17 @@
                 <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
             </MenuItem>
             <MenuItem Header="Theme">
-                <MenuItem Header="Dark" Command="{Binding SwitchThemeCommand}" CommandParameter="Dark" />
-                <MenuItem Header="Compact" Command="{Binding SwitchThemeCommand}" CommandParameter="Compact" />
-                <MenuItem Header="Default" Command="{Binding SwitchThemeCommand}" CommandParameter="Default" />
+                <MenuItem Header="Compact" 
+                          IsEnabled="False"
+                          Command="{Binding SwitchThemeCommand}" 
+                          CommandParameter="Compact" />
+                <MenuItem Header="Dark"
+                          Command="{Binding SwitchThemeCommand}"
+                          IsEnabled="False"
+                          CommandParameter="Dark" />
+                <MenuItem Header="Default" 
+                          Command="{Binding SwitchThemeCommand}" 
+                          CommandParameter="Default" />
             </MenuItem>
         </Menu>
 

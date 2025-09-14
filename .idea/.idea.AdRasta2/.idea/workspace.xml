@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,14 +172,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00036" summary="Re-Bind common section, plus add Dual Mode Expander">
-      <option name="closed" value="true" />
-      <created>1756795928317</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1756795928317</updated>
     </task>
     <task id="LOCAL-00037" summary="Bind Title">
       <option name="closed" value="true" />
@@ -563,7 +557,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757841786090</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1757842928650</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1757842928650</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +583,6 @@
     <MESSAGE value="Add Status dots, plus colour to buttons to match statuses" />
     <MESSAGE value="Tidy up sharedpanelview" />
     <MESSAGE value="cant remember - to much wine" />
-    <MESSAGE value="stuff" />
     <MESSAGE value="Add Conversion params, bind Register file + EDit" />
     <MESSAGE value="Add and map Palette" />
     <MESSAGE value="more layout fiddling" />
@@ -598,7 +599,8 @@
     <MESSAGE value="layout fiddling" />
     <MESSAGE value="GUI Fiddling + Mapping" />
     <MESSAGE value="Added Framework for styling - to be properly added later" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Framework for styling - to be properly added later" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

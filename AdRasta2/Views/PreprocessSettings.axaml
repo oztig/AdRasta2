@@ -20,7 +20,7 @@
                   RowSpacing="10" ColumnSpacing="10">
 
                 <!-- Row 0 -->
-                <Label Content="Colour distance"
+                <Label  Content="Colour distance"
                        VerticalAlignment="Center" />
 
                 <ComboBox Grid.Row="0" Grid.Column="1"
@@ -29,7 +29,7 @@
                           HorizontalAlignment="Stretch" />
 
                 <Label Grid.Column="2" Content="Dithering"
-                       VerticalAlignment="Center" />
+                       VerticalAlignment="Center"  />
                 <ComboBox Grid.Row="0" Grid.Column="3"
                           ItemsSource="{Binding SourceData.Dithering}"
                           SelectedItem="{Binding SelectedConversion.Dithering}"

@@ -11,26 +11,19 @@
     <Application.DataTemplates>
         <local:ViewLocator />
     </Application.DataTemplates>
-    
+
     <Application.Resources>
         <converters:HeightValueConverter x:Key="AutoValueConverter" />
         <converters:IsAutoConverter x:Key="IsAutoConverter" />
         <converters:IsNotAutoConverter x:Key="IsNotAutoConverter" />
+        <converters:ExpandArrowConverter x:Key="ExpandArrowConverter" />
     </Application.Resources>
-    
+
     <Application.Styles>
         <FluentTheme>
         </FluentTheme>
         <StyleInclude Source="avares://IconPacks.Avalonia/Icons.axaml" />
-        <!-- <ClassicTheme /> -->
-        <!-- <Style Selector="TextBlock"> -->
-        <!--     <Setter Property="FontSize" Value="11" /> -->
-        <!-- </Style> -->
-        <!-- -->
-        <!-- <Style Selector="Button"> -->
-        <!--     <Setter Property="Padding" Value="4,2" /> -->
-        <!-- </Style> -->
-
+       
         <Style Selector="HeaderedContentControl">
             <Setter Property="Template">
                 <ControlTemplate>

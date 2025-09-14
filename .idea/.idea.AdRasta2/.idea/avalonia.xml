@@ -4,6 +4,12 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AdRasta2/App.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Themes/CompactBrushes.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Themes/CompactStyle.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Themes/CompactStyles.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Themes/CompactTheme.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Themes/DarkBrushes.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Themes/DarkTheme.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/ActionButtonsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/AdRastaMainView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/BottomPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />

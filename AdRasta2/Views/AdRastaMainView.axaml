@@ -29,6 +29,11 @@
                 <Separator />
                 <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
             </MenuItem>
+            <MenuItem Header="Theme">
+                <MenuItem Header="Dark" Command="{Binding SwitchThemeCommand}" CommandParameter="Dark" />
+                <MenuItem Header="Compact" Command="{Binding SwitchThemeCommand}" CommandParameter="Compact" />
+                <MenuItem Header="Default" Command="{Binding SwitchThemeCommand}" CommandParameter="Default" />
+            </MenuItem>
         </Menu>
 
         <!--  Fixed Header -->

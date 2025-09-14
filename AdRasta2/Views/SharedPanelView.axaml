@@ -29,9 +29,26 @@
             <!-- Scrollable Middle -->
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="5" Spacing="8">
-                    <views:PreprocessSettings/>
+                    <views:PreprocessSettings />
                     <views:ConversionSettingsView />
                     <views:DualModeSettingsView />
+
+                    <Expander Background="{DynamicResource BackgroundBrush}"
+                              Header="Pre-process Settings"
+                              HorizontalAlignment="Stretch"
+                              IsExpanded="{Binding SelectedConversion.IsPreProcessExpanded}">
+                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto">
+                            <Label Grid.Row="1" Grid.Column="0" Content="Colour distance"
+                                   VerticalAlignment="Center" />
+
+                            <ComboBox Grid.Row="1" Grid.Column="1"
+                                      ItemsSource="{Binding SourceData.PreColourDistance}"
+                                      SelectedItem="{Binding SelectedConversion.PreColourDistance}"
+                                      HorizontalAlignment="Stretch" />
+                        </Grid>
+                    </Expander>
+
+
                 </StackPanel>
             </ScrollViewer>
 

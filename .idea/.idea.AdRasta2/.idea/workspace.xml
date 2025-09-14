@@ -8,8 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Converters/ExpndedArrowConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Themes/CompactBrushes.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Themes/CompactStyles.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Themes/DarkBrushes.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
@@ -37,9 +49,22 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18f2eb258dcf45748fa1903c530f5f07d1a000/ec/00977e14/CastHelpers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/36767967084446d2a52b3cd3af0b2595106a00/6e/7c1ffdec/Application.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/457530be4752476295767457c3639889d1a000/dd/a567ff02/Collection`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fc0d6602d124ae69bd3ab449adb63ebe800/20/2079cf65/ObservableCollection`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/262340175512b8eb1fbf3ba15178a24384aa0ef6c1e268ed6ca51d5c249e2/NameScopeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/37e41883d8485517ecfb13c15307cf653a31798bbd2c30964f905349b6f21d/ResourceInclude.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80462644bd1cc7e0b229dc4f5752b48c01cb67b46ae563b1b5078cc2556b98/AvaloniaXamlLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a5cc8ddf36e8c8f422071f068cc8edb16e814991aa851aa131f3fa14425ed/Application.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e221cc8f688c75a9bc3f0b838afc95fcd51f443803803b72c9e6614aacf384/RxApp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e36a5a65c4b081a2e6fb2f5e5f11a64e88a92446fc2be15e2997d886714b1b/ThemeVariant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/App.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/App.axaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/ExpndedArrowConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/HeightValueConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -57,6 +82,9 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/MessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Themes/CompactBrushes.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Themes/CompactStyles.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Themes/DarkBrushes.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,6 +113,9 @@
     <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -156,14 +187,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00034" summary="Add About menu">
-      <option name="closed" value="true" />
-      <created>1756728048641</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1756728048641</updated>
     </task>
     <task id="LOCAL-00035" summary="paramaterise 'No Image' creation (add background colour)">
       <option name="closed" value="true" />
@@ -549,7 +572,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757762788039</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="GUI Fiddling + Mapping">
+      <option name="closed" value="true" />
+      <created>1757804353008</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1757804353008</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +590,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Format Mask box" />
     <MESSAGE value="Add context menus" />
     <MESSAGE value="Tidy up" />
     <MESSAGE value="Tidy up 2" />
@@ -584,7 +614,8 @@
     <MESSAGE value="More Layout stuff" />
     <MESSAGE value="gui fiddling" />
     <MESSAGE value="layout fiddling" />
-    <option name="LAST_COMMIT_MESSAGE" value="layout fiddling" />
+    <MESSAGE value="GUI Fiddling + Mapping" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI Fiddling + Mapping" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

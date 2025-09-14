@@ -41,6 +41,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     
     public SourceData SourceData { get; } = new();
 
+    public ReactiveCommand<string, Unit> SwitchThemeCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
     public ReactiveCommand<Unit, Unit> PickFileCommand { get; private set; }
@@ -58,7 +59,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         get => _selectedConversion;
         set => this.RaiseAndSetIfChanged(ref _selectedConversion, value);
     }
-
+    
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
 
@@ -68,6 +69,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         _window = window;
         _filePickerService = filePickerService;
         _messageBoxService = messageBoxService;
+        SwitchThemeCommand = ReactiveCommand.Create<string>(SwitchTheme);
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
@@ -159,6 +161,19 @@ public class AdRastaMainViewViewModel : ReactiveObject
                 .WithArguments(SafeCommand.QuoteIfNeeded(_settings.HelpFileLocation))
                 .WithValidation(CommandResultValidation.None)
                 .ExecuteAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+    private void SwitchTheme(string themeName)
+    {
+        try
+        {
+            ((App)Application.Current).ApplyUserTheme(themeName);
         }
         catch (Exception e)
         {

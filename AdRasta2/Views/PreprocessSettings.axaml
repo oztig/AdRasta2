@@ -20,7 +20,7 @@
             <Grid Grid.Column="0" RowDefinitions="Auto,Auto"
                   ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
                   Margin="5,10,5,0"
-                  RowSpacing="15" ColumnSpacing="10">
+                  RowSpacing="10" ColumnSpacing="10">
 
                 <!-- Row 0 -->
                 <Label Content="Colour distance"
@@ -139,7 +139,7 @@
                         BorderThickness="0"
                         Padding="4"
                         FontSize="20"
-                        Width="35"
+                        Width="30"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         HorizontalAlignment="Center">

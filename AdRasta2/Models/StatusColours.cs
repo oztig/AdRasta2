@@ -8,9 +8,9 @@ public static class StatusColours
 {
     public static readonly Dictionary<ConversionStatus, Color> Map = new()
     {
-        { ConversionStatus.PreviewGenerated, Colors.SkyBlue },
-        { ConversionStatus.ConversionActive, Colors.Orange },
-        { ConversionStatus.ConversionComplete ,Colors.LimeGreen},
+        { ConversionStatus.PreviewGenerated, Colors.Orange },
+        { ConversionStatus.ConversionActive, Colors.Green },
+        { ConversionStatus.ConversionComplete ,Colors.LimeGreen },
         { ConversionStatus.ExecutableGenerated, Colors.Blue },
         { ConversionStatus.MCHGenerated, Colors.MediumPurple }
     };

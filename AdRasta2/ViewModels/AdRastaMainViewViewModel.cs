@@ -38,6 +38,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
     public ConversionStatus XexButtonColour => ConversionStatus.ExecutableGenerated;
     public ConversionStatus ConversionButtonColour => ConversionStatus.ConversionComplete;
+    public ConversionStatus ContinueButtonColour  => ConversionStatus.ConversionActive;
     
     public SourceData SourceData { get; } = new();
 

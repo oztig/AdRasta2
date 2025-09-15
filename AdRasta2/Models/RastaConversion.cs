@@ -53,9 +53,8 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _title, value);
     }
 
-    private ObservableCollection<StatusEntry> _statuses;
-
-    public ObservableCollection<StatusEntry> Statuses
+    private BoundedLogCollection<StatusEntry> _statuses;
+    public BoundedLogCollection<StatusEntry> Statuses
     {
         get => _statuses;
         set
@@ -74,13 +73,11 @@ public class RastaConversion : ReactiveObject
         }
     }
 
-
     private void Statuses_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
         UpdateUniqueLatestStatuses();
     }
-
-
+    
     private IReadOnlyList<StatusEntry> _uniqueLatestStatuses = new List<StatusEntry>();
 
     public IReadOnlyList<StatusEntry> UniqueLatestStatuses
@@ -555,7 +552,7 @@ public class RastaConversion : ReactiveObject
         PopulateDefaultValues();
         Title = title;
 
-        _statuses = new ObservableCollection<StatusEntry>();
+        _statuses = new BoundedLogCollection<StatusEntry>(100);
         _statuses.CollectionChanged += Statuses_CollectionChanged;
 
     }

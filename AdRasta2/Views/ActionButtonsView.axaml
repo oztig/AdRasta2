@@ -34,7 +34,7 @@
                 <Button IsEnabled="{Binding SelectedConversion.CanProcess}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
-                                   Fill="{Binding ConversionButtonColour, Converter={StaticResource StatusToColourConverter}}" />
+                                   Fill="{Binding ContinueButtonColour, Converter={StaticResource StatusToColourConverter}}" />
                         <TextBlock Text="Continue" Margin="8,0,0,0" />
                     </Grid>
                 </Button>

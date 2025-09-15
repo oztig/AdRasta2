@@ -14,11 +14,13 @@
               Margin="5"
               IsExpanded="{Binding  SelectedConversion.IsPreProcessExpanded}"
               HorizontalAlignment="Stretch">
+        <!-- Settings -->
         <Grid ColumnDefinitions="Auto,*">
-            <!-- Column 0 -->
+            <!-- Effects -->
             <Grid Grid.Column="0" RowDefinitions="Auto,Auto"
                   ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
-                  RowSpacing="10" ColumnSpacing="10">
+                  Margin="5,10,5,0"
+                  RowSpacing="15" ColumnSpacing="10">
 
                 <!-- Row 0 -->
                 <Label Content="Colour distance"
@@ -51,7 +53,7 @@
 
             </Grid>
 
-            <!-- Column 1 -->
+            <!-- Colour Sliders -->
             <Grid Grid.Column="1" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto"
                   RowSpacing="1"
                   HorizontalAlignment="Stretch"
@@ -116,6 +118,7 @@
 
                 <NumericUpDown Grid.Row="1" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
+                               Margin="5,0,0,0"
                                MinWidth="32"
                                HorizontalContentAlignment="Right"
                                Value="{Binding SelectedConversion.Contrast}"
@@ -152,6 +155,7 @@
 
                 <NumericUpDown Grid.Row="2" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
+                               Margin="5,0,0,0"
                                MinWidth="32"
                                HorizontalContentAlignment="Right"
                                Value="{Binding SelectedConversion.Gamma}"

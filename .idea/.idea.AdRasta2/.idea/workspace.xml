@@ -9,8 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,15 +171,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="9438000" />
-    </task>
-    <task id="LOCAL-00044" summary="Change MessageBox Service">
-      <option name="closed" value="true" />
-      <created>1757142198769</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1757142198769</updated>
+      <workItem from="1757918207366" duration="13376000" />
     </task>
     <task id="LOCAL-00045" summary="Bind Preview and Convert IsEnabled">
       <option name="closed" value="true" />
@@ -566,7 +557,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757935140103</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Only included statuses that should be shown on Source Image Dot Line">
+      <option name="closed" value="true" />
+      <created>1757935523497</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1757935523497</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +575,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="cant remember - to much wine" />
     <MESSAGE value="Add Conversion params, bind Register file + EDit" />
     <MESSAGE value="Add and map Palette" />
     <MESSAGE value="more layout fiddling" />
@@ -601,7 +599,8 @@
     <MESSAGE value="Add Log Object" />
     <MESSAGE value="GUI tweaks + Add Conversion Log" />
     <MESSAGE value="Add property to only include certain statuses on Source Image 'Dot Status Line' + method to support this" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add property to only include certain statuses on Source Image 'Dot Status Line' + method to support this" />
+    <MESSAGE value="Only included statuses that should be shown on Source Image Dot Line" />
+    <option name="LAST_COMMIT_MESSAGE" value="Only included statuses that should be shown on Source Image Dot Line" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

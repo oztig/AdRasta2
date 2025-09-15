@@ -255,6 +255,21 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion.RegisterOnOffFilePath = await SelectFiles(FilePickerFileTypes.TextPlain);
     }
 
+    public async void ResetBrightness()
+    {
+        SelectedConversion.Brightness = RastaConverterDefaultValues.DefaultBrightness;
+    }
+    
+    public async void ResetContrast()
+    {
+        SelectedConversion.Contrast = RastaConverterDefaultValues.DefaultContrast;
+    }
+    
+    public async void ResetGamma()
+    {
+        SelectedConversion.Gamma = RastaConverterDefaultValues.DefaultGamma;
+    }
+
     private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;

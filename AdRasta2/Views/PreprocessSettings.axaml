@@ -59,6 +59,7 @@
                 <!-- Brightness -->
                 <Button Grid.Row="0" Grid.Column="0"
                         ToolTip.Tip="Brightness"
+                        Command="{Binding ResetBrightness}"
                         Background="Transparent"
                         BorderThickness="0"
                         Padding="4"
@@ -89,6 +90,7 @@
                 <!-- Contrast -->
                 <Button Grid.Row="1" Grid.Column="0"
                         ToolTip.Tip="Contrast"
+                        Command="{Binding ResetContrast}"
                         Background="Transparent"
                         BorderThickness="0"
                         Padding="4"
@@ -119,6 +121,7 @@
                 <!-- Gamma -->
                 <Button Grid.Row="2" Grid.Column="0"
                         ToolTip.Tip="Gamma"
+                        Command="{Binding ResetGamma}"
                         Content="γ"
                         Background="Transparent"
                         BorderThickness="0"

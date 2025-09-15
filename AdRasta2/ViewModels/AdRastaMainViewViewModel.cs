@@ -83,14 +83,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var newStat = new StatusEntry
         {
             Status = ConversionStatus.PreviewGenerated,
-            Timestamp = DateTime.Now
+            Timestamp = DateTime.Now,
+            ShowOnImageStatusLine = true
         };
         SelectedConversion.Statuses.Add(newStat);
         
         newStat = new StatusEntry
         {
             Status = ConversionStatus.ExecutableGenerated,
-            Timestamp = DateTime.Now.AddDays(-3)
+            Timestamp = DateTime.Now.AddDays(+1),
+            ShowOnImageStatusLine = true
         };
         SelectedConversion.Statuses.Add(newStat);
     }

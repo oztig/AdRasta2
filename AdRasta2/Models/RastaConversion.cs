@@ -89,6 +89,7 @@ public class RastaConversion : ReactiveObject
     private void UpdateUniqueLatestStatuses()
     {
         UniqueLatestStatuses = Statuses?
+            .Where (s=>s.ShowOnImageStatusLine)
             .GroupBy(s => s.Status)
             .Select(g => g.OrderByDescending(s => s.Timestamp).First())
             .ToList() ?? new List<StatusEntry>();

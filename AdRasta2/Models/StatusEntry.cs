@@ -9,6 +9,7 @@ public class StatusEntry
 {
     public ConversionStatus Status { get; set; }
     public DateTime Timestamp { get; set; }
+    public bool ShowOnImageStatusLine { get; set; }
     
     public string TooltipText => $"{Status}: {Timestamp:dd/MM HH:mm}";
 

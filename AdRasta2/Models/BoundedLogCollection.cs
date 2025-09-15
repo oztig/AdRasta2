@@ -13,10 +13,16 @@ public class BoundedLogCollection<T> : ObservableCollection<T>
 
     public void AddEntry(T item)
     {
+        if (item is StatusEntry statusEntry)
+        {
+            statusEntry.ShowOnImageStatusLine = StatusFilter.ShouldIncludeOnImageDotLine(statusEntry.Status);
+        }
+
         if (Count >= _maxEntries)
         {
             RemoveAt(0); // Remove oldest
         }
+
         Add(item);
     }
 }

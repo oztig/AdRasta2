@@ -8,13 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +67,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/MessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -175,15 +173,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="6980000" />
-    </task>
-    <task id="LOCAL-00042" summary="New stuff">
-      <option name="closed" value="true" />
-      <created>1756937354844</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1756937354844</updated>
+      <workItem from="1757918207366" duration="8895000" />
     </task>
     <task id="LOCAL-00043" summary="Plug in Remove and Reset buttons, add MessageBox service">
       <option name="closed" value="true" />
@@ -569,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757919340343</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="GUI tweaks + Add Conversion Log">
+      <option name="closed" value="true" />
+      <created>1757932607623</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1757932607623</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +577,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Status dots, plus colour to buttons to match statuses" />
     <MESSAGE value="Tidy up sharedpanelview" />
     <MESSAGE value="cant remember - to much wine" />
     <MESSAGE value="Add Conversion params, bind Register file + EDit" />
@@ -604,7 +601,8 @@
     <MESSAGE value="Fix theme switching" />
     <MESSAGE value="Add Reset to Sliders on Pres of Image button" />
     <MESSAGE value="Add Log Object" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Log Object" />
+    <MESSAGE value="GUI tweaks + Add Conversion Log" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI tweaks + Add Conversion Log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

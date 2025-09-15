@@ -10,6 +10,7 @@
              x:Class="AdRasta2.Views.PreprocessSettings">
 
     <Expander Header="Pre-process Settings"
+              x:Name="PreProcessExpander"
               Margin="5"
               IsExpanded="{Binding  SelectedConversion.IsPreProcessExpanded}"
               HorizontalAlignment="Stretch">
@@ -20,7 +21,7 @@
                   RowSpacing="10" ColumnSpacing="10">
 
                 <!-- Row 0 -->
-                <Label  Content="Colour distance"
+                <Label Content="Colour distance"
                        VerticalAlignment="Center" />
 
                 <ComboBox Grid.Row="0" Grid.Column="1"
@@ -29,7 +30,7 @@
                           HorizontalAlignment="Stretch" />
 
                 <Label Grid.Column="2" Content="Dithering"
-                       VerticalAlignment="Center"  />
+                       VerticalAlignment="Center" />
                 <ComboBox Grid.Row="0" Grid.Column="3"
                           ItemsSource="{Binding SourceData.Dithering}"
                           SelectedItem="{Binding SelectedConversion.Dithering}"
@@ -78,14 +79,19 @@
                         IsTabStop="False" />
 
                 <NumericUpDown Grid.Row="0" Grid.Column="2"
+                               Margin="5,0,0,0"
+                               MinWidth="32"
+                               HorizontalContentAlignment="Right"
                                Minimum="-100" Maximum="100" Increment="1"
                                Value="{Binding SelectedConversion.Brightness}"
                                TextAlignment="Center"
                                BorderThickness="0"
                                Padding="1"
+                               Background="{Binding Background, ElementName=PreProcessExpander}"
                                VerticalContentAlignment="Center"
                                ShowButtonSpinner="False"
-                               ParsingNumberStyle="Integer" />
+                               ParsingNumberStyle="Integer">
+                </NumericUpDown>
 
                 <!-- Contrast -->
                 <Button Grid.Row="1" Grid.Column="0"
@@ -110,14 +116,17 @@
 
                 <NumericUpDown Grid.Row="1" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
+                               MinWidth="32"
+                               HorizontalContentAlignment="Right"
                                Value="{Binding SelectedConversion.Contrast}"
+                               Background="{Binding Background, ElementName=PreProcessExpander}"
                                TextAlignment="Center"
                                BorderThickness="0"
                                Padding="1"
                                VerticalContentAlignment="Center"
                                ShowButtonSpinner="False"
                                ParsingNumberStyle="Integer" />
-                
+
                 <!-- Gamma -->
                 <Button Grid.Row="2" Grid.Column="0"
                         ToolTip.Tip="Gamma"
@@ -143,7 +152,10 @@
 
                 <NumericUpDown Grid.Row="2" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
+                               MinWidth="32"
+                               HorizontalContentAlignment="Right"
                                Value="{Binding SelectedConversion.Gamma}"
+                               Background="{Binding Background, ElementName=PreProcessExpander}"
                                TextAlignment="Center"
                                BorderThickness="0"
                                Padding="1"

@@ -1,5 +1,7 @@
 using System;
+using AdRasta2.Converters;
 using AdRasta2.Enums;
+using Avalonia.Media;
 
 namespace AdRasta2.Models;
 
@@ -10,6 +12,8 @@ public class StatusEntry
     
     public string TooltipText => $"{Status}: {Timestamp:dd/MM HH:mm}";
 
+    public string Message => ToString();
+    
     public override string ToString()
     {
         return $"{Status}: {Timestamp:dd/MM HH:mm}";

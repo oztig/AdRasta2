@@ -15,6 +15,7 @@ public class SourceData
     public ObservableCollection<string> Palettes { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> PreColourDistance { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> Dithering { get; } = new ObservableCollection<string>();
+    public ObservableCollection<string> Optimiser { get; } = new ObservableCollection<string>();
     
     public void Populate()
     {
@@ -28,6 +29,7 @@ public class SourceData
         PopulatePalettes();
         PopulatePreColourDistance();
         PopulateDithering();
+        PopulateOptimiser();
     }
 
     private void PopulateAfterDualSteps()
@@ -130,6 +132,13 @@ public class SourceData
         Dithering.Add("line");
         Dithering.Add("line2");
         Dithering.Add("none");
+    }
+
+    private void PopulateOptimiser()
+    {
+        Optimiser.Clear();
+        Optimiser.Add("dlas");
+        Optimiser.Add("lahc");
     }
 
     public SourceData()

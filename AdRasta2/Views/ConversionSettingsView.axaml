@@ -31,8 +31,8 @@
                       SelectedItem="{Binding SelectedConversion.InitialState}"
                       HorizontalAlignment="Stretch" />
 
-            <Label Grid.Row="0" Grid.Column="4" Content="No. of solutions" VerticalAlignment="Center" />
-            <NumericUpDown Grid.Row="0" Grid.Column="5"
+            <Label Grid.Row="1" Grid.Column="0" Content="No. of solutions" VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="1" Grid.Column="1"
                            Minimum="1" Maximum="999999999"
                            x:Name="NumSolutions"
                            Value="{Binding SelectedConversion.SolutionHistoryLength }"
@@ -48,8 +48,8 @@
                            Increment="1" />
 
             <!-- Row 1 -->
-            <Label Grid.Row="1" Grid.Column="0" Content="Auto save period" VerticalAlignment="Center" />
-            <ComboBox Grid.Row="1" Grid.Column="1"
+            <Label Grid.Row="0" Grid.Column="4" Content="Auto save period" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="0" Grid.Column="5"
                       ItemsSource="{Binding SourceData.AutoSavePeriods}"
                       SelectedItem="{Binding SelectedConversion.AutoSavePeriod}"
                       HorizontalAlignment="Stretch" />
@@ -73,6 +73,12 @@
                     Edit File
                 </Button>
             </Grid>
+            
+            <Label Grid.Row="1" Grid.Column="6" Content="Optimizer" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="1" Grid.Column="7"
+                      ItemsSource="{Binding SourceData.Optimiser}"
+                      SelectedItem="{Binding SelectedConversion.Optimiser}"
+                      HorizontalAlignment="Stretch" />
         </Grid>
     </Expander>
 

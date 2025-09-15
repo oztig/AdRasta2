@@ -19,6 +19,9 @@ namespace AdRasta2.Models;
 public class RastaConversion : ReactiveObject
 {
     
+    public Guid UniqueID { get; set; } = Guid.NewGuid();
+    public int ProcessID { get; set; } // Only set for Conversions, cleared when finished!
+    
     private bool _isPreProcessExpanded = true;
 
     public bool IsPreProcessExpanded

@@ -8,8 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +58,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/StatusToColourConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" root0="FORCE_HIGHLIGHTING" />
@@ -171,15 +175,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="13376000" />
-    </task>
-    <task id="LOCAL-00045" summary="Bind Preview and Convert IsEnabled">
-      <option name="closed" value="true" />
-      <created>1757143320184</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1757143320184</updated>
+      <workItem from="1757918207366" duration="16549000" />
     </task>
     <task id="LOCAL-00046" summary="Hide Mask if Dual Mode">
       <option name="closed" value="true" />
@@ -565,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757935523497</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Align rows in Pre-Process section">
+      <option name="closed" value="true" />
+      <created>1757947125641</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1757947125641</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +579,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Conversion params, bind Register file + EDit" />
     <MESSAGE value="Add and map Palette" />
     <MESSAGE value="more layout fiddling" />
     <MESSAGE value="visual fiddling" />
@@ -600,7 +603,8 @@
     <MESSAGE value="GUI tweaks + Add Conversion Log" />
     <MESSAGE value="Add property to only include certain statuses on Source Image 'Dot Status Line' + method to support this" />
     <MESSAGE value="Only included statuses that should be shown on Source Image Dot Line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Only included statuses that should be shown on Source Image Dot Line" />
+    <MESSAGE value="Align rows in Pre-Process section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Align rows in Pre-Process section" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             xmlns:converters="clr-namespace:AdRasta2.Converters"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.ConversionSettingsView">
 
@@ -12,7 +13,7 @@
               IsExpanded="{Binding  SelectedConversion.IsConversionExpanded}"
               HorizontalAlignment="Stretch">
         <Grid RowDefinitions="Auto,Auto"
-              ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+              ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
               RowSpacing="10" ColumnSpacing="10">
 
             <!-- Row 0 -->
@@ -33,7 +34,17 @@
             <Label Grid.Row="0" Grid.Column="4" Content="No. of solutions" VerticalAlignment="Center" />
             <NumericUpDown Grid.Row="0" Grid.Column="5"
                            Minimum="1" Maximum="999999999"
-                           Value="{Binding SelectedConversion.SolutionHistoryLength}"
+                           x:Name="NumSolutions"
+                           Value="{Binding SelectedConversion.SolutionHistoryLength }"
+                           Increment="1" />
+
+            <Label Grid.Row="0" Grid.Column="6" Content="Max. Evaluations" VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="0" Grid.Column="7"
+                           x:Name="MaxEvals"
+                           Minimum="0" Maximum="999999999"
+                           ToolTip.Tip="0 = No Limit"
+                           FormatString="F0"
+                           Value="{Binding SelectedConversion.MaxEvaluations}"
                            Increment="1" />
 
             <!-- Row 1 -->

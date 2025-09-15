@@ -272,8 +272,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Gamma = RastaConverterDefaultValues.DefaultGamma;
     }
-
-    private async Task<string> SelectFiles(FilePickerFileType fileType)
+    
+ private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
     }

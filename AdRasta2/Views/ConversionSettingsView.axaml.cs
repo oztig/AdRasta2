@@ -1,3 +1,4 @@
+using AdRasta2.Extensions;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -9,5 +10,7 @@ public partial class ConversionSettingsView : UserControl
     public ConversionSettingsView()
     {
         InitializeComponent();
+        NumSolutions.PreventNull();
+        MaxEvals.PreventNull();
     }
 }

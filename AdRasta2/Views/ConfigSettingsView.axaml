@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             xmlns:converters="clr-namespace:AdRasta2.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:AdRastaMainViewViewModel"
+             x:Class="AdRasta2.Views.ConfigSettingsView">
+
+    <Expander Header="Config"
+              Margin="5"
+              IsExpanded="{Binding  SelectedConversion.IsConfigExpanded}"
+              HorizontalAlignment="Stretch">
+        <Grid RowDefinitions="Auto"
+              ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+              RowSpacing="10" ColumnSpacing="10">
+            
+            <Label Grid.Row="0" Grid.Column="0" Content="Random Seed" VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="0" Grid.Column="1"
+                           Minimum="0" Maximum="999999999"
+                           x:Name="RandomSeed"
+                           Value="{Binding SelectedConversion.RandomSeed }"
+                           Increment="1" />
+            
+            <Label Grid.Row="0" Grid.Column="2" Content="Cache (MB)" VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="0" Grid.Column="3"
+                           Minimum="1" Maximum="8192"
+                           x:Name="CacheInMB"
+                           Value="{Binding SelectedConversion.CacheInMB }"
+                           Increment="1" />
+            
+        </Grid>
+    </Expander>
+</UserControl>

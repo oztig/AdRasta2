@@ -31,6 +31,7 @@
                 <StackPanel Margin="5" Spacing="8">
                     <views:PreprocessSettings />
                     <views:ConversionSettingsView />
+                    <views:ConfigSettingsView/>
                     <views:DualModeSettingsView />
                 </StackPanel>
             </ScrollViewer>

@@ -8,10 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +83,8 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -174,15 +177,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="22212000" />
-    </task>
-    <task id="LOCAL-00047" summary="Add Image TooltIp">
-      <option name="closed" value="true" />
-      <created>1757145700936</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1757145700936</updated>
+      <workItem from="1757918207366" duration="22954000" />
     </task>
     <task id="LOCAL-00048" summary="group images">
       <option name="closed" value="true" />
@@ -568,7 +563,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757950391317</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="More GUI fiddling">
+      <option name="closed" value="true" />
+      <created>1757975111065</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1757975111065</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +581,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="more layout fiddling" />
     <MESSAGE value="visual fiddling" />
     <MESSAGE value="Split View into individual controls" />
     <MESSAGE value="split out Dual Frame Setting into own control" />
@@ -603,7 +605,8 @@
     <MESSAGE value="Only included statuses that should be shown on Source Image Dot Line" />
     <MESSAGE value="Align rows in Pre-Process section" />
     <MESSAGE value="More GUI tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="More GUI tweaks" />
+    <MESSAGE value="More GUI fiddling" />
+    <option name="LAST_COMMIT_MESSAGE" value="More GUI fiddling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

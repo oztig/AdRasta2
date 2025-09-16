@@ -13,38 +13,39 @@
         Margin="5"
         IsExpanded="{Binding SelectedConversion.IsDualModeExpanded,Mode=TwoWay}"
         IsEnabled="{Binding SelectedConversion.DualFrameMode}">
-        <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
+        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
               RowSpacing="10">
-            <HeaderedContentControl Grid.Row="0" Grid.Column="0" Header="First Steps">
-                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
-                               Increment="1" Value="{Binding SelectedConversion.FirstDualSteps}">
-                </NumericUpDown>
-            </HeaderedContentControl>
-            <HeaderedContentControl Grid.Row="0" Grid.Column="1" Header="After Steps">
-                <ComboBox ItemsSource="{Binding SourceData.AfterDualSteps}"
-                          SelectedItem="{Binding SelectedConversion.AfterDualSteps}"
-                          HorizontalAlignment="Stretch" />
-            </HeaderedContentControl>
-            <HeaderedContentControl Grid.Row="0" Grid.Column="2" Header="Altering Steps">
-                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
-                               Increment="1" Value="{Binding SelectedConversion.AlternatingDualSteps}">
-                </NumericUpDown>
-            </HeaderedContentControl>
-            <HeaderedContentControl Grid.Row="0" Grid.Column="3" Header="Blending">
-                <ComboBox ItemsSource="{Binding SourceData.DualBlending}"
-                          SelectedItem="{Binding SelectedConversion.DualBlending}"
-                          HorizontalAlignment="Stretch" />
-            </HeaderedContentControl>
-            <HeaderedContentControl Grid.Row="0" Grid.Column="4" Header="Luma">
-                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
-                               Increment="0.1" Value="{Binding SelectedConversion.DualLuma}">
-                </NumericUpDown>
-            </HeaderedContentControl>
-            <HeaderedContentControl Grid.Row="0" Grid.Column="5" Header="Chroma">
-                <NumericUpDown HorizontalAlignment="Left" Minimum="0" Maximum="1"
-                               Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
-                </NumericUpDown>
-            </HeaderedContentControl>
+            <Label Grid.Row="0" Grid.Column="0" Content="First Steps" />
+            <NumericUpDown Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
+                           Increment="1" Value="{Binding SelectedConversion.FirstDualSteps}">
+            </NumericUpDown>
+
+            <Label Grid.Row="0" Grid.Column="2" Content="After Steps" />
+            <ComboBox Grid.Row="0" Grid.Column="3" ItemsSource="{Binding SourceData.AfterDualSteps}"
+                      SelectedItem="{Binding SelectedConversion.AfterDualSteps}"
+                      HorizontalAlignment="Stretch" />
+
+            <Label Grid.Row="0" Grid.Column="4" Content="Altering Steps" />
+            <NumericUpDown Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="100000000"
+                           Increment="1" Value="{Binding SelectedConversion.AlternatingDualSteps}">
+            </NumericUpDown>
+
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Blending" />
+            <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SourceData.DualBlending}"
+                      SelectedItem="{Binding SelectedConversion.DualBlending}"
+                      HorizontalAlignment="Stretch" />
+
+            <Label Grid.Row="1" Grid.Column="2" Content="Luma" />
+            <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Minimum="0" Maximum="1"
+                           Increment="0.1" Value="{Binding SelectedConversion.DualLuma}">
+            </NumericUpDown>
+
+            <Label Grid.Row="1" Grid.Column="4" Content="Chroma" />
+            <NumericUpDown Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+                           Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
+            </NumericUpDown>
+
         </Grid>
     </Expander>
 

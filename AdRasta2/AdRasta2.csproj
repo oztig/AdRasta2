@@ -35,4 +35,8 @@
         <PackageReference Include="Semi.Avalonia" Version="11.2.1.9"/>
         <PackageReference Include="Sini" Version="1.1.1"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controls\" />
+    </ItemGroup>
 </Project>

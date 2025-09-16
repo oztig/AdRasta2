@@ -18,10 +18,10 @@
             
             <Label Grid.Row="0" Grid.Column="0" Content="Random Seed" VerticalAlignment="Center" />
             <NumericUpDown Grid.Row="0" Grid.Column="1"
-                           Minimum="0" Maximum="999999999"
-                           x:Name="RandomSeed"
-                           Value="{Binding SelectedConversion.RandomSeed }"
-                           Increment="1" />
+                                            Minimum="0" Maximum="999999999"
+                                            x:Name="RandomSeed"
+                                            Value="{Binding SelectedConversion.RandomSeed }"
+                                            Increment="1" />
             
             <Label Grid.Row="0" Grid.Column="2" Content="Cache (MB)" VerticalAlignment="Center" />
             <NumericUpDown Grid.Row="0" Grid.Column="3"

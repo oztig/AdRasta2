@@ -1,3 +1,4 @@
+using AdRasta2.Extensions;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -9,5 +10,9 @@ public partial class DualModeSettingsView : UserControl
     public DualModeSettingsView()
     {
         InitializeComponent();
+        FirstSteps.PreventNull();
+        AlteringSteps.PreventNull();
+        Luma.PreventNull();
+        Chroma.PreventNull();
     }
 }

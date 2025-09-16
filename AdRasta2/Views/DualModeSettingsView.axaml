@@ -17,6 +17,7 @@
               RowSpacing="10">
             <Label Grid.Row="0" Grid.Column="0" Content="First Steps" />
             <NumericUpDown Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
+                           x:Name="FirstSteps"
                            Increment="1" Value="{Binding SelectedConversion.FirstDualSteps}">
             </NumericUpDown>
 
@@ -27,6 +28,7 @@
 
             <Label Grid.Row="0" Grid.Column="4" Content="Altering Steps" />
             <NumericUpDown Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="100000000"
+                           x:Name="AlteringSteps"
                            Increment="1" Value="{Binding SelectedConversion.AlternatingDualSteps}">
             </NumericUpDown>
 
@@ -38,11 +40,13 @@
 
             <Label Grid.Row="1" Grid.Column="2" Content="Luma" />
             <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Minimum="0" Maximum="1"
+                           x:Name="Luma"
                            Increment="0.1" Value="{Binding SelectedConversion.DualLuma}">
             </NumericUpDown>
 
             <Label Grid.Row="1" Grid.Column="4" Content="Chroma" />
             <NumericUpDown Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+                           x:Name="Chroma"
                            Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
             </NumericUpDown>
 

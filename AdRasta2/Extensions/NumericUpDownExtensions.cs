@@ -9,7 +9,7 @@ public static class NumericUpDownExtensions
         control.ValueChanged += (s, e) =>
         {
             if (e.NewValue == null)
-                control.Value = 0;
+                control.Value = control.Minimum;
         };
     }
 }

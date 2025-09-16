@@ -41,6 +41,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ConversionStatus ContinueButtonColour  => ConversionStatus.ConversionActive;
     
     public SourceData SourceData { get; } = new();
+    public RastaConverterDefaultValues ConverterDefaults { get; }
+
 
     public ReactiveCommand<string, Unit> SwitchThemeCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }

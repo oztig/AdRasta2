@@ -9,8 +9,15 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,31 +183,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="30821000" />
-    </task>
-    <task id="LOCAL-00051" summary="Add Bound Height Slider">
-      <option name="closed" value="true" />
-      <created>1757200540590</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1757200540590</updated>
-    </task>
-    <task id="LOCAL-00052" summary="height tooltip">
-      <option name="closed" value="true" />
-      <created>1757200672871</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1757200672871</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Add num up down bound to slider for height">
-      <option name="closed" value="true" />
-      <created>1757201005234</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1757201005234</updated>
+      <workItem from="1757918207366" duration="33353000" />
     </task>
     <task id="LOCAL-00054" summary="Layout Changes">
       <option name="closed" value="true" />
@@ -570,7 +553,31 @@
       <option name="project" value="LOCAL" />
       <updated>1758002081320</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="attempted new numericupdown - failed">
+      <option name="closed" value="true" />
+      <created>1758004604964</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1758004604964</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Fix issues with nulls in numericupdown">
+      <option name="closed" value="true" />
+      <created>1758004817711</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1758004817711</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Furhter null fix">
+      <option name="closed" value="true" />
+      <created>1758004859873</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1758004859873</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,9 +587,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="split out Dual Frame Setting into own control" />
-    <MESSAGE value="split out remaining sections of screen into their own controls" />
-    <MESSAGE value="removed commented out code" />
     <MESSAGE value="fiddling with layout" />
     <MESSAGE value="further layout fiddling" />
     <MESSAGE value="More Layout stuff" />
@@ -605,7 +609,10 @@
     <MESSAGE value="Add missing settings to GUI" />
     <MESSAGE value="GUI fiddling" />
     <MESSAGE value="Change Dual Expander layout, fix Config Expander" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change Dual Expander layout, fix Config Expander" />
+    <MESSAGE value="attempted new numericupdown - failed" />
+    <MESSAGE value="Fix issues with nulls in numericupdown" />
+    <MESSAGE value="Furhter null fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Furhter null fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

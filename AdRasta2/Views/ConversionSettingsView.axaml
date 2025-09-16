@@ -43,7 +43,6 @@
                            x:Name="MaxEvals"
                            Minimum="0" Maximum="999999999"
                            ToolTip.Tip="0 = No Limit"
-                           FormatString="F0"
                            Value="{Binding SelectedConversion.MaxEvaluations}"
                            Increment="1" />
 

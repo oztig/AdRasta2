@@ -20,6 +20,7 @@
             <NumericUpDown Grid.Row="0" Grid.Column="1"
                                             Minimum="0" Maximum="999999999"
                                             x:Name="RandomSeed"
+                                            ToolTip.Tip="0 = Use Default Seed"
                                             Value="{Binding SelectedConversion.RandomSeed }"
                                             Increment="1" />
             

@@ -6,10 +6,28 @@ public static class NumericUpDownExtensions
 {
     public static void PreventNull(this NumericUpDown control)
     {
-        control.ValueChanged += (s, e) =>
+        control.ValueChanged += (_, e) =>
         {
             if (e.NewValue == null)
-                control.Value = control.Minimum;
+            {
+                if (control.Tag is string tagString)
+                {
+                    if (int.TryParse(tagString, out var intFallback))
+                        control.Value = intFallback;
+                    else if (decimal.TryParse(tagString, out var decimalFallback))
+                        control.Value = (decimal)decimalFallback;
+                    else
+                        control.Value = control.Minimum;
+                }
+                else if (control.Tag is int intTag)
+                    control.Value = intTag;
+                else if (control.Tag is decimal decimalTag)
+                    control.Value = (decimal)decimalTag;
+                else
+                    control.Value = control.Minimum;
+            }
         };
     }
 }
+
+

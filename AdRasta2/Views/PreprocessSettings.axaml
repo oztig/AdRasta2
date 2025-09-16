@@ -42,12 +42,14 @@
                 <Label Grid.Row="1" Grid.Column="0" Content="Strength"
                        VerticalAlignment="Center" />
                 <NumericUpDown Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="3"
+                               x:Name="Strength"
                                Increment="0.1" Value="{Binding SelectedConversion.DitheringStrength}">
                 </NumericUpDown>
 
                 <Label Grid.Row="1" Grid.Column="2" Content="Randomness"
                        VerticalAlignment="Center" />
                 <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+                               x:Name="Randomness"
                                Increment="0.1" Value="{Binding  SelectedConversion.DitheringRandomness}">
                 </NumericUpDown>
 
@@ -82,6 +84,7 @@
 
                 <NumericUpDown Grid.Row="0" Grid.Column="2"
                                Margin="5,0,0,0"
+                               x:Name="Brightness"
                                MinWidth="32"
                                HorizontalContentAlignment="Right"
                                Minimum="-100" Maximum="100" Increment="1"
@@ -118,6 +121,7 @@
 
                 <NumericUpDown Grid.Row="1" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
+                               x:Name="Contrast"
                                Margin="5,0,0,0"
                                MinWidth="32"
                                HorizontalContentAlignment="Right"
@@ -155,6 +159,7 @@
 
                 <NumericUpDown Grid.Row="2" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
+                               x:Name="Gamma"
                                Margin="5,0,0,0"
                                MinWidth="32"
                                HorizontalContentAlignment="Right"

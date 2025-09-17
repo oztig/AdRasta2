@@ -22,7 +22,7 @@ public class RastaConversion : ReactiveObject
     public Action? ScrollToLatestLogEntry { get; set; }
 
     public Guid UniqueID { get; set; } = Guid.NewGuid();
-    public int ProcessID { get; set; } // Only set for Conversions, cleared when finished!
+    public int ProcessID { get; set; } // Use for any CLI process - used to update status from any CLI await
 
     private bool _isPreProcessExpanded = true;
 
@@ -90,7 +90,7 @@ public class RastaConversion : ReactiveObject
     {
         if (e.Action == NotifyCollectionChangedAction.Add)
             ScrollToLatestLogEntry?.Invoke();
-        
+
         UpdateUniqueLatestStatuses();
     }
 
@@ -129,16 +129,14 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged(nameof(CanProcess));
                 this.RaisePropertyChanged(nameof(SourceImageBaseName));
 
-                Statuses?.AddEntry(
-                    DateTime.Now,
-                    string.IsNullOrEmpty(_sourceImagePath)
-                        ? ConversionStatus.SourceCleared
-                        : ConversionStatus.SourceAdded,
-                    _sourceImagePath ?? ""
-                );
+                CopySourceImageToDestination();
             }
         }
     }
+    
+    public string SourceImageDirectory => string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetDirectoryName(SourceImagePath);
+    public string SourceImageFileName => string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetFileName(SourceImagePath);
+
 
     public string SourceImageBaseName => string.IsNullOrEmpty(SourceImagePath)
         ? string.Empty
@@ -235,7 +233,7 @@ public class RastaConversion : ReactiveObject
         set
         {
             this.RaiseAndSetIfChanged(ref _destinationFilePath, value);
-            
+
             Statuses?.AddEntry(
                 DateTime.Now,
                 string.IsNullOrEmpty(_destinationFilePath)
@@ -243,9 +241,12 @@ public class RastaConversion : ReactiveObject
                     : ConversionStatus.DestinationSet,
                 _destinationFilePath ?? ""
             );
-        } 
+        }
     }
-
+    
+    public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath) ? string.Empty : Path.GetDirectoryName(DestinationFilePath);
+    public string DestinationImageFileName => Path.Combine(DestinationDirectory, SourceImageFileName);
+    
     private string _imagePreviewPath;
 
     public string ImagePreviewPath
@@ -601,6 +602,21 @@ public class RastaConversion : ReactiveObject
         CanEditRegisterFile = value != string.Empty;
     }
 
+    private bool CopySourceImageToDestination()
+    {
+        bool ret = SourceImageDirectory != DestinationDirectory &&
+                   FileUtils.CopyFile(SourceImagePath, DestinationImageFileName);
+
+        Statuses?.AddEntry(
+            DateTime.Now,
+            string.IsNullOrEmpty(_sourceImagePath)
+                ? ConversionStatus.SourceCleared
+                : ConversionStatus.SourceAdded,
+            _sourceImagePath ?? ""
+        );
+
+        return ret;
+    }
 
     public RastaConversion(string title)
     {

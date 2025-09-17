@@ -83,7 +83,7 @@ public class RastaConversion : ReactiveObject
                 _statuses.CollectionChanged += Statuses_CollectionChanged;
 
             this.RaisePropertyChanged(nameof(Statuses));
-            UpdateUniqueLatestStatuses();
+            // UpdateUniqueLatestStatuses();
         }
     }
 
@@ -91,6 +91,8 @@ public class RastaConversion : ReactiveObject
     {
         if (e.Action == NotifyCollectionChangedAction.Add)
             ScrollToLatestLogEntry?.Invoke();
+        
+        UpdateUniqueLatestStatuses();
     }
 
     private IReadOnlyList<StatusEntry> _uniqueLatestStatuses = new List<StatusEntry>();
@@ -595,8 +597,8 @@ public class RastaConversion : ReactiveObject
         PopulateDefaultValues();
         Title = title;
 
-        _statuses = new BoundedLogCollection<StatusEntry>(100);
-        _statuses.CollectionChanged += Statuses_CollectionChanged;
+        Statuses = new BoundedLogCollection<StatusEntry>(100);
+        // _statuses.CollectionChanged += Statuses_CollectionChanged;
     }
 
     public void PopulateDefaultValues()

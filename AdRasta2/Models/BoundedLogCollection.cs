@@ -20,6 +20,7 @@ public class BoundedLogCollection<T> : ObservableCollection<T>
             Timestamp = timeStamp,
             Status = status,
             Details = details,
+            ShowOnImageStatusLine = StatusFilter.ShouldIncludeOnImageDotLine(status)
         };
         AddEntry((T)(object)newEntry);
     }

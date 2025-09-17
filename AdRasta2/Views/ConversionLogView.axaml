@@ -17,14 +17,17 @@
             BorderThickness="1"
             CornerRadius="4"
             Padding="8"
+            HorizontalAlignment="Stretch"
             Margin="10,10,0,5">
-        <StackPanel>
-            <TextBlock Text="Log"
+        <Grid RowDefinitions="Auto,*">
+            <TextBlock Grid.Row="0" Text="Log"
                        FontWeight="Bold"
                        FontSize="14"
                        Margin="0,0,0,8" />
-
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            
+            <ScrollViewer Grid.Row="1" x:Name="LogScrollViewer"
+                          VerticalScrollBarVisibility="Auto"
+                          MaxHeight="140">
                 <ItemsControl ItemsSource="{Binding SelectedConversion.Statuses}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -42,6 +45,6 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
-        </StackPanel>
+        </Grid>
     </Border>
 </UserControl>

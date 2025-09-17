@@ -19,6 +19,8 @@ namespace AdRasta2.Models;
 
 public class RastaConversion : ReactiveObject
 {
+    public Action? ScrollToLatestLogEntry { get; set; }
+
     public Guid UniqueID { get; set; } = Guid.NewGuid();
     public int ProcessID { get; set; } // Only set for Conversions, cleared when finished!
 
@@ -87,7 +89,8 @@ public class RastaConversion : ReactiveObject
 
     private void Statuses_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        UpdateUniqueLatestStatuses();
+        if (e.Action == NotifyCollectionChangedAction.Add)
+            ScrollToLatestLogEntry?.Invoke();
     }
 
     private IReadOnlyList<StatusEntry> _uniqueLatestStatuses = new List<StatusEntry>();
@@ -125,8 +128,13 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged(nameof(CanProcess));
                 this.RaisePropertyChanged(nameof(SourceImageBaseName));
 
-                if (_sourceImagePath != null && _sourceImagePath != string.Empty)
-                    Statuses.AddEntry(DateTime.Now, ConversionStatus.SourceAdded, _sourceImagePath);
+                Statuses?.AddEntry(
+                    DateTime.Now,
+                    string.IsNullOrEmpty(_sourceImagePath)
+                        ? ConversionStatus.SourceCleared
+                        : ConversionStatus.SourceAdded,
+                    _sourceImagePath ?? ""
+                );
             }
         }
     }
@@ -177,9 +185,13 @@ public class RastaConversion : ReactiveObject
                 _sourceImageMask = null;
                 this.RaisePropertyChanged(nameof(SourceImageMask));
                 this.RaisePropertyChanged(nameof(SourceImageMaskBaseName));
-                
-                if (_sourceImageMaskPath != null && _sourceImageMaskPath != string.Empty)
-                    Statuses.AddEntry(DateTime.Now, ConversionStatus.MaskAdded, _sourceImageMaskPath);
+
+                Statuses?.AddEntry(
+                    DateTime.Now,
+                    string.IsNullOrEmpty(_sourceImageMaskPath)
+                        ? ConversionStatus.MaskCleared
+                        : ConversionStatus.MaskAdded,
+                    _sourceImageMaskPath ?? "");
             }
         }
     }

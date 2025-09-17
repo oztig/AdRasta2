@@ -33,6 +33,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
 
+    public Action ScrollToLatestLogEntry { get; set; }
+
+    
     // Button Colours
     public ConversionStatus PreviewButtonColour => ConversionStatus.PreviewGenerated;
     public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
@@ -273,5 +276,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         //
         // await RastaConverter.ExecuteRastaConverterCommand(safeCommand, safeParams);
         // await ViewImage(viewFileName);
+        
+       SelectedConversion. Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,"");
     }
 }

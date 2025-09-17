@@ -20,7 +20,7 @@ public class StatusEntry
     public override string ToString()
     {
         return string.IsNullOrWhiteSpace(Details)
-            ? $"{Status}: {Timestamp:dd/MM HH:mm}"
-            : $"{Status}: {Timestamp:dd/MM HH:mm} — {Details}";
+            ? $"{Status}: {Timestamp:dd/MM HH:mm:ss}"
+            : $"{Status}: {Timestamp:dd/MM HH:mm:ss} — {Details}";
     }
 }

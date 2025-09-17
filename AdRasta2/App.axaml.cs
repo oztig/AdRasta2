@@ -65,8 +65,6 @@ public partial class App : Application
     {
         try
         {
-            Console.WriteLine($"Attempting to load resource: {uri}");
-
             var loaded = AvaloniaXamlLoader.Load(uri);
 
             if (loaded == null)
@@ -74,8 +72,6 @@ public partial class App : Application
                 Console.WriteLine($"Load returned null for: {uri}");
                 return;
             }
-
-            Console.WriteLine($"Loaded resource type: {loaded.GetType().Name}");
 
             switch (loaded)
             {

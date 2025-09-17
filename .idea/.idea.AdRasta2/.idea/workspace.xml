@@ -9,13 +9,16 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +44,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18f2eb258dcf45748fa1903c530f5f07d1a000/4a/a1da01c8/DateTime.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18f2eb258dcf45748fa1903c530f5f07d1a000/aa/6d40b460/String.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18f2eb258dcf45748fa1903c530f5f07d1a000/ec/00977e14/CastHelpers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/36767967084446d2a52b3cd3af0b2595106a00/6e/7c1ffdec/Application.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/457530be4752476295767457c3639889d1a000/dd/a567ff02/Collection`1.cs" root0="FORCE_HIGHLIGHTING" />
@@ -68,6 +73,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConversion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Settings.cs" root0="FORCE_HIGHLIGHTING" />
@@ -185,15 +191,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="53833000" />
-    </task>
-    <task id="LOCAL-00058" summary="Tidy up">
-      <option name="closed" value="true" />
-      <created>1757237938336</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1757237938336</updated>
+      <workItem from="1757918207366" duration="66889000" />
     </task>
     <task id="LOCAL-00059" summary="Tidy up 2">
       <option name="closed" value="true" />
@@ -579,7 +577,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758091097095</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Start plugin of status log, plus 'Preview' Button">
+      <option name="closed" value="true" />
+      <created>1758093324160</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1758093324160</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +595,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="layout fiddling" />
     <MESSAGE value="GUI Fiddling + Mapping" />
     <MESSAGE value="Added Framework for styling - to be properly added later" />
     <MESSAGE value="stuff" />
@@ -614,7 +619,8 @@
     <MESSAGE value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
     <MESSAGE value="Tweak slider text boxes - hide border" />
     <MESSAGE value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
+    <MESSAGE value="Start plugin of status log, plus 'Preview' Button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start plugin of status log, plus 'Preview' Button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -631,19 +637,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
-          <line>269</line>
-          <properties documentPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'PreviewImage'">
-            <startOffsets>
-              <option value="8967" />
-            </startOffsets>
-            <endOffsets>
-              <option value="9017" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

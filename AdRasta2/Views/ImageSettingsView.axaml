@@ -13,7 +13,7 @@
         <converters:StatusToColourConverter x:Key="StatusToColourConverter" />
     </UserControl.Resources>
 
-    <Grid RowDefinitions="*,*" ColumnDefinitions="Auto,Auto,Auto,Auto">
+    <Grid RowDefinitions="*,*" ColumnDefinitions="Auto,Auto,Auto,*">
 
         <!-- Source -->
         <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="Source"

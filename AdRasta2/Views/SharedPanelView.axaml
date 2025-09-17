@@ -28,12 +28,12 @@
 
             <!-- Scrollable Middle -->
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="5" Spacing="4">
-                    <views:PreprocessSettings />
-                    <views:ConversionSettingsView />
-                    <views:ConfigSettingsView/>
-                    <views:DualModeSettingsView />
-                </StackPanel>
+                <Grid Margin="5" RowSpacing="4" RowDefinitions="Auto,Auto,Auto,*">
+                    <views:PreprocessSettings Grid.Row="0" />
+                    <views:ConversionSettingsView Grid.Row="1" />
+                    <views:ConfigSettingsView Grid.Row="2" />
+                    <views:DualModeSettingsView Grid.Row="3" />
+                </Grid>
             </ScrollViewer>
 
         </DockPanel>

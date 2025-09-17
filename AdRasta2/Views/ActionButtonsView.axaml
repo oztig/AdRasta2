@@ -17,7 +17,8 @@
 
             <!-- Group 1: Preview + Convert + Continue-->
             <StackPanel Orientation="Horizontal" Spacing="15">
-                <Button IsEnabled="{Binding SelectedConversion.CanProcess}">
+                <Button IsEnabled="{Binding SelectedConversion.CanProcess}" 
+                        Command="{Binding PreviewImage}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
                                    Fill="{Binding PreviewButtonColour, Converter={StaticResource StatusToColourConverter}}" />

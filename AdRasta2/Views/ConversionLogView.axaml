@@ -28,7 +28,7 @@
                 <ItemsControl ItemsSource="{Binding SelectedConversion.Statuses}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <DockPanel Margin="2">
+                            <DockPanel Margin="2" ToolTip.Tip="{Binding Message}">
                                 <Ellipse Width="8" Height="8"
                                          Fill="{Binding Status, Converter={StaticResource StatusToColourConverter}}"
                                          Margin="0,0,6,0"

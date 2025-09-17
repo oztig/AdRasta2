@@ -32,14 +32,14 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public object Dummy => null;
 
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
-    
+
     // Button Colours
     public ConversionStatus PreviewButtonColour => ConversionStatus.PreviewGenerated;
     public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
     public ConversionStatus XexButtonColour => ConversionStatus.ExecutableGenerated;
     public ConversionStatus ConversionButtonColour => ConversionStatus.ConversionComplete;
-    public ConversionStatus ContinueButtonColour  => ConversionStatus.ConversionActive;
-    
+    public ConversionStatus ContinueButtonColour => ConversionStatus.ConversionActive;
+
     public SourceData SourceData { get; } = new();
     public RastaConverterDefaultValues ConverterDefaults { get; }
 
@@ -57,12 +57,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
 
     private RastaConversion? _selectedConversion;
+
     public RastaConversion? SelectedConversion
     {
         get => _selectedConversion;
         set => this.RaiseAndSetIfChanged(ref _selectedConversion, value);
     }
-    
+
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
 
@@ -80,23 +81,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         PopulateSprockets();
         CreateInitialEntry();
-        
-        // DEBUG
-        var newStat = new StatusEntry
-        {
-            Status = ConversionStatus.PreviewGenerated,
-            Timestamp = DateTime.Now,
-            ShowOnImageStatusLine = true
-        };
-        SelectedConversion.Statuses.Add(newStat);
-        
-        newStat = new StatusEntry
-        {
-            Status = ConversionStatus.ExecutableGenerated,
-            Timestamp = DateTime.Now.AddDays(+1),
-            ShowOnImageStatusLine = true
-        };
-        SelectedConversion.Statuses.Add(newStat);
+
     }
 
     private void CreateInitialEntry()
@@ -173,7 +158,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
             throw;
         }
     }
-    
+
     private void SwitchTheme(string themeName)
     {
         try
@@ -264,19 +249,29 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Brightness = RastaConverterDefaultValues.DefaultBrightness;
     }
-    
+
     public async void ResetContrast()
     {
         SelectedConversion.Contrast = RastaConverterDefaultValues.DefaultContrast;
     }
-    
+
     public async void ResetGamma()
     {
         SelectedConversion.Gamma = RastaConverterDefaultValues.DefaultGamma;
     }
-    
- private async Task<string> SelectFiles(FilePickerFileType fileType)
+
+    private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
+    }
+
+    public async Task PreviewImage()
+    {
+        var safeCommand = _settings.RastaConverterCommand;
+        // var safeParams = await GenerateRastaArguments(true); // _rastaCommandLineArguments;
+        // var viewFileName = FullDestinationFileName.Trim() + "-dst.png";
+        //
+        // await RastaConverter.ExecuteRastaConverterCommand(safeCommand, safeParams);
+        // await ViewImage(viewFileName);
     }
 }

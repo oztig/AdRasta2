@@ -9,6 +9,7 @@ using Avalonia.Platform;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using AdRasta2.Enums;
 using AdRasta2.Utils;
 using Avalonia.Controls.Converters;
 using Avalonia.Media;
@@ -123,13 +124,16 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged(nameof(SourceImage));
                 this.RaisePropertyChanged(nameof(CanProcess));
                 this.RaisePropertyChanged(nameof(SourceImageBaseName));
+
+                if (_sourceImagePath != null && _sourceImagePath != string.Empty)
+                    Statuses.AddEntry(DateTime.Now, ConversionStatus.SourceAdded, _sourceImagePath);
             }
         }
     }
 
     public string SourceImageBaseName => string.IsNullOrEmpty(SourceImagePath)
-            ? string.Empty
-            : Path.GetFileName(SourceImagePath);
+        ? string.Empty
+        : Path.GetFileName(SourceImagePath);
 
 
     private Bitmap? _sourceImage;
@@ -173,10 +177,13 @@ public class RastaConversion : ReactiveObject
                 _sourceImageMask = null;
                 this.RaisePropertyChanged(nameof(SourceImageMask));
                 this.RaisePropertyChanged(nameof(SourceImageMaskBaseName));
+                
+                if (_sourceImageMaskPath != null && _sourceImageMaskPath != string.Empty)
+                    Statuses.AddEntry(DateTime.Now, ConversionStatus.MaskAdded, _sourceImageMaskPath);
             }
         }
     }
-    
+
     public string SourceImageMaskBaseName => string.IsNullOrEmpty(SourceImageMaskPath)
         ? string.Empty
         : Path.GetFileName(SourceImageMaskPath);
@@ -232,8 +239,7 @@ public class RastaConversion : ReactiveObject
             }
         }
     }
-    
-    
+
 
     private Bitmap? _imagePreview;
 
@@ -615,6 +621,7 @@ public class RastaConversion : ReactiveObject
         SourceImageMaskPath = RastaConverterDefaultValues.DefaultSourceImageMaskPath;
         DestinationFilePath = RastaConverterDefaultValues.DefaultDestinationFilePath;
         RegisterOnOffFilePath = RastaConverterDefaultValues.DefaultRegisterOnOffFilePath;
+        Statuses?.Clear();
 
         // public static string DefaultDestantionFilePrefix;
     }

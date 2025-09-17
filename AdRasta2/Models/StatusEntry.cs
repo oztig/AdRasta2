@@ -9,6 +9,8 @@ public class StatusEntry
 {
     public ConversionStatus Status { get; set; }
     public DateTime Timestamp { get; set; }
+    public string Details { get; set; }
+    
     public bool ShowOnImageStatusLine { get; set; }
     
     public string TooltipText => $"{Status}: {Timestamp:dd/MM HH:mm}";
@@ -17,6 +19,8 @@ public class StatusEntry
     
     public override string ToString()
     {
-        return $"{Status}: {Timestamp:dd/MM HH:mm}";
+        return string.IsNullOrWhiteSpace(Details)
+            ? $"{Status}: {Timestamp:dd/MM HH:mm}"
+            : $"{Status}: {Timestamp:dd/MM HH:mm} — {Details}";
     }
 }

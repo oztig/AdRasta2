@@ -9,11 +9,13 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,15 +185,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="51906000" />
-    </task>
-    <task id="LOCAL-00057" summary="Add context menus">
-      <option name="closed" value="true" />
-      <created>1757237755244</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1757237755244</updated>
+      <workItem from="1757918207366" duration="53833000" />
     </task>
     <task id="LOCAL-00058" summary="Tidy up">
       <option name="closed" value="true" />
@@ -577,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758086681264</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff">
+      <option name="closed" value="true" />
+      <created>1758091097095</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1758091097095</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +589,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="gui fiddling" />
     <MESSAGE value="layout fiddling" />
     <MESSAGE value="GUI Fiddling + Mapping" />
     <MESSAGE value="Added Framework for styling - to be properly added later" />
@@ -612,7 +613,8 @@
     <MESSAGE value="If numericupdown value is null, revert to default value (held in Tag)" />
     <MESSAGE value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
     <MESSAGE value="Tweak slider text boxes - hide border" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tweak slider text boxes - hide border" />
+    <MESSAGE value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -629,6 +631,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
+          <line>269</line>
+          <properties documentPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'PreviewImage'">
+            <startOffsets>
+              <option value="8967" />
+            </startOffsets>
+            <endOffsets>
+              <option value="9017" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

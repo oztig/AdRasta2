@@ -7,8 +7,8 @@ public static class StatusFilter
 {
     private static readonly HashSet<ConversionStatus> ExcludedStatuses = new()
     {
-        ConversionStatus.MCHGenerated
-        // Add others as needed
+        ConversionStatus.SourceAdded,
+        ConversionStatus.MaskAdded
     };
 
     public static bool ShouldIncludeOnImageDotLine(ConversionStatus status)

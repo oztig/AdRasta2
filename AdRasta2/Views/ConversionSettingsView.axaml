@@ -5,6 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
+             xmlns:controls="clr-namespace:AdRasta2.Controls"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.ConversionSettingsView">
 
@@ -32,14 +33,14 @@
                       HorizontalAlignment="Stretch" />
 
             <Label Grid.Row="1" Grid.Column="0" Content="No. of solutions" VerticalAlignment="Center" />
-            <NumericUpDown Grid.Row="1" Grid.Column="1"
+            <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="1"
                            Minimum="1" Maximum="999999999"
                            x:Name="NumSolutions"
                            Value="{Binding SelectedConversion.SolutionHistoryLength }"
                            Increment="1" />
 
             <Label Grid.Row="0" Grid.Column="6" Content="Max. Evaluations" VerticalAlignment="Center" />
-            <NumericUpDown Grid.Row="0" Grid.Column="7"
+            <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="7"
                            x:Name="MaxEvals"
                            Minimum="0" Maximum="999999999"
                            ToolTip.Tip="0 = No Limit"

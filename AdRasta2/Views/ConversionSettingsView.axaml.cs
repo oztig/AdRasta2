@@ -16,9 +16,7 @@ public partial class ConversionSettingsView : UserControl
 
     private void ApplyDefaults()
     {
-        NumSolutions.PreventNull();
-        NumSolutions.Tag = RastaConverterDefaultValues.DefaultSolutionHistoryLength;
-        MaxEvals.PreventNull();
-        MaxEvals.Tag = RastaConverterDefaultValues.DefaultMaxEvaluations;
+        NumSolutions.DefaultIfNull = RastaConverterDefaultValues.DefaultSolutionHistoryLength;
+        MaxEvals.DefaultIfNull = RastaConverterDefaultValues.DefaultMaxEvaluations;
     }
 }

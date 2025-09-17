@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AdRasta2/App.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Styles/SafeNumericUpDownStyle.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Themes/CompactBrushes.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Themes/CompactStyle.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Themes/CompactStyles.axaml" value="AdRasta2/AdRasta2.csproj" />
@@ -13,6 +14,7 @@
         <entry key="AdRasta2/Views/ActionButtonsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/AdRastaMainView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/BottomPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Views/ConfigSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/ConversionLogView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/ConversionSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/DualModeSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />

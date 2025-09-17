@@ -16,13 +16,9 @@ public partial class DualModeSettingsView : UserControl
 
     private void ApplyDefaults()
     {
-        FirstSteps.PreventNull();
-        FirstSteps.Tag = RastaConverterDefaultValues.DefualtFirstDualSteps;
-        AlteringSteps.PreventNull();
-        AlteringSteps.Tag = RastaConverterDefaultValues.DefaultAlternatingDualSteps;
-        Luma.PreventNull();
-        Luma.Tag = RastaConverterDefaultValues.DefaultDualLuma;
-        Chroma.PreventNull();
-        Chroma.Tag = RastaConverterDefaultValues.DefaultDualChroma;
+        FirstSteps.DefaultIfNull = RastaConverterDefaultValues.DefualtFirstDualSteps;
+        AlteringSteps.DefaultIfNull = RastaConverterDefaultValues.DefaultAlternatingDualSteps;
+        Luma.DefaultIfNull = RastaConverterDefaultValues.DefaultDualLuma;
+        Chroma.DefaultIfNull = RastaConverterDefaultValues.DefaultDualChroma;
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
+             xmlns:controls="clr-namespace:AdRasta2.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.ConfigSettingsView">
@@ -17,7 +18,7 @@
               RowSpacing="10" ColumnSpacing="10">
             
             <Label Grid.Row="0" Grid.Column="0" Content="Random Seed" VerticalAlignment="Center" />
-            <NumericUpDown Grid.Row="0" Grid.Column="1"
+            <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="1"
                                             Minimum="0" Maximum="999999999"
                                             x:Name="RandomSeed"
                                             ToolTip.Tip="0 = Use Default Seed"
@@ -25,12 +26,12 @@
                                             Increment="1" />
             
             <Label Grid.Row="0" Grid.Column="2" Content="Cache (MB)" VerticalAlignment="Center" />
-            <NumericUpDown Grid.Row="0" Grid.Column="3"
+            <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="3"
                            Minimum="1" Maximum="8192"
                            x:Name="CacheInMB"
                            Value="{Binding SelectedConversion.CacheInMB }"
                            Increment="1" />
-            
+           
         </Grid>
     </Expander>
 </UserControl>

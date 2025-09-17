@@ -1,0 +1,63 @@
+<!-- SafeNumericUpDownStyle.axaml -->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:controls="clr-namespace:AdRasta2.Controls">
+  <Style Selector="controls|SafeNumericUpDown">
+    <Setter Property="BorderBrush" Value="#99000000" />
+    <Setter Property="BorderThickness" Value="0,0,0,0" />
+    <Setter Property="SpinnerBorderBrush" Value="#99000000" />
+    <Setter Property="SpinnerBorderThickness" Value="1,1,1,1" />
+    <Setter Property="Foreground" Value="{DynamicResource TextControlForeground}" />
+    <Setter Property="Background" Value="{DynamicResource InputBackground}" />
+    <Setter Property="Height" Value="{DynamicResource InputDefaultHeight}" />
+    <Setter Property="MinWidth" Value="{DynamicResource NumericUpDownMinWidth}" />
+    <Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />
+    <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DataValidationErrors>
+          <Border Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}">
+            <ButtonSpinner Name="PART_Spinner"
+                           Background="{TemplateBinding Background}"
+                           BorderBrush="{Binding SpinnerBorderBrush, RelativeSource={RelativeSource TemplatedParent}}"
+                           BorderThickness="{Binding SpinnerBorderThickness, RelativeSource={RelativeSource TemplatedParent}}"
+                           CornerRadius="{TemplateBinding CornerRadius}"
+                           MinWidth="{TemplateBinding MinWidth}"
+                           MinHeight="{TemplateBinding MinHeight}"
+                           IsTabStop="False"
+                           Padding="0"
+                           HorizontalContentAlignment="Stretch"
+                           VerticalContentAlignment="Stretch"
+                           AllowSpin="{TemplateBinding AllowSpin}"
+                           ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
+                           ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
+              <TextBox Name="PART_TextBox"
+                       Classes="no-focus-border"
+                       Background="Transparent"
+                       BorderBrush="Transparent"
+                       Margin="0"
+                       Padding="{TemplateBinding Padding}"
+                       MinWidth="0"
+                       Foreground="{TemplateBinding Foreground}"
+                       Watermark="{TemplateBinding Watermark}"
+                       IsReadOnly="{TemplateBinding IsReadOnly}"
+                       VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                       Text="{TemplateBinding Text}"
+                       TextAlignment="{TemplateBinding TextAlignment}"
+                       AcceptsReturn="False"
+                       TextWrapping="NoWrap"
+                       Focusable="{TemplateBinding Focusable}"
+                       InnerLeftContent="{Binding InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}}"
+                       InnerRightContent="{Binding InnerRightContent, RelativeSource={RelativeSource TemplatedParent}}" />
+            </ButtonSpinner>
+          </Border>
+        </DataValidationErrors>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

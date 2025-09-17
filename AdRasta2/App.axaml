@@ -5,6 +5,7 @@
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              xmlns:semi="https://irihi.tech/semi"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
+             xmlns:controls="clr-namespace:AdRasta2.Controls"
              RequestedThemeVariant="Default">
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -17,54 +18,30 @@
         <converters:IsAutoConverter x:Key="IsAutoConverter" />
         <converters:IsNotAutoConverter x:Key="IsNotAutoConverter" />
         <converters:ExpandArrowConverter x:Key="ExpandArrowConverter" />
+
+        <!-- Background for input controls -->
+        <SolidColorBrush x:Key="InputBackground" Color="#FFFFFFFF" /> <!-- White -->
+
+        <!-- Border brush for input controls -->
+        <SolidColorBrush x:Key="InputBorder" Color="Blue" /> <!-- Blue -->
+
+        <!-- Border thickness -->
+        <Thickness x:Key="TextControlBorderThemeThickness">1</Thickness>
+
+        <!-- Optional: focused state -->
+        <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="#FF3399FF" />
+        <Thickness x:Key="TextControlBorderThemeThicknessFocused">1</Thickness>
+
+        <!-- Define the corner radius used by controls -->
+        <!-- <CornerRadius x:Key="ControlCornerRadius">4</CornerRadius> -->
+
     </Application.Resources>
 
     <Application.Styles>
         <FluentTheme>
         </FluentTheme>
         <StyleInclude Source="avares://IconPacks.Avalonia/Icons.axaml" />
-       
-        <Style Selector="HeaderedContentControl">
-            <Setter Property="Template">
-                <ControlTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <!-- Header -->
-                        <Border
-                            ZIndex="1"
-                            Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
-                            Padding="5,0,5,0"
-                            Margin="5,0,0,0">
-                            <TextBlock
-                                Text="{TemplateBinding Header}"
-                                FontWeight="Bold" />
-                        </Border>
-
-                        <!-- Content Area -->
-                        <Border
-                            Grid.RowSpan="2"
-                            Padding="0,5,0,0"
-                            Grid.ColumnSpan="2"
-                            CornerRadius="4"
-                            Margin="0,10,0,0"
-                            BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"
-                            BorderThickness="1">
-                            <ContentPresenter
-                                Name="PART_ContentPresenter"
-                                Padding="8"
-                                Content="{TemplateBinding Content}" />
-                        </Border>
-                    </Grid>
-                </ControlTemplate>
-            </Setter>
-        </Style>
+        <StyleInclude Source="avares://AdRasta2/Styles/SafeNumericUpDownStyle.axaml" />
+        <StyleInclude Source="avares://AdRasta2/Styles/HeaderContentControl.axaml" />
     </Application.Styles>
 </Application>

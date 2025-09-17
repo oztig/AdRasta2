@@ -16,15 +16,10 @@ public partial class PreprocessSettings : UserControl
     
     private void ApplyDefaults()
     {
-        Strength.PreventNull();
-        Strength.Tag = RastaConverterDefaultValues.DefaultDitheringStrength;
-        Randomness.PreventNull();
-        Randomness.Tag = RastaConverterDefaultValues.DefaultDitheringRandomness;
-        Brightness.PreventNull();
-        Brightness.Tag = RastaConverterDefaultValues.DefaultBrightness;
-        Contrast.PreventNull();
-        Contrast.Tag = RastaConverterDefaultValues.DefaultContrast;
-        Gamma.PreventNull();
-        Gamma.Tag = RastaConverterDefaultValues.DefaultGamma;
+        Strength.DefaultIfNull = RastaConverterDefaultValues.DefaultDitheringStrength;
+        Randomness.DefaultIfNull = RastaConverterDefaultValues.DefaultDitheringRandomness;
+        Brightness.DefaultIfNull = RastaConverterDefaultValues.DefaultBrightness;
+        Contrast.DefaultIfNull = RastaConverterDefaultValues.DefaultContrast;
+        Gamma.DefaultIfNull = RastaConverterDefaultValues.DefaultGamma;
     }
 }

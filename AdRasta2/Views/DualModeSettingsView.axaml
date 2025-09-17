@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             xmlns:controls="clr-namespace:AdRasta2.Controls"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.DualModeSettingsView">
 
@@ -16,10 +17,10 @@
         <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
               RowSpacing="10">
             <Label Grid.Row="0" Grid.Column="0" Content="First Steps" />
-            <NumericUpDown Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
+            <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
                            x:Name="FirstSteps"
                            Increment="1" Value="{Binding SelectedConversion.FirstDualSteps}">
-            </NumericUpDown>
+            </controls:SafeNumericUpDown>
 
             <Label Grid.Row="0" Grid.Column="2" Content="After Steps" />
             <ComboBox Grid.Row="0" Grid.Column="3" ItemsSource="{Binding SourceData.AfterDualSteps}"
@@ -27,10 +28,10 @@
                       HorizontalAlignment="Stretch" />
 
             <Label Grid.Row="0" Grid.Column="4" Content="Altering Steps" />
-            <NumericUpDown Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="100000000"
+            <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="100000000"
                            x:Name="AlteringSteps"
                            Increment="1" Value="{Binding SelectedConversion.AlternatingDualSteps}">
-            </NumericUpDown>
+            </controls:SafeNumericUpDown>
 
 
             <Label Grid.Row="1" Grid.Column="0" Content="Blending" />
@@ -39,16 +40,16 @@
                       HorizontalAlignment="Stretch" />
 
             <Label Grid.Row="1" Grid.Column="2" Content="Luma" />
-            <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Minimum="0" Maximum="1"
+            <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Minimum="0" Maximum="1"
                            x:Name="Luma"
                            Increment="0.1" Value="{Binding SelectedConversion.DualLuma}">
-            </NumericUpDown>
+            </controls:SafeNumericUpDown>
 
             <Label Grid.Row="1" Grid.Column="4" Content="Chroma" />
-            <NumericUpDown Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+            <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="5" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
                            x:Name="Chroma"
                            Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
-            </NumericUpDown>
+            </controls:SafeNumericUpDown>
 
         </Grid>
     </Expander>

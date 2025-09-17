@@ -16,9 +16,7 @@ public partial class ConfigSettingsView : UserControl
 
     private void ApplyDefaults()
     {
-        RandomSeed.PreventNull();
-        RandomSeed.Tag = RastaConverterDefaultValues.DefaultRandomSeed;
-        CacheInMB.PreventNull();
-        CacheInMB.Tag = RastaConverterDefaultValues.DefaultCacheInMB;
+        RandomSeed.DefaultIfNull = RastaConverterDefaultValues.DefaultRandomSeed;
+        CacheInMB.DefaultIfNull = RastaConverterDefaultValues.DefaultCacheInMB;
     }
 }

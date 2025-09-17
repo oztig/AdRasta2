@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+             xmlns:controls="clr-namespace:AdRasta2.Controls"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.PreprocessSettings">
 
@@ -41,17 +42,17 @@
                 <!-- Row 1 -->
                 <Label Grid.Row="1" Grid.Column="0" Content="Strength"
                        VerticalAlignment="Center" />
-                <NumericUpDown Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="3"
+                <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="3"
                                x:Name="Strength"
                                Increment="0.1" Value="{Binding SelectedConversion.DitheringStrength}">
-                </NumericUpDown>
+                </controls:SafeNumericUpDown>
 
                 <Label Grid.Row="1" Grid.Column="2" Content="Randomness"
                        VerticalAlignment="Center" />
-                <NumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+                <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
                                x:Name="Randomness"
                                Increment="0.1" Value="{Binding  SelectedConversion.DitheringRandomness}">
-                </NumericUpDown>
+                </controls:SafeNumericUpDown>
 
             </Grid>
 
@@ -82,7 +83,7 @@
                         TickFrequency="1" IsSnapToTickEnabled="True"
                         IsTabStop="False" />
 
-                <NumericUpDown Grid.Row="0" Grid.Column="2"
+                <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="2"
                                Margin="5,0,0,0"
                                x:Name="Brightness"
                                MinWidth="32"
@@ -96,7 +97,7 @@
                                VerticalContentAlignment="Center"
                                ShowButtonSpinner="False"
                                ParsingNumberStyle="Integer">
-                </NumericUpDown>
+                </controls:SafeNumericUpDown>
 
                 <!-- Contrast -->
                 <Button Grid.Row="1" Grid.Column="0"
@@ -119,7 +120,7 @@
                         TickFrequency="1" IsSnapToTickEnabled="True"
                         IsTabStop="False" />
 
-                <NumericUpDown Grid.Row="1" Grid.Column="2"
+                <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
                                x:Name="Contrast"
                                Margin="5,0,0,0"
@@ -157,7 +158,7 @@
                         TickFrequency="1" IsSnapToTickEnabled="True"
                         IsTabStop="False" />
 
-                <NumericUpDown Grid.Row="2" Grid.Column="2"
+                <controls:SafeNumericUpDown Grid.Row="2" Grid.Column="2"
                                Minimum="-100" Maximum="100" Increment="1"
                                x:Name="Gamma"
                                Margin="5,0,0,0"

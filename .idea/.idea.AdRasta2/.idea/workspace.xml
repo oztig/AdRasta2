@@ -8,9 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Interfaces/IFolderPickerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Services/FolderPickerService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/MainWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +70,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFolderPickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,6 +84,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FolderPickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/MessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Styles/HeaderContentControl.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Styles/SafeNumericUpDownStyle.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -107,6 +116,8 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/WorkingDirectoryView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/WorkingDirectoryView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///tmp/JetBrainsPerUserTemp-1000-1/SourceGeneratedDocuments/E5977518AA06948086754117/Avalonia.Generators/Avalonia.Generators.NameGenerator.AvaloniaNameSourceGenerator/AdRasta2.Views.ConfigSettingsView.g.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -124,7 +135,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Debug",
+    ".NET Project.AdRasta2.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -184,15 +195,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="68986000" />
-    </task>
-    <task id="LOCAL-00060" summary="Add Auto to Source Image Height">
-      <option name="closed" value="true" />
-      <created>1757316387994</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1757316387994</updated>
+      <workItem from="1757918207366" duration="73584000" />
     </task>
     <task id="LOCAL-00061" summary="Make Height overlay textbox readonly, and none tab stop">
       <option name="closed" value="true" />
@@ -578,7 +581,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758110141120</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Fix UniqueStatuses update - CollectionChanged issue">
+      <option name="closed" value="true" />
+      <created>1758114180201</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1758114180201</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +599,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Framework for styling - to be properly added later" />
     <MESSAGE value="stuff" />
     <MESSAGE value="Remove test Expander" />
     <MESSAGE value="Add Theme Framework - Actual Themes = TODO" />
@@ -613,7 +623,8 @@
     <MESSAGE value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
     <MESSAGE value="Start plugin of status log, plus 'Preview' Button" />
     <MESSAGE value="Log more events, fix Log right alignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Log more events, fix Log right alignment" />
+    <MESSAGE value="Fix UniqueStatuses update - CollectionChanged issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix UniqueStatuses update - CollectionChanged issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -630,58 +641,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs</url>
-          <line>107</line>
-          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" containingFunctionPresentation="Method 'UpdateUniqueLatestStatuses'">
-            <startOffsets>
-              <option value="2933" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3172" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs</url>
-          <line>75</line>
-          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" containingFunctionPresentation="Property 'Statuses'">
-            <startOffsets>
-              <option value="1933" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1955" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs</url>
-          <line>85</line>
-          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" containingFunctionPresentation="Property 'Statuses'">
-            <startOffsets>
-              <option value="2282" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2311" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs</url>
-          <line>91</line>
-          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" containingFunctionPresentation="Method 'Statuses_CollectionChanged'">
-            <startOffsets>
-              <option value="2439" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2489" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

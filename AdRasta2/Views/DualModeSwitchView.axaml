@@ -7,7 +7,7 @@
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.DualModeSwitchView">
 
-    <Grid ColumnDefinitions="Auto,Auto,*" 
+    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*" 
           Margin=" 0,5,5,5" 
           ColumnSpacing="5">
         <TextBlock Grid.Column="0"
@@ -16,5 +16,11 @@
         <ToggleSwitch Grid.Column="2"
                       IsChecked="{Binding  SelectedConversion.DualFrameMode}"
                       VerticalAlignment="Center" />
+        
+        <Label Grid.Column="4" Content="Destination Folder:" VerticalAlignment="Center" Margin="42,0,0,0" />
+        <Button Grid.Column="5"
+                Content="{Binding  SelectedConversion.DestinationFilePath}"
+                ToolTip.Tip="{Binding  SelectedConversion.DestinationFilePath}"
+                Command="{Binding SelectDestinationFoler }" />
     </Grid>
 </UserControl>

@@ -52,6 +52,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
     public ReactiveCommand<Unit, Unit> PickFileCommand { get; private set; }
     private readonly IFilePickerService _filePickerService;
+    private readonly IFolderPickerService _folderPickerService;
     private readonly IMessageBoxService _messageBoxService;
 
     public string ViewModelType => GetType().Name;
@@ -70,11 +71,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
 
-    public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,
+    public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,IFolderPickerService folderPickerService,
         IMessageBoxService messageBoxService)
     {
         _window = window;
         _filePickerService = filePickerService;
+        _folderPickerService = folderPickerService;
         _messageBoxService = messageBoxService;
         SwitchThemeCommand = ReactiveCommand.Create<string>(SwitchTheme);
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
@@ -233,6 +235,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var result = await messageBox.ShowWindowDialogAsync(_window);
     }
 
+    
+    public async void SelectDestinationFoler()
+    {
+        SelectedConversion.DestinationFilePath = await SelectFolder();
+    }
+    
     public async void SelectSourceImage()
     {
         SelectedConversion.SourceImagePath = await SelectFiles(FilePickerFileTypes.ImageAll);
@@ -263,6 +271,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion.Gamma = RastaConverterDefaultValues.DefaultGamma;
     }
 
+    private async Task<string> SelectFolder()
+    {
+        return await _folderPickerService.PickFolderAsync("Select Destination Folder") ?? string.Empty;
+    }
+    
     private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;

@@ -83,7 +83,6 @@ public class RastaConversion : ReactiveObject
                 _statuses.CollectionChanged += Statuses_CollectionChanged;
 
             this.RaisePropertyChanged(nameof(Statuses));
-            // UpdateUniqueLatestStatuses();
         }
     }
 
@@ -233,7 +232,18 @@ public class RastaConversion : ReactiveObject
     public string DestinationFilePath
     {
         get => _destinationFilePath;
-        set => this.RaiseAndSetIfChanged(ref _destinationFilePath, value);
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _destinationFilePath, value);
+            
+            Statuses?.AddEntry(
+                DateTime.Now,
+                string.IsNullOrEmpty(_destinationFilePath)
+                    ? ConversionStatus.DestinationSet
+                    : ConversionStatus.DestinationSet,
+                _destinationFilePath ?? ""
+            );
+        } 
     }
 
     private string _imagePreviewPath;

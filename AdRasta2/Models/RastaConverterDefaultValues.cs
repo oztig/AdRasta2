@@ -1,4 +1,6 @@
-﻿namespace AdRasta2.Models;
+﻿using System.IO;
+
+namespace AdRasta2.Models;
 
 public class RastaConverterDefaultValues
 {
@@ -32,7 +34,7 @@ public class RastaConverterDefaultValues
     public static decimal DefaultDualChroma  = (decimal)0.1;
     public static string DefaultSourceImagePath = string.Empty;
     public static string DefaultSourceImageMaskPath  = string.Empty;
-    public static string DefaultDestinationFilePath  = string.Empty;
+    public static string DefaultDestinationFilePath  = Directory.GetCurrentDirectory();
     public static string DefaultDestantionFilePrefix = "output";
     public static string DefaultRegisterOnOffFilePath = string.Empty;
 }

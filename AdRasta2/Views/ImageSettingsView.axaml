@@ -160,6 +160,7 @@
                         BorderBrush="Black"
                         BorderThickness="1">
                     <Image Source="{Binding SelectedConversion.ImagePreview}"
+                           ToolTip.Tip="{Binding SelectedConversion.DestinationFilePath}"
                            MinWidth="160"
                            MinHeight="120"
                            MaxWidth="160"
@@ -167,17 +168,17 @@
                            Stretch="Uniform" />
                 </Border>
                 <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
-                    <Label Grid.Column="0" VerticalAlignment="Center">Palette</Label>
+                    <Label Grid.Column="0" VerticalAlignment="Center" Content="Palette" />
                     <ComboBox Grid.Column="1" Margin="5,0,0,0" ItemsSource="{Binding SourceData.Palettes}"
                               SelectedItem="{Binding  SelectedConversion.Palette}"
                               HorizontalAlignment="Stretch" />
                 </Grid>
             </Grid>
         </HeaderedContentControl>
-        <views:ConversionLogView Grid.Row="0" 
+        <views:ConversionLogView Grid.Row="0"
                                  Grid.Column="3"
                                  Grid.RowSpan="2"
-                                 DockPanel.Dock="Top" 
+                                 DockPanel.Dock="Top"
                                  HorizontalAlignment="Stretch" />
     </Grid>
 </UserControl>

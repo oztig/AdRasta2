@@ -8,7 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,15 +183,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="49037000" />
-    </task>
-    <task id="LOCAL-00056" summary="Format Mask box">
-      <option name="closed" value="true" />
-      <created>1757236531687</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1757236531687</updated>
+      <workItem from="1757918207366" duration="51906000" />
     </task>
     <task id="LOCAL-00057" summary="Add context menus">
       <option name="closed" value="true" />
@@ -572,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758086499627</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Tweak slider text boxes - hide border">
+      <option name="closed" value="true" />
+      <created>1758086681264</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1758086681264</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +587,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="More Layout stuff" />
     <MESSAGE value="gui fiddling" />
     <MESSAGE value="layout fiddling" />
     <MESSAGE value="GUI Fiddling + Mapping" />
@@ -607,7 +611,8 @@
     <MESSAGE value="Furhter null fix" />
     <MESSAGE value="If numericupdown value is null, revert to default value (held in Tag)" />
     <MESSAGE value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
+    <MESSAGE value="Tweak slider text boxes - hide border" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tweak slider text boxes - hide border" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

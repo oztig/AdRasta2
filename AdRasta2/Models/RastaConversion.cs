@@ -18,10 +18,9 @@ namespace AdRasta2.Models;
 
 public class RastaConversion : ReactiveObject
 {
-    
     public Guid UniqueID { get; set; } = Guid.NewGuid();
     public int ProcessID { get; set; } // Only set for Conversions, cleared when finished!
-    
+
     private bool _isPreProcessExpanded = true;
 
     public bool IsPreProcessExpanded
@@ -29,7 +28,7 @@ public class RastaConversion : ReactiveObject
         get => _isPreProcessExpanded;
         set => this.RaiseAndSetIfChanged(ref _isPreProcessExpanded, value);
     }
-    
+
     private bool _isConversionExpanded = true;
 
     public bool IsConversionExpanded
@@ -37,7 +36,7 @@ public class RastaConversion : ReactiveObject
         get => _isConversionExpanded;
         set => this.RaiseAndSetIfChanged(ref _isConversionExpanded, value);
     }
-    
+
     private bool _isDualModeExpanded = true;
 
     public bool IsDualModeExpanded
@@ -45,7 +44,7 @@ public class RastaConversion : ReactiveObject
         get => _isDualModeExpanded && _dualFrameMode;
         set => this.RaiseAndSetIfChanged(ref _isDualModeExpanded, value);
     }
-    
+
     private bool _isConfigExpanded = true;
 
     public bool IsConfigExpanded
@@ -53,7 +52,7 @@ public class RastaConversion : ReactiveObject
         get => _isConfigExpanded;
         set => this.RaiseAndSetIfChanged(ref _isConfigExpanded, value);
     }
-        
+
     private string _title;
 
     public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);
@@ -65,6 +64,7 @@ public class RastaConversion : ReactiveObject
     }
 
     private BoundedLogCollection<StatusEntry> _statuses;
+
     public BoundedLogCollection<StatusEntry> Statuses
     {
         get => _statuses;
@@ -88,7 +88,7 @@ public class RastaConversion : ReactiveObject
     {
         UpdateUniqueLatestStatuses();
     }
-    
+
     private IReadOnlyList<StatusEntry> _uniqueLatestStatuses = new List<StatusEntry>();
 
     public IReadOnlyList<StatusEntry> UniqueLatestStatuses
@@ -100,7 +100,7 @@ public class RastaConversion : ReactiveObject
     private void UpdateUniqueLatestStatuses()
     {
         UniqueLatestStatuses = Statuses?
-            .Where (s=>s.ShowOnImageStatusLine)
+            .Where(s => s.ShowOnImageStatusLine)
             .GroupBy(s => s.Status)
             .Select(g => g.OrderByDescending(s => s.Timestamp).First())
             .ToList() ?? new List<StatusEntry>();
@@ -122,9 +122,15 @@ public class RastaConversion : ReactiveObject
                 _sourceImage = null;
                 this.RaisePropertyChanged(nameof(SourceImage));
                 this.RaisePropertyChanged(nameof(CanProcess));
+                this.RaisePropertyChanged(nameof(SourceImageBaseName));
             }
         }
     }
+
+    public string SourceImageBaseName => string.IsNullOrEmpty(SourceImagePath)
+            ? string.Empty
+            : Path.GetFileName(SourceImagePath);
+
 
     private Bitmap? _sourceImage;
 
@@ -166,9 +172,14 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged();
                 _sourceImageMask = null;
                 this.RaisePropertyChanged(nameof(SourceImageMask));
+                this.RaisePropertyChanged(nameof(SourceImageMaskBaseName));
             }
         }
     }
+    
+    public string SourceImageMaskBaseName => string.IsNullOrEmpty(SourceImageMaskPath)
+        ? string.Empty
+        : Path.GetFileName(SourceImageMaskPath);
 
     private Bitmap? _sourceImageMask;
 
@@ -196,12 +207,12 @@ public class RastaConversion : ReactiveObject
         }
     }
 
-    private string _destinationFullFilePath;
+    private string _destinationFilePath;
 
     public string DestinationFilePath
     {
-        get => _destinationFullFilePath;
-        set => this.RaiseAndSetIfChanged(ref _destinationFullFilePath, value);
+        get => _destinationFilePath;
+        set => this.RaiseAndSetIfChanged(ref _destinationFilePath, value);
     }
 
     private string _imagePreviewPath;
@@ -221,6 +232,8 @@ public class RastaConversion : ReactiveObject
             }
         }
     }
+    
+    
 
     private Bitmap? _imagePreview;
 
@@ -552,12 +565,12 @@ public class RastaConversion : ReactiveObject
         get => _isSelected;
         set => this.RaiseAndSetIfChanged(ref _isSelected, value);
     }
-    
+
     private void SetCanEditRegisterFile(string value)
     {
         CanEditRegisterFile = value != string.Empty;
     }
-    
+
 
     public RastaConversion(string title)
     {
@@ -566,7 +579,6 @@ public class RastaConversion : ReactiveObject
 
         _statuses = new BoundedLogCollection<StatusEntry>(100);
         _statuses.CollectionChanged += Statuses_CollectionChanged;
-
     }
 
     public void PopulateDefaultValues()

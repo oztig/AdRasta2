@@ -8,23 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Controls/SafeNumericUpDown.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Styles/HeaderContentControl.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Styles/SafeNumericUpDownStyle.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +118,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Run",
+    ".NET Project.AdRasta2.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -194,15 +178,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="48867000" />
-    </task>
-    <task id="LOCAL-00055" summary="Re-Jig source image setup">
-      <option name="closed" value="true" />
-      <created>1757233256010</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1757233256010</updated>
+      <workItem from="1757918207366" duration="49037000" />
     </task>
     <task id="LOCAL-00056" summary="Format Mask box">
       <option name="closed" value="true" />
@@ -588,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758007180163</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Lots of GUI twiddling - SafeNumericUpDown control plug in">
+      <option name="closed" value="true" />
+      <created>1758086499627</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1758086499627</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +582,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="further layout fiddling" />
     <MESSAGE value="More Layout stuff" />
     <MESSAGE value="gui fiddling" />
     <MESSAGE value="layout fiddling" />
@@ -623,7 +606,8 @@
     <MESSAGE value="Fix issues with nulls in numericupdown" />
     <MESSAGE value="Furhter null fix" />
     <MESSAGE value="If numericupdown value is null, revert to default value (held in Tag)" />
-    <option name="LAST_COMMIT_MESSAGE" value="If numericupdown value is null, revert to default value (held in Tag)" />
+    <MESSAGE value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

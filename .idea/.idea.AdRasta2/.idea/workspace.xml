@@ -9,8 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,15 +188,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="91698000" />
-    </task>
-    <task id="LOCAL-00066" summary="cant remember - to much wine">
-      <option name="closed" value="true" />
-      <created>1757447933370</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1757447933370</updated>
+      <workItem from="1757918207366" duration="92822000" />
     </task>
     <task id="LOCAL-00067" summary="stuff">
       <option name="closed" value="true" />
@@ -581,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758182911802</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Add Total Colours to the Log Entry for GeneratedPreview">
+      <option name="closed" value="true" />
+      <created>1758186629690</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1758186629690</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +592,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Log Object" />
     <MESSAGE value="GUI tweaks + Add Conversion Log" />
     <MESSAGE value="Add property to only include certain statuses on Source Image 'Dot Status Line' + method to support this" />
     <MESSAGE value="Only included statuses that should be shown on Source Image Dot Line" />
@@ -616,7 +616,8 @@
     <MESSAGE value="Add option to create new Destination Folder" />
     <MESSAGE value="Plug in GTotal Colours for Preview Image" />
     <MESSAGE value="remove unnecessary code" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary code" />
+    <MESSAGE value="Add Total Colours to the Log Entry for GeneratedPreview" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Total Colours to the Log Entry for GeneratedPreview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

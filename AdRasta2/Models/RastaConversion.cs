@@ -328,6 +328,8 @@ public class RastaConversion : ReactiveObject
             this.RaiseAndSetIfChanged(ref _height, value);
         }
     }
+    
+    public bool AutoHeight => Height == 241;
 
     private string _resizeFilter;
 

@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              xmlns:views="clr-namespace:AdRasta2.Views"
+             xmlns:controls="clr-namespace:AdRasta2.Controls"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.ImageSettingsView">
 
@@ -78,15 +79,19 @@
                             VerticalAlignment="Stretch"
                             ToolTip.Tip="Height (241 = Auto)"
                             HorizontalAlignment="Center" />
-                    <NumericUpDown Grid.Row="1"
-                                   x:Name="HeightUpnDown"
-                                   BorderThickness="0" Maximum="241" Minimum="0" Increment="1"
-                                   IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsNotAutoConverter}}"
-                                   Padding="1"
-                                   ToolTip.Tip="Height (241 = Auto)"
-                                   TextAlignment="Center" ShowButtonSpinner="False"
-                                   VerticalContentAlignment="Center"
-                                   Value="{Binding SelectedConversion.Height}" Margin="0" />
+                    <controls:SafeNumericUpDown Grid.Row="1"
+                                                x:Name="HeightUpnDown"
+                                                BorderThickness="0"
+                                                SpinnerBorderThickness="0"
+                                                Maximum="241" 
+                                                Minimum="0" 
+                                                Increment="1"
+                                                IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsNotAutoConverter}}"
+                                                Padding="1"
+                                                ToolTip.Tip="Height (241 = Auto)"
+                                                TextAlignment="Center" ShowButtonSpinner="False"
+                                                VerticalContentAlignment="Center"
+                                                Value="{Binding SelectedConversion.Height}" Margin="0" />
                     <TextBox Grid.Row="1" Text="Auto"
                              IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsAutoConverter}}"
                              Height="{Binding ElementName=HeightUpnDown, Path=Height}"
@@ -139,11 +144,12 @@
                 </Button>
                 <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
                     <Label Grid.Column="0" VerticalAlignment="Center">Strength</Label>
-                    <NumericUpDown Grid.Column="1" Maximum="1000" Minimum="0" Increment="1"
-                                   TextAlignment="Center"
-                                   Margin="5,0,0,0"
-                                   VerticalContentAlignment="Center"
-                                   Value="{Binding SelectedConversion.MaskStrength}" />
+                    <controls:SafeNumericUpDown Grid.Column="1" Maximum="1000" Minimum="0" Increment="1"
+                                                x:Name="Strength"
+                                                TextAlignment="Center"
+                                                Margin="5,0,0,0"
+                                                VerticalContentAlignment="Center"
+                                                Value="{Binding SelectedConversion.MaskStrength}" />
                 </Grid>
             </Grid>
         </HeaderedContentControl>

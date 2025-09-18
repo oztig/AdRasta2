@@ -48,7 +48,7 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _isDualModeExpanded, value);
     }
 
-    private bool _isConfigExpanded = true;
+    private bool _isConfigExpanded = false;
 
     public bool IsConfigExpanded
     {
@@ -73,10 +73,12 @@ public class RastaConversion : ReactiveObject
         get => _statuses;
         set
         {
+            if (_statuses == value)
+                return;
+            
             if (_statuses != null)
                 _statuses.CollectionChanged -= Statuses_CollectionChanged;
-
-            var oldValue = _statuses;
+            
             _statuses = value;
 
             if (_statuses != null)

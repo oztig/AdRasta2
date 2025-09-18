@@ -117,6 +117,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         _selectedIndex = RastaConversions.IndexOf(conversion);
         SelectedConversion = conversion;
         SetIsSelected(_selectedIndex);
+        SelectedConversion?.ScrollToLatestLogEntry?.Invoke();
 
         // DEBUG
         Console.WriteLine($"Clicked item '{conversion.Title}' at index {_selectedIndex}");
@@ -214,7 +215,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var customIcon = new Bitmap(AssetLoader.Open(iconPath));
 
         var aboutMessage = "RastaConverter by Jakub 'Ilmenit' Debski 2012-" + dateNow.Year + "\n";
-        aboutMessage += "AdRasta2 by Nick 'oztig' Pearson\n";
+        aboutMessage += "AdRasta2 (One Louder) by Nick 'oztig' Pearson\n";
         aboutMessage += "MADS and RC2MCH by Tomasz Biela\n\n";
         aboutMessage += "Special Thanks to:\n";
         aboutMessage += "Arkadiusz Lubaszka for the original RC GUI\n\n";

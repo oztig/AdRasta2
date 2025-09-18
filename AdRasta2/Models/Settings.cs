@@ -23,6 +23,8 @@ public class Settings
 
     public bool PopulateDefaultFile { get; set; }
 
+    public double RastaConverterVersion { get; set; }
+
     public Settings()
     {
         SetDefaults();
@@ -48,15 +50,12 @@ public class Settings
         var ini = new Sini.IniFile(IniFileLocation);
 
         // Get from settings file, or ideally allow user to select
-        RastaConverterCommand =
-            ini.GetStr("Locations", "RastaConverter",
-                string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
-        RC2MCHCommand =
-            ini.GetStr("Locations", "RC2MCH",
-                string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
         HelpFileLocation =
             ini.GetStr("Locations", "RastaHelpFile",
                 string.Empty); // "/home/nickp/Downloads/RastaConverter-master/help.txt";
+        RC2MCHCommand =
+            ini.GetStr("Locations", "RC2MCH",
+                string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
         MadsLocation =
             ini.GetStr("Locations", "MADS", string.Empty); // "/home/nickp/WUDSN/Tools/ASM/MADS/mads.linux-x86-64";
         PaletteDirectory =
@@ -67,6 +66,11 @@ public class Settings
                 string.Empty); // "/home/nickp/Downloads/RastaConverter-master/Generator";
         CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
+
+        // RastaConverter Specific
+        RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 16);
+        RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
+            string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
 
         return true;
     }

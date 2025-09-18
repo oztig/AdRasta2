@@ -7,7 +7,7 @@
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.ActionButtonsView">
-    
+
     <UserControl.Resources>
         <converters:StatusToColourConverter x:Key="StatusToColourConverter" />
     </UserControl.Resources>
@@ -17,7 +17,7 @@
 
             <!-- Group 1: Preview + Convert + Continue-->
             <StackPanel Orientation="Horizontal" Spacing="15">
-                <Button IsEnabled="{Binding SelectedConversion.CanProcess}" 
+                <Button IsEnabled="{Binding SelectedConversion.CanProcess}"
                         Command="{Binding PreviewImage}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
@@ -25,7 +25,7 @@
                         <TextBlock Text="Preview" Margin="8,0,0,0" />
                     </Grid>
                 </Button>
-                <Button IsEnabled="{Binding SelectedConversion.CanProcess}">
+                <Button IsEnabled="{Binding SelectedConversion.CanProcess}" Command="{Binding CountColours}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
                                    Fill="{Binding ConversionButtonColour, Converter={StaticResource StatusToColourConverter}}" />

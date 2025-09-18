@@ -133,9 +133,12 @@ public class RastaConversion : ReactiveObject
             }
         }
     }
-    
-    public string SourceImageDirectory => string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetDirectoryName(SourceImagePath);
-    public string SourceImageFileName => string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetFileName(SourceImagePath);
+
+    public string SourceImageDirectory =>
+        string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetDirectoryName(SourceImagePath);
+
+    public string SourceImageFileName =>
+        string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetFileName(SourceImagePath);
 
 
     public string SourceImageBaseName => string.IsNullOrEmpty(SourceImagePath)
@@ -243,10 +246,13 @@ public class RastaConversion : ReactiveObject
             );
         }
     }
-    
-    public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath) ? string.Empty : Path.GetDirectoryName(DestinationFilePath);
+
+    public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath)
+        ? string.Empty
+        : Path.GetDirectoryName(DestinationFilePath);
+
     public string DestinationImageFileName => Path.Combine(DestinationDirectory, SourceImageFileName);
-    
+
     private string _imagePreviewPath;
 
     public string ImagePreviewPath
@@ -277,10 +283,14 @@ public class RastaConversion : ReactiveObject
             try
             {
                 if (File.Exists(ImagePreviewPath))
+                {
                     _imagePreview = new Bitmap(ImagePreviewPath);
+                    PreviewImageTotalColours = ImageUtils.CountUniqueColors(_imagePreview);
+                }
                 else
                 {
                     _imagePreview = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
+                    PreviewImageTotalColours = 0;
                 }
             }
             catch (Exception ex)
@@ -291,6 +301,16 @@ public class RastaConversion : ReactiveObject
             return _imagePreview;
         }
     }
+
+    private int _PreviewImageTotalColours;
+
+    public int PreviewImageTotalColours
+    {
+        get => _PreviewImageTotalColours;
+        set => this.RaiseAndSetIfChanged(ref _PreviewImageTotalColours, value);
+    }
+
+    public string PreviewImageColoursText => "Total Colours: " + PreviewImageTotalColours;
 
     private int? _height = 240;
 

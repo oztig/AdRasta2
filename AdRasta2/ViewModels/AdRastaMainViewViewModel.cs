@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public Action ScrollToLatestLogEntry { get; set; }
 
-    
+
     // Button Colours
     public ConversionStatus PreviewButtonColour => ConversionStatus.PreviewGenerated;
     public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
@@ -71,7 +72,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
     public ReactiveCommand<Unit, Unit> NewConversionCommand;
 
-    public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,IFolderPickerService folderPickerService,
+    public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,
+        IFolderPickerService folderPickerService,
         IMessageBoxService messageBoxService)
     {
         _window = window;
@@ -86,7 +88,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         PopulateSprockets();
         CreateInitialEntry();
-
     }
 
     private void CreateInitialEntry()
@@ -235,12 +236,26 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var result = await messageBox.ShowWindowDialogAsync(_window);
     }
 
-    
+
     public async void SelectDestinationFoler()
     {
         SelectedConversion.DestinationFilePath = await SelectFolder();
     }
-    
+
+    public async void CreateDestinationFoler()
+    {
+        var NewFolder =
+            await DialogService.ShowInputDialogAsync("Create New Folder", "Folder Name", "", "New Folder Name",
+                _window);
+        
+        if (NewFolder.confirmed.Value && NewFolder.value.Trim() != string.Empty)
+        {
+            var folderToCreate = Path.Combine(SelectedConversion.DestinationFilePath, NewFolder.value.Trim());
+            if (FileUtils.CreateFolder(folderToCreate))
+                SelectedConversion.DestinationFilePath = folderToCreate;
+        }
+    }
+
     public async void SelectSourceImage()
     {
         SelectedConversion.SourceImagePath = await SelectFiles(FilePickerFileTypes.ImageAll);
@@ -275,7 +290,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         return await _folderPickerService.PickFolderAsync("Select Destination Folder") ?? string.Empty;
     }
-    
+
     private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
@@ -289,7 +304,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
         //
         // await RastaConverter.ExecuteRastaConverterCommand(safeCommand, safeParams);
         // await ViewImage(viewFileName);
-        
-       SelectedConversion. Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,"");
+
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated, "");
+    }
+
+    public async Task CountColours()
+    {
+        var totalColours = ImageUtils.CountUniqueColors(SelectedConversion?.SourceImage);
     }
 }

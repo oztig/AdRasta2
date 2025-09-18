@@ -8,10 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ImageUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ImageUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +132,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Debug",
+    ".NET Project.AdRasta2.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -188,15 +192,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="78066000" />
-    </task>
-    <task id="LOCAL-00062" summary="Add conversion status, plus coloured dots on source image to show progress">
-      <option name="closed" value="true" />
-      <created>1757371221468</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1757371221468</updated>
+      <workItem from="1757918207366" duration="86807000" />
     </task>
     <task id="LOCAL-00063" summary="stuff">
       <option name="closed" value="true" />
@@ -582,7 +578,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758119806454</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="copy source to destination, when picked">
+      <option name="closed" value="true" />
+      <created>1758124282817</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1758124282817</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +596,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Remove test Expander" />
     <MESSAGE value="Add Theme Framework - Actual Themes = TODO" />
     <MESSAGE value="Fix theme switching" />
     <MESSAGE value="Add Reset to Sliders on Pres of Image button" />
@@ -617,7 +620,8 @@
     <MESSAGE value="Log more events, fix Log right alignment" />
     <MESSAGE value="Fix UniqueStatuses update - CollectionChanged issue" />
     <MESSAGE value="Add Destination Folder Picker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Destination Folder Picker" />
+    <MESSAGE value="copy source to destination, when picked" />
+    <option name="LAST_COMMIT_MESSAGE" value="copy source to destination, when picked" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -634,19 +638,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" containingFunctionPresentation="Method 'TryCopy'">
-            <startOffsets>
-              <option value="757" />
-            </startOffsets>
-            <endOffsets>
-              <option value="805" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

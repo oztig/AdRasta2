@@ -160,7 +160,7 @@
                         BorderBrush="Black"
                         BorderThickness="1">
                     <Image Source="{Binding SelectedConversion.ImagePreview}"
-                           ToolTip.Tip="{Binding SelectedConversion.DestinationFilePath}"
+                           ToolTip.Tip="{Binding SelectedConversion.PreviewImageColoursText}"
                            MinWidth="160"
                            MinHeight="120"
                            MaxWidth="160"

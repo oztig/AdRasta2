@@ -15,7 +15,7 @@ public class FileUtils
             return File.Exists(sourceFile) && Directory.Exists(destinationDirectory) &&
                    TryCopy(sourceFile, destination);
         }
-        
+
         return false;
     }
 
@@ -29,6 +29,21 @@ public class FileUtils
         catch (Exception e)
         {
             Console.WriteLine("Failed to Copy Files: " + e);
+            return false;
+        }
+    }
+
+    public static bool CreateFolder(string newFolderName)
+    {
+        try
+        {
+            if (!Directory.Exists(newFolderName))
+                Directory.CreateDirectory(newFolderName);
+
+            return true;
+        }
+        catch
+        {
             return false;
         }
     }

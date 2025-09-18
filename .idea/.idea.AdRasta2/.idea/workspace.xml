@@ -9,11 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,23 +187,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="88588000" />
-    </task>
-    <task id="LOCAL-00064" summary="Add Status dots, plus colour to buttons to match statuses">
-      <option name="closed" value="true" />
-      <created>1757403611916</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1757403611916</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Tidy up sharedpanelview">
-      <option name="closed" value="true" />
-      <created>1757404237608</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1757404237608</updated>
+      <workItem from="1757918207366" duration="91698000" />
     </task>
     <task id="LOCAL-00066" summary="cant remember - to much wine">
       <option name="closed" value="true" />
@@ -584,7 +565,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758179905681</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Plug in GTotal Colours for Preview Image">
+      <option name="closed" value="true" />
+      <created>1758182792588</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1758182792588</updated>
+    </task>
+    <task id="LOCAL-00114" summary="remove unnecessary code">
+      <option name="closed" value="true" />
+      <created>1758182911802</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1758182911802</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,8 +591,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fix theme switching" />
-    <MESSAGE value="Add Reset to Sliders on Pres of Image button" />
     <MESSAGE value="Add Log Object" />
     <MESSAGE value="GUI tweaks + Add Conversion Log" />
     <MESSAGE value="Add property to only include certain statuses on Source Image 'Dot Status Line' + method to support this" />
@@ -619,7 +614,9 @@
     <MESSAGE value="Add Destination Folder Picker" />
     <MESSAGE value="copy source to destination, when picked" />
     <MESSAGE value="Add option to create new Destination Folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add option to create new Destination Folder" />
+    <MESSAGE value="Plug in GTotal Colours for Preview Image" />
+    <MESSAGE value="remove unnecessary code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

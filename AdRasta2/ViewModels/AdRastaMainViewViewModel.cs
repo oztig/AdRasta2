@@ -308,8 +308,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         // DEBUG !!!
         await Task.Delay(3000);
-        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated, "");
         SelectedConversion.ImagePreviewPath = SelectedConversion.SourceImagePath;
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated, "(" + SelectedConversion.PreviewImageColoursText +")");
     }
     
 }

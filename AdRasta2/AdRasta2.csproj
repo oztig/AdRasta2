@@ -17,16 +17,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.5"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.5"/>
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.5"/>
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.5"/>
+        <PackageReference Include="Avalonia" Version="11.3.6" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.6" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.6" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.6" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.5">
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.6">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.5"/>
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.6" />
         <PackageReference Include="Classic.Avalonia.Theme" Version="11.3.0"/>
         <PackageReference Include="CliWrap" Version="3.9.0"/>
         <PackageReference Include="IconPacks.Avalonia" Version="1.2.0"/>

@@ -299,17 +299,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task PreviewImage()
     {
         var safeCommand = _settings.RastaConverterCommand;
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
+
         // var safeParams = await GenerateRastaArguments(true); // _rastaCommandLineArguments;
         // var viewFileName = FullDestinationFileName.Trim() + "-dst.png";
         //
         // await RastaConverter.ExecuteRastaConverterCommand(safeCommand, safeParams);
         // await ViewImage(viewFileName);
 
+        // DEBUG !!!
+        await Task.Delay(3000);
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated, "");
+        SelectedConversion.ImagePreviewPath = SelectedConversion.SourceImagePath;
     }
-
-    public async Task CountColours()
-    {
-        var totalColours = ImageUtils.CountUniqueColors(SelectedConversion?.SourceImage);
-    }
+    
 }

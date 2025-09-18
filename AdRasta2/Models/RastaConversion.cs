@@ -267,6 +267,7 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged();
                 _imagePreview = null;
                 this.RaisePropertyChanged(nameof(ImagePreviewPath));
+                this.RaisePropertyChanged(nameof(ImagePreview));
             }
         }
     }
@@ -307,9 +308,13 @@ public class RastaConversion : ReactiveObject
     public int PreviewImageTotalColours
     {
         get => _PreviewImageTotalColours;
-        set => this.RaiseAndSetIfChanged(ref _PreviewImageTotalColours, value);
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _PreviewImageTotalColours, value);
+            this.RaisePropertyChanged(nameof(PreviewImageColoursText));
+        } 
     }
-
+    
     public string PreviewImageColoursText => "Total Colours: " + PreviewImageTotalColours;
 
     private int? _height = 240;

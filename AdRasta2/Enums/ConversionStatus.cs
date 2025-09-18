@@ -7,6 +7,7 @@ public enum ConversionStatus
     SourceCleared,
     MaskAdded,
     MaskCleared,
+    PreviewStarted,
     PreviewGenerated,
     ConversionContinued,
     ConversionActive,

@@ -25,7 +25,7 @@
                         <TextBlock Text="Preview" Margin="8,0,0,0" />
                     </Grid>
                 </Button>
-                <Button IsEnabled="{Binding SelectedConversion.CanProcess}" Command="{Binding CountColours}">
+                <Button IsEnabled="{Binding SelectedConversion.CanProcess}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
                                    Fill="{Binding ConversionButtonColour, Converter={StaticResource StatusToColourConverter}}" />

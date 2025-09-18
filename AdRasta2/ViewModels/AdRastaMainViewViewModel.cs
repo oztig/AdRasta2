@@ -298,7 +298,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public async Task PreviewImage()
     {
-        var safeCommand = _settings.RastaConverterCommand;
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
 
         // var safeParams = await GenerateRastaArguments(true); // _rastaCommandLineArguments;

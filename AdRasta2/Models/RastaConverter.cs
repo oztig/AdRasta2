@@ -15,13 +15,14 @@ namespace AdRasta2.Models;
 
 public class RastaConverter
 {
-    public static async Task<bool> ExecuteCommand(bool isPreview,bool isContinue, RastaConversion conversion)
+    public static async Task<bool> ExecuteCommand(bool isPreview, bool isContinue, RastaConversion conversion)
     {
         var ret = false;
         var rastaCommand = Path.Combine(conversion.DestinationDirectory, Settings.BaseRastaCommand);
         var stdOutBuffer = new StringBuilder();
         var stdErrBuffer = new StringBuilder();
-        var safeParams = await GenerateRastaArguments(isPreview,isContinue, conversion);
+        var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
+        conversion.CommandLineText = await GenerateFullCommandLineString(safeParams);
 
         try
         {
@@ -66,24 +67,25 @@ public class RastaConverter
         return ret;
     }
 
-    public async static Task<IReadOnlyList<string>> GenerateRastaArguments(bool isPreview,bool isContinue, RastaConversion conversion)
+    public async static Task<IReadOnlyList<string>> GenerateRastaArguments(bool isPreview, bool isContinue,
+        RastaConversion conversion)
     {
         IReadOnlyList<string> args = new List<string>();
 
         switch (Settings.RastaConverterVersion)
         {
             case < 16:
-                args = await GenerateLegacyArguments(isPreview,isContinue, conversion);
+                args = await GenerateLegacyArguments(isPreview, isContinue, conversion);
                 break;
             case >= 16:
-                args = await GenerateNewRastaArguments(isPreview,isContinue, conversion);
+                args = await GenerateNewRastaArguments(isPreview, isContinue, conversion);
                 break;
         }
 
         return args;
     }
 
-    private async static Task<IReadOnlyList<string>> GenerateLegacyArguments(bool isPreview,bool isContinue,
+    private async static Task<IReadOnlyList<string>> GenerateLegacyArguments(bool isPreview, bool isContinue,
         RastaConversion rastaConversion)
     {
         var args = new List<string>();
@@ -93,7 +95,7 @@ public class RastaConverter
             args.Add("/continue");
             return args;
         }
-        
+
         if (isPreview)
         {
             args.Add("/preprocess");
@@ -143,9 +145,9 @@ public class RastaConverter
 
         if (rastaConversion.ColourDistance != RastaConverterDefaultValues.DefaultColourDistance)
             args.Add($"/distance={rastaConversion.ColourDistance}");
-        
+
         if (rastaConversion.InitialState != RastaConverterDefaultValues.DefaultInitialState)
-            args.Add($"/init={rastaConversion.InitialState }");
+            args.Add($"/init={rastaConversion.InitialState}");
 
         if (rastaConversion.SolutionHistoryLength != RastaConverterDefaultValues.DefaultSolutionHistoryLength)
             args.Add($"/s={rastaConversion.SolutionHistoryLength}");
@@ -154,21 +156,55 @@ public class RastaConverter
             args.Add($"/save={rastaConversion.AutoSavePeriod}");
 
         args.Add($"/threads={rastaConversion.NumberOfThreads}");
-        
+
         if (rastaConversion.Palette != RastaConverterDefaultValues.DefaultPalette)
         {
             var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.ToString().ToLower().Trim() + ".act");
             args.Add($"/pal={paletteFile}");
         }
 
-        
-        
+        if (rastaConversion.MaxEvaluations != RastaConverterDefaultValues.DefaultMaxEvaluations)
+            args.Add($"/me={rastaConversion.MaxEvaluations}");
+
+        if (rastaConversion.RandomSeed != RastaConverterDefaultValues.DefaultRandomSeed)
+            args.Add($"/seed={rastaConversion.RandomSeed}");
+
+        if (rastaConversion.Optimiser != RastaConverterDefaultValues.DefaultOptimiser)
+        {
+            args.Add($"/opt={rastaConversion.Optimiser}");
+        }
+
+        if (rastaConversion.CacheInMB != RastaConverterDefaultValues.DefaultCacheInMB)
+        {
+            args.Add($"/cache={rastaConversion.CacheInMB}");
+        }
+
+        if (rastaConversion.DualFrameMode)
+        {
+            args.Add($"/dual");
+        }
+
+        if (rastaConversion.FirstDualSteps != RastaConverterDefaultValues.DefualtFirstDualSteps)
+        {
+            args.Add($"/fds={rastaConversion.FirstDualSteps}");
+        }
+
+        if (rastaConversion.AfterDualSteps != RastaConverterDefaultValues.DefaultAfterDualSteps)
+        {
+            args.Add($"/ads={rastaConversion.AfterDualSteps}");
+        }
+
+        if (rastaConversion.AlternatingDualSteps != RastaConverterDefaultValues.DefaultAlternatingDualSteps)
+        {
+            args.Add($"/alts={rastaConversion.AlternatingDualSteps}");
+        }
+
         args.Add($"/i={rastaConversion.SourceImagePath}");
 
         return args;
     }
 
-    private async static Task<IReadOnlyList<string>> GenerateNewRastaArguments(bool isPreview,bool isContinue,
+    private async static Task<IReadOnlyList<string>> GenerateNewRastaArguments(bool isPreview, bool isContinue,
         RastaConversion rastaConversion)
     {
         var args = new List<string>();
@@ -178,7 +214,7 @@ public class RastaConverter
             args.Add("--continue");
             return args;
         }
-            
+
         if (isPreview)
         {
             args.Add("--preprocess");
@@ -222,41 +258,76 @@ public class RastaConverter
             if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
                 args.Add($"--details_val={rastaConversion.MaskStrength}");
         }
-        
+
         if (!string.IsNullOrWhiteSpace(rastaConversion.RegisterOnOffFilePath))
             args.Add($"--onoff={rastaConversion.RegisterOnOffFilePath}");
 
         if (rastaConversion.ColourDistance != RastaConverterDefaultValues.DefaultColourDistance)
             args.Add($"--distance={rastaConversion.ColourDistance}");
-        
+
         if (rastaConversion.InitialState != RastaConverterDefaultValues.DefaultInitialState)
-            args.Add($"--init={rastaConversion.InitialState }");
-        
+            args.Add($"--init={rastaConversion.InitialState}");
+
         if (rastaConversion.SolutionHistoryLength != RastaConverterDefaultValues.DefaultSolutionHistoryLength)
             args.Add($"--solutions={rastaConversion.SolutionHistoryLength}");
-        
+
         if (rastaConversion.AutoSavePeriod != RastaConverterDefaultValues.DefaultAutoSavePeriod)
             args.Add($"--save={rastaConversion.AutoSavePeriod}");
-        
+
         args.Add($"--threads={rastaConversion.NumberOfThreads}");
-        
+
         if (rastaConversion.Palette != RastaConverterDefaultValues.DefaultPalette)
         {
             var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.ToString().ToLower().Trim() + ".act");
             args.Add($"-pal={paletteFile}");
         }
-        
-        
+
+        if (rastaConversion.MaxEvaluations != RastaConverterDefaultValues.DefaultMaxEvaluations)
+            args.Add($"--max_evals={rastaConversion.MaxEvaluations}");
+
+        if (rastaConversion.RandomSeed != RastaConverterDefaultValues.DefaultRandomSeed)
+            args.Add($"--seed={rastaConversion.RandomSeed}");
+
+        if (rastaConversion.Optimiser != RastaConverterDefaultValues.DefaultOptimiser)
+        {
+            args.Add($"--opt={rastaConversion.Optimiser}");
+        }
+
+        if (rastaConversion.CacheInMB != RastaConverterDefaultValues.DefaultCacheInMB)
+        {
+            args.Add($"--cache={rastaConversion.CacheInMB}");
+        }
+
+        if (rastaConversion.DualFrameMode)
+        {
+            args.Add($"--dual");
+        }
+
+        if (rastaConversion.FirstDualSteps != RastaConverterDefaultValues.DefualtFirstDualSteps)
+        {
+            args.Add($"--first_dual_steps={rastaConversion.FirstDualSteps}");
+        }
+
+        if (rastaConversion.AfterDualSteps != RastaConverterDefaultValues.DefaultAfterDualSteps)
+        {
+            args.Add($"--after_dual_steps={rastaConversion.AfterDualSteps}");
+        }
+
+        if (rastaConversion.AlternatingDualSteps != RastaConverterDefaultValues.DefaultAlternatingDualSteps)
+        {
+            args.Add($"--altering_dual_steps={rastaConversion.AlternatingDualSteps}");
+        }
+
+
         args.Add($"--input={rastaConversion.SourceImagePath}");
 
 
         return args;
     }
 
-    
-
-    //
-    // args.Add($"/i={SourceFilePath}");
-    // args.Add($"/o={FullDestinationFileName}");
-    //
+    public async static Task<string> GenerateFullCommandLineString(IReadOnlyList<string> argsString)
+    {
+        var fullCommandLine = $"{Settings.BaseRastaCommand} {string.Join(" ", argsString)}";
+        return fullCommandLine;
+    }
 }

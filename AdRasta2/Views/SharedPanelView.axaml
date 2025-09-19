@@ -28,11 +28,12 @@
 
             <!-- Scrollable Middle -->
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <Grid Margin="5" RowSpacing="4" RowDefinitions="Auto,Auto,Auto,Auto">
+                <Grid Margin="5" RowSpacing="4" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
                     <views:PreprocessSettings Grid.Row="0" />
                     <views:ConversionSettingsView Grid.Row="1" />
                     <views:ConfigSettingsView Grid.Row="2" />
                     <views:DualModeSettingsView Grid.Row="3" />
+                    <views:CommandLineView Grid.Row="4" />
                 </Grid>
             </ScrollViewer>
 

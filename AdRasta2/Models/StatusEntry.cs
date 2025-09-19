@@ -13,14 +13,14 @@ public class StatusEntry
     
     public bool ShowOnImageStatusLine { get; set; }
     
-    public string TooltipText => $"{Status}: {Timestamp:dd/MM HH:mm}";
+    public string TooltipText => $"{Status}: {Timestamp:dd/MM HH:mm:ss}";
 
     public string Message => ToString();
     
     public override string ToString()
     {
         return string.IsNullOrWhiteSpace(Details)
-            ? $"{Status}: {Timestamp:dd/MM HH:mm:ss}"
+            ? TooltipText
             : $"{Status}: {Timestamp:dd/MM HH:mm:ss} — {Details}";
     }
 }

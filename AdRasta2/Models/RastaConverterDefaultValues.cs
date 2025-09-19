@@ -21,7 +21,7 @@ public class RastaConverterDefaultValues
     public static decimal DefaultGamma  = (decimal)1.0;
     public static string DefaultInitialState = "random";
     public static int DefaultSolutionHistoryLength  = 1;
-    public static string DefultOptimiser = "dlas";
+    public static string DefaultOptimiser = "dlas";
     public static string DefaultColourDistance = "yuv";
     public static string DefaultPreColourDistance = "ciede";
     public static int DefaultCacheInMB = 64;
@@ -36,6 +36,7 @@ public class RastaConverterDefaultValues
     public static string DefaultSourceImageMaskPath  = string.Empty;
     public static string DefaultDestinationFilePath  = Directory.GetCurrentDirectory();
     public static string DefaultDestantionFilePrefix = "output";
-    public static string DefaultDestantionName = "output.png-dst.png";
+    public static string DefaultDestintionName = "output.png-dst.png";
+    public static string DefaultDualModeDestintionName = "out_dual_blended.png";
     public static string DefaultRegisterOnOffFilePath = string.Empty;
 }

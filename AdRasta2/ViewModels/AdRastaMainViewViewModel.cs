@@ -28,7 +28,8 @@ namespace AdRasta2.ViewModels;
 public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
-   // private Settings _settings = new();
+
+    // private Settings _settings = new();
     private int _selectedIndex = 0;
     public object Dummy => null;
 
@@ -248,7 +249,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var NewFolder =
             await DialogService.ShowInputDialogAsync("Create New Folder", "Folder Name", "", "New Folder Name",
                 _window);
-        
+
         if (NewFolder.confirmed.Value && NewFolder.value.Trim() != string.Empty)
         {
             var folderToCreate = Path.Combine(SelectedConversion.DestinationFilePath, NewFolder.value.Trim());
@@ -301,11 +302,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
-        await RastaConverter.ExecuteCommand(true,false,SelectedConversion);
-        
-        SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,RastaConverterDefaultValues.DefaultDestantionName);
-        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated, "(" + SelectedConversion.PreviewImageColoursText +")");
-        
+        await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
+
+        if (SelectedConversion.DualFrameMode)
+            SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
+                RastaConverterDefaultValues.DefaultDualModeDestintionName);
+        else
+            SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
+                RastaConverterDefaultValues.DefaultDestintionName);
+
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,
+            "(" + SelectedConversion.PreviewImageColoursText + ")");
+
         // await ViewImage(viewFileName);
     }
 
@@ -314,6 +322,4 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         await ImageUtils.ViewImage(SelectedConversion.ImagePreviewPath);
     }
-
-    
 }

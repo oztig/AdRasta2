@@ -55,6 +55,22 @@ public class RastaConversion : ReactiveObject
         get => _isConfigExpanded;
         set => this.RaiseAndSetIfChanged(ref _isConfigExpanded, value);
     }
+    
+    private bool _isCommandLineExpanded = false;
+
+    public bool IsCommandLineExpanded
+    {
+        get => _isCommandLineExpanded;
+        set => this.RaiseAndSetIfChanged(ref _isCommandLineExpanded, value);
+    }
+    
+    private string _commandLineText = string.Empty;
+
+    public string CommandLineText
+    {
+        get => _commandLineText;
+        set => this.RaiseAndSetIfChanged(ref _commandLineText, value);
+    }
 
     private string _title;
 
@@ -675,7 +691,7 @@ public class RastaConversion : ReactiveObject
         Gamma = RastaConverterDefaultValues.DefaultGamma;
         InitialState = RastaConverterDefaultValues.DefaultInitialState;
         SolutionHistoryLength = RastaConverterDefaultValues.DefaultSolutionHistoryLength;
-        Optimiser = RastaConverterDefaultValues.DefultOptimiser;
+        Optimiser = RastaConverterDefaultValues.DefaultOptimiser;
         ColourDistance = RastaConverterDefaultValues.DefaultColourDistance;
         PreColourDistance = RastaConverterDefaultValues.DefaultPreColourDistance;
         CacheInMB = RastaConverterDefaultValues.DefaultCacheInMB;

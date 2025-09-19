@@ -7,7 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,6 +100,8 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConfigSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -184,15 +197,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="119666000" />
-    </task>
-    <task id="LOCAL-00074" summary="split out Dual Frame Setting into own control">
-      <option name="closed" value="true" />
-      <created>1757663292642</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1757663292642</updated>
+      <workItem from="1757918207366" duration="126148000" />
     </task>
     <task id="LOCAL-00075" summary="split out remaining sections of screen into their own controls">
       <option name="closed" value="true" />
@@ -578,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758276263765</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1758276478471</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1758276478471</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +601,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="GUI fiddling" />
     <MESSAGE value="Change Dual Expander layout, fix Config Expander" />
     <MESSAGE value="attempted new numericupdown - failed" />
     <MESSAGE value="Fix issues with nulls in numericupdown" />
@@ -613,7 +625,8 @@
     <MESSAGE value="Add View Image context menu to Preview Image" />
     <MESSAGE value="plugged in more command line options from GUI" />
     <MESSAGE value="plug in more options" />
-    <option name="LAST_COMMIT_MESSAGE" value="plug in more options" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -630,6 +643,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
+          <line>62</line>
+          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
+            <startOffsets>
+              <option value="2202" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2223" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

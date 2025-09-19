@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             xmlns:converters="clr-namespace:AdRasta2.Converters"
+             xmlns:controls="clr-namespace:AdRasta2.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:AdRastaMainViewViewModel"
+             x:Class="AdRasta2.Views.CommandLineView">
+
+    <Expander Header="Command Line"
+              Margin="5"
+              IsExpanded="{Binding  SelectedConversion.IsCommandLineExpanded}"
+              HorizontalAlignment="Stretch">
+        <Grid RowDefinitions="Auto"
+              ColumnDefinitions="Auto,*"
+              RowSpacing="10" ColumnSpacing="10">
+            <Label Grid.Row="0" Grid.Column="0" Content="Command Line" VerticalAlignment="Center" />
+            <SelectableTextBlock Grid.Column="1"
+                                 TextAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 Text="{Binding SelectedConversion.CommandLineText}"/>
+        </Grid>
+    </Expander>
+
+</UserControl>

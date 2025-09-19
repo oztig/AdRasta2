@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,7 +75,7 @@ public class RastaConverter
             case < 16:
                 args = await GenerateLegacyArguments(isPreview, conversion);
                 break;
-            case >= 17:
+            case >= 16:
                 args = await GenerateNewRastaArguments(isPreview, conversion);
                 break;
         }
@@ -88,7 +89,49 @@ public class RastaConverter
         var args = new List<string>();
 
         if (isPreview)
+        {
             args.Add("/preprocess");
+            args.Add("/q");
+        }
+
+        if (!rastaConversion.AutoHeight)
+            args.Add($"/h={rastaConversion.Height}");
+
+        if (rastaConversion.ResizeFilter != RastaConverterDefaultValues.DefaultResizeFilter)
+            args.Add($"/filter={rastaConversion.ResizeFilter}");
+
+        if (rastaConversion.PreColourDistance != RastaConverterDefaultValues.DefaultPreColourDistance)
+            args.Add($"/predistance={rastaConversion.PreColourDistance}");
+
+        if (rastaConversion.Dithering != RastaConverterDefaultValues.DefaultDithering)
+            args.Add($"/dither={rastaConversion.Dithering}");
+
+        if (rastaConversion.Dithering != "none")
+        {
+            if (rastaConversion.DitheringStrength != RastaConverterDefaultValues.DefaultDitheringStrength)
+                args.Add($"/dither_val={rastaConversion.DitheringStrength}");
+
+            if (rastaConversion.DitheringRandomness != RastaConverterDefaultValues.DefaultDitheringRandomness)
+                args.Add($"/dither_rand={rastaConversion.DitheringRandomness}");
+        }
+
+        if (rastaConversion.Brightness != RastaConverterDefaultValues.DefaultBrightness)
+            args.Add($"/brightness={rastaConversion.Brightness}");
+
+        if (rastaConversion.Contrast != RastaConverterDefaultValues.DefaultContrast)
+            args.Add($"/contrast={rastaConversion.Contrast}");
+
+        if (rastaConversion.Gamma != RastaConverterDefaultValues.DefaultGamma)
+            args.Add($"/gamma={rastaConversion.Gamma}");
+
+        if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskPath))
+        {
+            args.Add($"/details={rastaConversion.SourceImageMaskPath}");
+
+            if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
+                args.Add($"/details_val={rastaConversion.MaskStrength}");
+        }
+
 
         args.Add($"/i={rastaConversion.SourceImagePath}");
 
@@ -101,51 +144,56 @@ public class RastaConverter
         var args = new List<string>();
 
         if (isPreview)
+        {
             args.Add("--preprocess");
-        
+            args.Add("-q");
+        }
+
+        if (!rastaConversion.AutoHeight)
+            args.Add($"-h={rastaConversion.Height}");
+
+        if (rastaConversion.ResizeFilter != RastaConverterDefaultValues.DefaultResizeFilter)
+            args.Add($"--filter={rastaConversion.ResizeFilter}");
+
+        if (rastaConversion.PreColourDistance != RastaConverterDefaultValues.DefaultPreColourDistance)
+            args.Add($"--predistance={rastaConversion.PreColourDistance}");
+
+        if (rastaConversion.Dithering != RastaConverterDefaultValues.DefaultDithering)
+            args.Add($"--dither={rastaConversion.Dithering}");
+
+        if (rastaConversion.Dithering != "none")
+        {
+            if (rastaConversion.DitheringStrength != RastaConverterDefaultValues.DefaultDitheringStrength)
+                args.Add($"--dither_val={rastaConversion.DitheringStrength}");
+
+            if (rastaConversion.DitheringRandomness != RastaConverterDefaultValues.DefaultDitheringRandomness)
+                args.Add($"--dither_rand={rastaConversion.DitheringRandomness}");
+        }
+
+        if (rastaConversion.Brightness != RastaConverterDefaultValues.DefaultBrightness)
+            args.Add($"--brightness={rastaConversion.Brightness}");
+
+        if (rastaConversion.Contrast != RastaConverterDefaultValues.DefaultContrast)
+            args.Add($"--contrast={rastaConversion.Contrast}");
+
+        if (rastaConversion.Gamma != RastaConverterDefaultValues.DefaultGamma)
+            args.Add($"--gamma={rastaConversion.Gamma}");
+
+        if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskPath))
+        {
+            args.Add($"--details={rastaConversion.SourceImageMaskPath}");
+
+            if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
+                args.Add($"--details_val={rastaConversion.MaskStrength}");
+        }
+
         args.Add($"--input={rastaConversion.SourceImagePath}");
+
 
         return args;
     }
 
-    // if (!AutoHeight)
-    //     args.Add($"/h={Height}");
-    //
-    // if (SelectedResizeFilter != defaultValues.defaultSelectedResizeFilter)
-    //     args.Add($"/filter={SelectedResizeFilter}");
-    //
-    // if (_selectedPreColourDistance != defaultValues.defaultSelectedPreColourDistance)
-    //     args.Add($"/predistance={SelectedPreColourDistance}");
-    //
-    // if (_selectedDithering != defaultValues.defaultSelectedDithering)
-    //     args.Add($"/dither={SelectedDithering}");
-    //
-    // if (SelectedDithering != "none")
-    // {
-    //     if (DitheringStrength != defaultValues.defaultDitheringStrength)
-    //         args.Add($"/dither_val={DitheringStrength}");
-    //
-    //     if (DitheringRandomness != defaultValues.defaultDitheringRandomness)
-    //         args.Add($"/dither_rand={DitheringRandomness}");
-    // }
-    //
-    // if (Brightness != defaultValues.defaultBrightness)
-    //     args.Add($"/brightness={Brightness}");
-    //
-    // if (Contrast != defaultValues.defaultContrast)
-    //     args.Add($"/contrast={Contrast}");
-    //
-    // if (Gamma != defaultValues.defaultGamma)
-    //     args.Add($"/gamma={Gamma}");
-    //
-    // if (!string.IsNullOrWhiteSpace(MaskFilePath))
-    // {
-    //     args.Add($"/details={MaskFilePath}");
-    //
-    //     if (MaskStrength != defaultValues.defaultMaskStrength)
-    //         args.Add($"/details_val={MaskStrength}");
-    // }
-    //
+
     // if (!string.IsNullOrWhiteSpace(RegisterOnOffFilePath))
     //     args.Add($"/onoff={RegisterOnOffFilePath}");
     //

@@ -9,9 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ImageUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ImageUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,15 +189,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="113625000" />
-    </task>
-    <task id="LOCAL-00071" summary="visual fiddling">
-      <option name="closed" value="true" />
-      <created>1757628979094</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1757628979094</updated>
+      <workItem from="1757918207366" duration="117670000" />
     </task>
     <task id="LOCAL-00072" summary="fiddling with layout">
       <option name="closed" value="true" />
@@ -583,7 +575,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758269310038</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Add View Image context menu to Preview Image">
+      <option name="closed" value="true" />
+      <created>1758270014425</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1758270014425</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +593,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="More GUI tweaks" />
     <MESSAGE value="More GUI fiddling" />
     <MESSAGE value="Add missing settings to GUI" />
     <MESSAGE value="GUI fiddling" />
@@ -618,7 +617,8 @@
     <MESSAGE value="Add example .ini files" />
     <MESSAGE value="Plugged in Preview button :)" />
     <MESSAGE value="Add --input to args generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add --input to args generation" />
+    <MESSAGE value="Add View Image context menu to Preview Image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add View Image context menu to Preview Image" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,7 +8,7 @@
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.DualModeSwitchView">
 
-    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*" 
+    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*" 
           Margin=" 0,5,5,5" 
           ColumnSpacing="5">
         <TextBlock Grid.Column="0"
@@ -24,19 +24,19 @@
                 Content="{Binding  SelectedConversion.DestinationFilePath}"
                 ToolTip.Tip="{Binding  SelectedConversion.DestinationFilePath}"
                 Command="{Binding SelectDestinationFoler }" />
-        <Button Grid.Row="0" Grid.Column="6"
-                ToolTip.Tip="New Folder"
-                Height="{Binding Height, ElementName = btnDestination}"
-                Command="{Binding CreateDestinationFoler}"
-                Background="Transparent"
-                Padding="0"
-                BorderThickness="1"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Left">
-            <iconPacks:PackIconMaterialDesign Kind="Folder"
-                                              VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"
-                                              Foreground="LightSteelBlue" />
-        </Button>
+        <!-- <Button Grid.Row="0" Grid.Column="6" -->
+        <!--         ToolTip.Tip="New Folder" -->
+        <!--         Height="{Binding Height, ElementName = btnDestination}" -->
+        <!--         Command="{Binding CreateDestinationFoler}" -->
+        <!--         Background="Transparent" -->
+        <!--         Padding="0" -->
+        <!--         BorderThickness="1" -->
+        <!--         VerticalAlignment="Center" -->
+        <!--         HorizontalAlignment="Left"> -->
+        <!--     <iconPacks:PackIconMaterialDesign Kind="Folder" -->
+        <!--                                       VerticalAlignment="Center" -->
+        <!--                                       HorizontalAlignment="Center" -->
+        <!--                                       Foreground="LightSteelBlue" /> -->
+        <!-- </Button> -->
     </Grid>
 </UserControl>

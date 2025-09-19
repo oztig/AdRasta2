@@ -300,6 +300,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task PreviewImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
+        SelectedConversion.ImagePreviewPath = string.Empty;
         await RastaConverter.ExecuteCommand(true,SelectedConversion);
         
         SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,RastaConverterDefaultValues.DefaultDestantionName);

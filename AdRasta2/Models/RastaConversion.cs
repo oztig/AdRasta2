@@ -631,6 +631,22 @@ public class RastaConversion : ReactiveObject
         get => _dualChroma;
         set => this.RaiseAndSetIfChanged(ref _dualChroma, value);
     }
+    
+    private int _unstuckDrift;
+
+    public int UnstuckDrift
+    {
+        get => _unstuckDrift;
+        set => this.RaiseAndSetIfChanged(ref _unstuckDrift, value);
+    }
+    
+    private decimal _unstuckAfter;
+
+    public decimal UnstuckAfter
+    {
+        get => _unstuckAfter;
+        set => this.RaiseAndSetIfChanged(ref _unstuckAfter, value);
+    }
 
 
     // Current Conversion ?

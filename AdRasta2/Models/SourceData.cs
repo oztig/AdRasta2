@@ -139,6 +139,7 @@ public class SourceData
         Optimiser.Clear();
         Optimiser.Add("dlas");
         Optimiser.Add("lahc");
+        Optimiser.Add("legacy");
     }
 
     public SourceData()

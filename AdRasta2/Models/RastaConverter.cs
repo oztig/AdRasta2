@@ -198,6 +198,16 @@ public class RastaConverter
         {
             args.Add($"/alts={rastaConversion.AlternatingDualSteps}");
         }
+        
+        if (rastaConversion.UnstuckAfter != RastaConverterDefaultValues.DefaultUnstuckAfter)
+        {
+            args.Add($"/unstuck_after={rastaConversion.UnstuckAfter}");
+        }
+        
+        if (rastaConversion.UnstuckDrift != RastaConverterDefaultValues.DefaultUnstuckDrift)
+        {
+            args.Add($"/unstuck_after={rastaConversion.UnstuckDrift}");
+        }
 
         args.Add($"/i={rastaConversion.SourceImagePath}");
 
@@ -317,7 +327,16 @@ public class RastaConverter
         {
             args.Add($"--altering_dual_steps={rastaConversion.AlternatingDualSteps}");
         }
-
+        
+        if (rastaConversion.UnstuckAfter != RastaConverterDefaultValues.DefaultUnstuckAfter)
+        {
+            args.Add($"--unstuck_after={rastaConversion.UnstuckAfter}");
+        }
+        
+        if (rastaConversion.UnstuckDrift != RastaConverterDefaultValues.DefaultUnstuckDrift)
+        {
+            args.Add($"--unstuck_after={rastaConversion.UnstuckDrift}");
+        }
 
         args.Add($"--input={rastaConversion.SourceImagePath}");
 

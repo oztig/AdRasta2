@@ -13,7 +13,7 @@
               Margin="5"
               IsExpanded="{Binding  SelectedConversion.IsConversionExpanded}"
               HorizontalAlignment="Stretch">
-        <Grid RowDefinitions="Auto,Auto"
+        <Grid RowDefinitions="Auto,Auto,Auto"
               ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
               RowSpacing="10" ColumnSpacing="10">
 
@@ -79,6 +79,21 @@
                       ItemsSource="{Binding SourceData.Optimiser}"
                       SelectedItem="{Binding SelectedConversion.Optimiser}"
                       HorizontalAlignment="Stretch" />
+            
+            <Label Grid.Row="2" Grid.Column="0" Content="Unstuck After" VerticalAlignment="Center" />
+            <controls:SafeNumericUpDown Grid.Row="2" Grid.Column="1"
+                                        x:Name="UnstuckAfter"
+                                        Minimum="0" Maximum="99999999"
+                                        ToolTip.Tip="0 = Never"
+                                        Value="{Binding SelectedConversion.UnstuckAfter}"
+                                        Increment="1" />
+            <Label Grid.Row="2" Grid.Column="1" Content="Unstuck Drift" VerticalAlignment="Center" />
+            <controls:SafeNumericUpDown Grid.Row="2" Grid.Column="1"
+                                        x:Name="UnstuckDrift"
+                                        Minimum="0" Maximum="1"
+                                        ToolTip.Tip="0 = Off"
+                                        Value="{Binding SelectedConversion.UnstuckDrift}"
+                                        Increment="1" />
         </Grid>
     </Expander>
 

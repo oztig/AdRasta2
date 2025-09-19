@@ -10,10 +10,6 @@
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,15 +186,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="111638000" />
-    </task>
-    <task id="LOCAL-00069" summary="Add and map Palette">
-      <option name="closed" value="true" />
-      <created>1757603526840</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1757603526840</updated>
+      <workItem from="1757918207366" duration="112966000" />
     </task>
     <task id="LOCAL-00070" summary="more layout fiddling">
       <option name="closed" value="true" />
@@ -584,7 +572,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758199873371</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Plugged in Preview button :)">
+      <option name="closed" value="true" />
+      <created>1758267589271</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1758267589271</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +590,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Only included statuses that should be shown on Source Image Dot Line" />
     <MESSAGE value="Align rows in Pre-Process section" />
     <MESSAGE value="More GUI tweaks" />
     <MESSAGE value="More GUI fiddling" />
@@ -619,7 +614,8 @@
     <MESSAGE value="Add Total Colours to the Log Entry for GeneratedPreview" />
     <MESSAGE value="Swaqp out Height and Strength NumericUpDown for my Safe variant" />
     <MESSAGE value="Add example .ini files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add example .ini files" />
+    <MESSAGE value="Plugged in Preview button :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Plugged in Preview button :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

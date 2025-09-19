@@ -34,7 +34,7 @@ public class RastaConverter
 
             // Palette Dir
             await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
-            
+
             var cmd = Cli.Wrap(rastaCommand)
                 .WithWorkingDirectory(conversion.DestinationDirectory)
                 .WithArguments(safeParams, true)
@@ -53,28 +53,14 @@ public class RastaConverter
                         break;
                 }
             }
+
+            ret = true;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+            ret = false;
         }
-
-
-        // conversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.Started, $"Step started (PID: {pid})");
-
-
-        // var matching = RastaConversions.FirstOrDefault(c => c.ProcessId == pid);
-        // if (matching != null)
-        // {
-        //     var finalStatus = result.ExitCode == 0 ? statusType : ConversionStatus.Failed;
-        //     var finalMessage = result.ExitCode == 0 ? message : "Step failed";
-        //
-        //     matching.Statuses.AddEntry(DateTime.Now, finalStatus, finalMessage);
-        //     matching.FinishedAt = DateTime.Now;
-        //     matching.IsRunning = false;
-        //     matching.Result = finalMessage;
-        // }
 
         return ret;
     }
@@ -116,6 +102,8 @@ public class RastaConverter
 
         if (isPreview)
             args.Add("--preprocess");
+        
+        args.Add($"--input={rastaConversion.SourceImagePath}");
 
         return args;
     }

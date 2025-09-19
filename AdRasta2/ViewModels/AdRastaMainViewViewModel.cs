@@ -307,5 +307,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
         
         // await ViewImage(viewFileName);
     }
+
+
+    public async Task ViewPreviewImage()
+    {
+        await ImageUtils.ViewImage(SelectedConversion.ImagePreviewPath);
+    }
+
     
 }

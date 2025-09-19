@@ -83,8 +83,8 @@
                                                 x:Name="HeightUpnDown"
                                                 BorderThickness="0"
                                                 SpinnerBorderThickness="0"
-                                                Maximum="241" 
-                                                Minimum="0" 
+                                                Maximum="241"
+                                                Minimum="0"
                                                 Increment="1"
                                                 IsVisible="{Binding SelectedConversion.Height, Converter={StaticResource IsNotAutoConverter}}"
                                                 Padding="1"
@@ -171,7 +171,13 @@
                            MinHeight="120"
                            MaxWidth="160"
                            MaxHeight="120"
-                           Stretch="Uniform" />
+                           Stretch="Uniform">
+                        <Image.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="View Image" Command="{Binding ViewPreviewImage}" />
+                            </ContextMenu>
+                        </Image.ContextMenu>
+                    </Image>
                 </Border>
                 <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
                     <Label Grid.Column="0" VerticalAlignment="Center" Content="Palette" />

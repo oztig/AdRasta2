@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.Threading.Tasks;
 using Avalonia;
@@ -6,6 +7,9 @@ using Avalonia.Media.Imaging;
 using SkiaSharp;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using AdRasta2.Models;
+using CliWrap;
 
 namespace AdRasta2.Utils;
 
@@ -73,6 +77,42 @@ public class ImageUtils
         avaloniaBitmap.Save(stream);
         stream.Seek(0, SeekOrigin.Begin);
         return SKBitmap.Decode(stream);
+    }
+    
+    public static async Task<bool> ViewImage(string fileName)
+    {
+        var stdOutBuffer = new StringBuilder();
+        var stdErrBuffer = new StringBuilder();
+        var ret = false;
+
+        try
+        {
+            if (File.Exists(fileName))
+            {
+                var result = await Cli.Wrap(Settings.DefaultExecuteCommand)
+                    .WithArguments(SafeCommand.QuoteIfNeeded(fileName))
+                    .WithValidation(CommandResultValidation.None)
+                    .WithStandardOutputPipe(PipeTarget.ToStringBuilder(stdOutBuffer))
+                    .WithStandardErrorPipe(PipeTarget.ToStringBuilder(stdErrBuffer))
+                    .ExecuteAsync();
+
+                var stdOut = stdOutBuffer.ToString();
+                var stdErr = stdErrBuffer.ToString();
+
+                ret = true;
+            }
+            else
+            {
+                ret = false;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            ret = false;
+        }
+
+        return ret;
     }
 
 }

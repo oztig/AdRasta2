@@ -15,13 +15,13 @@ namespace AdRasta2.Models;
 
 public class RastaConverter
 {
-    public static async Task<bool> ExecuteCommand(bool isPreview, RastaConversion conversion)
+    public static async Task<bool> ExecuteCommand(bool isPreview,bool isContinue, RastaConversion conversion)
     {
         var ret = false;
         var rastaCommand = Path.Combine(conversion.DestinationDirectory, Settings.BaseRastaCommand);
         var stdOutBuffer = new StringBuilder();
         var stdErrBuffer = new StringBuilder();
-        var safeParams = await GenerateRastaArguments(isPreview, conversion);
+        var safeParams = await GenerateRastaArguments(isPreview,isContinue, conversion);
 
         try
         {
@@ -66,28 +66,34 @@ public class RastaConverter
         return ret;
     }
 
-    public async static Task<IReadOnlyList<string>> GenerateRastaArguments(bool isPreview, RastaConversion conversion)
+    public async static Task<IReadOnlyList<string>> GenerateRastaArguments(bool isPreview,bool isContinue, RastaConversion conversion)
     {
         IReadOnlyList<string> args = new List<string>();
 
         switch (Settings.RastaConverterVersion)
         {
             case < 16:
-                args = await GenerateLegacyArguments(isPreview, conversion);
+                args = await GenerateLegacyArguments(isPreview,isContinue, conversion);
                 break;
             case >= 16:
-                args = await GenerateNewRastaArguments(isPreview, conversion);
+                args = await GenerateNewRastaArguments(isPreview,isContinue, conversion);
                 break;
         }
 
         return args;
     }
 
-    private async static Task<IReadOnlyList<string>> GenerateLegacyArguments(bool isPreview,
+    private async static Task<IReadOnlyList<string>> GenerateLegacyArguments(bool isPreview,bool isContinue,
         RastaConversion rastaConversion)
     {
         var args = new List<string>();
 
+        if (isContinue)
+        {
+            args.Add("/continue");
+            return args;
+        }
+        
         if (isPreview)
         {
             args.Add("/preprocess");
@@ -132,17 +138,47 @@ public class RastaConverter
                 args.Add($"/details_val={rastaConversion.MaskStrength}");
         }
 
+        if (!string.IsNullOrWhiteSpace(rastaConversion.RegisterOnOffFilePath))
+            args.Add($"/onoff={rastaConversion.RegisterOnOffFilePath}");
 
+        if (rastaConversion.ColourDistance != RastaConverterDefaultValues.DefaultColourDistance)
+            args.Add($"/distance={rastaConversion.ColourDistance}");
+        
+        if (rastaConversion.InitialState != RastaConverterDefaultValues.DefaultInitialState)
+            args.Add($"/init={rastaConversion.InitialState }");
+
+        if (rastaConversion.SolutionHistoryLength != RastaConverterDefaultValues.DefaultSolutionHistoryLength)
+            args.Add($"/s={rastaConversion.SolutionHistoryLength}");
+
+        if (rastaConversion.AutoSavePeriod != RastaConverterDefaultValues.DefaultAutoSavePeriod)
+            args.Add($"/save={rastaConversion.AutoSavePeriod}");
+
+        args.Add($"/threads={rastaConversion.NumberOfThreads}");
+        
+        if (rastaConversion.Palette != RastaConverterDefaultValues.DefaultPalette)
+        {
+            var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.ToString().ToLower().Trim() + ".act");
+            args.Add($"/pal={paletteFile}");
+        }
+
+        
+        
         args.Add($"/i={rastaConversion.SourceImagePath}");
 
         return args;
     }
 
-    private async static Task<IReadOnlyList<string>> GenerateNewRastaArguments(bool isPreview,
+    private async static Task<IReadOnlyList<string>> GenerateNewRastaArguments(bool isPreview,bool isContinue,
         RastaConversion rastaConversion)
     {
         var args = new List<string>();
 
+        if (isContinue)
+        {
+            args.Add("--continue");
+            return args;
+        }
+            
         if (isPreview)
         {
             args.Add("--preprocess");
@@ -186,43 +222,41 @@ public class RastaConverter
             if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
                 args.Add($"--details_val={rastaConversion.MaskStrength}");
         }
+        
+        if (!string.IsNullOrWhiteSpace(rastaConversion.RegisterOnOffFilePath))
+            args.Add($"--onoff={rastaConversion.RegisterOnOffFilePath}");
 
+        if (rastaConversion.ColourDistance != RastaConverterDefaultValues.DefaultColourDistance)
+            args.Add($"--distance={rastaConversion.ColourDistance}");
+        
+        if (rastaConversion.InitialState != RastaConverterDefaultValues.DefaultInitialState)
+            args.Add($"--init={rastaConversion.InitialState }");
+        
+        if (rastaConversion.SolutionHistoryLength != RastaConverterDefaultValues.DefaultSolutionHistoryLength)
+            args.Add($"--solutions={rastaConversion.SolutionHistoryLength}");
+        
+        if (rastaConversion.AutoSavePeriod != RastaConverterDefaultValues.DefaultAutoSavePeriod)
+            args.Add($"--save={rastaConversion.AutoSavePeriod}");
+        
+        args.Add($"--threads={rastaConversion.NumberOfThreads}");
+        
+        if (rastaConversion.Palette != RastaConverterDefaultValues.DefaultPalette)
+        {
+            var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.ToString().ToLower().Trim() + ".act");
+            args.Add($"-pal={paletteFile}");
+        }
+        
+        
         args.Add($"--input={rastaConversion.SourceImagePath}");
 
 
         return args;
     }
 
+    
 
-    // if (!string.IsNullOrWhiteSpace(RegisterOnOffFilePath))
-    //     args.Add($"/onoff={RegisterOnOffFilePath}");
-    //
-    // if (SelectedColourDistance != defaultValues.defaultSelectedColourDistance)
-    //     args.Add($"/distance={SelectedColourDistance}");
-    //
-    // if (SelectedInitialState != defaultValues.defaultSelectedInitialState)
-    //     args.Add($"/init={SelectedInitialState}");
-    //
-    // if (NumberOfSolutions != defaultValues.defaultNumberOfSolutions)
-    //     args.Add($"/s={NumberOfSolutions}");
-    //
-    // if (SelectedAutoSavePeriod != defaultValues.defaultSelectedAutoSavePeriod)
-    //     args.Add($"/save={SelectedAutoSavePeriod}");
-    //
-    // args.Add($"/threads={SelectedThread}");
-    //
-    // if (isPreview)
-    //     args.Add("/preprocess");
-    //
-    // if (isContinue)
-    //     args.Add("/continue");
     //
     // args.Add($"/i={SourceFilePath}");
     // args.Add($"/o={FullDestinationFileName}");
-    // args.Add($"/pal={Path.Combine(_settings.PaletteDirectory, SelectedPalette.Trim() + ".act")}");
     //
-    // RastConverterFullCommandLine = await RastaConverter.GenerateFullCommandLineString(_settings, args);
-
-    // return args;
-    // }
 }

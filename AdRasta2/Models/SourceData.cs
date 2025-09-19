@@ -108,7 +108,7 @@ public class SourceData
         Palettes.Add("jakub");
         Palettes.Add("laoo");
         Palettes.Add("ntsc");
-        Palettes.Add("oliverp");
+        Palettes.Add("olivierp");
         Palettes.Add("real");
     }
     

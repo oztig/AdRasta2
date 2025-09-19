@@ -10,8 +10,8 @@
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,15 +189,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="117670000" />
-    </task>
-    <task id="LOCAL-00072" summary="fiddling with layout">
-      <option name="closed" value="true" />
-      <created>1757660846010</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1757660846010</updated>
+      <workItem from="1757918207366" duration="119297000" />
     </task>
     <task id="LOCAL-00073" summary="Split View into individual controls">
       <option name="closed" value="true" />
@@ -583,7 +575,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758270014425</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="plugged in more command line options from GUI">
+      <option name="closed" value="true" />
+      <created>1758274284192</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1758274284192</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +593,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="More GUI fiddling" />
     <MESSAGE value="Add missing settings to GUI" />
     <MESSAGE value="GUI fiddling" />
     <MESSAGE value="Change Dual Expander layout, fix Config Expander" />
@@ -618,7 +617,8 @@
     <MESSAGE value="Plugged in Preview button :)" />
     <MESSAGE value="Add --input to args generation" />
     <MESSAGE value="Add View Image context menu to Preview Image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add View Image context menu to Preview Image" />
+    <MESSAGE value="plugged in more command line options from GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="plugged in more command line options from GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

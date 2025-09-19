@@ -301,7 +301,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
-        await RastaConverter.ExecuteCommand(true,SelectedConversion);
+        await RastaConverter.ExecuteCommand(true,false,SelectedConversion);
         
         SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,RastaConverterDefaultValues.DefaultDestantionName);
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated, "(" + SelectedConversion.PreviewImageColoursText +")");

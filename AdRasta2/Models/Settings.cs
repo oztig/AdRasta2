@@ -6,26 +6,26 @@ namespace AdRasta2.Models;
 public class Settings
 {
     public static string IniFileLocation = Path.Combine(Directory.GetCurrentDirectory().Trim(), "AdRasta2.ini");
-    public string RastaConverterCommand { get; set; } = string.Empty;
+    public static string RastaConverterCommand { get; set; } = string.Empty;
 
-    public string BaseRastaCommandLocation => Path.GetDirectoryName(RastaConverterCommand);
-    public string BaseRastaCommand => Path.GetFileName(RastaConverterCommand);
+    public static string BaseRastaCommandLocation => Path.GetDirectoryName(RastaConverterCommand);
+    public static string BaseRastaCommand => Path.GetFileName(RastaConverterCommand);
 
-    public string RC2MCHCommand { get; set; } = string.Empty;
-    public string DefaultExecuteCommand { get; set; } = string.Empty;
-    public string PaletteDirectory { get; set; } = string.Empty;
-    public string MadsLocation { get; set; } = string.Empty;
-    public string NoNameFilesLocation { get; set; } = string.Empty;
+    public static string RC2MCHCommand { get; set; } = string.Empty;
+    public static string DefaultExecuteCommand { get; set; } = string.Empty;
+    public static string PaletteDirectory { get; set; } = string.Empty;
+    public static string MadsLocation { get; set; } = string.Empty;
+    public static string NoNameFilesLocation { get; set; } = string.Empty;
 
-    public string HelpFileLocation { get; set; } = string.Empty;
+    public static string HelpFileLocation { get; set; } = string.Empty;
 
-    public bool CopyWithoutConfirm { get; set; }
+    public static bool CopyWithoutConfirm { get; set; }
 
-    public bool PopulateDefaultFile { get; set; }
+    public static bool PopulateDefaultFile { get; set; }
 
-    public double RastaConverterVersion { get; set; }
+    public static double RastaConverterVersion { get; set; }
 
-    public Settings()
+     static Settings()
     {
         SetDefaults();
     }
@@ -35,7 +35,7 @@ public class Settings
         return File.Exists(IniFileLocation);
     }
 
-    public bool SetDefaults()
+    public static bool SetDefaults()
     {
         if (OperatingSystem.IsWindows())
             DefaultExecuteCommand = "explorer";

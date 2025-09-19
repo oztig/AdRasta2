@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AdRasta2.Utils;
 
@@ -45,6 +46,49 @@ public class FileUtils
         catch
         {
             return false;
+        }
+    }
+
+    public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern)
+    {
+        var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
+
+        foreach (var file in files)
+        {
+            var destPath = Path.Combine(destinationDir, Path.GetFileName(file));
+            File.Copy(file, destPath, overwrite: true);
+        }
+    }
+
+    public static async Task CopyDirectoryIncludingRoot(string sourceDir, string destinationRoot)
+    {
+        string dirName = Path.GetFileName(sourceDir.TrimEnd(Path.DirectorySeparatorChar));
+        string destDir = Path.Combine(destinationRoot, dirName);
+        await CopyDirectory(sourceDir, destDir);
+    }
+
+    public static async Task CopyDirectory(string sourceDir, string destDir, bool recursive = true)
+    {
+        var dir = new DirectoryInfo(sourceDir);
+        if (!dir.Exists)
+            return;
+
+        DirectoryInfo[] dirs = dir.GetDirectories();
+        Directory.CreateDirectory(destDir);
+
+        foreach (FileInfo file in dir.GetFiles())
+        {
+            string targetFilePath = Path.Combine(destDir, file.Name);
+            file.CopyTo(targetFilePath, overwrite: true);
+        }
+
+        if (recursive)
+        {
+            foreach (DirectoryInfo subDir in dirs)
+            {
+                string newDestinationDir = Path.Combine(destDir, subDir.Name);
+                CopyDirectory(subDir.FullName, newDestinationDir, recursive);
+            }
         }
     }
 }

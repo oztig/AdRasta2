@@ -36,5 +36,6 @@ public class RastaConverterDefaultValues
     public static string DefaultSourceImageMaskPath  = string.Empty;
     public static string DefaultDestinationFilePath  = Directory.GetCurrentDirectory();
     public static string DefaultDestantionFilePrefix = "output";
+    public static string DefaultDestantionName = "output.png-dst.png";
     public static string DefaultRegisterOnOffFilePath = string.Empty;
 }

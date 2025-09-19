@@ -28,7 +28,7 @@ namespace AdRasta2.ViewModels;
 public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
-    private Settings _settings = new();
+   // private Settings _settings = new();
     private int _selectedIndex = 0;
     public object Dummy => null;
 
@@ -154,8 +154,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         try
         {
-            var result = await Cli.Wrap(_settings.DefaultExecuteCommand)
-                .WithArguments(SafeCommand.QuoteIfNeeded(_settings.HelpFileLocation))
+            var result = await Cli.Wrap(Settings.DefaultExecuteCommand)
+                .WithArguments(SafeCommand.QuoteIfNeeded(Settings.HelpFileLocation))
                 .WithValidation(CommandResultValidation.None)
                 .ExecuteAsync();
         }
@@ -300,17 +300,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task PreviewImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
-
-        // var safeParams = await GenerateRastaArguments(true); // _rastaCommandLineArguments;
-        // var viewFileName = FullDestinationFileName.Trim() + "-dst.png";
-        //
-        // await RastaConverter.ExecuteRastaConverterCommand(safeCommand, safeParams);
-        // await ViewImage(viewFileName);
-
-        // DEBUG !!!
-        await Task.Delay(3000);
-        SelectedConversion.ImagePreviewPath = SelectedConversion.SourceImagePath;
+        await RastaConverter.ExecuteCommand(true,SelectedConversion);
+        
+        SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,RastaConverterDefaultValues.DefaultDestantionName);
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated, "(" + SelectedConversion.PreviewImageColoursText +")");
+        
+        // await ViewImage(viewFileName);
     }
     
 }

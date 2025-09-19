@@ -10,7 +10,7 @@ public enum ConversionStatus
     PreviewStarted,
     PreviewGenerated,
     ConversionContinued,
-    ConversionActive,
+    ConversionStarted,
     ConversionComplete,
     ExecutableGenerated,
     MCHGenerated

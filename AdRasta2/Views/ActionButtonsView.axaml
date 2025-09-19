@@ -17,7 +17,7 @@
 
             <!-- Group 1: Preview + Convert + Continue-->
             <StackPanel Orientation="Horizontal" Spacing="15">
-                <Button IsEnabled="{Binding SelectedConversion.CanProcess}"
+                <Button IsEnabled="{Binding SelectedConversion.CanPreview}"
                         Command="{Binding PreviewImage}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
@@ -25,14 +25,16 @@
                         <TextBlock Text="Preview" Margin="8,0,0,0" />
                     </Grid>
                 </Button>
-                <Button IsEnabled="{Binding SelectedConversion.CanProcess}">
+                <Button IsEnabled="{Binding SelectedConversion.CanProcess}"
+                        Command="{Binding ConvertImage}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
                                    Fill="{Binding ConversionButtonColour, Converter={StaticResource StatusToColourConverter}}" />
                         <TextBlock Text="Convert" Margin="8,0,0,0" />
                     </Grid>
                 </Button>
-                <Button IsEnabled="{Binding SelectedConversion.CanProcess}">
+                <Button IsEnabled="{Binding SelectedConversion.CanContinue}"
+                        Command="{Binding ContinueConvertImage}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
                                    Fill="{Binding ContinueButtonColour, Converter={StaticResource StatusToColourConverter}}" />

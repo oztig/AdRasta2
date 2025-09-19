@@ -19,6 +19,7 @@
             <Label Grid.Row="0" Grid.Column="0" Content="Command Line" VerticalAlignment="Center" />
             <SelectableTextBlock Grid.Column="1"
                                  TextAlignment="Left"
+                                 TextWrapping="Wrap"
                                  VerticalAlignment="Center"
                                  Text="{Binding SelectedConversion.CommandLineText}"/>
         </Grid>

@@ -37,6 +37,7 @@ public class RastaConverterDefaultValues
     public static string DefaultDestinationFilePath = Directory.GetCurrentDirectory();
     public static string DefaultDestantionFilePrefix = "output";
     public static string DefaultDestintionName = "output.png-dst.png";
+    public static string DefaultConvertedImageName = "output.png";
     public static string DefaultDualModeDestintionName = "out_dual_blended.png";
     public static string DefaultRegisterOnOffFilePath = string.Empty;
     public static decimal DefaultUnstuckDrift = (decimal)0.00001;

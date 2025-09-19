@@ -43,7 +43,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
     public ConversionStatus XexButtonColour => ConversionStatus.ExecutableGenerated;
     public ConversionStatus ConversionButtonColour => ConversionStatus.ConversionComplete;
-    public ConversionStatus ContinueButtonColour => ConversionStatus.ConversionActive;
+    public ConversionStatus ContinueButtonColour => ConversionStatus.ConversionStarted;
 
     public SourceData SourceData { get; } = new();
     public RastaConverterDefaultValues ConverterDefaults { get; }
@@ -298,23 +298,61 @@ public class AdRastaMainViewViewModel : ReactiveObject
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
     }
 
+    private async Task SetPreviewImage(bool finalImage)
+    {
+        SelectedConversion.ImagePreviewPath = null;
+
+        if (finalImage)
+        {
+            if (SelectedConversion.DualFrameMode)
+                SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
+                    RastaConverterDefaultValues.DefaultDualModeDestintionName);
+            else
+                SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
+                    RastaConverterDefaultValues.DefaultConvertedImageName);            
+        }
+        else
+        {
+            if (SelectedConversion.DualFrameMode)
+                SelectedConversion.ImagePreviewPath = null;
+            else
+                SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
+                    RastaConverterDefaultValues.DefaultDestintionName);
+        }
+    }
+
     public async Task PreviewImage()
     {
+        SelectedConversion.PreviewHeaderTitle = "Preview";
+
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
         await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
-
-        if (SelectedConversion.DualFrameMode)
-            SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
-                RastaConverterDefaultValues.DefaultDualModeDestintionName);
-        else
-            SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
-                RastaConverterDefaultValues.DefaultDestintionName);
+        await SetPreviewImage(false);
 
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,
             "(" + SelectedConversion.PreviewImageColoursText + ")");
 
         // await ViewImage(viewFileName);
+    }
+
+    public async Task ConvertImage()
+    {
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
+        await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
+        await SetPreviewImage(true);
+        SelectedConversion.PreviewHeaderTitle = "Result";
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
+            "(" + SelectedConversion.PreviewImageColoursText + ")");
+    }
+
+    public async Task ContinueConvertImage()
+    {
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
+        await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
+        await SetPreviewImage(true);
+        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
+            "(" + SelectedConversion.PreviewImageColoursText + ")");
     }
 
 

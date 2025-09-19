@@ -23,7 +23,7 @@ public class RastaConverter
         var stdErrBuffer = new StringBuilder();
         var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
         conversion.CommandLineText = await GenerateFullCommandLineString(safeParams);
-
+        
         try
         {
             // Copy supporting files

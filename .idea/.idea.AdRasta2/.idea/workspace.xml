@@ -9,8 +9,15 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +113,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/nickp/RiderProjects/AdRasta2/AdRasta2/Views/ImageSettingsView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -190,15 +198,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1757918207366" duration="129001000" />
-    </task>
-    <task id="LOCAL-00077" summary="fiddling with layout">
-      <option name="closed" value="true" />
-      <created>1757672245180</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1757672245180</updated>
+      <workItem from="1757918207366" duration="137377000" />
     </task>
     <task id="LOCAL-00078" summary="further layout fiddling">
       <option name="closed" value="true" />
@@ -584,7 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758288078431</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="set defaults for the new fields">
+      <option name="closed" value="true" />
+      <created>1758288666394</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1758288666394</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +602,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fix issues with nulls in numericupdown" />
     <MESSAGE value="Furhter null fix" />
     <MESSAGE value="If numericupdown value is null, revert to default value (held in Tag)" />
     <MESSAGE value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
@@ -619,7 +626,8 @@
     <MESSAGE value="stuff" />
     <MESSAGE value="Add Command Line viewer" />
     <MESSAGE value="Added new B17 params" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new B17 params" />
+    <MESSAGE value="set defaults for the new fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="set defaults for the new fields" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,10 +649,10 @@
           <line>62</line>
           <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
             <startOffsets>
-              <option value="2202" />
+              <option value="2210" />
             </startOffsets>
             <endOffsets>
-              <option value="2223" />
+              <option value="2231" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="62" />

@@ -55,7 +55,7 @@ public class RastaConversion : ReactiveObject
         get => _isConfigExpanded;
         set => this.RaiseAndSetIfChanged(ref _isConfigExpanded, value);
     }
-    
+
     private bool _isCommandLineExpanded = false;
 
     public bool IsCommandLineExpanded
@@ -63,7 +63,7 @@ public class RastaConversion : ReactiveObject
         get => _isCommandLineExpanded;
         set => this.RaiseAndSetIfChanged(ref _isCommandLineExpanded, value);
     }
-    
+
     private string _commandLineText = string.Empty;
 
     public string CommandLineText
@@ -75,6 +75,10 @@ public class RastaConversion : ReactiveObject
     private string _title;
 
     public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);
+
+    public bool CanContinue => CanProcess && !String.IsNullOrEmpty(ImagePreviewPath);
+    
+    public bool CanPreview => !DualFrameMode && !string.IsNullOrEmpty(SourceImagePath);
 
     public string Title
     {
@@ -91,10 +95,10 @@ public class RastaConversion : ReactiveObject
         {
             if (_statuses == value)
                 return;
-            
+
             if (_statuses != null)
                 _statuses.CollectionChanged -= Statuses_CollectionChanged;
-            
+
             _statuses = value;
 
             if (_statuses != null)
@@ -143,8 +147,11 @@ public class RastaConversion : ReactiveObject
                 _sourceImagePath = value;
                 this.RaisePropertyChanged();
                 _sourceImage = null;
+                ImagePreviewPath = null;
                 this.RaisePropertyChanged(nameof(SourceImage));
                 this.RaisePropertyChanged(nameof(CanProcess));
+                this.RaisePropertyChanged(nameof(CanPreview));
+                this.RaisePropertyChanged(nameof(CanContinue));
                 this.RaisePropertyChanged(nameof(SourceImageBaseName));
 
                 CopySourceImageToDestination();
@@ -246,6 +253,54 @@ public class RastaConversion : ReactiveObject
         }
     }
 
+    // Converted Image
+    private string _convertedImagePath;
+
+    public string ConvertedImagePath
+    {
+        get => _convertedImagePath;
+        set
+        {
+            // Manually check if changed, so we can force re-load of the Image.
+            if (_convertedImagePath != value)
+            {
+                _convertedImagePath = value;
+                this.RaisePropertyChanged();
+                _convertedImage = null;
+                this.RaisePropertyChanged(nameof(ConvertedImage));
+            }
+        }
+    }
+
+    private Bitmap? _convertedImage;
+
+    public Bitmap? ConvertedImage
+    {
+        get
+        {
+            if (_convertedImage != null) return _convertedImage;
+
+            try
+            {
+                if (File.Exists(ConvertedImagePath))
+                    _convertedImage = new Bitmap(ConvertedImagePath);
+                else
+                {
+                    _convertedImage = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
+                }
+            }
+            catch (Exception ex)
+            {
+                _convertedImage = null;
+            }
+
+            this.RaisePropertyChanged(nameof(ConvertedImageExists));
+            return _convertedImage;
+        }
+    }
+
+    public bool ConvertedImageExists => ConvertedImage != null;
+
     private string _destinationFilePath;
 
     public string DestinationFilePath
@@ -286,6 +341,7 @@ public class RastaConversion : ReactiveObject
                 _imagePreview = null;
                 this.RaisePropertyChanged(nameof(ImagePreviewPath));
                 this.RaisePropertyChanged(nameof(ImagePreview));
+                this.RaisePropertyChanged(nameof(CanContinue));
             }
         }
     }
@@ -330,9 +386,9 @@ public class RastaConversion : ReactiveObject
         {
             this.RaiseAndSetIfChanged(ref _PreviewImageTotalColours, value);
             this.RaisePropertyChanged(nameof(PreviewImageColoursText));
-        } 
+        }
     }
-    
+
     public string PreviewImageColoursText => "Total Colours: " + PreviewImageTotalColours;
 
     private int? _height = 240;
@@ -346,7 +402,7 @@ public class RastaConversion : ReactiveObject
             this.RaiseAndSetIfChanged(ref _height, value);
         }
     }
-    
+
     public bool AutoHeight => Height == 241;
 
     private string _resizeFilter;
@@ -577,9 +633,12 @@ public class RastaConversion : ReactiveObject
             if (DualFrameMode != value)
             {
                 _dualFrameMode = value;
-                this.RaisePropertyChanged(nameof(DualFrameMode));
+                SourceImageMaskPath = null;
+                ImagePreviewPath = null;
+                this.RaisePropertyChanged();
                 this.RaisePropertyChanged(nameof(IsSingleFrameMode));
                 this.RaisePropertyChanged(nameof(IsDualModeExpanded));
+                this.RaisePropertyChanged(nameof(CanPreview));
             }
         }
     }
@@ -631,7 +690,7 @@ public class RastaConversion : ReactiveObject
         get => _dualChroma;
         set => this.RaiseAndSetIfChanged(ref _dualChroma, value);
     }
-    
+
     private decimal _unstuckDrift;
 
     public decimal UnstuckDrift
@@ -639,13 +698,21 @@ public class RastaConversion : ReactiveObject
         get => _unstuckDrift;
         set => this.RaiseAndSetIfChanged(ref _unstuckDrift, value);
     }
-    
+
     private int _unstuckAfter;
 
     public int UnstuckAfter
     {
         get => _unstuckAfter;
         set => this.RaiseAndSetIfChanged(ref _unstuckAfter, value);
+    }
+
+    private string _PreviewHeaderTitle = "Preview";
+
+    public string PreviewHeaderTitle
+    {
+        get => _PreviewHeaderTitle;
+        set => this.RaiseAndSetIfChanged(ref _PreviewHeaderTitle, value);
     }
 
 
@@ -720,6 +787,7 @@ public class RastaConversion : ReactiveObject
         DualChroma = RastaConverterDefaultValues.DefaultDualChroma;
         SourceImagePath = RastaConverterDefaultValues.DefaultSourceImagePath;
         SourceImageMaskPath = RastaConverterDefaultValues.DefaultSourceImageMaskPath;
+        ImagePreviewPath = String.Empty;
         DestinationFilePath = RastaConverterDefaultValues.DefaultDestinationFilePath;
         RegisterOnOffFilePath = RastaConverterDefaultValues.DefaultRegisterOnOffFilePath;
         UnstuckAfter = RastaConverterDefaultValues.DefaultUnstuckAfter;

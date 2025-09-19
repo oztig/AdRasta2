@@ -12,7 +12,7 @@ public static class StatusColours
         { ConversionStatus.MaskAdded, Colors.Cyan },
         { ConversionStatus.PreviewGenerated, Colors.Orange },
         { ConversionStatus.ConversionContinued, Colors.Coral },
-        { ConversionStatus.ConversionActive, Colors.Green },
+        { ConversionStatus.ConversionStarted, Colors.Green },
         { ConversionStatus.ConversionComplete ,Colors.LimeGreen },
         { ConversionStatus.ExecutableGenerated, Colors.Blue },
         { ConversionStatus.MCHGenerated, Colors.MediumPurple }

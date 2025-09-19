@@ -155,7 +155,7 @@
         </HeaderedContentControl>
 
         <!-- Preview -->
-        <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Header="Preview"
+        <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Header="{Binding SelectedConversion.PreviewHeaderTitle}"
                                 Margin="5,0,5,5" HorizontalAlignment="Right">
             <Grid RowDefinitions="*,Auto" RowSpacing="5">
                 <Border Grid.Row="0"
@@ -187,6 +187,7 @@
                 </Grid>
             </Grid>
         </HeaderedContentControl>
+        
         <views:ConversionLogView Grid.Row="0"
                                  Grid.Column="3"
                                  Grid.RowSpan="2"

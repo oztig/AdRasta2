@@ -87,13 +87,13 @@
                                         ToolTip.Tip="0 = Never"
                                         Value="{Binding SelectedConversion.UnstuckAfter}"
                                         Increment="1" />
-            <Label Grid.Row="2" Grid.Column="1" Content="Unstuck Drift" VerticalAlignment="Center" />
-            <controls:SafeNumericUpDown Grid.Row="2" Grid.Column="1"
+            <Label Grid.Row="2" Grid.Column="2" Content="Unstuck Drift" VerticalAlignment="Center" />
+            <controls:SafeNumericUpDown Grid.Row="2" Grid.Column="3"
                                         x:Name="UnstuckDrift"
                                         Minimum="0" Maximum="1"
                                         ToolTip.Tip="0 = Off"
                                         Value="{Binding SelectedConversion.UnstuckDrift}"
-                                        Increment="1" />
+                                        Increment="0.00001" />
         </Grid>
     </Expander>
 

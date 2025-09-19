@@ -632,17 +632,17 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _dualChroma, value);
     }
     
-    private int _unstuckDrift;
+    private decimal _unstuckDrift;
 
-    public int UnstuckDrift
+    public decimal UnstuckDrift
     {
         get => _unstuckDrift;
         set => this.RaiseAndSetIfChanged(ref _unstuckDrift, value);
     }
     
-    private decimal _unstuckAfter;
+    private int _unstuckAfter;
 
-    public decimal UnstuckAfter
+    public int UnstuckAfter
     {
         get => _unstuckAfter;
         set => this.RaiseAndSetIfChanged(ref _unstuckAfter, value);
@@ -722,8 +722,8 @@ public class RastaConversion : ReactiveObject
         SourceImageMaskPath = RastaConverterDefaultValues.DefaultSourceImageMaskPath;
         DestinationFilePath = RastaConverterDefaultValues.DefaultDestinationFilePath;
         RegisterOnOffFilePath = RastaConverterDefaultValues.DefaultRegisterOnOffFilePath;
+        UnstuckAfter = RastaConverterDefaultValues.DefaultUnstuckAfter;
+        UnstuckDrift = RastaConverterDefaultValues.DefaultUnstuckDrift;
         Statuses?.Clear();
-
-        // public static string DefaultDestantionFilePrefix;
     }
 }

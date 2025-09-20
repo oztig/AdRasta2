@@ -8,14 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Models/Atari800.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Enums/AdRastaStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +59,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/IsNotAutoConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/StatusToColourConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/AdRastaStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -195,15 +191,7 @@
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
       <workItem from="1757918207366" duration="139556000" />
-      <workItem from="1758347139330" duration="7522000" />
-    </task>
-    <task id="LOCAL-00079" summary="GUI fiddling">
-      <option name="closed" value="true" />
-      <created>1757676354264</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1757676354264</updated>
+      <workItem from="1758347139330" duration="9446000" />
     </task>
     <task id="LOCAL-00080" summary="More Layout stuff">
       <option name="closed" value="true" />
@@ -589,7 +577,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758298709818</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="Plugged in Convert button">
+      <option name="closed" value="true" />
+      <created>1758354947634</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1758354947634</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +595,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="If numericupdown value is null, revert to default value (held in Tag)" />
     <MESSAGE value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
     <MESSAGE value="Tweak slider text boxes - hide border" />
     <MESSAGE value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
@@ -624,7 +619,8 @@
     <MESSAGE value="Added new B17 params" />
     <MESSAGE value="set defaults for the new fields" />
     <MESSAGE value="Plugged in Conversion buttons, fixed some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plugged in Conversion buttons, fixed some bugs" />
+    <MESSAGE value="Plugged in Convert button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Plugged in Convert button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -656,13 +652,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs</url>
-          <line>90</line>
+          <line>99</line>
           <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" containingFunctionPresentation="Method 'CopyBuildFilesAsync'">
             <startOffsets>
-              <option value="2943" />
+              <option value="3372" />
             </startOffsets>
             <endOffsets>
-              <option value="3015" />
+              <option value="3444" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="65" />

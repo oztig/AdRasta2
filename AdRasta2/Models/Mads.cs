@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdRasta2.Enums;
 using AdRasta2.Utils;
 using CliWrap;
 using DynamicData;
@@ -17,8 +18,10 @@ public class Mads
 
     public new List<string> MadsCommandLineArguments { get; set; } = new List<string>();
 
-    public static async Task GenerateExecutableFileAsync(RastaConversion conversion)
+    public static async Task<AdRastaStatus> GenerateExecutableFileAsync(RastaConversion conversion)
     {
+        var ret = AdRastaStatus.UnknownError;
+
         _copyFromDir = conversion.DualFrameMode
             ? Settings.DualModeNoNameFilesLocation
             : Settings.NoNameFilesLocation;
@@ -26,24 +29,29 @@ public class Mads
 
         try
         {
-            if (await CopyBuildFilesAsync(conversion))
-            {
-                // Do something !
-                await GenerateXexAsync(conversion);
-            }
+            if ((ret = await CopyBuildFilesAsync(conversion)) != AdRastaStatus.Success)
+                return ret;
+
+            ret = await GenerateXexAsync(conversion);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+            ret = AdRastaStatus.UnknownError;
         }
+
+        return ret;
     }
 
-    private static async Task<bool> GenerateXexAsync(RastaConversion conversion)
+    private static async Task<AdRastaStatus> GenerateXexAsync(RastaConversion conversion)
     {
         var madsCommandLineArguments = new List<string>();
         var stdOutBuffer = new StringBuilder();
         var stdErrBuffer = new StringBuilder();
         var asqLocation = Path.Combine(_copyToDir, Settings.NoNameAsq);
+
+        if (!File.Exists(Settings.MadsLocation))
+            return AdRastaStatus.MADSNotFound;
 
         madsCommandLineArguments.Add(SafeCommand.QuoteIfNeeded(asqLocation));
         madsCommandLineArguments.Add(" -o:" +
@@ -58,10 +66,10 @@ public class Mads
             .WithStandardErrorPipe(PipeTarget.ToStringBuilder(stdErrBuffer))
             .ExecuteAsync();
 
-        return true;
+        return AdRastaStatus.Success;
     }
 
-    public static async Task<bool> CopyBuildFilesAsync(RastaConversion conversion)
+    public static async Task<AdRastaStatus> CopyBuildFilesAsync(RastaConversion conversion)
     {
         var filesToCopy = new[]
         {
@@ -74,22 +82,22 @@ public class Mads
         try
         {
             if (!Directory.Exists(_copyToDir))
-                return false;
+                return AdRastaStatus.DestinationDirectoryMissing;
 
             foreach (var (source, destination) in filesToCopy)
             {
                 if (!File.Exists(source))
-                    return false;
+                    return AdRastaStatus.SourceFileMissing;
 
                 File.Copy(source, destination, overwrite: true);
             }
 
-            return true;
+            return AdRastaStatus.Success;
         }
         catch (Exception ex)
         {
             Console.WriteLine($"[CopyBuildFilesAsync] Ritual failed: {ex.Message}");
-            return false;
+            return AdRastaStatus.UnknownError;
         }
     }
 }

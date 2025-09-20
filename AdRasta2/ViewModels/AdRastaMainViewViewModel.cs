@@ -357,6 +357,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public async Task GenerateExecutable()
     {
+        var ret = AdRastaStatus.Success;
+
         if (SelectedConversion?.ExecutableFileName.Trim() == string.Empty)
         {
             if (SelectedConversion.DualFrameMode)
@@ -373,8 +375,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         SelectedConversion.ExecutableFileName = userInput.value;
 
-        await Mads.GenerateExecutableFileAsync(SelectedConversion);
-        await Atari800.RunExecutableAsync(SelectedConversion);
+        if ((ret = await Mads.GenerateExecutableFileAsync(SelectedConversion)) == AdRastaStatus.Success)
+            ret = await Atari800.RunExecutableAsync(SelectedConversion);
     }
 
 

@@ -8,9 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Enums/AdRastaStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Atari800.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Atari800.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,15 +191,7 @@
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
       <workItem from="1757918207366" duration="139556000" />
-      <workItem from="1758347139330" duration="9446000" />
-    </task>
-    <task id="LOCAL-00080" summary="More Layout stuff">
-      <option name="closed" value="true" />
-      <created>1757685573740</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1757685573740</updated>
+      <workItem from="1758347139330" duration="10078000" />
     </task>
     <task id="LOCAL-00081" summary="gui fiddling">
       <option name="closed" value="true" />
@@ -585,7 +577,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758354947634</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="Add new status for using on retuirn from methods -  Allow better error handling (When plugged in)">
+      <option name="closed" value="true" />
+      <created>1758358813340</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1758358813340</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +595,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Lots of GUI twiddling - SafeNumericUpDown control plug in" />
     <MESSAGE value="Tweak slider text boxes - hide border" />
     <MESSAGE value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
     <MESSAGE value="Start plugin of status log, plus 'Preview' Button" />
@@ -620,7 +619,8 @@
     <MESSAGE value="set defaults for the new fields" />
     <MESSAGE value="Plugged in Conversion buttons, fixed some bugs" />
     <MESSAGE value="Plugged in Convert button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plugged in Convert button" />
+    <MESSAGE value="Add new status for using on retuirn from methods -  Allow better error handling (When plugged in)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new status for using on retuirn from methods -  Allow better error handling (When plugged in)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -652,13 +652,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs</url>
-          <line>99</line>
+          <line>98</line>
           <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" containingFunctionPresentation="Method 'CopyBuildFilesAsync'">
             <startOffsets>
-              <option value="3372" />
+              <option value="3307" />
             </startOffsets>
             <endOffsets>
-              <option value="3444" />
+              <option value="3379" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="65" />

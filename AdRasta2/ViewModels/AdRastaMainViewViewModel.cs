@@ -309,7 +309,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
                     RastaConverterDefaultValues.DefaultDualModeDestintionName);
             else
                 SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
-                    RastaConverterDefaultValues.DefaultConvertedImageName);            
+                    RastaConverterDefaultValues.DefaultConvertedImageName);
         }
         else
         {
@@ -355,8 +355,30 @@ public class AdRastaMainViewViewModel : ReactiveObject
             "(" + SelectedConversion.PreviewImageColoursText + ")");
     }
 
+    public async Task GenerateExecutable()
+    {
+        if (SelectedConversion?.ExecutableFileName.Trim() == string.Empty)
+        {
+            if (SelectedConversion.DualFrameMode)
+                SelectedConversion.ExecutableFileName = RastaConverterDefaultValues.DefaultDualModeDestintionName;
+            else
+                SelectedConversion.ExecutableFileName = Path
+                    .GetFileNameWithoutExtension(RastaConverterDefaultValues.DefaultDestintionName)?.Trim();
+        }
 
-    public async Task ViewPreviewImage()
+        var userInput = await DialogService.ShowInputDialogAsync("Executable Name (no .xex extension required)",
+            "Executable Name", SelectedConversion.ExecutableFileName, "destination name, no .xex required", _window);
+        if (!(userInput.confirmed ?? false))
+            return;
+
+        SelectedConversion.ExecutableFileName = userInput.value;
+
+        await Mads.GenerateExecutableFileAsync(SelectedConversion);
+        await Atari800.RunExecutableAsync(SelectedConversion);
+    }
+
+
+    public async Task ViewPreviewImageAsync()
     {
         await ImageUtils.ViewImage(SelectedConversion.ImagePreviewPath);
     }

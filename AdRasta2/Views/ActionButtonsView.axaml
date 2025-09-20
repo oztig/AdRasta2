@@ -55,7 +55,7 @@
                         <TextBlock Text="Create MCH" Margin="8,0,0,0" />
                     </Grid>
                 </Button>
-                <Button>
+                <Button Command="{Binding GenerateExecutable}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
                                    Fill="{Binding XexButtonColour, Converter={StaticResource StatusToColourConverter}}" />

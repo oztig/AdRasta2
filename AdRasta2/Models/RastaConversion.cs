@@ -72,18 +72,25 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _commandLineText, value);
     }
 
-    private string _title;
-
     public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);
 
     public bool CanContinue => CanProcess && !String.IsNullOrEmpty(ImagePreviewPath);
     
     public bool CanPreview => !DualFrameMode && !string.IsNullOrEmpty(SourceImagePath);
 
+    private string _title;
     public string Title
     {
         get => _title;
         set => this.RaiseAndSetIfChanged(ref _title, value);
+    }
+
+    private string _executableFileName = string.Empty;
+
+    public string ExecutableFileName
+    {
+        get => _executableFileName;
+        set => this.RaiseAndSetIfChanged(ref _executableFileName, value);
     }
 
     private BoundedLogCollection<StatusEntry> _statuses;

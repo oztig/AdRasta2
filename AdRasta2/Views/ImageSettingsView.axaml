@@ -174,7 +174,7 @@
                            Stretch="Uniform">
                         <Image.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="View Image" Command="{Binding ViewPreviewImage}" />
+                                <MenuItem Header="View Image" Command="{Binding ViewPreviewImageAsync}" />
                             </ContextMenu>
                         </Image.ContextMenu>
                     </Image>

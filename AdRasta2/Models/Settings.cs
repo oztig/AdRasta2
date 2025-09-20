@@ -16,6 +16,7 @@ public class Settings
     public static string PaletteDirectory { get; set; } = string.Empty;
     public static string MadsLocation { get; set; } = string.Empty;
     public static string NoNameFilesLocation { get; set; } = string.Empty;
+    public static string DualModeNoNameFilesLocation { get; set; } = string.Empty;
 
     public static string HelpFileLocation { get; set; } = string.Empty;
 
@@ -24,8 +25,10 @@ public class Settings
     public static bool PopulateDefaultFile { get; set; }
 
     public static double RastaConverterVersion { get; set; }
+    public static string NoNameHeader { get; set; } = "no_name.h";
+    public static string NoNameAsq { get; set; } = "no_name.asq";
 
-     static Settings()
+    static Settings()
     {
         SetDefaults();
     }
@@ -64,6 +67,8 @@ public class Settings
         NoNameFilesLocation =
             ini.GetStr("Locations", "NoNameFilesDir",
                 string.Empty); // "/home/nickp/Downloads/RastaConverter-master/Generator";
+        DualModeNoNameFilesLocation =
+            ini.GetStr("Locations", "MultiModeNoNameFilesDir", string.Empty);
         CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
 

@@ -11,7 +11,8 @@ public static class StatusFilter
         ConversionStatus.MaskAdded,
         ConversionStatus.SourceCleared,
         ConversionStatus.DestinationSet,
-        ConversionStatus.PreviewStarted
+        ConversionStatus.PreviewStarted,
+        ConversionStatus.ConversionStarted
     };
 
     public static bool ShouldIncludeOnImageDotLine(ConversionStatus status)

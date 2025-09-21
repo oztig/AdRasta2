@@ -5,6 +5,7 @@ public enum AdRastaStatus
     Success,
     RastaConverterNotFound,
     MADSNotFound,
+    rc2mchNotFound,
     SourceFileMissing,
     DestinationFileMissing,
     DestinationDirectoryMissing,

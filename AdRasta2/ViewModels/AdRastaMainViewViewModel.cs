@@ -221,11 +221,10 @@ public class AdRastaMainViewViewModel : ReactiveObject
         aboutMessage += "Special Thanks to:\n";
         aboutMessage += "Arkadiusz Lubaszka for the original RC GUI\n\n";
         aboutMessage += "Developed using JetBrains Rider and Avalonia UI \n";
-
-
+        
         var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
         {
-            ContentTitle = "AdRasta2 (0.1 Bodge It and Scarper Version)",
+            ContentTitle = "AdRasta2 (Beta 1 - Bodge It and Scarper Version)",
             ImageIcon = customIcon,
             ContentMessage = aboutMessage,
             ButtonDefinitions = new List<ButtonDefinition>
@@ -306,7 +305,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         {
             if (SelectedConversion.DualFrameMode)
                 SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
-                    RastaConverterDefaultValues.DefaultDualModeDestintionName);
+                    RastaConverterDefaultValues.DefaultDualModeConvertedImageName);
             else
                 SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
                     RastaConverterDefaultValues.DefaultConvertedImageName);
@@ -362,10 +361,10 @@ public class AdRastaMainViewViewModel : ReactiveObject
         if (SelectedConversion?.ExecutableFileName.Trim() == string.Empty)
         {
             if (SelectedConversion.DualFrameMode)
-                SelectedConversion.ExecutableFileName = RastaConverterDefaultValues.DefaultDualModeDestintionName;
+                SelectedConversion.ExecutableFileName = RastaConverterDefaultValues.DefaultDualModeConvertedImageName;
             else
                 SelectedConversion.ExecutableFileName = Path
-                    .GetFileNameWithoutExtension(RastaConverterDefaultValues.DefaultDestintionName)?.Trim();
+                    .GetFileNameWithoutExtension(RastaConverterDefaultValues.DefaultConvertedImageName);
         }
 
         var userInput = await DialogService.ShowInputDialogAsync("Executable Name (no .xex extension required)",
@@ -375,10 +374,33 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         SelectedConversion.ExecutableFileName = userInput.value;
 
-        if ((ret = await Mads.GenerateExecutableFileAsync(SelectedConversion)) == AdRastaStatus.Success)
+        ret = await Mads.GenerateExecutableFileAsync(SelectedConversion);
+        if (ret == AdRastaStatus.Success)
+        {
+            SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ExecutableGenerated,
+                $"({SelectedConversion.PreviewImageColoursText})");
+
             ret = await Atari800.RunExecutableAsync(SelectedConversion);
+        }
     }
 
+    public async Task GenerateMCH()
+    {
+        var ret = AdRastaStatus.UnknownError;
+        var MCHfile = string.Empty;
+
+        if (SelectedConversion.DualFrameMode)
+            MCHfile = Path.Combine(SelectedConversion.DestinationDirectory,
+                RastaConverterDefaultValues.DefaultDualModeConvertedImageName);
+        else
+            MCHfile = Path.Combine(SelectedConversion.DestinationDirectory,
+                RastaConverterDefaultValues.DefaultConvertedImageName);
+
+        ret = await rc2mch.GenerateMCH(Settings.RC2MCHCommand, MCHfile);
+        if (ret == AdRastaStatus.Success)
+            SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.MCHGenerated,
+                $"({SelectedConversion.PreviewImageColoursText})");
+    }
 
     public async Task ViewPreviewImageAsync()
     {

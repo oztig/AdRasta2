@@ -48,7 +48,8 @@
 
             <!-- Group 2: MCH + Executable -->
             <StackPanel Orientation="Horizontal" Spacing="15">
-                <Button>
+                <Button Command="{Binding GenerateMCH}"
+                        IsEnabled="{Binding  SelectedConversion.CanGenerateMCH}">
                     <Grid>
                         <Rectangle Width="4" HorizontalAlignment="Left"
                                    Fill="{Binding MCHButtonColour, Converter={StaticResource StatusToColourConverter}}" />

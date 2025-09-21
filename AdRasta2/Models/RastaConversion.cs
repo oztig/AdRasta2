@@ -78,6 +78,8 @@ public class RastaConversion : ReactiveObject
     
     public bool CanPreview => !DualFrameMode && !string.IsNullOrEmpty(SourceImagePath);
 
+    public bool CanGenerateMCH => CanPreview;
+
     private string _title;
     public string Title
     {
@@ -159,6 +161,7 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged(nameof(CanProcess));
                 this.RaisePropertyChanged(nameof(CanPreview));
                 this.RaisePropertyChanged(nameof(CanContinue));
+                this.RaisePropertyChanged(nameof(CanGenerateMCH));
                 this.RaisePropertyChanged(nameof(SourceImageBaseName));
 
                 CopySourceImageToDestination();
@@ -168,9 +171,6 @@ public class RastaConversion : ReactiveObject
 
     public string SourceImageDirectory =>
         string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetDirectoryName(SourceImagePath);
-
-    public string SourceImageFileName =>
-        string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetFileName(SourceImagePath);
 
 
     public string SourceImageBaseName => string.IsNullOrEmpty(SourceImagePath)
@@ -229,6 +229,9 @@ public class RastaConversion : ReactiveObject
             }
         }
     }
+    
+    public string SourceImageMaskDirectory =>
+        string.IsNullOrEmpty(SourceImageMaskPath) ? string.Empty : Path.GetDirectoryName(SourceImageMaskPath);
 
     public string SourceImageMaskBaseName => string.IsNullOrEmpty(SourceImageMaskPath)
         ? string.Empty
@@ -331,7 +334,7 @@ public class RastaConversion : ReactiveObject
         ? string.Empty
         : Path.GetDirectoryName(DestinationFilePath);
 
-    public string DestinationImageFileName => Path.Combine(DestinationDirectory, SourceImageFileName);
+    public string DestinationImageFileName => Path.Combine(DestinationDirectory, SourceImageBaseName);
 
     private string _imagePreviewPath;
 
@@ -646,6 +649,7 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged(nameof(IsSingleFrameMode));
                 this.RaisePropertyChanged(nameof(IsDualModeExpanded));
                 this.RaisePropertyChanged(nameof(CanPreview));
+                this.RaisePropertyChanged(nameof(CanGenerateMCH));
             }
         }
     }
@@ -759,7 +763,6 @@ public class RastaConversion : ReactiveObject
         Title = title;
 
         Statuses = new BoundedLogCollection<StatusEntry>(100);
-        // _statuses.CollectionChanged += Statuses_CollectionChanged;
     }
 
     public void PopulateDefaultValues()

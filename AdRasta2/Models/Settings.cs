@@ -68,12 +68,12 @@ public class Settings
             ini.GetStr("Locations", "NoNameFilesDir",
                 string.Empty); // "/home/nickp/Downloads/RastaConverter-master/Generator";
         DualModeNoNameFilesLocation =
-            ini.GetStr("Locations", "MultiModeNoNameFilesDir", string.Empty);
+            ini.GetStr("Locations", "DualModeNoNameFilesDir", string.Empty);
         CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
 
         // RastaConverter Specific
-        RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 16);
+        RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 17);
         RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
             string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
 

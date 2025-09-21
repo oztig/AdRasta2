@@ -25,7 +25,7 @@
         <!-- Menu -->
         <Menu Grid.Row="0" DockPanel.Dock="Top">
             <MenuItem Header="_Help">
-                <MenuItem Header="_Show Help File" Command="{Binding  ShowHelpCommand}" />
+                <MenuItem Header="_Show RastaConverter Help File" Command="{Binding  ShowHelpCommand}" />
                 <Separator />
                 <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
             </MenuItem>

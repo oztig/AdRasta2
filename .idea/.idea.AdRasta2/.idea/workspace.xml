@@ -8,8 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/IniFiles/AdRasta2-Win.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/AdRasta2.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,23 +40,9 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18f2eb258dcf45748fa1903c530f5f07d1a000/4a/a1da01c8/DateTime.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18f2eb258dcf45748fa1903c530f5f07d1a000/aa/6d40b460/String.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/18f2eb258dcf45748fa1903c530f5f07d1a000/ec/00977e14/CastHelpers.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/36767967084446d2a52b3cd3af0b2595106a00/6e/7c1ffdec/Application.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/457530be4752476295767457c3639889d1a000/dd/a567ff02/Collection`1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6fc0d6602d124ae69bd3ab449adb63ebe800/20/2079cf65/ObservableCollection`1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/262340175512b8eb1fbf3ba15178a24384aa0ef6c1e268ed6ca51d5c249e2/NameScopeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/37e41883d8485517ecfb13c15307cf653a31798bbd2c30964f905349b6f21d/ResourceInclude.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4cd728a7a5c1151e66ce95f5f6dd9de14ca93158c17ec1eacaf81e0bbab92/DispatcherOperation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80462644bd1cc7e0b229dc4f5752b48c01cb67b46ae563b1b5078cc2556b98/AvaloniaXamlLoader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a5cc8ddf36e8c8f422071f068cc8edb16e814991aa851aa131f3fa14425ed/Application.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e221cc8f688c75a9bc3f0b838afc95fcd51f443803803b72c9e6614aacf384/RxApp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e36a5a65c4b081a2e6fb2f5e5f11a64e88a92446fc2be15e2997d886714b1b/ThemeVariant.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fbe823f6dc5af3fc3c7c41b3d86f7b4aea6b5a627e97f2bc6ebdcdd98489d/StyleInstance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.common.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.pre-request.d.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Controls/SafeNumericUpDown.cs" root0="FORCE_HIGHLIGHTING" />
@@ -69,6 +60,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Atari800.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConversion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,6 +68,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/SourceData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusColours.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusEntry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Models/StatusFilter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/rc2mch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/DialogService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -113,9 +106,9 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/InputDialog.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/PreprocessSettings.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file:///usr/lib/dotnet/sdk/9.0.110/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_9_default.globalconfig" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -132,9 +125,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Debug",
+    ".NET Project.AdRasta2.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Publish to folder.Publish AdRasta2 to folder (1).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (2).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (3).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -148,7 +145,42 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.AdRasta2">
+    <configuration name="Publish AdRasta2 to folder (1)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="Portable" />
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (2)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="Portable" />
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (3)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="Portable" />
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
     <configuration name="AdRasta2" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -192,14 +224,6 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-    </task>
-    <task id="LOCAL-00082" summary="layout fiddling">
-      <option name="closed" value="true" />
-      <created>1757762788039</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1757762788039</updated>
     </task>
     <task id="LOCAL-00083" summary="GUI Fiddling + Mapping">
       <option name="closed" value="true" />
@@ -585,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758359269337</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Add windows ini file example">
+      <option name="closed" value="true" />
+      <created>1758439015424</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1758439015424</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +627,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Little more visual fiddl;ing, plus add properties ready for actual conversion stuff" />
     <MESSAGE value="Start plugin of status log, plus 'Preview' Button" />
     <MESSAGE value="Log more events, fix Log right alignment" />
     <MESSAGE value="Fix UniqueStatuses update - CollectionChanged issue" />
@@ -620,7 +651,8 @@
     <MESSAGE value="Plugged in Convert button" />
     <MESSAGE value="Add new status for using on retuirn from methods -  Allow better error handling (When plugged in)" />
     <MESSAGE value="Add return values of AdRastaStatus to methods - better error Handling (eventually)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add return values of AdRastaStatus to methods - better error Handling (eventually)" />
+    <MESSAGE value="Add windows ini file example" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add windows ini file example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

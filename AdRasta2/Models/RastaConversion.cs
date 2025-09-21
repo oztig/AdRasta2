@@ -139,6 +139,7 @@ public class RastaConversion : ReactiveObject
             .Where(s => s.ShowOnImageStatusLine)
             .GroupBy(s => s.Status)
             .Select(g => g.OrderByDescending(s => s.Timestamp).First())
+            .OrderBy(s => s.Timestamp)
             .ToList() ?? new List<StatusEntry>();
     }
 

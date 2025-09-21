@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:vm="clr-namespace:AdRasta2.ViewModels"
-             xmlns:iconPacks="https://github.com/MahApps/IconPacks.Avalonia"
+             xmlns:iconPacks="clr-namespace:IconPacks.Avalonia.MaterialDesign;assembly=IconPacks.Avalonia.MaterialDesign"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.DualModeSwitchView">
 

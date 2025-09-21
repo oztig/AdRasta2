@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AdRasta2.App"
              xmlns:local="using:AdRasta2"
-             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              xmlns:semi="https://irihi.tech/semi"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              xmlns:controls="clr-namespace:AdRasta2.Controls"
@@ -40,8 +39,9 @@
     <Application.Styles>
         <FluentTheme>
         </FluentTheme>
-        <StyleInclude Source="avares://IconPacks.Avalonia/Icons.axaml" />
-        <StyleInclude Source="avares://AdRasta2/Styles/SafeNumericUpDownStyle.axaml" />
-        <StyleInclude Source="avares://AdRasta2/Styles/HeaderContentControl.axaml" />
+
+        <StyleInclude Source="avares://IconPacks.Avalonia.MaterialDesign/MaterialDesign.axaml" />
+                <StyleInclude Source="avares://AdRasta2/Styles/SafeNumericUpDownStyle.axaml" />
+                <StyleInclude Source="avares://AdRasta2/Styles/HeaderContentControl.axaml" />
     </Application.Styles>
 </Application>

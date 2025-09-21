@@ -8,8 +8,9 @@ public static class StatusFilter
     private static readonly HashSet<ConversionStatus> ExcludedStatuses = new()
     {
         ConversionStatus.SourceAdded,
-        ConversionStatus.MaskAdded,
         ConversionStatus.SourceCleared,
+        ConversionStatus.MaskAdded,
+        ConversionStatus.MaskCleared,
         ConversionStatus.DestinationSet,
         ConversionStatus.PreviewStarted,
         ConversionStatus.ConversionStarted

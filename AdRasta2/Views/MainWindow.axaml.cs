@@ -13,18 +13,45 @@ namespace AdRasta2.Views;
 
 public partial class MainWindow : Window
 {
+    private double _initialMaxHeight;
+    private double _initialMaxWidth;
+    private bool _userResized = false;
+    
     public MainWindow()
     {
         InitializeComponent();
         this.Opened += (_, _) =>
         {
+            var screen = Screens.ScreenFromVisual(this) ?? Screens.Primary;
+            var scale = screen.Scaling; // e.g. 1.5 for 150%
+            _initialMaxHeight = (screen.WorkingArea.Height / scale) * 0.75;
+            _initialMaxWidth = (screen.WorkingArea.Width / scale) * 0.45;
+            
+            this.Height = _initialMaxHeight;
+            this.Width = _initialMaxWidth;
+            this.SizeToContent = SizeToContent.Manual;
+            
             Dispatcher.UIThread.Post(async () =>
             {
                 // This runs after the window is painted
                 _ = await CheckIniFileExists();
             }, DispatcherPriority.Background);
         };
+        
+        this.GetObservable(ClientSizeProperty).Subscribe(OnClientSizeChanged);
     }
+    
+    private void OnClientSizeChanged(Size newSize)
+    {
+        if (_userResized) return;
+        
+        if (newSize.Height > _initialMaxHeight)
+            this.MaxHeight = double.PositiveInfinity; // Lift the ceiling
+        
+        if (newSize.Width > _initialMaxWidth)
+            this.MaxWidth = double.PositiveInfinity; // Lift the ceiling
+    }
+    
 
     private async Task<bool> CheckIniFileExists()
     {

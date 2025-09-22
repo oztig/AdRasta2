@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.ReactiveUI;
 using System;
+using System.IO;
 
 namespace AdRasta2;
 
@@ -10,8 +11,27 @@ sealed class Program
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args) => BuildAvaloniaApp()
-        .StartWithClassicDesktopLifetime(args);
+    public static void Main(string[] args)
+    {
+        try
+        {
+            BuildAvaloniaApp()
+                .StartWithClassicDesktopLifetime(args);
+        }
+        catch (Exception ex)
+        {
+            var logPath = Path.Combine(AppContext.BaseDirectory, "AdRasta2_crashlog.txt");
+            try
+            {
+                File.WriteAllText(logPath, $"Startup exception logged at {DateTime.Now}:\n{ex}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+        }
+    }
 
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
@@ -20,6 +40,6 @@ sealed class Program
             .WithInterFont()
             .LogToTrace()
             .With(new Win32PlatformOptions
-                {DpiAwareness = Win32DpiAwareness.PerMonitorDpiAware})
+                { DpiAwareness = Win32DpiAwareness.PerMonitorDpiAware })
             .UseReactiveUI();
 }

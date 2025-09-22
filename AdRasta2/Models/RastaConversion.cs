@@ -747,6 +747,10 @@ public class RastaConversion : ReactiveObject
         bool ret = SourceImageDirectory != DestinationDirectory &&
                    FileUtils.CopyFile(SourceImagePath, DestinationImageFileName);
 
+
+        // Old log entries not relevant to new image, so dont show on new image!
+        SetLogEntriesAsDontShowOnImage();
+            
         Statuses?.AddEntry(
             DateTime.Now,
             string.IsNullOrEmpty(_sourceImagePath)
@@ -756,6 +760,17 @@ public class RastaConversion : ReactiveObject
         );
 
         return ret;
+    }
+
+    private void SetLogEntriesAsDontShowOnImage()
+    {
+        if (Statuses != null)
+        {
+            foreach (var entry in Statuses)
+            {
+                entry.ShowOnImageStatusLine = false;
+            }            
+        }
     }
 
     public RastaConversion(string title)

@@ -209,6 +209,21 @@ public class RastaConverter
             args.Add($"/unstuck_after={rastaConversion.UnstuckDrift}");
         }
 
+        if (rastaConversion.DualBlending != RastaConverterDefaultValues.DefaultDualBlending)
+        {
+            args.Add($"/db={rastaConversion.DualBlending}");
+        }
+
+        if (rastaConversion.DualLuma != RastaConverterDefaultValues.DefaultDualLuma)
+        {
+            args.Add($"/dl={rastaConversion.DualLuma}");
+        }
+
+        if (rastaConversion.DualChroma != RastaConverterDefaultValues.DefaultDualChroma)
+        {
+            args.Add($"/dc={rastaConversion.DualChroma}");
+        }
+
         args.Add($"/i={rastaConversion.SourceImagePath}");
 
         return args;
@@ -336,6 +351,21 @@ public class RastaConverter
         if (rastaConversion.UnstuckDrift != RastaConverterDefaultValues.DefaultUnstuckDrift)
         {
             args.Add($"--unstuck_after={rastaConversion.UnstuckDrift}");
+        }
+        
+        if (rastaConversion.DualBlending != RastaConverterDefaultValues.DefaultDualBlending)
+        {
+            args.Add($"--dual_blending={rastaConversion.DualBlending}");
+        }
+
+        if (rastaConversion.DualLuma != RastaConverterDefaultValues.DefaultDualLuma)
+        {
+            args.Add($"--dual_luma={rastaConversion.DualLuma}");
+        }
+
+        if (rastaConversion.DualChroma != RastaConverterDefaultValues.DefaultDualChroma)
+        {
+            args.Add($"--dual_chroma={rastaConversion.DualChroma}");
         }
 
         args.Add($"--input={rastaConversion.SourceImagePath}");

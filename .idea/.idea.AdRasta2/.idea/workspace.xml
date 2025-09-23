@@ -9,10 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MainWindow.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +123,8 @@
     "Publish to folder.Publish AdRasta2 to folder (1).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (2).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (3).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (4).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (5).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -164,6 +162,23 @@
       <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
         <runtimes>
           <item value="Portable" />
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (4)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="Portable" />
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (5)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
           <item value="win-x64" />
         </runtimes>
       </riderPublish>
@@ -220,15 +235,7 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1758520725523" duration="3722000" />
-    </task>
-    <task id="LOCAL-00084" summary="Added Framework for styling - to be properly added later">
-      <option name="closed" value="true" />
-      <created>1757841786090</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1757841786090</updated>
+      <workItem from="1758520725523" duration="8519000" />
     </task>
     <task id="LOCAL-00085" summary="stuff">
       <option name="closed" value="true" />
@@ -614,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758463475139</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Set Initial height and width 75% and 45% respectively, keep initial size, unless manuall rescaled.  Add startup error log">
+      <option name="closed" value="true" />
+      <created>1758524559079</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1758524559079</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +639,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Log more events, fix Log right alignment" />
     <MESSAGE value="Fix UniqueStatuses update - CollectionChanged issue" />
     <MESSAGE value="Add Destination Folder Picker" />
     <MESSAGE value="copy source to destination, when picked" />
@@ -649,7 +663,8 @@
     <MESSAGE value="Add return values of AdRastaStatus to methods - better error Handling (eventually)" />
     <MESSAGE value="Add windows ini file example" />
     <MESSAGE value="strip fonts to only those in use - Reduce size of App" />
-    <option name="LAST_COMMIT_MESSAGE" value="strip fonts to only those in use - Reduce size of App" />
+    <MESSAGE value="Set Initial height and width 75% and 45% respectively, keep initial size, unless manuall rescaled.  Add startup error log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set Initial height and width 75% and 45% respectively, keep initial size, unless manuall rescaled.  Add startup error log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -691,32 +706,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Program.cs</url>
-          <line>22</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Program.cs" containingFunctionPresentation="Method 'Main'">
-            <startOffsets>
-              <option value="559" />
-            </startOffsets>
-            <endOffsets>
-              <option value="637" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Program.cs</url>
-          <line>29</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Program.cs" containingFunctionPresentation="Method 'Main'">
-            <startOffsets>
-              <option value="842" />
-            </startOffsets>
-            <endOffsets>
-              <option value="863" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

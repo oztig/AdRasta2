@@ -3,6 +3,7 @@ namespace AdRasta2.Enums;
 public enum ConversionStatus
 {
     DestinationSet,
+    DestinationCleared,
     SourceAdded,
     SourceCleared,
     MaskAdded,

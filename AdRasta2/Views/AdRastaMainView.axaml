@@ -14,7 +14,7 @@
         <local:BoolToBrushConverter x:Key="BoolToBrushConverter" />
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" /> <!-- Menu-->
             <RowDefinition Height="Auto" /> <!-- Conversion Title -->
@@ -23,7 +23,11 @@
         </Grid.RowDefinitions>
 
         <!-- Menu -->
-        <Menu Grid.Row="0" DockPanel.Dock="Top">
+        <Menu Grid.Row="0" DockPanel.Dock="Top"
+              Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+              BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
+              Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+              >
             <MenuItem Header="_Help">
                 <MenuItem Header="_Show RastaConverter Help File" Command="{Binding  ShowHelpCommand}" />
                 <Separator />
@@ -45,14 +49,21 @@
         </Menu>
 
         <!--  Fixed Header -->
-        <Border Grid.Row="1" DockPanel.Dock="Top" Background="LightGray">
+        <!-- Background="LightGray" -->
+        <Border Grid.Row="1" DockPanel.Dock="Top" 
+                Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
+                >
+            <!-- BorderBrush="LightGray" -->
+            <!-- Background="LightGray" -->
+            <!-- Foreground="Black" -->
             <TextBox Text="{Binding SelectedConversion.Title }"
                      BorderThickness="0"
-                     BorderBrush="LightGray"
-                     Background="LightGray"
-                     Foreground="Black"
+                     Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                     BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
+                     Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
                      VerticalAlignment="Stretch"
-                     HorizontalAlignment="Left"
+                     HorizontalAlignment="Stretch"
                      Margin="5,0,0,0"
                      FontSize="20" />
         </Border>

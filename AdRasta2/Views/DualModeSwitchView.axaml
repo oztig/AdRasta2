@@ -10,7 +10,9 @@
 
     <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*" 
           Margin=" 0,5,5,5" 
-          ColumnSpacing="5">
+          ColumnSpacing="5" 
+          Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+          >
         <TextBlock Grid.Column="0"
                    Text="Dual Frame Mode"
                    VerticalAlignment="Center" />

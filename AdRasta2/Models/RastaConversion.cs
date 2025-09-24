@@ -324,7 +324,7 @@ public class RastaConversion : ReactiveObject
             Statuses?.AddEntry(
                 DateTime.Now,
                 string.IsNullOrEmpty(_destinationFilePath)
-                    ? ConversionStatus.DestinationSet
+                    ? ConversionStatus.DestinationCleared
                     : ConversionStatus.DestinationSet,
                 _destinationFilePath ?? ""
             );
@@ -333,7 +333,7 @@ public class RastaConversion : ReactiveObject
 
     public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath)
         ? string.Empty
-        : Path.GetDirectoryName(DestinationFilePath);
+        : DestinationFilePath;
 
     public string DestinationImageFileName => Path.Combine(DestinationDirectory, SourceImageBaseName);
 

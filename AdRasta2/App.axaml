@@ -6,42 +6,51 @@
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              xmlns:controls="clr-namespace:AdRasta2.Controls"
              RequestedThemeVariant="Default">
-    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
-    <Application.DataTemplates>
-        <local:ViewLocator />
-    </Application.DataTemplates>
+  <!-- Data templates -->
+  <Application.DataTemplates>
+    <local:ViewLocator />
+  </Application.DataTemplates>
 
-    <Application.Resources>
-        <converters:HeightValueConverter x:Key="AutoValueConverter" />
-        <converters:IsAutoConverter x:Key="IsAutoConverter" />
-        <converters:IsNotAutoConverter x:Key="IsNotAutoConverter" />
-        <converters:ExpandArrowConverter x:Key="ExpandArrowConverter" />
+  <!-- Resources (non-style) -->
+  <Application.Resources>
+    <converters:HeightValueConverter x:Key="AutoValueConverter" />
+    <converters:IsAutoConverter x:Key="IsAutoConverter" />
+    <converters:IsNotAutoConverter x:Key="IsNotAutoConverter" />
+    <converters:ExpandArrowConverter x:Key="ExpandArrowConverter" />
+    <Thickness x:Key="TextControlBorderThemeThickness">1</Thickness>
+  </Application.Resources>
 
-        <!-- Background for input controls -->
-        <SolidColorBrush x:Key="InputBackground" Color="#FFFFFFFF" /> <!-- White -->
+  <!-- Styles -->
+  <Application.Styles>
+    <!-- Fluent theme with compact density -->
+    <FluentTheme DensityStyle="Compact" />
 
-        <!-- Border brush for input controls -->
-        <SolidColorBrush x:Key="InputBorder" Color="Blue" /> <!-- Blue -->
+    <!-- Global font scaling (~25% smaller) -->
+    <Style Selector="ContentPresenter">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="TextBlock">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="TextBox">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="Button">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
 
-        <!-- Border thickness -->
-        <Thickness x:Key="TextControlBorderThemeThickness">1</Thickness>
+    <!-- Dark mode support for custom SafeNumericUpDown -->
+    <Style Selector="controls|SafeNumericUpDown">
+      <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderBrush}" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
 
-        <!-- Optional: focused state -->
-        <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="#FF3399FF" />
-        <Thickness x:Key="TextControlBorderThemeThicknessFocused">1</Thickness>
-
-        <!-- Define the corner radius used by controls -->
-        <!-- <CornerRadius x:Key="ControlCornerRadius">4</CornerRadius> -->
-
-    </Application.Resources>
-
-    <Application.Styles>
-        <FluentTheme>
-        </FluentTheme>
-
-        <StyleInclude Source="avares://IconPacks.Avalonia.MaterialDesign/MaterialDesign.axaml" />
-                <StyleInclude Source="avares://AdRasta2/Styles/SafeNumericUpDownStyle.axaml" />
-                <StyleInclude Source="avares://AdRasta2/Styles/HeaderContentControl.axaml" />
-    </Application.Styles>
+    <!-- External includes -->
+    <StyleInclude Source="avares://IconPacks.Avalonia.MaterialDesign/MaterialDesign.axaml" />
+    <StyleInclude Source="avares://AdRasta2/Styles/SafeNumericUpDownStyle.axaml" />
+    <StyleInclude Source="avares://AdRasta2/Styles/HeaderContentControl.axaml" />
+  </Application.Styles>
 </Application>

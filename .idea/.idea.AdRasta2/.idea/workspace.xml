@@ -8,7 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Styles/HeaderContentControl.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Styles/HeaderContentControl.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +35,19 @@
     &quot;assignee&quot;: &quot;oztig&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/oztig/AdRasta2.git",
-    "accountId": "ac35aaae-c741-4091-8f64-c33448ce9b7e"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/oztig/AdRasta2.git&quot;,
+    &quot;accountId&quot;: &quot;ac35aaae-c741-4091-8f64-c33448ce9b7e&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.common.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.pre-request.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43372be196aeba386415bc8f8d3f99862b4a472b7d74e3b3217d5e1c443cb8/TopLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/App.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Controls/SafeNumericUpDown.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/ExpndedArrowConverter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -48,6 +57,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/StatusToColourConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/AdRastaStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Enums/ConversionStatus.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFolderPickerService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,8 +87,10 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/ActionButtonsView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -104,7 +116,7 @@
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -117,7 +129,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Run",
+    ".NET Project.AdRasta2.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Publish to folder.Publish AdRasta2 to folder (1).executor": "Run",
@@ -129,6 +141,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "XThreadsFramesViewSplitterKey": "0.44627056",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/nickp/RiderProjects/AdRasta/AdRasta/Assets/AdRasta-Icon2.ico",
     "node.js.detected.package.eslint": "true",
@@ -235,15 +248,9 @@
       <workItem from="1756719124035" duration="37341000" />
       <workItem from="1756872397450" duration="29093000" />
       <workItem from="1757194237191" duration="42713000" />
-      <workItem from="1758520725523" duration="8519000" />
-    </task>
-    <task id="LOCAL-00085" summary="stuff">
-      <option name="closed" value="true" />
-      <created>1757842928650</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1757842928650</updated>
+      <workItem from="1758520725523" duration="8535000" />
+      <workItem from="1758634479091" duration="11310000" />
+      <workItem from="1758698145095" duration="6130000" />
     </task>
     <task id="LOCAL-00086" summary="Remove test Expander">
       <option name="closed" value="true" />
@@ -629,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758524559079</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1758603254606</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1758603254606</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,7 +668,6 @@
     <MESSAGE value="Add View Image context menu to Preview Image" />
     <MESSAGE value="plugged in more command line options from GUI" />
     <MESSAGE value="plug in more options" />
-    <MESSAGE value="stuff" />
     <MESSAGE value="Add Command Line viewer" />
     <MESSAGE value="Added new B17 params" />
     <MESSAGE value="set defaults for the new fields" />
@@ -664,7 +678,8 @@
     <MESSAGE value="Add windows ini file example" />
     <MESSAGE value="strip fonts to only those in use - Reduce size of App" />
     <MESSAGE value="Set Initial height and width 75% and 45% respectively, keep initial size, unless manuall rescaled.  Add startup error log" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set Initial height and width 75% and 45% respectively, keep initial size, unless manuall rescaled.  Add startup error log" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

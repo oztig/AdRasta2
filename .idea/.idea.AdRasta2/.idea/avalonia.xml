@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AdRasta2/App.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Styles/HeaderContentControl.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Styles/SafeNumericUpDownStyle.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Themes/CompactBrushes.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Themes/CompactStyle.axaml" value="AdRasta2/AdRasta2.csproj" />

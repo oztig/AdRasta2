@@ -1,4 +1,3 @@
-<!-- HeaderedContentControlStyle.axaml -->
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="HeaderedContentControl">
         <Setter Property="Template">
@@ -16,12 +15,15 @@
                     <!-- Header -->
                     <Border
                         ZIndex="1"
-                        Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
+                        Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                        BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
                         Padding="5,0,5,0"
                         Margin="5,0,0,0">
                         <TextBlock
                             Text="{TemplateBinding Header}"
-                            FontWeight="Bold" />
+                            FontWeight="Bold"
+                            Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                            Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"  />
                     </Border>
 
                     <!-- Content Area -->
@@ -31,12 +33,16 @@
                         Padding="0,5,0,0"
                         Margin="0,10,0,0"
                         CornerRadius="4"
-                        BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                        Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                        BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
                         BorderThickness="1">
                         <ContentPresenter
                             Name="PART_ContentPresenter"
                             Padding="8"
-                            Content="{TemplateBinding Content}" />
+                            Content="{TemplateBinding Content}"
+                            Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                            BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
+                            Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}" />
                     </Border>
                 </Grid>
             </ControlTemplate>

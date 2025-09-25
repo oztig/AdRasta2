@@ -5,15 +5,17 @@
              xmlns:semi="https://irihi.tech/semi"
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              xmlns:controls="clr-namespace:AdRasta2.Controls"
-             RequestedThemeVariant="Default">
+             RequestedThemeVariant="Dark">
 
   <!-- Data templates -->
   <Application.DataTemplates>
     <local:ViewLocator />
   </Application.DataTemplates>
+  
 
   <!-- Resources (non-style) -->
   <Application.Resources>
+    <x:Double x:Key="GlobalFontSize">12</x:Double>
     <converters:HeightValueConverter x:Key="AutoValueConverter" />
     <converters:IsAutoConverter x:Key="IsAutoConverter" />
     <converters:IsNotAutoConverter x:Key="IsNotAutoConverter" />
@@ -26,19 +28,20 @@
     <!-- Fluent theme with compact density -->
     <FluentTheme DensityStyle="Compact" />
 
-    <!-- Global font scaling (~25% smaller) -->
+    <!-- Global font scaling -->
     <Style Selector="ContentPresenter">
-      <Setter Property="FontSize" Value="12" />
+      <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
     </Style>
     <Style Selector="TextBlock">
-      <Setter Property="FontSize" Value="12" />
+      <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
     </Style>
     <Style Selector="TextBox">
-      <Setter Property="FontSize" Value="12" />
+      <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
     </Style>
     <Style Selector="Button">
-      <Setter Property="FontSize" Value="12" />
+      <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
     </Style>
+
 
     <!-- Dark mode support for custom SafeNumericUpDown -->
     <Style Selector="controls|SafeNumericUpDown">
@@ -53,4 +56,5 @@
     <StyleInclude Source="avares://AdRasta2/Styles/SafeNumericUpDownStyle.axaml" />
     <StyleInclude Source="avares://AdRasta2/Styles/HeaderContentControl.axaml" />
   </Application.Styles>
+  
 </Application>

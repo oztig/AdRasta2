@@ -45,12 +45,22 @@ public partial class App : Application
         Resources.MergedDictionaries.Clear();
         // Re-instate once themes are enabled
         // Will need to keep track of which themes to clear etc.
-          RestoreDefaults();
+        RestoreDefaults();
 
-        if (themeName == "Default")
+        switch (themeName)
         {
-            RequestedThemeVariant = ThemeVariant.Default;
-            return;
+            case "Default":
+                RequestedThemeVariant = ThemeVariant.Default;
+                return;
+                break;
+            case "Dark":
+                RequestedThemeVariant = ThemeVariant.Dark;
+                return;
+                break;
+            case "Light":
+                RequestedThemeVariant = ThemeVariant.Light;
+                return;
+                break;
         }
 
         var baseUri = new Uri("avares://AdRasta2/");
@@ -111,7 +121,7 @@ public partial class App : Application
             Application.Current.Styles.Remove(style);
         }
     }
-    
+
     public override void OnFrameworkInitializationCompleted()
     {
         var mainWindow = new MainWindow();
@@ -120,7 +130,7 @@ public partial class App : Application
         var folderPickerService = new FolderPickerService(mainWindow);
         var messageBoxService = new MessageBoxService();
 
-        var viewModel = new MainWindowViewModel(mainWindow, filePickerService,folderPickerService, messageBoxService);
+        var viewModel = new MainWindowViewModel(mainWindow, filePickerService, folderPickerService, messageBoxService);
         mainWindow.DataContext = viewModel;
         mainWindow.Show();
 

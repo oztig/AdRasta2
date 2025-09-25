@@ -73,7 +73,15 @@ public class Settings
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
 
         // RastaConverter Specific
-        RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 17);
+        try
+        {
+            RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 17);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
         RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
             string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
 

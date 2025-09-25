@@ -24,6 +24,7 @@
         <entry key="AdRasta2/Views/ImageSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/InputDialog.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/MainWindow.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Views/MenuView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/PreprocessSettings.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/SharedPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />
       </map>

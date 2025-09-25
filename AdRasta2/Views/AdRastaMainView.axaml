@@ -23,31 +23,7 @@
         </Grid.RowDefinitions>
 
         <!-- Menu -->
-        <Menu Grid.Row="0" DockPanel.Dock="Top"
-              Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
-              BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
-              Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
-              >
-            <MenuItem Header="_Help">
-                <MenuItem Header="_Show RastaConverter Help File" Command="{Binding  ShowHelpCommand}" />
-                <Separator />
-                <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
-            </MenuItem>
-            <MenuItem Header="Theme">
-                <MenuItem Header="Compact" 
-                          IsEnabled="True"
-                          Command="{Binding SwitchThemeCommand}" 
-                          CommandParameter="Compact" />
-                <MenuItem Header="Dark"
-                          Command="{Binding SwitchThemeCommand}"
-                          IsEnabled="False"
-                          CommandParameter="Dark" />
-                <MenuItem Header="Default" 
-                          Command="{Binding SwitchThemeCommand}" 
-                          CommandParameter="Default" />
-            </MenuItem>
-        </Menu>
-
+        <views:MenuView Grid.Row="0" DockPanel.Dock="Top" />
         <!--  Fixed Header -->
         <!-- Background="LightGray" -->
         <Border Grid.Row="1" DockPanel.Dock="Top" 

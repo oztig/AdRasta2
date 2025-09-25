@@ -21,6 +21,7 @@ using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
+using MsBox.Avalonia.ViewModels.Commands;
 using ReactiveUI;
 
 namespace AdRasta2.ViewModels;
@@ -36,6 +37,34 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
 
     public Action ScrollToLatestLogEntry { get; set; }
+
+    private double _tempFontSize = 12;
+
+    public double TempFontSize
+    {
+        get => _tempFontSize;
+        set
+        {
+            _tempFontSize = value;
+            this.RaisePropertyChanged();
+        }
+    }
+
+    private double _userFontSize = 12;
+
+    public double UserFontSize
+    {
+        get => _userFontSize;
+        set
+        {
+            if (_userFontSize != value)
+            {
+                _userFontSize = value;
+                this.RaisePropertyChanged();
+                Application.Current.Resources["GlobalFontSize"] = UserFontSize;
+            }
+        }
+    }
 
 
     // Button Colours
@@ -221,7 +250,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         aboutMessage += "Special Thanks to:\n";
         aboutMessage += "Arkadiusz Lubaszka for the original RC GUI\n\n";
         aboutMessage += "Developed using JetBrains Rider and Avalonia UI \n";
-        
+
         var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
         {
             ContentTitle = "AdRasta2 (Beta 1 - Bodge It and Scarper Version)",
@@ -405,5 +434,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task ViewPreviewImageAsync()
     {
         await ImageUtils.ViewImage(SelectedConversion.ImagePreviewPath);
+    }
+
+    public async Task ApplyFontSize()
+    {
+        UserFontSize = TempFontSize;
+        Application.Current.Resources["GlobalFontSize"] = UserFontSize;
     }
 }

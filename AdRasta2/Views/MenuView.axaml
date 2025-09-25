@@ -1,0 +1,64 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:AdRastaMainViewViewModel"
+             x:Class="AdRasta2.Views.MenuView">
+
+    <Menu DockPanel.Dock="Top"
+          Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+          BorderBrush="{DynamicResource SystemControlForegroundBaseMediumHighBrush}"
+          Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
+
+        <MenuItem Header="_Help">
+            <MenuItem Header="_Show RastaConverter Help File" Command="{Binding ShowHelpCommand}" />
+            <Separator />
+            <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
+        </MenuItem>
+
+        <MenuItem Header="Theme">
+            <MenuItem Header="Font Size">
+                <MenuItem>
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                            <TextBlock Text="Size:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                            <Slider Minimum="6"
+                                    Maximum="32"
+                                    Width="120"
+                                    Value="{Binding TempFontSize, Mode=TwoWay}"
+                                    TickFrequency="1"
+                                    IsSnapToTickEnabled="True"
+                                    Name="FontSizeSlider" />
+                            <TextBlock Text="{Binding TempFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="8,0,0,0" />
+                            <Button Content="Apply"
+                                    Command="{Binding ApplyFontSize}"
+                                    Margin="8,0,0,0" />
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Compact"
+                      IsEnabled="False"
+                      Command="{Binding SwitchThemeCommand}"
+                      CommandParameter="Compact" />
+            <MenuItem Header="Dark"
+                      Command="{Binding SwitchThemeCommand}"
+                      IsEnabled="True"
+                      CommandParameter="Dark" />
+            <MenuItem Header="Light"
+                      Command="{Binding SwitchThemeCommand}"
+                      IsEnabled="True"
+                      CommandParameter="Light" />
+            <MenuItem Header="Default"
+                      Command="{Binding SwitchThemeCommand}"
+                      CommandParameter="Default" />
+        </MenuItem>
+
+    </Menu>
+
+</UserControl>

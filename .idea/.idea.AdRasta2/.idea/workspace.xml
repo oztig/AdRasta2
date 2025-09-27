@@ -8,7 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/.idea/.idea.AdRasta2.dir/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/.idea/.idea.AdRasta2.dir/.idea/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,15 +254,7 @@
       <workItem from="1758520725523" duration="8535000" />
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
-      <workItem from="1758949879425" duration="389000" />
-    </task>
-    <task id="LOCAL-00091" summary="GUI tweaks + Add Conversion Log">
-      <option name="closed" value="true" />
-      <created>1757932607623</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1757932607623</updated>
+      <workItem from="1758949879425" duration="807000" />
     </task>
     <task id="LOCAL-00092" summary="Add property to only include certain statuses on Source Image 'Dot Status Line' + method to support this">
       <option name="closed" value="true" />
@@ -647,7 +640,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758949934045</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Remove redundant code">
+      <option name="closed" value="true" />
+      <created>1758950344992</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1758950344992</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +658,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Plug in GTotal Colours for Preview Image" />
     <MESSAGE value="remove unnecessary code" />
     <MESSAGE value="Add Total Colours to the Log Entry for GeneratedPreview" />
     <MESSAGE value="Swaqp out Height and Strength NumericUpDown for my Safe variant" />
@@ -682,7 +682,8 @@
     <MESSAGE value="Update the correct conversions status after preview, execute etc.  Add warning if duplicate destination dir selected" />
     <MESSAGE value="Extra places to check for duplicates!" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="Remove redundant code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove redundant code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

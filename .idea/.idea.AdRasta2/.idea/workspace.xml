@@ -7,18 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" afterDir="false" />
-    </list>
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,15 +272,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="11264000" />
-    </task>
-    <task id="LOCAL-00094" summary="Align rows in Pre-Process section">
-      <option name="closed" value="true" />
-      <created>1757947125641</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1757947125641</updated>
+      <workItem from="1758950704727" duration="12087000" />
     </task>
     <task id="LOCAL-00095" summary="More GUI tweaks">
       <option name="closed" value="true" />
@@ -677,7 +658,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758952479991</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Change multi-threading code.  Add Clear Log">
+      <option name="closed" value="true" />
+      <created>1758965430350</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1758965430350</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,7 +676,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Swaqp out Height and Strength NumericUpDown for my Safe variant" />
     <MESSAGE value="Add example .ini files" />
     <MESSAGE value="Plugged in Preview button :)" />
     <MESSAGE value="Add --input to args generation" />
@@ -712,7 +700,8 @@
     <MESSAGE value="Remove redundant code" />
     <MESSAGE value="update to gitignore" />
     <MESSAGE value="Clear Image paths etc, if Destination dir is changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clear Image paths etc, if Destination dir is changed" />
+    <MESSAGE value="Change multi-threading code.  Add Clear Log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change multi-threading code.  Add Clear Log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -741,19 +730,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
-          <line>408</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'GenerateMCH'">
-            <startOffsets>
-              <option value="13860" />
-            </startOffsets>
-            <endOffsets>
-              <option value="13893" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>

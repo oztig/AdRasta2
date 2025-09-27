@@ -9,10 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +38,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.common.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.pre-request.d.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/50341a469131fa51e5443b9bd96c4ca1c96bfa709f7f41fd15941ff6296a8dc/Collection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43372be196aeba386415bc8f8d3f99862b4a472b7d74e3b3217d5e1c443cb8/TopLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -255,15 +254,7 @@
       <workItem from="1757194237191" duration="42713000" />
       <workItem from="1758520725523" duration="8535000" />
       <workItem from="1758634479091" duration="11310000" />
-      <workItem from="1758698145095" duration="29500000" />
-    </task>
-    <task id="LOCAL-00088" summary="Fix theme switching">
-      <option name="closed" value="true" />
-      <created>1757846961212</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1757846961212</updated>
+      <workItem from="1758698145095" duration="29965000" />
     </task>
     <task id="LOCAL-00089" summary="Add Reset to Sliders on Pres of Image button">
       <option name="closed" value="true" />
@@ -649,7 +640,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758839225016</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="Update the correct conversions status after preview, execute etc.  Add warning if duplicate destination dir selected">
+      <option name="closed" value="true" />
+      <created>1758949034950</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1758949034950</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +658,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="copy source to destination, when picked" />
     <MESSAGE value="Add option to create new Destination Folder" />
     <MESSAGE value="Plug in GTotal Colours for Preview Image" />
     <MESSAGE value="remove unnecessary code" />
@@ -684,7 +682,8 @@
     <MESSAGE value="stuff" />
     <MESSAGE value="Colour fiddling for dark mode, plus a few bug fixes" />
     <MESSAGE value="Add theme and font selector, tweak layout a little" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add theme and font selector, tweak layout a little" />
+    <MESSAGE value="Update the correct conversions status after preview, execute etc.  Add warning if duplicate destination dir selected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the correct conversions status after preview, execute etc.  Add warning if duplicate destination dir selected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -716,13 +715,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
-          <line>429</line>
+          <line>433</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'GenerateMCH'">
             <startOffsets>
-              <option value="14575" />
+              <option value="14689" />
             </startOffsets>
             <endOffsets>
-              <option value="14608" />
+              <option value="14722" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="73" />

@@ -218,7 +218,10 @@ public class AdRastaMainViewViewModel : ReactiveObject
             Icon.Question);
 
         if (result.ToLower() == "okay")
+        {
             SelectedConversion.PopulateDefaultValues();
+            UpdateDuplicateDestinationFlags();
+        }
     }
 
     public async Task RemoveCurrentConversion()
@@ -236,6 +239,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         if (result.ToLower() == "okay")
         {
             RastaConversions.Remove(SelectedConversion);
+            UpdateDuplicateDestinationFlags();
             ChangeSelected(RastaConversions[^1]);
         }
     }

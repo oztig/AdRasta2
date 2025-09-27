@@ -4,9 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reactive;
-using System.Reactive.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using AdRasta2.Enums;
 using AdRasta2.Interfaces;
 using AdRasta2.Models;
@@ -22,7 +20,6 @@ using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
-using MsBox.Avalonia.ViewModels.Commands;
 using ReactiveUI;
 
 namespace AdRasta2.ViewModels;
@@ -33,11 +30,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     // private Settings _settings = new();
     private int _selectedIndex = 0;
-    public object Dummy => null;
-
-    public string HeadingText { get; set; } = "Ad Rasta v2 - Alpha";
-
-    public Action ScrollToLatestLogEntry { get; set; }
 
     private double _tempFontSize = 12;
 
@@ -67,7 +59,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
         }
     }
 
-
     // Button Colours
     public ConversionStatus PreviewButtonColour => ConversionStatus.PreviewGenerated;
     public ConversionStatus MCHButtonColour => ConversionStatus.MCHGenerated;
@@ -76,18 +67,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ConversionStatus ContinueButtonColour => ConversionStatus.ConversionStarted;
 
     public SourceData SourceData { get; } = new();
-    public RastaConverterDefaultValues ConverterDefaults { get; }
-
 
     public ReactiveCommand<string, Unit> SwitchThemeCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
-    public ReactiveCommand<Unit, Unit> PickFileCommand { get; private set; }
     private readonly IFilePickerService _filePickerService;
     private readonly IFolderPickerService _folderPickerService;
     private readonly IMessageBoxService _messageBoxService;
-
-    public string ViewModelType => GetType().Name;
 
     public ObservableCollection<int> Sprockets { get; } = new();
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
@@ -101,7 +87,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
     }
 
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
-    public ReactiveCommand<Unit, Unit> NewConversionCommand;
 
     public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,
         IFolderPickerService folderPickerService,
@@ -115,7 +100,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
-        NewConversionCommand = ReactiveCommand.Create(AddNewConversion);
 
         PopulateSprockets();
         CreateInitialEntry();

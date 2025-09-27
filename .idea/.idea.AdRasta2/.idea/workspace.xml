@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -251,14 +253,7 @@
       <workItem from="1758520725523" duration="8535000" />
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
-    </task>
-    <task id="LOCAL-00090" summary="Add Log Object">
-      <option name="closed" value="true" />
-      <created>1757919340343</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1757919340343</updated>
+      <workItem from="1758949879425" duration="389000" />
     </task>
     <task id="LOCAL-00091" summary="GUI tweaks + Add Conversion Log">
       <option name="closed" value="true" />
@@ -644,7 +639,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758949382829</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1758949934045</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1758949934045</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,12 +677,12 @@
     <MESSAGE value="Add windows ini file example" />
     <MESSAGE value="strip fonts to only those in use - Reduce size of App" />
     <MESSAGE value="Set Initial height and width 75% and 45% respectively, keep initial size, unless manuall rescaled.  Add startup error log" />
-    <MESSAGE value="stuff" />
     <MESSAGE value="Colour fiddling for dark mode, plus a few bug fixes" />
     <MESSAGE value="Add theme and font selector, tweak layout a little" />
     <MESSAGE value="Update the correct conversions status after preview, execute etc.  Add warning if duplicate destination dir selected" />
     <MESSAGE value="Extra places to check for duplicates!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extra places to check for duplicates!" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -711,13 +714,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
-          <line>433</line>
+          <line>417</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'GenerateMCH'">
             <startOffsets>
-              <option value="14689" />
+              <option value="14101" />
             </startOffsets>
             <endOffsets>
-              <option value="14722" />
+              <option value="14134" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="73" />

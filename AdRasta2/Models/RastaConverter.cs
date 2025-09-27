@@ -15,57 +15,74 @@ namespace AdRasta2.Models;
 
 public class RastaConverter
 {
-    public static async Task<int> ExecuteCommand(bool isPreview, bool isContinue, RastaConversion conversion)
+    public static async Task<RastaConversion> ExecuteCommand(bool isPreview, bool isContinue,
+        RastaConversion conversion)
     {
-        var ret = 0;
-       // var rastaCommand = Path.Combine(conversion.DestinationDirectory, Settings.BaseRastaCommand);
-        var stdOutBuffer = new StringBuilder();
-        var stdErrBuffer = new StringBuilder();
         var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
         conversion.CommandLineText = await GenerateFullCommandLineString(safeParams);
-        
+
         try
         {
             // Copy supporting files
             await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
                 Settings.BaseRastaCommand);
 
-            // Font File
             await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
                 "clacon2.ttf");
 
-            // Palette Dir
             await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
 
-            var cmd = Cli.Wrap(Settings.BaseRastaCommand)
-                .WithWorkingDirectory(conversion.DestinationDirectory)
-                .WithArguments(safeParams, true)
-                .WithValidation(CommandResultValidation.None);
-
-            await foreach (var cmdEvent in cmd.ListenAsync())
-            {
-                switch (cmdEvent)
-                {
-                    case StartedCommandEvent started:
-                        conversion.ProcessID = started.ProcessId;
-                        ret = started.ProcessId;
-                        break;
-
-                    case ExitedCommandEvent exited:
-                        Console.WriteLine($"Process exited; Code: {exited.ExitCode}");
-                        break;
-                }
-            }
-            
+            // Run it and return the completed conversion
+            return await ProcessRunner.RunAsync(
+                Settings.BaseRastaCommand,
+                conversion.DestinationDirectory,
+                safeParams,
+                conversion);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            ret = 0;
+            ConversionLogger.Log(conversion, ConversionStatus.Error, "RastaConverter.ExecuteCommand", e);
+            conversion.ProcessID = 0;
+            return conversion; // Return the conversion even if it failed, for downstream handling
         }
-
-        return ret;
     }
+
+    // public static async Task<RastaConversion> ExecuteCommand(bool isPreview, bool isContinue, RastaConversion conversion)
+    // {
+    //     RastaConversion completedConversion;
+    //     // var rastaCommand = Path.Combine(conversion.DestinationDirectory, Settings.BaseRastaCommand);
+    //     var stdOutBuffer = new StringBuilder();
+    //     var stdErrBuffer = new StringBuilder();
+    //     var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
+    //     conversion.CommandLineText = await GenerateFullCommandLineString(safeParams);
+    //
+    //     try
+    //     {
+    //         // Copy supporting files
+    //         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
+    //             Settings.BaseRastaCommand);
+    //
+    //         // Font File
+    //         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
+    //             "clacon2.ttf");
+    //
+    //         // Palette Dir
+    //         await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
+    //
+    //         // Run it!
+    //          completedConversion = await ProcessRunner.RunAsync(Settings.BaseRastaCommand,
+    //             conversion.DestinationDirectory, safeParams, conversion);
+    //
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         ConversionLogger.Log(conversion, ConversionStatus.Error, "RastaConverter.ExecuteCommand", e);
+    //         Console.WriteLine(e);
+    //         ret = 0;
+    //     }
+    //
+    //     return completedConversion;
+    // }
 
     public async static Task<IReadOnlyList<string>> GenerateRastaArguments(bool isPreview, bool isContinue,
         RastaConversion conversion)
@@ -190,12 +207,12 @@ public class RastaConverter
         {
             args.Add($"/alts={rastaConversion.AlternatingDualSteps}");
         }
-        
+
         if (rastaConversion.UnstuckAfter != RastaConverterDefaultValues.DefaultUnstuckAfter)
         {
             args.Add($"/unstuck_after={rastaConversion.UnstuckAfter}");
         }
-        
+
         if (rastaConversion.UnstuckDrift != RastaConverterDefaultValues.DefaultUnstuckDrift)
         {
             args.Add($"/unstuck_after={rastaConversion.UnstuckDrift}");
@@ -217,7 +234,7 @@ public class RastaConverter
         }
 
         args.Add($"/i={rastaConversion.SourceImageBaseName}");
-        
+
         if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskBaseName))
         {
             args.Add($"/details={rastaConversion.SourceImageMaskPath}");
@@ -334,17 +351,17 @@ public class RastaConverter
         {
             args.Add($"--altering_dual_steps={rastaConversion.AlternatingDualSteps}");
         }
-        
+
         if (rastaConversion.UnstuckAfter != RastaConverterDefaultValues.DefaultUnstuckAfter)
         {
             args.Add($"--unstuck_after={rastaConversion.UnstuckAfter}");
         }
-        
+
         if (rastaConversion.UnstuckDrift != RastaConverterDefaultValues.DefaultUnstuckDrift)
         {
             args.Add($"--unstuck_after={rastaConversion.UnstuckDrift}");
         }
-        
+
         if (rastaConversion.DualBlending != RastaConverterDefaultValues.DefaultDualBlending)
         {
             args.Add($"--dual_blending={rastaConversion.DualBlending}");
@@ -369,7 +386,7 @@ public class RastaConverter
             if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
                 args.Add($"--details_val={rastaConversion.MaskStrength}");
         }
-        
+
         return args;
     }
 

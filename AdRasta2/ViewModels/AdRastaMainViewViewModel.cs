@@ -333,43 +333,34 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
-        var pid = await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
+        var toUpdate = await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
 
-
-        if (FindConversionByProcessId(pid) is { } toUpdate)
-        {
-            await toUpdate.SetPreviewImage(false);
-            toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,
-                "(" + toUpdate.PreviewImageColoursText + ")");
-        }
+        await toUpdate.SetPreviewImage(false);
+        toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,
+            "(" + toUpdate.PreviewImageColoursText + ")");
     }
 
     public async Task ConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-
-        var pid = await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
-
-        if (FindConversionByProcessId(pid) is { } toUpdate)
-        {
-            await toUpdate.SetPreviewImage(true);
-            toUpdate.PreviewHeaderTitle = "Result";
-            toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
-                $"({toUpdate.PreviewImageColoursText})");
-        }
+        
+        var toUpdate = await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
+        await toUpdate.SetPreviewImage(true);
+        toUpdate.PreviewHeaderTitle = "Result";
+        
+        toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
+            $"({toUpdate.PreviewImageColoursText})");
     }
 
     public async Task ContinueConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-        var pid = await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
 
-        if (FindConversionByProcessId(pid) is { } toUpdate)
-        {
-            await toUpdate.SetPreviewImage(true);
-            toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
-                "(" + toUpdate.PreviewImageColoursText + ")");
-        }
+        var toUpdate = await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
+        await toUpdate.SetPreviewImage(true);
+        
+        toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
+            "(" + toUpdate.PreviewImageColoursText + ")");
     }
 
     public async Task GenerateExecutable()

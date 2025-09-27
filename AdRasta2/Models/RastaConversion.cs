@@ -859,4 +859,9 @@ public class RastaConversion : ReactiveObject
                     RastaConverterDefaultValues.DefaultDestintionName);
         }
     }
+
+    public async Task ClearLog()
+    {
+        Statuses.Clear();
+    }
 }

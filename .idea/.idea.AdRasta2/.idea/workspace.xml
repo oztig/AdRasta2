@@ -8,8 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +45,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.common.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.pre-request.d.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/372788d1ca91331ad4738fc3d2ff6dcd93cf96ae8acf6758492375935fec2da/IReactiveObjectExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/50341a469131fa51e5443b9bd96c4ca1c96bfa709f7f41fd15941ff6296a8dc/Collection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cf5011822fd54235e86fdc54ee3baa876b4876e5549223ffeadca5607e59f6af/Path.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43372be196aeba386415bc8f8d3f99862b4a472b7d74e3b3217d5e1c443cb8/TopLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa116d1954da63d07c5f5282cdc3dee56fb31b31b1648e242845dd22bf690b3/StaticResourceExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/App.axaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/App.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Controls/SafeNumericUpDown.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/ExpndedArrowConverter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,7 +60,6 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Converters/StatusToColourConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/AdRastaStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Enums/ConversionStatus.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Extensions/NumericUpDownExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IFolderPickerService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -60,7 +67,6 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Atari800.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConversion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,22 +80,19 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FilePickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/FolderPickerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Services/MessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Styles/HeaderContentControl.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Styles/HeaderContentControl.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Styles/SafeNumericUpDownStyle.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Themes/CompactBrushes.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Themes/CompactStyles.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Themes/DarkBrushes.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/ActionButtonsView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/AdRastaMainView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/BottomPanelView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/CommandLineView.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -103,7 +106,6 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/DualModeSwitchView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ImageSettingsView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -114,7 +116,6 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/MenuView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/PreprocessSettings.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Views/SharedPanelView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/SharedPanelView.axaml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -132,7 +133,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Run",
+    ".NET Project.AdRasta2.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Publish to folder.Publish AdRasta2 to folder (1).executor": "Run",
@@ -141,6 +142,8 @@
     "Publish to folder.Publish AdRasta2 to folder (4).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (5).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (6).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (7).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (8).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -209,6 +212,22 @@
       </riderPublish>
       <method v="2" />
     </configuration>
+    <configuration name="Publish AdRasta2 to folder (7)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (8)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
     <configuration name="Publish AdRasta2 to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
         <runtimes>
@@ -264,15 +283,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="1406000" />
-    </task>
-    <task id="LOCAL-00093" summary="Only included statuses that should be shown on Source Image Dot Line">
-      <option name="closed" value="true" />
-      <created>1757935523497</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1757935523497</updated>
+      <workItem from="1758950704727" duration="11264000" />
     </task>
     <task id="LOCAL-00094" summary="Align rows in Pre-Process section">
       <option name="closed" value="true" />
@@ -658,7 +669,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758950722518</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="Clear Image paths etc, if Destination dir is changed">
+      <option name="closed" value="true" />
+      <created>1758952479990</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1758952479991</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -668,7 +687,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Total Colours to the Log Entry for GeneratedPreview" />
     <MESSAGE value="Swaqp out Height and Strength NumericUpDown for my Safe variant" />
     <MESSAGE value="Add example .ini files" />
     <MESSAGE value="Plugged in Preview button :)" />
@@ -693,7 +711,8 @@
     <MESSAGE value="stuff" />
     <MESSAGE value="Remove redundant code" />
     <MESSAGE value="update to gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to gitignore" />
+    <MESSAGE value="Clear Image paths etc, if Destination dir is changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clear Image paths etc, if Destination dir is changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -725,26 +744,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
-          <line>417</line>
+          <line>408</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'GenerateMCH'">
             <startOffsets>
-              <option value="14101" />
+              <option value="13860" />
             </startOffsets>
             <endOffsets>
-              <option value="14134" />
+              <option value="13893" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
-          <line>222</line>
+          <line>239</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'GenerateLegacyArguments'">
             <startOffsets>
-              <option value="8335" />
+              <option value="9360" />
             </startOffsets>
             <endOffsets>
-              <option value="8395" />
+              <option value="9420" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="81" />

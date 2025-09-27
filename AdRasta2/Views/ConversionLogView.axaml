@@ -19,13 +19,20 @@
             Padding="8"
             HorizontalAlignment="Stretch"
             Margin="10,10,0,5">
-        <Grid RowDefinitions="Auto,*">
-            <TextBlock Grid.Row="0" Text="Log"
+        <Grid RowDefinitions="Auto,*" ColumnDefinitions="Auto,*">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Log"
                        FontWeight="Bold"
                        FontSize="14"
                        Margin="0,0,0,8" />
-            
-            <ScrollViewer Grid.Row="1" x:Name="LogScrollViewer"
+            <Button Grid.Row="0" Grid.Column="1" Content="Clear"
+                    Command="{Binding  SelectedConversion.ClearLog}"
+                    Margin="8,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Padding="6,2"
+                    BorderThickness="1"
+                    FontSize="12" />            
+            <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="LogScrollViewer"
                           VerticalScrollBarVisibility="Auto"
                           MaxHeight="140">
                 <ItemsControl ItemsSource="{Binding SelectedConversion.Statuses}">

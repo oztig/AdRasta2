@@ -14,5 +14,8 @@ public enum ConversionStatus
     ConversionStarted,
     ConversionComplete,
     ExecutableGenerated,
-    MCHGenerated
+    MCHGenerated,
+    Info,
+    Warning,
+    Error
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -167,6 +168,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
             return;
 
         RastaConversions.Add(new RastaConversion(userInput.value.Trim()));
+        UpdateDuplicateDestinationFlags();
         ChangeSelected(RastaConversions[^1]);
     }
 
@@ -270,21 +272,31 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async void SelectDestinationFoler()
     {
         SelectedConversion.DestinationFilePath = await SelectFolder();
+        UpdateDuplicateDestinationFlags();
     }
 
-    public async void CreateDestinationFoler()
+    private void UpdateDuplicateDestinationFlags()
     {
-        var NewFolder =
-            await DialogService.ShowInputDialogAsync("Create New Folder", "Folder Name", "", "New Folder Name",
-                _window);
+        // Reset all flags
+        foreach (var conversion in RastaConversions)
+            conversion.DuplicateImageDestination = false;
 
-        if (NewFolder.confirmed.Value && NewFolder.value.Trim() != string.Empty)
+        // Group by normalized path, ignoring empty
+        var groups = RastaConversions
+            .Where(c => !string.IsNullOrWhiteSpace(c.DestinationFilePath))
+            .GroupBy(c => c.DestinationFilePath.TrimEnd('\\'));
+
+        // Mark duplicates
+        foreach (var group in groups)
         {
-            var folderToCreate = Path.Combine(SelectedConversion.DestinationFilePath, NewFolder.value.Trim());
-            if (FileUtils.CreateFolder(folderToCreate))
-                SelectedConversion.DestinationFilePath = folderToCreate;
+            if (group.Count() > 1)
+            {
+                foreach (var conversion in group)
+                    conversion.DuplicateImageDestination = true;
+            }
         }
     }
+
 
     public async void SelectSourceImage()
     {
@@ -326,28 +338,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
     }
 
-    private async Task SetPreviewImage(bool finalImage)
-    {
-        SelectedConversion.ImagePreviewPath = null;
-
-        if (finalImage)
-        {
-            if (SelectedConversion.DualFrameMode)
-                SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
-                    RastaConverterDefaultValues.DefaultDualModeConvertedImageName);
-            else
-                SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
-                    RastaConverterDefaultValues.DefaultConvertedImageName);
-        }
-        else
-        {
-            if (SelectedConversion.DualFrameMode)
-                SelectedConversion.ImagePreviewPath = null;
-            else
-                SelectedConversion.ImagePreviewPath = Path.Combine(SelectedConversion.DestinationFilePath,
-                    RastaConverterDefaultValues.DefaultDestintionName);
-        }
-    }
 
     public async Task PreviewImage()
     {
@@ -355,32 +345,43 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
-        await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
-        await SetPreviewImage(false);
+        var pid = await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
 
-        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,
-            "(" + SelectedConversion.PreviewImageColoursText + ")");
 
-        // await ViewImage(viewFileName);
+        if (FindConversionByProcessId(pid) is { } toUpdate)
+        {
+            await toUpdate.SetPreviewImage(false);
+            toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,
+                "(" + toUpdate.PreviewImageColoursText + ")");
+        }
     }
 
     public async Task ConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-        await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
-        await SetPreviewImage(true);
-        SelectedConversion.PreviewHeaderTitle = "Result";
-        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
-            "(" + SelectedConversion.PreviewImageColoursText + ")");
+
+        var pid = await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
+
+        if (FindConversionByProcessId(pid) is { } toUpdate)
+        {
+            await toUpdate.SetPreviewImage(true);
+            toUpdate.PreviewHeaderTitle = "Result";
+            toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
+                $"({toUpdate.PreviewImageColoursText})");
+        }
     }
 
     public async Task ContinueConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-        await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
-        await SetPreviewImage(true);
-        SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
-            "(" + SelectedConversion.PreviewImageColoursText + ")");
+        var pid = await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
+
+        if (FindConversionByProcessId(pid) is { } toUpdate)
+        {
+            await toUpdate.SetPreviewImage(true);
+            toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
+                "(" + toUpdate.PreviewImageColoursText + ")");
+        }
     }
 
     public async Task GenerateExecutable()
@@ -440,5 +441,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         UserFontSize = TempFontSize;
         Application.Current.Resources["GlobalFontSize"] = UserFontSize;
+    }
+
+    public RastaConversion? FindConversionByProcessId(int processId)
+    {
+        if (processId <= 0)
+            return null;
+
+        return RastaConversions.FirstOrDefault(c => c.ProcessID == processId);
     }
 }

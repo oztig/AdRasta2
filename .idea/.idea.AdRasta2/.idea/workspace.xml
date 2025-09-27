@@ -8,15 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/MenuView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Views/MenuView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/App.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/AdRastaMainView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/DualModeSwitchView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -260,15 +255,7 @@
       <workItem from="1757194237191" duration="42713000" />
       <workItem from="1758520725523" duration="8535000" />
       <workItem from="1758634479091" duration="11310000" />
-      <workItem from="1758698145095" duration="18535000" />
-    </task>
-    <task id="LOCAL-00087" summary="Add Theme Framework - Actual Themes = TODO">
-      <option name="closed" value="true" />
-      <created>1757845013062</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1757845013062</updated>
+      <workItem from="1758698145095" duration="29500000" />
     </task>
     <task id="LOCAL-00088" summary="Fix theme switching">
       <option name="closed" value="true" />
@@ -654,7 +641,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758710691363</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="Add theme and font selector, tweak layout a little">
+      <option name="closed" value="true" />
+      <created>1758839225016</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1758839225016</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +659,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Destination Folder Picker" />
     <MESSAGE value="copy source to destination, when picked" />
     <MESSAGE value="Add option to create new Destination Folder" />
     <MESSAGE value="Plug in GTotal Colours for Preview Image" />
@@ -689,7 +683,8 @@
     <MESSAGE value="Set Initial height and width 75% and 45% respectively, keep initial size, unless manuall rescaled.  Add startup error log" />
     <MESSAGE value="stuff" />
     <MESSAGE value="Colour fiddling for dark mode, plus a few bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Colour fiddling for dark mode, plus a few bug fixes" />
+    <MESSAGE value="Add theme and font selector, tweak layout a little" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add theme and font selector, tweak layout a little" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -707,19 +702,6 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
-          <line>62</line>
-          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
-            <startOffsets>
-              <option value="2210" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2231" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs</url>
           <line>98</line>
           <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" containingFunctionPresentation="Method 'CopyBuildFilesAsync'">
@@ -731,6 +713,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
+          <line>429</line>
+          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'GenerateMCH'">
+            <startOffsets>
+              <option value="14575" />
+            </startOffsets>
+            <endOffsets>
+              <option value="14608" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
+          <line>222</line>
+          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'GenerateLegacyArguments'">
+            <startOffsets>
+              <option value="8335" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8395" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -9,6 +9,7 @@ using Avalonia.Platform;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using AdRasta2.Enums;
 using AdRasta2.Utils;
 using Avalonia.Controls.Converters;
@@ -77,6 +78,14 @@ public class RastaConversion : ReactiveObject
     public bool CanContinue => CanProcess && !String.IsNullOrEmpty(ImagePreviewPath);
     
     public bool CanPreview => !DualFrameMode && !string.IsNullOrEmpty(SourceImagePath);
+
+    private bool _duplicateImageDestination = false;
+
+    public bool DuplicateImageDestination
+    {
+        get => _duplicateImageDestination;
+        set => this.RaiseAndSetIfChanged(ref _duplicateImageDestination, value);
+    }
 
     public bool CanGenerateMCH => CanPreview;
 
@@ -819,5 +828,28 @@ public class RastaConversion : ReactiveObject
         UnstuckAfter = RastaConverterDefaultValues.DefaultUnstuckAfter;
         UnstuckDrift = RastaConverterDefaultValues.DefaultUnstuckDrift;
         Statuses?.Clear();
+    }
+    
+    public async Task SetPreviewImage(bool finalImage)
+    {
+        ImagePreviewPath = null;
+
+        if (finalImage)
+        {
+            if (DualFrameMode)
+                ImagePreviewPath = Path.Combine(DestinationFilePath,
+                    RastaConverterDefaultValues.DefaultDualModeConvertedImageName);
+            else
+                ImagePreviewPath = Path.Combine(DestinationFilePath,
+                    RastaConverterDefaultValues.DefaultConvertedImageName);
+        }
+        else
+        {
+            if (DualFrameMode)
+                ImagePreviewPath = null;
+            else
+                ImagePreviewPath = Path.Combine(DestinationFilePath,
+                    RastaConverterDefaultValues.DefaultDestintionName);
+        }
     }
 }

@@ -15,7 +15,7 @@
             CornerRadius="4"
             HorizontalAlignment="Stretch"
             Margin="0,10,0,5">
-        <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*"
+        <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*"
               ColumnSpacing="5"
               Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
             <TextBlock Grid.Column="0"
@@ -32,20 +32,20 @@
                     Content="{Binding  SelectedConversion.DestinationFilePath}"
                     ToolTip.Tip="{Binding  SelectedConversion.DestinationFilePath}"
                     Command="{Binding SelectDestinationFoler }" />
-            <!-- <Button Grid.Row="0" Grid.Column="6" -->
-            <!--         ToolTip.Tip="New Folder" -->
-            <!--         Height="{Binding Height, ElementName = btnDestination}" -->
-            <!--         Command="{Binding CreateDestinationFoler}" -->
-            <!--         Background="Transparent" -->
-            <!--         Padding="0" -->
-            <!--         BorderThickness="1" -->
-            <!--         VerticalAlignment="Center" -->
-            <!--         HorizontalAlignment="Left"> -->
-            <!--     <iconPacks:PackIconMaterialDesign Kind="Folder" -->
-            <!--                                       VerticalAlignment="Center" -->
-            <!--                                       HorizontalAlignment="Center" -->
-            <!--                                       Foreground="LightSteelBlue" /> -->
-            <!-- </Button> -->
+            <Button Grid.Row="0" Grid.Column="6"
+                    ToolTip.Tip="Folder Already Used For Another Conversion - Please Check"
+                    Height="{Binding Height, ElementName = btnDestination}"
+                    IsVisible="{Binding  SelectedConversion.DuplicateImageDestination}"
+                    Background="Transparent"
+                    Padding="0"
+                    BorderThickness="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left">
+                <iconPacks:PackIconMaterialDesign Kind="Warning"
+                                                  VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"
+                                                  Foreground="Tomato" />
+            </Button>
         </Grid>
     </Border>
 </UserControl>

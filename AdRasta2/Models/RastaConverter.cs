@@ -15,10 +15,10 @@ namespace AdRasta2.Models;
 
 public class RastaConverter
 {
-    public static async Task<bool> ExecuteCommand(bool isPreview, bool isContinue, RastaConversion conversion)
+    public static async Task<int> ExecuteCommand(bool isPreview, bool isContinue, RastaConversion conversion)
     {
-        var ret = false;
-        var rastaCommand = Path.Combine(conversion.DestinationDirectory, Settings.BaseRastaCommand);
+        var ret = 0;
+       // var rastaCommand = Path.Combine(conversion.DestinationDirectory, Settings.BaseRastaCommand);
         var stdOutBuffer = new StringBuilder();
         var stdErrBuffer = new StringBuilder();
         var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
@@ -37,7 +37,7 @@ public class RastaConverter
             // Palette Dir
             await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
 
-            var cmd = Cli.Wrap(rastaCommand)
+            var cmd = Cli.Wrap(Settings.BaseRastaCommand)
                 .WithWorkingDirectory(conversion.DestinationDirectory)
                 .WithArguments(safeParams, true)
                 .WithValidation(CommandResultValidation.None);
@@ -48,6 +48,7 @@ public class RastaConverter
                 {
                     case StartedCommandEvent started:
                         conversion.ProcessID = started.ProcessId;
+                        ret = started.ProcessId;
                         break;
 
                     case ExitedCommandEvent exited:
@@ -55,13 +56,12 @@ public class RastaConverter
                         break;
                 }
             }
-
-            ret = true;
+            
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            ret = false;
+            ret = 0;
         }
 
         return ret;
@@ -131,14 +131,6 @@ public class RastaConverter
 
         if (rastaConversion.Gamma != RastaConverterDefaultValues.DefaultGamma)
             args.Add($"/gamma={rastaConversion.Gamma}");
-
-        if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskPath))
-        {
-            args.Add($"/details={rastaConversion.SourceImageMaskPath}");
-
-            if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
-                args.Add($"/details_val={rastaConversion.MaskStrength}");
-        }
 
         if (!string.IsNullOrWhiteSpace(rastaConversion.RegisterOnOffFilePath))
             args.Add($"/onoff={rastaConversion.RegisterOnOffFilePath}");
@@ -224,7 +216,15 @@ public class RastaConverter
             args.Add($"/dc={rastaConversion.DualChroma}");
         }
 
-        args.Add($"/i={rastaConversion.SourceImagePath}");
+        args.Add($"/i={rastaConversion.SourceImageBaseName}");
+        
+        if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskBaseName))
+        {
+            args.Add($"/details={rastaConversion.SourceImageMaskPath}");
+
+            if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
+                args.Add($"/details_val={rastaConversion.MaskStrength}");
+        }
 
         return args;
     }
@@ -275,14 +275,6 @@ public class RastaConverter
 
         if (rastaConversion.Gamma != RastaConverterDefaultValues.DefaultGamma)
             args.Add($"--gamma={rastaConversion.Gamma}");
-
-        if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskPath))
-        {
-            args.Add($"--details={rastaConversion.SourceImageMaskPath}");
-
-            if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
-                args.Add($"--details_val={rastaConversion.MaskStrength}");
-        }
 
         if (!string.IsNullOrWhiteSpace(rastaConversion.RegisterOnOffFilePath))
             args.Add($"--onoff={rastaConversion.RegisterOnOffFilePath}");
@@ -368,9 +360,16 @@ public class RastaConverter
             args.Add($"--dual_chroma={rastaConversion.DualChroma}");
         }
 
-        args.Add($"--input={rastaConversion.SourceImagePath}");
+        args.Add($"--input={rastaConversion.SourceImageBaseName}");
 
+        if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskBaseName))
+        {
+            args.Add($"--details={rastaConversion.SourceImageMaskBaseName}");
 
+            if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
+                args.Add($"--details_val={rastaConversion.MaskStrength}");
+        }
+        
         return args;
     }
 

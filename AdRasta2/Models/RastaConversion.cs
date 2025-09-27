@@ -76,7 +76,7 @@ public class RastaConversion : ReactiveObject
     public bool CanProcess => !string.IsNullOrEmpty(SourceImagePath);
 
     public bool CanContinue => CanProcess && !String.IsNullOrEmpty(ImagePreviewPath);
-    
+
     public bool CanPreview => !DualFrameMode && !string.IsNullOrEmpty(SourceImagePath);
 
     private bool _duplicateImageDestination = false;
@@ -90,6 +90,7 @@ public class RastaConversion : ReactiveObject
     public bool CanGenerateMCH => CanPreview;
 
     private string _title;
+
     public string Title
     {
         get => _title;
@@ -239,7 +240,7 @@ public class RastaConversion : ReactiveObject
             }
         }
     }
-    
+
     public string SourceImageMaskDirectory =>
         string.IsNullOrEmpty(SourceImageMaskPath) ? string.Empty : Path.GetDirectoryName(SourceImageMaskPath);
 
@@ -273,53 +274,53 @@ public class RastaConversion : ReactiveObject
         }
     }
 
-    // Converted Image
-    private string _convertedImagePath;
-
-    public string ConvertedImagePath
-    {
-        get => _convertedImagePath;
-        set
-        {
-            // Manually check if changed, so we can force re-load of the Image.
-            if (_convertedImagePath != value)
-            {
-                _convertedImagePath = value;
-                this.RaisePropertyChanged();
-                _convertedImage = null;
-                this.RaisePropertyChanged(nameof(ConvertedImage));
-            }
-        }
-    }
-
-    private Bitmap? _convertedImage;
-
-    public Bitmap? ConvertedImage
-    {
-        get
-        {
-            if (_convertedImage != null) return _convertedImage;
-
-            try
-            {
-                if (File.Exists(ConvertedImagePath))
-                    _convertedImage = new Bitmap(ConvertedImagePath);
-                else
-                {
-                    _convertedImage = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
-                }
-            }
-            catch (Exception ex)
-            {
-                _convertedImage = null;
-            }
-
-            this.RaisePropertyChanged(nameof(ConvertedImageExists));
-            return _convertedImage;
-        }
-    }
-
-    public bool ConvertedImageExists => ConvertedImage != null;
+    // // Converted Image
+    // private string _convertedImagePath;
+    //
+    // public string ConvertedImagePath
+    // {
+    //     get => _convertedImagePath;
+    //     set
+    //     {
+    //         // Manually check if changed, so we can force re-load of the Image.
+    //         if (_convertedImagePath != value)
+    //         {
+    //             _convertedImagePath = value;
+    //             this.RaisePropertyChanged();
+    //             _convertedImage = null;
+    //             this.RaisePropertyChanged(nameof(ConvertedImage));
+    //         }
+    //     }
+    // }
+    //
+    // private Bitmap? _convertedImage;
+    //
+    // public Bitmap? ConvertedImage
+    // {
+    //     get
+    //     {
+    //         if (_convertedImage != null) return _convertedImage;
+    //
+    //         try
+    //         {
+    //             if (File.Exists(ConvertedImagePath))
+    //                 _convertedImage = new Bitmap(ConvertedImagePath);
+    //             else
+    //             {
+    //                 _convertedImage = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
+    //             }
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             _convertedImage = null;
+    //         }
+    //
+    //         this.RaisePropertyChanged(nameof(ConvertedImageExists));
+    //         return _convertedImage;
+    //     }
+    // }
+    //
+    // public bool ConvertedImageExists => ConvertedImage != null;
 
     private string _destinationFilePath;
 
@@ -328,15 +329,21 @@ public class RastaConversion : ReactiveObject
         get => _destinationFilePath;
         set
         {
-            this.RaiseAndSetIfChanged(ref _destinationFilePath, value);
-
-            Statuses?.AddEntry(
-                DateTime.Now,
-                string.IsNullOrEmpty(_destinationFilePath)
-                    ? ConversionStatus.DestinationCleared
-                    : ConversionStatus.DestinationSet,
-                _destinationFilePath ?? ""
-            );
+            if (_destinationFilePath != value)
+            {
+                _destinationFilePath = value;
+                this.RaisePropertyChanged();
+                SourceImagePath = string.Empty;
+                SourceImageMaskPath = string.Empty;
+                
+                Statuses?.AddEntry(
+                    DateTime.Now,
+                    string.IsNullOrEmpty(_destinationFilePath)
+                        ? ConversionStatus.DestinationCleared
+                        : ConversionStatus.DestinationSet,
+                    _destinationFilePath ?? ""
+                );
+            }
         }
     }
 
@@ -759,7 +766,7 @@ public class RastaConversion : ReactiveObject
 
         // Old log entries not relevant to new image, so dont show on new image!
         SetLogEntriesAsDontShowOnImage();
-            
+
         Statuses?.AddEntry(
             DateTime.Now,
             string.IsNullOrEmpty(_sourceImagePath)
@@ -778,7 +785,7 @@ public class RastaConversion : ReactiveObject
             foreach (var entry in Statuses)
             {
                 entry.ShowOnImageStatusLine = false;
-            }            
+            }
         }
     }
 
@@ -829,7 +836,7 @@ public class RastaConversion : ReactiveObject
         UnstuckDrift = RastaConverterDefaultValues.DefaultUnstuckDrift;
         Statuses?.Clear();
     }
-    
+
     public async Task SetPreviewImage(bool finalImage)
     {
         ImagePreviewPath = null;

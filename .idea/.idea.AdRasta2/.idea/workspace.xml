@@ -9,10 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/ConversionLogView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +89,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -287,15 +285,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="33770000" />
-    </task>
-    <task id="LOCAL-00098" summary="GUI fiddling">
-      <option name="closed" value="true" />
-      <created>1757977021774</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1757977021774</updated>
+      <workItem from="1758950704727" duration="37245000" />
     </task>
     <task id="LOCAL-00099" summary="Change Dual Expander layout, fix Config Expander">
       <option name="closed" value="true" />
@@ -681,7 +671,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759047665111</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="split out CopySupportingFiles, and add cont4extmenu to copy log to clipboard">
+      <option name="closed" value="true" />
+      <created>1759052145481</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1759052145481</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -691,7 +689,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add View Image context menu to Preview Image" />
     <MESSAGE value="plugged in more command line options from GUI" />
     <MESSAGE value="plug in more options" />
     <MESSAGE value="Add Command Line viewer" />
@@ -716,7 +713,8 @@
     <MESSAGE value="aaa" />
     <MESSAGE value="Add new process return to allow for debugging" />
     <MESSAGE value="Set Title od Preview window correctly (hopefully)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set Title od Preview window correctly (hopefully)" />
+    <MESSAGE value="split out CopySupportingFiles, and add cont4extmenu to copy log to clipboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="split out CopySupportingFiles, and add cont4extmenu to copy log to clipboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -748,13 +746,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
-          <line>224</line>
+          <line>215</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'GenerateLegacyArguments'">
             <startOffsets>
-              <option value="8458" />
+              <option value="8012" />
             </startOffsets>
             <endOffsets>
-              <option value="8518" />
+              <option value="8072" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="81" />
@@ -786,19 +784,6 @@
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
-          <line>57</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
-            <startOffsets>
-              <option value="2057" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2150" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs</url>
           <line>843</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConversion.cs" containingFunctionPresentation="Method 'SetPreviewImage'">
@@ -812,17 +797,17 @@
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
-          <line>32</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
+          <url>file://$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs</url>
+          <line>59</line>
+          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Utils\FileUtils.cs" containingFunctionPresentation="Method 'CopyMatchingFilesAsync'">
             <startOffsets>
-              <option value="1040" />
+              <option value="1561" />
             </startOffsets>
             <endOffsets>
-              <option value="1121" />
+              <option value="1588" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="110" />
+          <option name="timeStamp" value="111" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

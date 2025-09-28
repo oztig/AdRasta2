@@ -56,7 +56,9 @@ public class FileUtils
         foreach (var file in files)
         {
             var destPath = Path.Combine(destinationDir, Path.GetFileName(file));
-            File.Copy(file, destPath, overwrite);
+            
+            if (!File.Exists(destPath))
+                File.Copy(file, destPath, overwrite);
         }
     }
     

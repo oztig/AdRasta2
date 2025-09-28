@@ -49,16 +49,35 @@ public class FileUtils
         }
     }
 
-    public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern)
+    public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,bool overwrite = true)
     {
         var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
 
         foreach (var file in files)
         {
             var destPath = Path.Combine(destinationDir, Path.GetFileName(file));
-            File.Copy(file, destPath, overwrite: true);
+            File.Copy(file, destPath, overwrite);
         }
     }
+    
+    public static void DeleteMatchingFiles(string directory, string searchPattern)
+    {
+        var files = Directory.GetFiles(directory, searchPattern, SearchOption.TopDirectoryOnly);
+
+        foreach (var file in files)
+        {
+            try
+            {
+                File.Delete(file);
+            }
+            catch (Exception ex)
+            {
+                // Optional: log the failure, but don't interrupt the ritual
+                // Debug.WriteLine($"Failed to delete {file}: {ex.Message}");
+            }
+        }
+    }
+
 
     public static async Task CopyDirectoryIncludingRoot(string sourceDir, string destinationRoot)
     {

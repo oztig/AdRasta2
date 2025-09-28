@@ -19,6 +19,12 @@
             Padding="8"
             HorizontalAlignment="Stretch"
             Margin="10,10,0,5">
+        <Border.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Copy All to Clipboard"
+                          Command="{Binding  CopyLogToClipboardAsync}" />
+            </ContextMenu>
+        </Border.ContextMenu>
         <Grid RowDefinitions="Auto,*" ColumnDefinitions="Auto,*">
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Log"
                        FontWeight="Bold"

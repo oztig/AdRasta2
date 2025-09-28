@@ -452,6 +452,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
         Application.Current.Resources["GlobalFontSize"] = UserFontSize;
     }
 
+    public async void CopyLogToClipboardAsync()
+    {
+        var logText = string.Join(Environment.NewLine,
+            SelectedConversion.Statuses.Select(s => s.Message));
+
+        if (!string.IsNullOrWhiteSpace(logText))
+            await _window.Clipboard.SetTextAsync(logText);
+    }
+
+
     public RastaConversion? FindConversionByProcessId(int processId)
     {
         if (processId <= 0)

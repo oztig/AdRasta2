@@ -15,6 +15,18 @@ namespace AdRasta2.Models;
 
 public class RastaConverter
 {
+    private static async Task CopySupportingFiles(RastaConversion conversion)
+    {
+        // Copy supporting files
+        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
+            Settings.BaseRastaCommand, false);
+
+        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
+            "clacon2.ttf", false);
+
+        await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
+    }
+
     public static async Task<ProcessRunResult> ExecuteCommand(bool isPreview, bool isContinue,
         RastaConversion conversion)
     {
@@ -23,15 +35,8 @@ public class RastaConverter
 
         try
         {
-            // Copy supporting files
-            await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-                Settings.BaseRastaCommand);
-
-            await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-                "clacon2.ttf");
-
-            await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
-
+           await CopySupportingFiles(conversion);
+            
             // Run it and return the completed conversion
             return await ProcessRunner.RunAsync(
                 Settings.BaseRastaCommand,

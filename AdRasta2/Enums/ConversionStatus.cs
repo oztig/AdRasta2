@@ -17,5 +17,9 @@ public enum ConversionStatus
     MCHGenerated,
     Info,
     Warning,
-    Error
+    Error,
+    Running,
+    Completed,
+    Output,
+    ErrorOutput
 }

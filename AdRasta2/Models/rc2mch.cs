@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,30 +11,87 @@ namespace AdRasta2.Models;
 
 public class rc2mch
 {
-    public static async Task<AdRastaStatus> GenerateMCH(string rc2MCHExecutable, string sourceFile)
+    public static async Task<AdRastaStatus> GenerateMCH(RastaConversion conversion)
     {
-        var stdOutBuffer = new StringBuilder();
-        var stdErrBuffer = new StringBuilder();
+        var args = new List<string>();
+        var mchFile = conversion.DualFrameMode
+            ? Path.Combine(conversion.DestinationDirectory, RastaConverterDefaultValues.DefaultDualModeConvertedImageName)
+            : Path.Combine(conversion.DestinationDirectory, RastaConverterDefaultValues.DefaultConvertedImageName);
 
         try
         {
-
-            if (!File.Exists(rc2MCHExecutable))
+            if (!File.Exists(Settings.RC2MCHCommand))
                 return AdRastaStatus.rc2mchNotFound;
-                
-            await Cli.Wrap(rc2MCHExecutable)
-                .WithArguments(SafeCommand.QuoteIfNeeded(sourceFile))
-                .WithValidation(CommandResultValidation.None)
-                .WithStandardOutputPipe(PipeTarget.ToStringBuilder(stdOutBuffer))
-                .WithStandardErrorPipe(PipeTarget.ToStringBuilder(stdErrBuffer))
-                .ExecuteAsync();
+
+            args.Add(SafeCommand.QuoteIfNeeded(mchFile));
+
+            var result = await ProcessRunner.RunAsync(
+                Settings.RC2MCHCommand,
+                conversion.DestinationDirectory,
+                args,
+                conversion);
+
+            if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)
+            {
+                if (Settings.DebugMode)
+                {
+                    ConversionLogger.Log(conversion, ConversionStatus.Error,
+                        $"rc2mch failed with status {result.Status} and exit code {result.ExitCode}");
+                }
+
+                return result.Status;
+            }
+
+            ConversionLogger.Log(conversion,ConversionStatus.MCHGenerated,"");
             
             return AdRastaStatus.Success;
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex);
+            if (Settings.DebugMode)
+            {
+                ConversionLogger.Log(conversion, ConversionStatus.Error, "rc2mch.GenerateMCH", ex);
+            }
+
             return AdRastaStatus.UnknownError;
         }
     }
+
+    // public static async Task<AdRastaStatus> GenerateMCH(RastaConversion conversion)
+    // {
+    //     var args = new List<string>();
+    //     var MCHfile = string.Empty;
+    //
+    //     if (conversion.DualFrameMode)
+    //         MCHfile = Path.Combine(conversion.DestinationDirectory,
+    //             RastaConverterDefaultValues.DefaultDualModeConvertedImageName);
+    //     else
+    //         MCHfile = Path.Combine(conversion.DestinationDirectory,
+    //             RastaConverterDefaultValues.DefaultConvertedImageName);
+    //
+    //     try
+    //     {
+    //         if (!File.Exists(Settings.RC2MCHCommand))
+    //             return AdRastaStatus.rc2mchNotFound;
+    //
+    //         args.Add(SafeCommand.QuoteIfNeeded(MCHfile));
+    //
+    //         // Run it and return the completed conversion
+    //         var toUpdate = await ProcessRunner.RunAsync(
+    //             Settings.RC2MCHCommand,
+    //             conversion.DestinationDirectory,
+    //             args,
+    //             conversion);
+    //         
+    //         toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.MCHGenerated,
+    //             "");
+    //
+    //         return AdRastaStatus.Success;
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine(ex);
+    //         return AdRastaStatus.UnknownError;
+    //     }
+    // }
 }

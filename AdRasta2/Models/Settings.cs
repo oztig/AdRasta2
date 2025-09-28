@@ -15,6 +15,7 @@ public class Settings
     public static string DefaultExecuteCommand { get; set; } = string.Empty;
     public static string PaletteDirectory { get; set; } = string.Empty;
     public static string MadsLocation { get; set; } = string.Empty;
+    public static string MadsLocationBaseName=> Path.GetFileName(MadsLocation);
     public static string NoNameFilesLocation { get; set; } = string.Empty;
     public static string DualModeNoNameFilesLocation { get; set; } = string.Empty;
 
@@ -27,6 +28,7 @@ public class Settings
     public static double RastaConverterVersion { get; set; }
     public static string NoNameHeader { get; set; } = "no_name.h";
     public static string NoNameAsq { get; set; } = "no_name.asq";
+    public static bool DebugMode { get; set; }
 
     static Settings()
     {
@@ -71,6 +73,7 @@ public class Settings
             ini.GetStr("Locations", "DualModeNoNameFilesDir", string.Empty);
         CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
+        DebugMode = ini.GetBool("Debug", "DebugMode", false);
 
         // RastaConverter Specific
         try

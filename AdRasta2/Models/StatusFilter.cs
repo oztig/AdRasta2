@@ -16,7 +16,9 @@ public static class StatusFilter
         ConversionStatus.ConversionStarted,
         ConversionStatus.Error,
         ConversionStatus.Warning,
-        ConversionStatus.Info
+        ConversionStatus.Info,
+        ConversionStatus.Running,
+        ConversionStatus.Completed
     };
 
     public static bool ShouldIncludeOnImageDotLine(ConversionStatus status)

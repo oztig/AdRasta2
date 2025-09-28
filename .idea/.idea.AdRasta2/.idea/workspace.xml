@@ -7,7 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="" />
+    <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AdRasta2/Models/ProcessRunResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/rc2mch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/rc2mch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +43,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.common.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.pre-request.d.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/372788d1ca91331ad4738fc3d2ff6dcd93cf96ae8acf6758492375935fec2da/IReactiveObjectExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -55,8 +67,12 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Interfaces/IMessageBoxService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Atari800.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Models/Mads.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Models/Mads.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AdRasta2/Models/ProcessRunResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/Models/RastaConverter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/RastaConverterDefaultValues.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Models/Settings.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,7 +138,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Debug",
+    ".NET Project.AdRasta2.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Publish to folder.Publish AdRasta2 to folder (1).executor": "Run",
@@ -137,7 +153,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "XThreadsFramesViewSplitterKey": "0.44627056",
+    "XThreadsFramesViewSplitterKey": "0.4457672",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/nickp/RiderProjects/AdRasta/AdRasta/Assets/AdRasta-Icon2.ico",
     "node.js.detected.package.eslint": "true",
@@ -272,15 +288,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="12087000" />
-    </task>
-    <task id="LOCAL-00095" summary="More GUI tweaks">
-      <option name="closed" value="true" />
-      <created>1757950391317</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1757950391317</updated>
+      <workItem from="1758950704727" duration="29468000" />
     </task>
     <task id="LOCAL-00096" summary="More GUI fiddling">
       <option name="closed" value="true" />
@@ -666,7 +674,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758965430350</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="aaa">
+      <option name="closed" value="true" />
+      <created>1758970385382</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1758970385382</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,7 +692,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add example .ini files" />
     <MESSAGE value="Plugged in Preview button :)" />
     <MESSAGE value="Add --input to args generation" />
     <MESSAGE value="Add View Image context menu to Preview Image" />
@@ -701,7 +716,8 @@
     <MESSAGE value="update to gitignore" />
     <MESSAGE value="Clear Image paths etc, if Destination dir is changed" />
     <MESSAGE value="Change multi-threading code.  Add Clear Log" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change multi-threading code.  Add Clear Log" />
+    <MESSAGE value="aaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="aaa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -720,29 +736,68 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs</url>
-          <line>98</line>
+          <line>110</line>
           <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" containingFunctionPresentation="Method 'CopyBuildFilesAsync'">
             <startOffsets>
-              <option value="3307" />
+              <option value="3612" />
             </startOffsets>
             <endOffsets>
-              <option value="3379" />
+              <option value="3677" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
-          <line>239</line>
+          <line>210</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'GenerateLegacyArguments'">
             <startOffsets>
-              <option value="9360" />
+              <option value="7869" />
             </startOffsets>
             <endOffsets>
-              <option value="9420" />
+              <option value="7929" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Models/Mads.cs</url>
+          <line>59</line>
+          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\Mads.cs" containingFunctionPresentation="Method 'GenerateXexAsync'">
+            <startOffsets>
+              <option value="1772" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1806" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
+          <line>336</line>
+          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'PreviewImage'">
+            <startOffsets>
+              <option value="10862" />
+            </startOffsets>
+            <endOffsets>
+              <option value="10929" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
+          <line>43</line>
+          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
+            <startOffsets>
+              <option value="1468" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1561" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

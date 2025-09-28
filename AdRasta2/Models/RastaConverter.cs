@@ -15,7 +15,7 @@ namespace AdRasta2.Models;
 
 public class RastaConverter
 {
-    public static async Task<RastaConversion> ExecuteCommand(bool isPreview, bool isContinue,
+    public static async Task<ProcessRunResult> ExecuteCommand(bool isPreview, bool isContinue,
         RastaConversion conversion)
     {
         var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
@@ -43,46 +43,17 @@ public class RastaConverter
         {
             ConversionLogger.Log(conversion, ConversionStatus.Error, "RastaConverter.ExecuteCommand", e);
             conversion.ProcessID = 0;
-            return conversion; // Return the conversion even if it failed, for downstream handling
+
+            return new ProcessRunResult
+            {
+                Conversion = conversion,
+                Status = AdRastaStatus.UnknownError,
+                ExitCode = -1,
+                StandardOutput = null,
+                StandardError = e.ToString()
+            };
         }
     }
-
-    // public static async Task<RastaConversion> ExecuteCommand(bool isPreview, bool isContinue, RastaConversion conversion)
-    // {
-    //     RastaConversion completedConversion;
-    //     // var rastaCommand = Path.Combine(conversion.DestinationDirectory, Settings.BaseRastaCommand);
-    //     var stdOutBuffer = new StringBuilder();
-    //     var stdErrBuffer = new StringBuilder();
-    //     var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
-    //     conversion.CommandLineText = await GenerateFullCommandLineString(safeParams);
-    //
-    //     try
-    //     {
-    //         // Copy supporting files
-    //         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-    //             Settings.BaseRastaCommand);
-    //
-    //         // Font File
-    //         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-    //             "clacon2.ttf");
-    //
-    //         // Palette Dir
-    //         await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
-    //
-    //         // Run it!
-    //          completedConversion = await ProcessRunner.RunAsync(Settings.BaseRastaCommand,
-    //             conversion.DestinationDirectory, safeParams, conversion);
-    //
-    //     }
-    //     catch (Exception e)
-    //     {
-    //         ConversionLogger.Log(conversion, ConversionStatus.Error, "RastaConverter.ExecuteCommand", e);
-    //         Console.WriteLine(e);
-    //         ret = 0;
-    //     }
-    //
-    //     return completedConversion;
-    // }
 
     public async static Task<IReadOnlyList<string>> GenerateRastaArguments(bool isPreview, bool isContinue,
         RastaConversion conversion)

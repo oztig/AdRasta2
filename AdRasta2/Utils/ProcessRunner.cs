@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using AdRasta2.Enums;
 using AdRasta2.Models;
@@ -11,62 +13,163 @@ namespace AdRasta2.Utils;
 
 public static class ProcessRunner
 {
-    
-    // var cmd = Cli.Wrap(Settings.BaseRastaCommand)
-    //     .WithWorkingDirectory(conversion.DestinationDirectory)
-    //     .WithArguments(safeParams, true)
-    //     .WithValidation(CommandResultValidation.None);
-    
-    public static Task <RastaConversion> RunAsync(
+    public static async Task<ProcessRunResult> RunAsync(
         string executablePath,
         string workingDirectory,
         IReadOnlyList<string> arguments,
         RastaConversion conversion)
     {
-        var cmd = Cli.Wrap(executablePath)
-            .WithArguments(arguments,true)
-            .WithWorkingDirectory(workingDirectory)
-            .WithValidation(CommandResultValidation.None);
+        var stdOutBuffer = new StringBuilder();
+        var stdErrBuffer = new StringBuilder();
+        var trace = new StackTrace();
+        var callerFrame = trace.GetFrame(1);
+        var callerMethod = callerFrame?.GetMethod();
+        var callerName = callerMethod != null
+            ? $"{callerMethod.DeclaringType?.FullName}.{callerMethod.Name}"
+            : "UnknownCaller";
 
-        return Task.Run(async () =>
+        int exitCode = -1;
+
+        try
         {
-            try
-            {
-                await foreach (var cmdEvent in cmd.ListenAsync())
-                {
-                    switch (cmdEvent)
-                    {
-                        case StartedCommandEvent started:
-                            conversion.ProcessID = started.ProcessId;
-                            // ConversionLogger.Log(conversion, ConversionStatus.Running,
-                            //     $"Started process {started.ProcessId}");
-                            break;
+            var cmd = Cli.Wrap(executablePath)
+                .WithArguments(arguments, false)
+                .WithWorkingDirectory(workingDirectory)
+                .WithValidation(CommandResultValidation.None);
 
-                        case ExitedCommandEvent exited:
-                            // ConversionLogger.Log(conversion, ConversionStatus.Completed,
-                            //     $"Process {conversion.ProcessID} exited with code {exited.ExitCode}");
-                            conversion.ProcessID = 0;
-                            break;
-                    }
+            await foreach (var cmdEvent in cmd.ListenAsync())
+            {
+                switch (cmdEvent)
+                {
+                    case StartedCommandEvent started:
+                        conversion.ProcessID = started.ProcessId;
+                        if (Settings.DebugMode)
+                            ConversionLogger.Log(conversion, ConversionStatus.Running,
+                                $"Started process {started.ProcessId} from {callerName}");
+                        break;
+
+                    case StandardOutputCommandEvent stdOut:
+                        stdOutBuffer.AppendLine(stdOut.Text);
+                        break;
+
+                    case StandardErrorCommandEvent stdErr:
+                        stdErrBuffer.AppendLine(stdErr.Text);
+                        break;
+
+                    case ExitedCommandEvent exited:
+                        conversion.ProcessID = 0;
+                        exitCode = exited.ExitCode;
+                        // conversion.ExitCode = exitCode;
+                        if (Settings.DebugMode)
+                            ConversionLogger.Log(conversion, ConversionStatus.Completed,
+                                $"Process exited with code {exitCode}");
+                        break;
                 }
             }
-            catch (Exception e)
+
+            if (Settings.DebugMode && stdOutBuffer.Length > 0)
+                ConversionLogger.Log(conversion, ConversionStatus.Output, $"Standard Output:\n{stdOutBuffer}");
+
+            if (Settings.DebugMode && stdErrBuffer.Length > 0)
+                ConversionLogger.Log(conversion, ConversionStatus.ErrorOutput, $"Standard Error:\n{stdErrBuffer}");
+
+            var status = IsExitCodeAcceptable(executablePath, exitCode)
+                ? AdRastaStatus.Success
+                : AdRastaStatus.UnknownError;
+
+            return new ProcessRunResult
             {
-                var trace = new StackTrace();
-                var callerFrame = trace.GetFrame(1); // 0 = this method, 1 = caller
-                var callerMethod = callerFrame?.GetMethod();
-                var callerName = callerMethod != null
-                    ? $"{callerMethod.DeclaringType?.FullName}.{callerMethod.Name}"
-                    : "UnknownCaller";
+                Conversion = conversion,
+                Status = status,
+                ExitCode = exitCode,
+                StandardOutput = stdOutBuffer.ToString(),
+                StandardError = stdErrBuffer.ToString()
+            };
+        }
+        catch (Exception e)
+        {
+            conversion.ProcessID = 0;
+            // conversion.ExitCode = -1;
 
-                ConversionLogger.Log(conversion, ConversionStatus.Error,
-                    $"{executablePath} (called from {callerName})", e);
+            if (Settings.DebugMode)
+                ConversionLogger.Log(conversion, ConversionStatus.Error, $"{executablePath} (called from {callerName})",
+                    e);
 
-                conversion.ProcessID = 0;
-            }
-
-            return conversion;
-
-        });
+            return new ProcessRunResult
+            {
+                Conversion = conversion,
+                Status = AdRastaStatus.UnknownError,
+                ExitCode = -1,
+                StandardOutput = null,
+                StandardError = e.ToString()
+            };
+        }
     }
+
+    private static bool IsExitCodeAcceptable(string executablePath, int exitCode)
+    {
+        var toolName = Path.GetFileName(executablePath).ToLowerInvariant();
+
+        return toolName switch
+        {
+            "mads.exe" => exitCode is 0,
+            "rastaconverter.exe" => exitCode is 0 or 1,
+            "rc2mch.exe" => exitCode == 0,
+            _ => exitCode == 0
+        };
+    }
+
+
+    // public static Task <RastaConversion> RunAsync(
+    //     string executablePath,
+    //     string workingDirectory,
+    //     IReadOnlyList<string> arguments,
+    //     RastaConversion conversion)
+    // {
+    //     var cmd = Cli.Wrap(executablePath)
+    //         .WithArguments(arguments,false)
+    //         .WithWorkingDirectory(workingDirectory)
+    //         .WithValidation(CommandResultValidation.None);
+    //
+    //     return Task.Run(async () =>
+    //     {
+    //         try
+    //         {
+    //             await foreach (var cmdEvent in cmd.ListenAsync())
+    //             {
+    //                 switch (cmdEvent)
+    //                 {
+    //                     case StartedCommandEvent started:
+    //                         conversion.ProcessID = started.ProcessId;
+    //                         // ConversionLogger.Log(conversion, ConversionStatus.Running,
+    //                         //     $"Started process {started.ProcessId}");
+    //                         break;
+    //
+    //                     case ExitedCommandEvent exited:
+    //                         // ConversionLogger.Log(conversion, ConversionStatus.Completed,
+    //                         //     $"Process {conversion.ProcessID} exited with code {exited.ExitCode}");
+    //                         conversion.ProcessID = 0;
+    //                         break;
+    //                 }
+    //             }
+    //         }
+    //         catch (Exception e)
+    //         {
+    //             var trace = new StackTrace();
+    //             var callerFrame = trace.GetFrame(1); // 0 = this method, 1 = caller
+    //             var callerMethod = callerFrame?.GetMethod();
+    //             var callerName = callerMethod != null
+    //                 ? $"{callerMethod.DeclaringType?.FullName}.{callerMethod.Name}"
+    //                 : "UnknownCaller";
+    //
+    //             ConversionLogger.Log(conversion, ConversionStatus.Error,
+    //                 $"{executablePath} (called from {callerName})", e);
+    //
+    //             conversion.ProcessID = 0;
+    //         }
+    //
+    //         return conversion;
+    //
+    //     });
+    // }
 }

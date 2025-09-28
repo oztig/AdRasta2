@@ -8,15 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AdRasta2/Models/ProcessRunResult.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Mads.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/rc2mch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/rc2mch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +87,7 @@
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Utils/SafeCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/nickp/RiderProjects/AdRasta2/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/ViewModels/InputDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AdRasta2/Views/ActionButtonsView.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -288,15 +282,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="29468000" />
-    </task>
-    <task id="LOCAL-00096" summary="More GUI fiddling">
-      <option name="closed" value="true" />
-      <created>1757975111065</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1757975111065</updated>
+      <workItem from="1758950704727" duration="30868000" />
     </task>
     <task id="LOCAL-00097" summary="Add missing settings to GUI">
       <option name="closed" value="true" />
@@ -682,7 +668,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758970385382</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Add new process return to allow for debugging">
+      <option name="closed" value="true" />
+      <created>1759046440270</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1759046440270</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +686,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Plugged in Preview button :)" />
     <MESSAGE value="Add --input to args generation" />
     <MESSAGE value="Add View Image context menu to Preview Image" />
     <MESSAGE value="plugged in more command line options from GUI" />
@@ -717,7 +710,8 @@
     <MESSAGE value="Clear Image paths etc, if Destination dir is changed" />
     <MESSAGE value="Change multi-threading code.  Add Clear Log" />
     <MESSAGE value="aaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaa" />
+    <MESSAGE value="Add new process return to allow for debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new process return to allow for debugging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -798,6 +792,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs</url>
+          <line>843</line>
+          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConversion.cs" containingFunctionPresentation="Method 'SetPreviewImage'">
+            <startOffsets>
+              <option value="23959" />
+            </startOffsets>
+            <endOffsets>
+              <option value="23974" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

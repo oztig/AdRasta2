@@ -843,6 +843,7 @@ public class RastaConversion : ReactiveObject
 
         if (finalImage)
         {
+            PreviewHeaderTitle = "Result";
             if (DualFrameMode)
                 ImagePreviewPath = Path.Combine(DestinationFilePath,
                     RastaConverterDefaultValues.DefaultDualModeConvertedImageName);
@@ -852,6 +853,7 @@ public class RastaConversion : ReactiveObject
         }
         else
         {
+            PreviewHeaderTitle = "Preview";
             if (DualFrameMode)
                 ImagePreviewPath = null;
             else

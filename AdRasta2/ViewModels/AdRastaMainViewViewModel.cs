@@ -365,7 +365,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
             return;
 
         await result.Conversion.SetPreviewImage(true);
-        result.Conversion.PreviewHeaderTitle = "Result";
 
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");

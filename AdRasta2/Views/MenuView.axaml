@@ -13,9 +13,18 @@
           Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
 
         <MenuItem Header="_Help">
-            <MenuItem Header="_Show RastaConverter Help File" Command="{Binding ShowHelpCommand}" />
+            <MenuItem Header="_Show RastaConverter Help File" Command="{Binding ShowHelpCommand}" Margin="10,0,10,0" />
             <Separator />
-            <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
+            <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" Margin="10,0,10,0" />
+            <Separator />
+            <MenuItem>
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                        <TextBlock Text="Debug" VerticalAlignment="Center" Margin="0,0,8,0" />
+                        <ToggleSwitch IsChecked="{Binding IsDebugEnabled, Mode=TwoWay}" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
         </MenuItem>
 
         <MenuItem Header="Theme">

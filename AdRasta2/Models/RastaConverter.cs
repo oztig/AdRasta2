@@ -35,8 +35,8 @@ public class RastaConverter
 
         try
         {
-           await CopySupportingFiles(conversion);
-            
+            await CopySupportingFiles(conversion);
+
             // Run it and return the completed conversion
             return await ProcessRunner.RunAsync(
                 Settings.BaseRastaCommand,
@@ -353,11 +353,11 @@ public class RastaConverter
             args.Add($"--dual_chroma={rastaConversion.DualChroma}");
         }
 
-        args.Add($"--input={rastaConversion.SourceImageBaseName}");
+        args.Add($"--input={SafeCommand.QuoteIfNeeded(rastaConversion.SourceImageBaseName)}");
 
         if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskBaseName))
         {
-            args.Add($"--details={rastaConversion.SourceImageMaskBaseName}");
+            args.Add($"--details={SafeCommand.QuoteIfNeeded(rastaConversion.SourceImageMaskBaseName)}");
 
             if (rastaConversion.MaskStrength != RastaConverterDefaultValues.DefaultMaskStrength)
                 args.Add($"--details_val={rastaConversion.MaskStrength}");

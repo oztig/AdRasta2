@@ -27,8 +27,18 @@ namespace AdRasta2.ViewModels;
 public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
+    
+    public bool IsDebugEnabled
+    {
+        get => Settings.DebugMode;
+        set
+        {
+            Settings.DebugMode = value;
+            ConversionLogger.Log(null, ConversionStatus.Debug, $"Debug mode set to: {value}");
+            this.RaisePropertyChanged();
+        }
+    }
 
-    // private Settings _settings = new();
     private int _selectedIndex = 0;
 
     private double _tempFontSize = 12;

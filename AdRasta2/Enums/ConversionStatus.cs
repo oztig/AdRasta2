@@ -21,5 +21,6 @@ public enum ConversionStatus
     Running,
     Completed,
     Output,
-    ErrorOutput
+    ErrorOutput,
+    Debug
 }

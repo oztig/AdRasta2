@@ -9,7 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MenuView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MenuView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,15 +288,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="37245000" />
-    </task>
-    <task id="LOCAL-00099" summary="Change Dual Expander layout, fix Config Expander">
-      <option name="closed" value="true" />
-      <created>1758002081320</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1758002081320</updated>
+      <workItem from="1758950704727" duration="40142000" />
     </task>
     <task id="LOCAL-00100" summary="attempted new numericupdown - failed">
       <option name="closed" value="true" />
@@ -679,7 +674,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759052145481</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="Fix File copy issue - check if file already exists">
+      <option name="closed" value="true" />
+      <created>1759068576100</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1759068576100</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +692,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="plugged in more command line options from GUI" />
     <MESSAGE value="plug in more options" />
     <MESSAGE value="Add Command Line viewer" />
     <MESSAGE value="Added new B17 params" />
@@ -714,7 +716,8 @@
     <MESSAGE value="Add new process return to allow for debugging" />
     <MESSAGE value="Set Title od Preview window correctly (hopefully)" />
     <MESSAGE value="split out CopySupportingFiles, and add cont4extmenu to copy log to clipboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="split out CopySupportingFiles, and add cont4extmenu to copy log to clipboard" />
+    <MESSAGE value="Fix File copy issue - check if file already exists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix File copy issue - check if file already exists" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -749,10 +752,10 @@
           <line>215</line>
           <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConverter.cs" containingFunctionPresentation="Method 'GenerateLegacyArguments'">
             <startOffsets>
-              <option value="8012" />
+              <option value="8001" />
             </startOffsets>
             <endOffsets>
-              <option value="8072" />
+              <option value="8061" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="81" />
@@ -769,45 +772,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
-          <line>336</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\ViewModels\AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'PreviewImage'">
-            <startOffsets>
-              <option value="10862" />
-            </startOffsets>
-            <endOffsets>
-              <option value="10929" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs</url>
-          <line>843</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Models\RastaConversion.cs" containingFunctionPresentation="Method 'SetPreviewImage'">
-            <startOffsets>
-              <option value="23959" />
-            </startOffsets>
-            <endOffsets>
-              <option value="23974" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs</url>
-          <line>59</line>
-          <properties documentPath="C:\Users\nickp\RiderProjects\AdRasta2\AdRasta2\Utils\FileUtils.cs" containingFunctionPresentation="Method 'CopyMatchingFilesAsync'">
-            <startOffsets>
-              <option value="1561" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1588" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="111" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

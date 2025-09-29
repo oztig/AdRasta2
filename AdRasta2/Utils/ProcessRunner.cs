@@ -43,9 +43,8 @@ public static class ProcessRunner
                 {
                     case StartedCommandEvent started:
                         conversion.ProcessID = started.ProcessId;
-                        if (Settings.DebugMode)
-                            ConversionLogger.Log(conversion, ConversionStatus.Running,
-                                $"Started process {started.ProcessId} from {callerName}");
+                        ConversionLogger.LogIfDebug(conversion, ConversionStatus.Running,
+                            $"Started process {started.ProcessId} — {Path.GetFileName(executablePath)} (from {callerName})");
                         break;
 
                     case StandardOutputCommandEvent stdOut:
@@ -59,19 +58,18 @@ public static class ProcessRunner
                     case ExitedCommandEvent exited:
                         conversion.ProcessID = 0;
                         exitCode = exited.ExitCode;
-                        // conversion.ExitCode = exitCode;
-                        if (Settings.DebugMode)
-                            ConversionLogger.Log(conversion, ConversionStatus.Completed,
-                                $"Process exited with code {exitCode}");
+                        ConversionLogger.LogIfDebug(conversion, ConversionStatus.Completed,
+                            $"Process exited with code {exitCode} — {Path.GetFileName(executablePath)} (from {callerName})");
                         break;
                 }
             }
 
-            if (Settings.DebugMode && stdOutBuffer.Length > 0)
-                ConversionLogger.Log(conversion, ConversionStatus.Output, $"Standard Output:\n{stdOutBuffer}");
+            if (stdOutBuffer.Length > 0)
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Output, $"Standard Output:\n{stdOutBuffer}");
 
-            if (Settings.DebugMode && stdErrBuffer.Length > 0)
-                ConversionLogger.Log(conversion, ConversionStatus.ErrorOutput, $"Standard Error:\n{stdErrBuffer}");
+            if (stdErrBuffer.Length > 0)
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.ErrorOutput,
+                    $"Standard Error:\n{stdErrBuffer}");
 
             var status = IsExitCodeAcceptable(executablePath, exitCode)
                 ? AdRastaStatus.Success
@@ -89,11 +87,8 @@ public static class ProcessRunner
         catch (Exception e)
         {
             conversion.ProcessID = 0;
-            // conversion.ExitCode = -1;
-
-            if (Settings.DebugMode)
-                ConversionLogger.Log(conversion, ConversionStatus.Error, $"{executablePath} (called from {callerName})",
-                    e);
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error,
+                $"Process exited with code {exitCode} — {Path.GetFileName(executablePath)} (from {callerName})");
 
             return new ProcessRunResult
             {
@@ -118,58 +113,4 @@ public static class ProcessRunner
             _ => exitCode == 0
         };
     }
-
-
-    // public static Task <RastaConversion> RunAsync(
-    //     string executablePath,
-    //     string workingDirectory,
-    //     IReadOnlyList<string> arguments,
-    //     RastaConversion conversion)
-    // {
-    //     var cmd = Cli.Wrap(executablePath)
-    //         .WithArguments(arguments,false)
-    //         .WithWorkingDirectory(workingDirectory)
-    //         .WithValidation(CommandResultValidation.None);
-    //
-    //     return Task.Run(async () =>
-    //     {
-    //         try
-    //         {
-    //             await foreach (var cmdEvent in cmd.ListenAsync())
-    //             {
-    //                 switch (cmdEvent)
-    //                 {
-    //                     case StartedCommandEvent started:
-    //                         conversion.ProcessID = started.ProcessId;
-    //                         // ConversionLogger.Log(conversion, ConversionStatus.Running,
-    //                         //     $"Started process {started.ProcessId}");
-    //                         break;
-    //
-    //                     case ExitedCommandEvent exited:
-    //                         // ConversionLogger.Log(conversion, ConversionStatus.Completed,
-    //                         //     $"Process {conversion.ProcessID} exited with code {exited.ExitCode}");
-    //                         conversion.ProcessID = 0;
-    //                         break;
-    //                 }
-    //             }
-    //         }
-    //         catch (Exception e)
-    //         {
-    //             var trace = new StackTrace();
-    //             var callerFrame = trace.GetFrame(1); // 0 = this method, 1 = caller
-    //             var callerMethod = callerFrame?.GetMethod();
-    //             var callerName = callerMethod != null
-    //                 ? $"{callerMethod.DeclaringType?.FullName}.{callerMethod.Name}"
-    //                 : "UnknownCaller";
-    //
-    //             ConversionLogger.Log(conversion, ConversionStatus.Error,
-    //                 $"{executablePath} (called from {callerName})", e);
-    //
-    //             conversion.ProcessID = 0;
-    //         }
-    //
-    //         return conversion;
-    //
-    //     });
-    // }
 }

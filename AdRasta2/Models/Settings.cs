@@ -28,7 +28,21 @@ public class Settings
     public static double RastaConverterVersion { get; set; }
     public static string NoNameHeader { get; set; } = "no_name.h";
     public static string NoNameAsq { get; set; } = "no_name.asq";
-    public static bool DebugMode { get; set; }
+    
+    private static bool _debugMode = false;
+    public static bool DebugMode
+    {
+        get => _debugMode;
+        set
+        {
+            _debugMode = value;
+            MaxLogEntries = value ? 500 : 100;
+        }
+    }
+
+    
+    public static int MaxLogEntries { get; set; } = 100;
+
 
     static Settings()
     {

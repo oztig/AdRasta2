@@ -801,7 +801,7 @@ public class RastaConversion : ReactiveObject
         PopulateDefaultValues();
         Title = title;
 
-        Statuses = new BoundedLogCollection<StatusEntry>(100);
+        Statuses = new BoundedLogCollection<StatusEntry>();
     }
 
     public void PopulateDefaultValues()

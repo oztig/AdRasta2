@@ -9,9 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/BoundedLogCollection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/StatusFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,15 +291,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="44061000" />
-    </task>
-    <task id="LOCAL-00101" summary="Fix issues with nulls in numericupdown">
-      <option name="closed" value="true" />
-      <created>1758004817711</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1758004817711</updated>
+      <workItem from="1758950704727" duration="51417000" />
     </task>
     <task id="LOCAL-00102" summary="Furhter null fix">
       <option name="closed" value="true" />
@@ -682,7 +677,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759121064021</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="cater for space in filename">
+      <option name="closed" value="true" />
+      <created>1759125033871</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1759125033871</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +695,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Command Line viewer" />
     <MESSAGE value="Added new B17 params" />
     <MESSAGE value="set defaults for the new fields" />
     <MESSAGE value="Plugged in Conversion buttons, fixed some bugs" />
@@ -717,7 +719,8 @@
     <MESSAGE value="split out CopySupportingFiles, and add cont4extmenu to copy log to clipboard" />
     <MESSAGE value="Fix File copy issue - check if file already exists" />
     <MESSAGE value="Add debug menu option" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add debug menu option" />
+    <MESSAGE value="cater for space in filename" />
+    <option name="LAST_COMMIT_MESSAGE" value="cater for space in filename" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

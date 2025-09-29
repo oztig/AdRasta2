@@ -75,6 +75,7 @@ public class FileUtils
     /// <param name="overwrite"></param>
     /// <returns>If copied, and full sanitised filename (including directory)</returns>
     public static (bool success, string finalFileName) CopyFileWithSanitisation(
+        RastaConversion conversion,
         string sourcePath,
         string destinationDirectory,
         bool sanitise = false,
@@ -91,17 +92,17 @@ public class FileUtils
         {
             if (!overwrite && File.Exists(destPath))
             {
-                ConversionLogger.LogIfDebug(null, ConversionStatus.Debug, $"Skipped copy: '{finalFileName}' already exists.");
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Skipped copy: '{finalFileName}' already exists.");
                 return (false, destPath);
             }
 
             File.Copy(sourcePath, destPath, overwrite);
-            ConversionLogger.LogIfDebug(null, ConversionStatus.Debug, $"Copied '{originalFileName}' as '{finalFileName}'");
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Copied '{originalFileName}' as '{finalFileName}'");
             return (true, destPath);
         }
         catch (Exception ex)
         {
-            ConversionLogger.LogIfDebug(null, ConversionStatus.Error, $"Copy failed for '{finalFileName}': {ex.Message}");
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error, $"Copy failed for '{finalFileName}': {ex.Message}");
             return (false, destPath);
         }
     }

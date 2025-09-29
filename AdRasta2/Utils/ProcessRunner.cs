@@ -32,7 +32,26 @@ public static class ProcessRunner
 
         try
         {
-            var cmd = Cli.Wrap(executablePath)
+            var fullExecutablePath = Path.Combine(workingDirectory, executablePath);
+            if (!File.Exists(fullExecutablePath))
+            {
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error,
+                    $"Executable not found at '{fullExecutablePath}'");
+                return new ProcessRunResult
+                {
+                    Conversion = conversion,
+                    Status = AdRastaStatus.UnknownError,
+                    ExitCode = -1,
+                    StandardOutput = null,
+                    StandardError = "Executable not found."
+                };
+            }
+            
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                $"Resolved executable path: {fullExecutablePath}\nWorking directory: {workingDirectory}");
+
+
+            var cmd = Cli.Wrap(fullExecutablePath)
                 .WithArguments(arguments, false)
                 .WithWorkingDirectory(workingDirectory)
                 .WithValidation(CommandResultValidation.None);
@@ -88,7 +107,7 @@ public static class ProcessRunner
         {
             conversion.ProcessID = 0;
             ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error,
-                $"Process exited with code {exitCode} — {Path.GetFileName(executablePath)} (from {callerName})");
+                $"Process failed — {Path.GetFileName(executablePath)} (from {callerName})\nException: {e}");
 
             return new ProcessRunResult
             {
@@ -108,7 +127,7 @@ public static class ProcessRunner
         return toolName switch
         {
             "mads.exe" => exitCode is 0,
-            "rastaconverter.exe" => exitCode is 0 or 1,
+            "rastaconverter.exe" => exitCode is 0 or 1 or -1,
             "rc2mch.exe" => exitCode == 0,
             _ => exitCode == 0
         };

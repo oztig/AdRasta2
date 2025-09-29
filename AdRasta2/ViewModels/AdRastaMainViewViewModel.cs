@@ -34,7 +34,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
         set
         {
             Settings.DebugMode = value;
-            ConversionLogger.Log(null, ConversionStatus.Debug, $"Debug mode set to: {value}");
             this.RaisePropertyChanged();
         }
     }

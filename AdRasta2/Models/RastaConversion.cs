@@ -165,7 +165,7 @@ public class RastaConversion : ReactiveObject
             if (_sourceImagePath != value)
             {
                 _sourceImagePath = value;
-                var ret = CopySourceImageToDestination();
+                var ret = CopySourceImageToDestination(this);
 
                 _sourceImagePath = ret.sanitisedFileName;
                 this.RaisePropertyChanged();
@@ -767,16 +767,16 @@ public class RastaConversion : ReactiveObject
         CanEditRegisterFile = value != string.Empty;
     }
 
-    private (bool copied, string sanitisedFileName) CopySourceImageToDestination()
+    private (bool copied, string sanitisedFileName) CopySourceImageToDestination(RastaConversion conversion)
     {
         if (SourceImagePath == DestinationImageFileName)
-            return (false, string.Empty);
+            return (false, DestinationImageFileName);
 
         var (copied, sanitisedName) =
-            FileUtils.CopyFileWithSanitisation(SourceImagePath, DestinationDirectory, sanitise: true);
+            FileUtils.CopyFileWithSanitisation(conversion, SourceImagePath, DestinationDirectory, sanitise: true);
 
         if (!copied)
-            return (false, string.Empty);
+            return (false, sanitisedName);
 
         // Old log entries not relevant to new image, so don't show on new image!
         SetLogEntriesAsDontShowOnImage();

@@ -10,9 +10,6 @@ public static class ConversionLogger
 {
     public static void Log(RastaConversion conversion, ConversionStatus status, string message, Exception ex = null)
     {
-        if (conversion == null)
-            return;
-
         var fullMessage = ex == null ? message : $"{message} — {ex.Message}";
         conversion.Statuses.AddEntry(DateTime.Now, status, fullMessage);
 
@@ -25,6 +22,9 @@ public static class ConversionLogger
         Exception? ex = null,
         [CallerMemberName] string caller = "")
     {
+        if (!Settings.DebugMode)
+            return;
+        
         Log(conversion, status, $"{message} (from {caller})", ex);
     }
 

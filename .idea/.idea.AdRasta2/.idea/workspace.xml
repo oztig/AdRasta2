@@ -9,10 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Enums/ConversionStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Views/MenuView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Views/MenuView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +37,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$APPLICATION_PLUGINS_DIR$/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/stubs/http-client.common.d.ts" root0="FORCE_HIGHLIGHTING" />
@@ -288,15 +288,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="40142000" />
-    </task>
-    <task id="LOCAL-00100" summary="attempted new numericupdown - failed">
-      <option name="closed" value="true" />
-      <created>1758004604964</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1758004604964</updated>
+      <workItem from="1758950704727" duration="44061000" />
     </task>
     <task id="LOCAL-00101" summary="Fix issues with nulls in numericupdown">
       <option name="closed" value="true" />
@@ -682,7 +674,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759068576100</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="Add debug menu option">
+      <option name="closed" value="true" />
+      <created>1759121064021</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1759121064021</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +692,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="plug in more options" />
     <MESSAGE value="Add Command Line viewer" />
     <MESSAGE value="Added new B17 params" />
     <MESSAGE value="set defaults for the new fields" />
@@ -717,7 +716,8 @@
     <MESSAGE value="Set Title od Preview window correctly (hopefully)" />
     <MESSAGE value="split out CopySupportingFiles, and add cont4extmenu to copy log to clipboard" />
     <MESSAGE value="Fix File copy issue - check if file already exists" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix File copy issue - check if file already exists" />
+    <MESSAGE value="Add debug menu option" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add debug menu option" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

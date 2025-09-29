@@ -2,7 +2,10 @@ using System;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using AdRasta2.Enums;
+using AdRasta2.Models;
 
 namespace AdRasta2.Utils;
 
@@ -49,19 +52,78 @@ public class FileUtils
         }
     }
 
-    public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,bool overwrite = true)
+    public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,
+        bool overwrite = true)
     {
         var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
 
         foreach (var file in files)
         {
             var destPath = Path.Combine(destinationDir, Path.GetFileName(file));
-            
+
             if (!File.Exists(destPath))
                 File.Copy(file, destPath, overwrite);
         }
     }
-    
+
+    /// <summary>
+    /// Copy file, converting any 'nasty' chars to underscores
+    /// </summary>
+    /// <param name="sourcePath"></param>
+    /// <param name="destinationDirectory"></param>
+    /// <param name="sanitise"></param>
+    /// <param name="overwrite"></param>
+    /// <returns>If copied, and full sanitised filename (including directory)</returns>
+    public static (bool success, string finalFileName) CopyFileWithSanitisation(
+        string sourcePath,
+        string destinationDirectory,
+        bool sanitise = false,
+        bool overwrite = false)
+    {
+        if (string.IsNullOrWhiteSpace(sourcePath) || string.IsNullOrWhiteSpace(destinationDirectory))
+            return (false, string.Empty);
+
+        var originalFileName = Path.GetFileName(sourcePath);
+        var finalFileName = sanitise ? SanitizeFileName(originalFileName) : originalFileName;
+        var destPath = Path.Combine(destinationDirectory, finalFileName);
+
+        try
+        {
+            if (!overwrite && File.Exists(destPath))
+            {
+                ConversionLogger.LogIfDebug(null, ConversionStatus.Debug, $"Skipped copy: '{finalFileName}' already exists.");
+                return (false, destPath);
+            }
+
+            File.Copy(sourcePath, destPath, overwrite);
+            ConversionLogger.LogIfDebug(null, ConversionStatus.Debug, $"Copied '{originalFileName}' as '{finalFileName}'");
+            return (true, destPath);
+        }
+        catch (Exception ex)
+        {
+            ConversionLogger.LogIfDebug(null, ConversionStatus.Error, $"Copy failed for '{finalFileName}': {ex.Message}");
+            return (false, destPath);
+        }
+    }
+
+
+
+    public static string SanitizeFileName(string fileName, bool stripSpaces = true)
+    {
+        if (string.IsNullOrWhiteSpace(fileName))
+            return string.Empty;
+
+        var sanitized = stripSpaces
+            ? fileName.Replace(" ", "_")
+            : fileName;
+
+        // Optional: remove other problematic characters
+        sanitized = Regex.Replace(sanitized, @"[^a-zA-Z0-9_.-]", "_");
+
+        return sanitized;
+    }
+
+
     public static void DeleteMatchingFiles(string directory, string searchPattern)
     {
         var files = Directory.GetFiles(directory, searchPattern, SearchOption.TopDirectoryOnly);

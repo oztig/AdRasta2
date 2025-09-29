@@ -165,6 +165,9 @@ public class RastaConversion : ReactiveObject
             if (_sourceImagePath != value)
             {
                 _sourceImagePath = value;
+                var ret = CopySourceImageToDestination();
+
+                _sourceImagePath = ret.sanitisedFileName;
                 this.RaisePropertyChanged();
                 _sourceImage = null;
                 ImagePreviewPath = null;
@@ -174,8 +177,14 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged(nameof(CanContinue));
                 this.RaisePropertyChanged(nameof(CanGenerateMCH));
                 this.RaisePropertyChanged(nameof(SourceImageBaseName));
-
-                CopySourceImageToDestination();
+                
+                Statuses?.AddEntry(
+                    DateTime.Now,
+                    string.IsNullOrEmpty(_sourceImagePath)
+                        ? ConversionStatus.SourceCleared
+                        : ConversionStatus.SourceAdded,
+                    _sourceImagePath ?? string.Empty
+                );
             }
         }
     }
@@ -335,7 +344,7 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged();
                 SourceImagePath = string.Empty;
                 SourceImageMaskPath = string.Empty;
-                
+
                 Statuses?.AddEntry(
                     DateTime.Now,
                     string.IsNullOrEmpty(_destinationFilePath)
@@ -758,25 +767,23 @@ public class RastaConversion : ReactiveObject
         CanEditRegisterFile = value != string.Empty;
     }
 
-    private bool CopySourceImageToDestination()
+    private (bool copied, string sanitisedFileName) CopySourceImageToDestination()
     {
-        bool ret = SourceImageDirectory != DestinationDirectory &&
-                   FileUtils.CopyFile(SourceImagePath, DestinationImageFileName);
+        if (SourceImagePath == DestinationImageFileName)
+            return (false, string.Empty);
 
+        var (copied, sanitisedName) =
+            FileUtils.CopyFileWithSanitisation(SourceImagePath, DestinationDirectory, sanitise: true);
 
-        // Old log entries not relevant to new image, so dont show on new image!
+        if (!copied)
+            return (false, string.Empty);
+
+        // Old log entries not relevant to new image, so don't show on new image!
         SetLogEntriesAsDontShowOnImage();
 
-        Statuses?.AddEntry(
-            DateTime.Now,
-            string.IsNullOrEmpty(_sourceImagePath)
-                ? ConversionStatus.SourceCleared
-                : ConversionStatus.SourceAdded,
-            _sourceImagePath ?? ""
-        );
-
-        return ret;
+        return (copied, sanitisedName);
     }
+
 
     private void SetLogEntriesAsDontShowOnImage()
     {

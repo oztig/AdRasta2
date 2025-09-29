@@ -27,4 +27,13 @@ public static class ConversionLogger
         //
         // Debug.WriteLine($"{prefix} {conversion.Name}: {fullMessage}");
     }
+    
+    public static void LogIfDebug(RastaConversion conversion, ConversionStatus status, string message, Exception ex = null)
+    {
+        if (!Settings.DebugMode)
+            return;
+
+        Log(conversion, status, message,ex);
+    }
+
 }

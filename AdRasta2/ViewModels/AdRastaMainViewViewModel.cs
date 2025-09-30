@@ -351,19 +351,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
             $"({result.Conversion.PreviewImageColoursText})");
     }
 
-    // public async Task PreviewImage()
-    // {
-    //     SelectedConversion.PreviewHeaderTitle = "Preview";
-    //
-    //     SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
-    //     SelectedConversion.ImagePreviewPath = string.Empty;
-    //     var toUpdate = await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
-    //
-    //     await toUpdate.SetPreviewImage(false);
-    //     toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewGenerated,
-    //         "(" + toUpdate.PreviewImageColoursText + ")");
-    // }
-
     public async Task ConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
@@ -379,18 +366,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
             $"({result.Conversion.PreviewImageColoursText})");
     }
 
-    // public async Task ConvertImage()
-    // {
-    //     SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-    //
-    //     var toUpdate = await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
-    //     await toUpdate.SetPreviewImage(true);
-    //     toUpdate.PreviewHeaderTitle = "Result";
-    //
-    //     toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
-    //         $"({toUpdate.PreviewImageColoursText})");
-    // }
-
     public async Task ContinueConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
@@ -405,17 +380,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");
     }
-
-    // public async Task ContinueConvertImage()
-    // {
-    //     SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-    //
-    //     var toUpdate = await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
-    //     await toUpdate.SetPreviewImage(true);
-    //
-    //     toUpdate.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionComplete,
-    //         "(" + toUpdate.PreviewImageColoursText + ")");
-    // }
 
     public async Task GenerateExecutable()
     {

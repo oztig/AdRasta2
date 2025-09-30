@@ -9,6 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +29,12 @@
     &quot;assignee&quot;: &quot;oztig&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/oztig/AdRasta2.git&quot;,
-    &quot;accountId&quot;: &quot;ac35aaae-c741-4091-8f64-c33448ce9b7e&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/oztig/AdRasta2.git",
+    "accountId": "1d6306b1-3c54-4bfe-ab22-6e33ddc88308"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
@@ -142,37 +144,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.AdRasta2.executor": "Run",
+    ".NET Project.AdRasta2.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Publish to folder.Publish AdRasta2 to folder (1).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (10).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (11).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (12).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (13).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (14).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (15).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (16).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (17).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (18).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (19).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (2).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (20).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (21).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (22).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (23).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (3).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (4).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (5).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (6).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (7).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (8).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder (9).executor": "Run",
-    "Publish to folder.Publish AdRasta2 to folder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "XThreadsFramesViewSplitterKey": "0.4457672",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/nickp/RiderProjects/AdRasta/AdRasta/Assets/AdRasta-Icon2.ico",
     "node.js.detected.package.eslint": "true",
@@ -183,204 +160,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.AdRasta2">
-    <configuration name="Publish AdRasta2 to folder (10)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (11)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (12)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (13)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (14)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (15)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (16)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (17)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (18)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (19)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="Portable" />
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (1)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="Portable" />
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (20)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$PROJECT_DIR$/AdRasta2/bin/Release/net9.0/win-x64/publish" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (21)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (22)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (23)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (2)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="Portable" />
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (3)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="Portable" />
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (4)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="Portable" />
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (5)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (6)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (7)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (8)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder (9)" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
-    <configuration name="Publish AdRasta2 to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
-        <runtimes>
-          <item value="win-x64" />
-        </runtimes>
-      </riderPublish>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="AdRasta2" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -429,6 +209,7 @@
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
       <workItem from="1758950704727" duration="60853000" />
+      <workItem from="1759210504155" duration="592000" />
     </task>
     <task id="LOCAL-00104" summary="Lots of GUI twiddling - SafeNumericUpDown control plug in">
       <option name="closed" value="true" />
@@ -912,6 +693,58 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs</url>
+          <line>339</line>
+          <properties documentPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" containingFunctionPresentation="Method 'PreviewImage'">
+            <startOffsets>
+              <option value="10706" />
+            </startOffsets>
+            <endOffsets>
+              <option value="10756" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
+          <line>32</line>
+          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
+            <startOffsets>
+              <option value="1041" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1122" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs</url>
+          <line>48</line>
+          <properties documentPath="$PROJECT_DIR$/AdRasta2/Models/RastaConverter.cs" containingFunctionPresentation="Method 'ExecuteCommand'">
+            <startOffsets>
+              <option value="1600" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1693" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs</url>
+          <line>21</line>
+          <properties documentPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" containingFunctionPresentation="Method 'RunAsync'">
+            <startOffsets>
+              <option value="503" />
+            </startOffsets>
+            <endOffsets>
+              <option value="542" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

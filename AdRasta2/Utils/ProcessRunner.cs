@@ -90,9 +90,10 @@ public static class ProcessRunner
                 ConversionLogger.LogIfDebug(conversion, ConversionStatus.ErrorOutput,
                     $"Standard Error:\n{stdErrBuffer}");
 
-            var status = IsExitCodeAcceptable(executablePath, exitCode)
-                ? AdRastaStatus.Success
-                : AdRastaStatus.UnknownError;
+            var status = AdRastaStatus.Success;
+            // var status = IsExitCodeAcceptable(executablePath, exitCode)
+            //     ? AdRastaStatus.Success
+            //     : AdRastaStatus.UnknownError;
 
             return new ProcessRunResult
             {

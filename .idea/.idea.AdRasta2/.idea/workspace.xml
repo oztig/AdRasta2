@@ -9,12 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="859a7907-6311-4380-8290-9db129d61cce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdRasta2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Models/RastaConversion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ConversionLogger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/FileUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/Utils/ProcessRunner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AdRasta2/ViewModels/AdRastaMainViewViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +151,16 @@
     "Publish to folder.Publish AdRasta2 to folder (12).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (13).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (14).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (15).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (16).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (17).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (18).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (19).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (2).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (20).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (21).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (22).executor": "Run",
+    "Publish to folder.Publish AdRasta2 to folder (23).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (3).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (4).executor": "Run",
     "Publish to folder.Publish AdRasta2 to folder (5).executor": "Run",
@@ -221,10 +224,83 @@
       </riderPublish>
       <method v="2" />
     </configuration>
+    <configuration name="Publish AdRasta2 to folder (15)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (16)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (17)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (18)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (19)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="Portable" />
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
     <configuration name="Publish AdRasta2 to folder (1)" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
         <runtimes>
           <item value="Portable" />
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (20)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$PROJECT_DIR$/AdRasta2/bin/Release/net9.0/win-x64/publish" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (21)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (22)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-No-DotNet" target_framework="net9.0" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
+          <item value="win-x64" />
+        </runtimes>
+      </riderPublish>
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish AdRasta2 to folder (23)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" produce_single_file="true" ready_to_run="true" self_contained="true" target_folder="$USER_HOME$/Documents/AdRasta2-x64-build-SelfContained" target_framework="net9.0" trim_unused_assemblies="true" uuid_high="-1045982733414742350" uuid_low="-4618446631768843032">
+        <runtimes>
           <item value="win-x64" />
         </runtimes>
       </riderPublish>
@@ -352,15 +428,7 @@
       <workItem from="1758634479091" duration="11310000" />
       <workItem from="1758698145095" duration="30085000" />
       <workItem from="1758949879425" duration="807000" />
-      <workItem from="1758950704727" duration="57216000" />
-    </task>
-    <task id="LOCAL-00103" summary="If numericupdown value is null, revert to default value (held in Tag)">
-      <option name="closed" value="true" />
-      <created>1758007180163</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1758007180163</updated>
+      <workItem from="1758950704727" duration="60853000" />
     </task>
     <task id="LOCAL-00104" summary="Lots of GUI twiddling - SafeNumericUpDown control plug in">
       <option name="closed" value="true" />
@@ -746,7 +814,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759177683558</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="Add extra debugging, fix relative file path issue on windows (windows is rubbish)">
+      <option name="closed" value="true" />
+      <created>1759183662664</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1759183662664</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +832,6 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="set defaults for the new fields" />
     <MESSAGE value="Plugged in Conversion buttons, fixed some bugs" />
     <MESSAGE value="Plugged in Convert button" />
     <MESSAGE value="Add new status for using on retuirn from methods -  Allow better error handling (When plugged in)" />
@@ -781,7 +856,8 @@
     <MESSAGE value="Add debug menu option" />
     <MESSAGE value="cater for space in filename" />
     <MESSAGE value="Add extra debugging, increase log size if debug on" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add extra debugging, increase log size if debug on" />
+    <MESSAGE value="Add extra debugging, fix relative file path issue on windows (windows is rubbish)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add extra debugging, fix relative file path issue on windows (windows is rubbish)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

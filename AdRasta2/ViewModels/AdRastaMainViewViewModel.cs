@@ -27,7 +27,7 @@ namespace AdRasta2.ViewModels;
 public class AdRastaMainViewViewModel : ReactiveObject
 {
     private Window? _window;
-    
+
     public bool IsDebugEnabled
     {
         get => Settings.DebugMode;
@@ -167,12 +167,22 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public async void HFlipSourceImage()
     {
-        await _messageBoxService.ShowInfoAsync("H-Flip Source Image", "Not Implemented Yet!");
+        var originalImagePath = SelectedConversion.SourceImagePath;
+        if (ImageUtils.FlipImageHorizontally(SelectedConversion, originalImagePath))
+        {
+            SelectedConversion.SourceImagePath = string.Empty;
+            SelectedConversion.SourceImagePath = originalImagePath;
+        }
     }
 
     public async void HFlipMaskImage()
     {
-        await _messageBoxService.ShowInfoAsync("H-Flip Mask Image", "Not Implemented Yet!");
+        var originalImagePath = SelectedConversion.SourceImageMaskPath;
+        if (ImageUtils.FlipImageHorizontally(SelectedConversion, originalImagePath))
+        {
+            SelectedConversion.SourceImageMaskPath = string.Empty;
+            SelectedConversion.SourceImageMaskPath = originalImagePath;
+        }
     }
 
     private async Task ShowHelpMessage()

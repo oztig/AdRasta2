@@ -8,6 +8,7 @@ using SkiaSharp;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using AdRasta2.Enums;
 using AdRasta2.Models;
 using CliWrap;
 
@@ -70,7 +71,7 @@ public class ImageUtils
         var skBitmap = ConvertAvaloniaBitmapToSKBitmap(bitmap);
         return CountUniqueColors(skBitmap);
     }
-    
+
     public static SKBitmap ConvertAvaloniaBitmapToSKBitmap(Bitmap avaloniaBitmap)
     {
         using var stream = new MemoryStream();
@@ -78,7 +79,7 @@ public class ImageUtils
         stream.Seek(0, SeekOrigin.Begin);
         return SKBitmap.Decode(stream);
     }
-    
+
     public static async Task<bool> ViewImage(string fileName)
     {
         var stdOutBuffer = new StringBuilder();
@@ -115,4 +116,56 @@ public class ImageUtils
         return ret;
     }
 
+    /// <summary>
+    /// Horizontally flips an image in-place using SkiaSharp.
+    /// Logs success or failure to ConversionLog without throwing exceptions.
+    /// </summary>
+    /// <param name="imagePath">The path to the image file to flip.</param>
+    public static bool FlipImageHorizontally(RastaConversion conversion, string imagePath)
+    {
+        var ret = true;
+
+        try
+        {
+            if (!File.Exists(imagePath))
+            {
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.FileNotFound,
+                    $"[Flip] File not found: {imagePath}");
+                return false;
+            }
+
+            using var input = File.OpenRead(imagePath);
+            using var bitmap = SKBitmap.Decode(input);
+
+            if (bitmap == null)
+            {
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error,
+                    $"[Flip] Failed to decode image: {imagePath}");
+                return false;
+            }
+
+            using var surface = SKSurface.Create(new SKImageInfo(bitmap.Width, bitmap.Height));
+            var canvas = surface.Canvas;
+
+            canvas.Scale(-1, 1);
+            canvas.Translate(-bitmap.Width, 0);
+            canvas.DrawBitmap(bitmap, 0, 0);
+
+            using var image = surface.Snapshot();
+            using var data = image.Encode(SKEncodedImageFormat.Png, 100);
+
+            using var output = File.OpenWrite(imagePath);
+            data.SaveTo(output);
+
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Success,
+                $"Image flipped successfully: {imagePath}");
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+            // ConversionLog.Add($"[Flip] Error flipping image: {imagePath} — {ex.Message}");
+        }
+    }
 }

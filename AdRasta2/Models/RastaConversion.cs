@@ -177,7 +177,7 @@ public class RastaConversion : ReactiveObject
                 this.RaisePropertyChanged(nameof(CanContinue));
                 this.RaisePropertyChanged(nameof(CanGenerateMCH));
                 this.RaisePropertyChanged(nameof(SourceImageBaseName));
-                
+
                 Statuses?.AddEntry(
                     DateTime.Now,
                     string.IsNullOrEmpty(_sourceImagePath)
@@ -231,10 +231,13 @@ public class RastaConversion : ReactiveObject
         get => _sourceImageMaskPath;
         set
         {
-            // Manully check if changed, so we can force re-load of the Image.
+            // Manually check if changed, so we can force re-load of the Image.
             if (_sourceImageMaskPath != value)
             {
                 _sourceImageMaskPath = value;
+                var ret = CopyMaskImageToDestination(this);
+
+                _sourceImageMaskPath = ret.sanitisedFileName;
                 this.RaisePropertyChanged();
                 _sourceImageMask = null;
                 this.RaisePropertyChanged(nameof(SourceImageMask));
@@ -245,11 +248,33 @@ public class RastaConversion : ReactiveObject
                     string.IsNullOrEmpty(_sourceImageMaskPath)
                         ? ConversionStatus.MaskCleared
                         : ConversionStatus.MaskAdded,
-                    _sourceImageMaskPath ?? "");
+                    _sourceImageMaskPath ?? string.Empty
+                );
             }
         }
     }
-
+    // set
+    // {
+    //     // Manully check if changed, so we can force re-load of the Image.
+    //     if (_sourceImageMaskPath != value)
+    //     {
+    //         _sourceImageMaskPath = value;
+    //         CopyMaskImageToDestination();
+    //             
+    //         this.RaisePropertyChanged();
+    //         _sourceImageMask = null;
+    //         this.RaisePropertyChanged(nameof(SourceImageMask));
+    //         this.RaisePropertyChanged(nameof(SourceImageMaskBaseName));
+    //
+    //         Statuses?.AddEntry(
+    //             DateTime.Now,
+    //             string.IsNullOrEmpty(_sourceImageMaskPath)
+    //                 ? ConversionStatus.MaskCleared
+    //                 : ConversionStatus.MaskAdded,
+    //             _sourceImageMaskPath ?? "");
+    //     }
+    // }
+    
     public string SourceImageMaskDirectory =>
         string.IsNullOrEmpty(SourceImageMaskPath) ? string.Empty : Path.GetDirectoryName(SourceImageMaskPath);
 
@@ -780,6 +805,23 @@ public class RastaConversion : ReactiveObject
 
         // Old log entries not relevant to new image, so don't show on new image!
         SetLogEntriesAsDontShowOnImage();
+
+        return (copied, sanitisedName);
+    }
+
+    private (bool copied, string sanitisedFileName) CopyMaskImageToDestination(RastaConversion conversion)
+    {
+        if (SourceImageMaskPath == DestinationImageFileName)
+            return (false, DestinationImageFileName);
+
+        var (copied, sanitisedName) =
+            FileUtils.CopyFileWithSanitisation(conversion, SourceImageMaskPath, DestinationDirectory, sanitise: true);
+
+        if (!copied)
+            return (false, sanitisedName);
+
+        // Old log entries not relevant to new image, so don't show on new image!
+        // SetLogEntriesAsDontShowOnImage();
 
         return (copied, sanitisedName);
     }

@@ -22,5 +22,7 @@ public enum ConversionStatus
     Completed,
     Output,
     ErrorOutput,
-    Debug
+    Debug,
+    FileNotFound,
+    Success,
 }

@@ -275,7 +275,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
         {
-            ContentTitle = "AdRasta2 (Beta 1 - Bodge It and Scarper Version)",
+            ContentTitle = "AdRasta2 (Beta 1.1 021025)",
             ImageIcon = customIcon,
             ContentMessage = aboutMessage,
             ButtonDefinitions = new List<ButtonDefinition>

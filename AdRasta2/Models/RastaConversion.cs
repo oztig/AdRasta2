@@ -189,6 +189,7 @@ public class RastaConversion : ReactiveObject
         }
     }
 
+
     public string SourceImageDirectory =>
         string.IsNullOrEmpty(SourceImagePath) ? string.Empty : Path.GetDirectoryName(SourceImagePath);
 
@@ -209,11 +210,17 @@ public class RastaConversion : ReactiveObject
             try
             {
                 if (File.Exists(SourceImagePath))
+                {
                     _sourceImage = new Bitmap(SourceImagePath);
+                    SourceImageTotalColours = ImageUtils.CountUniqueColors(_sourceImage);
+                }
                 else
                 {
                     _sourceImage = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
+                    SourceImageTotalColours = 0;
                 }
+
+                this.RaisePropertyChanged(nameof(SourceImageToolTipText));
             }
             catch (Exception ex)
             {
@@ -223,6 +230,22 @@ public class RastaConversion : ReactiveObject
             return _sourceImage;
         }
     }
+
+    public string SourceImageToolTipText => SourceImagePath + "\n" + SourceImageColoursText;
+
+    private int _sourceImageTotalColours;
+
+    public int SourceImageTotalColours
+    {
+        get => _sourceImageTotalColours;
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _sourceImageTotalColours, value);
+            this.RaisePropertyChanged(nameof(SourceImage));
+        }
+    }
+
+    public string SourceImageColoursText => "Total Colours: " + SourceImageTotalColours;
 
     private string _sourceImageMaskPath;
 
@@ -274,7 +297,7 @@ public class RastaConversion : ReactiveObject
     //             _sourceImageMaskPath ?? "");
     //     }
     // }
-    
+
     public string SourceImageMaskDirectory =>
         string.IsNullOrEmpty(SourceImageMaskPath) ? string.Empty : Path.GetDirectoryName(SourceImageMaskPath);
 
@@ -307,54 +330,6 @@ public class RastaConversion : ReactiveObject
             return _sourceImageMask;
         }
     }
-
-    // // Converted Image
-    // private string _convertedImagePath;
-    //
-    // public string ConvertedImagePath
-    // {
-    //     get => _convertedImagePath;
-    //     set
-    //     {
-    //         // Manually check if changed, so we can force re-load of the Image.
-    //         if (_convertedImagePath != value)
-    //         {
-    //             _convertedImagePath = value;
-    //             this.RaisePropertyChanged();
-    //             _convertedImage = null;
-    //             this.RaisePropertyChanged(nameof(ConvertedImage));
-    //         }
-    //     }
-    // }
-    //
-    // private Bitmap? _convertedImage;
-    //
-    // public Bitmap? ConvertedImage
-    // {
-    //     get
-    //     {
-    //         if (_convertedImage != null) return _convertedImage;
-    //
-    //         try
-    //         {
-    //             if (File.Exists(ConvertedImagePath))
-    //                 _convertedImage = new Bitmap(ConvertedImagePath);
-    //             else
-    //             {
-    //                 _convertedImage = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             _convertedImage = null;
-    //         }
-    //
-    //         this.RaisePropertyChanged(nameof(ConvertedImageExists));
-    //         return _convertedImage;
-    //     }
-    // }
-    //
-    // public bool ConvertedImageExists => ConvertedImage != null;
 
     private string _destinationFilePath;
 
@@ -428,6 +403,8 @@ public class RastaConversion : ReactiveObject
                     _imagePreview = ImageUtils.CreateBlankImage(320, 240, Brushes.WhiteSmoke);
                     PreviewImageTotalColours = 0;
                 }
+
+                this.RaisePropertyChanged(nameof(PreviewImageColoursText));
             }
             catch (Exception ex)
             {

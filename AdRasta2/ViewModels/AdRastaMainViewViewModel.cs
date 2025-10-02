@@ -21,6 +21,7 @@ using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
 using ReactiveUI;
+using SkiaSharp;
 
 namespace AdRasta2.ViewModels;
 
@@ -173,6 +174,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
             SelectedConversion.SourceImagePath = string.Empty;
             SelectedConversion.SourceImagePath = originalImagePath;
         }
+    }
+
+    public async void CheckColourBias()
+    {
+        var colourBias = ImageUtils.GetColourBias(SelectedConversion, SelectedConversion.SourceImagePath);
+        var message = colourBias.Bias switch
+        {
+            ColourBias.Right => $"Right edge dominant ({colourBias.Confidence:F1}%) — May benefit from H-Flip",
+            ColourBias.Left => $"Left edge dominant ({colourBias.Confidence:F1}%) — Okay as-is",
+            _ => "Bias unclear — no strong edge dominance"
+        };
+        await _messageBoxService.ShowInfoAsync("Colour Bias Check",message);
     }
 
     public async void HFlipMaskImage()

@@ -40,7 +40,12 @@
                                Stretch="Uniform">
                             <Image.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="H-Flip" Command="{Binding HFlipSourceImage}" />
+                                    <MenuItem Header="H-Flip" 
+                                              Command="{Binding HFlipSourceImage}" 
+                                              Margin="10,0,10,0"/>
+                                    <MenuItem Header="Check Colour Bias" 
+                                              Command="{Binding CheckColourBias}" 
+                                              Margin="10,0,10,0"/>
                                 </ContextMenu>
                             </Image.ContextMenu>
                         </Image>

@@ -54,17 +54,21 @@
             <MenuItem Header="Compact"
                       IsEnabled="False"
                       Command="{Binding SwitchThemeCommand}"
+                      Margin="10,0,10,0"
                       CommandParameter="Compact" />
             <MenuItem Header="Dark"
                       Command="{Binding SwitchThemeCommand}"
                       IsEnabled="True"
+                      Margin="10,0,10,0"
                       CommandParameter="Dark" />
             <MenuItem Header="Light"
                       Command="{Binding SwitchThemeCommand}"
                       IsEnabled="True"
+                      Margin="10,0,10,0"
                       CommandParameter="Light" />
             <MenuItem Header="Default"
                       Command="{Binding SwitchThemeCommand}"
+                      Margin="10,0,10,0"
                       CommandParameter="Default" />
         </MenuItem>
 

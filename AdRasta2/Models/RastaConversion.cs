@@ -183,7 +183,7 @@ public class RastaConversion : ReactiveObject
                     string.IsNullOrEmpty(_sourceImagePath)
                         ? ConversionStatus.SourceCleared
                         : ConversionStatus.SourceAdded,
-                    _sourceImagePath ?? string.Empty
+                    _sourceImagePath + " - (" + SourceImageColoursText + ")" ?? string.Empty
                 );
             }
         }

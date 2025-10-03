@@ -45,6 +45,37 @@ public class ImageUtils
         return renderTarget;
     }
 
+    public static Dictionary<int, int>? CountUniqeColoursPerLine(string imagePath)
+    {
+        if (string.IsNullOrWhiteSpace(imagePath) || !File.Exists(imagePath))
+            return null;
+
+        using var bitmap = SKBitmap.Decode(imagePath);
+        if (bitmap == null || bitmap.Width == 0 || bitmap.Height == 0)
+            return null;
+
+        return CountUniqueColoursPerLine(bitmap);
+    }
+    
+    public static Dictionary<int, int> CountUniqueColoursPerLine(SKBitmap bitmap)
+    {
+        var lineColorCounts = new Dictionary<int, int>();
+
+        for (int y = 0; y < bitmap.Height; y++)
+        {
+            var uniqueColors = new HashSet<SKColor>();
+
+            for (int x = 0; x < bitmap.Width; x++)
+            {
+                uniqueColors.Add(bitmap.GetPixel(x, y));
+            }
+
+            lineColorCounts[y] = uniqueColors.Count;
+        }
+
+        return lineColorCounts;
+    }
+
     public static int CountUniqueColors(string imagePath)
     {
         using var bitmap = SKBitmap.Decode(imagePath);

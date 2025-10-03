@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reactive;
+using System.Text;
 using System.Threading.Tasks;
 using AdRasta2.Enums;
 using AdRasta2.Interfaces;
@@ -185,8 +186,62 @@ public class AdRastaMainViewViewModel : ReactiveObject
             ColourBias.Left => $"Left edge dominant ({colourBias.Confidence:F1}%) — Okay as-is",
             _ => "Bias unclear — no strong edge dominance"
         };
-        await _messageBoxService.ShowInfoAsync("Colour Bias Check",message);
+        await _messageBoxService.ShowInfoAsync("Colour Bias Check", message);
     }
+
+    public async void SourceImageUniqueColoursPerLine()
+    {
+        var breakdown = await UniqueColoursPerLine(SelectedConversion.SourceImagePath,"Source Image");
+    }
+    
+    public async void PreviewImageUniqueColoursPerLine()
+    {
+        var breakdown = await UniqueColoursPerLine(SelectedConversion.ImagePreviewPath,"Preview Image");
+    }
+    
+    
+    private async Task<bool> UniqueColoursPerLine(string fileName,string hdrText)
+    {
+        try
+        {
+            int maxColoursPerLine = 0;
+            var breakdown = ImageUtils.CountUniqeColoursPerLine(fileName);
+
+            if (breakdown == null || breakdown.Count == 0)
+            {
+                await _messageBoxService.ShowInfoAsync(
+                    $"{hdrText} - Unique Colours Per Line",
+                    "No colour data could be extracted.\n\nThe image may be invalid, empty, or inaccessible."
+                );
+                return false;
+            }
+            var hdr = new StringBuilder();
+            var sb = new StringBuilder();
+            foreach (var kvp in breakdown)
+            {
+                if (kvp.Value > maxColoursPerLine)
+                    maxColoursPerLine = kvp.Value;
+                
+                sb.AppendLine($"Line {kvp.Key,3}: {kvp.Value,4}");
+            }
+            
+            hdr.AppendLine($"Image: {Path.GetFileName(fileName)}");
+            hdr.AppendLine($"Max Colours in one line: {maxColoursPerLine}");
+            hdr.AppendLine(new string('-', 40));
+            hdr.AppendLine("");
+                
+            string resultText = hdr.ToString() +  sb?.ToString();
+
+            await _messageBoxService.ShowInfoAsync($"{hdrText} - Unique Colours Per Line", resultText);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return false;
+        }
+        return true;
+    }
+
 
     public async void HFlipMaskImage()
     {
@@ -437,6 +492,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var toUpdate = await rc2mch.GenerateMCH(SelectedConversion);
     }
 
+    public async Task ViewSourceImageAsync()
+    {
+        await ImageUtils.ViewImage(SelectedConversion.SourceImagePath);
+    }
+    
     public async Task ViewPreviewImageAsync()
     {
         await ImageUtils.ViewImage(SelectedConversion.ImagePreviewPath);

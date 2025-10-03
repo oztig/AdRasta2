@@ -33,9 +33,8 @@ public class MessageBoxService : IMessageBoxService
         return await messageBox.ShowAsync();
     }
     
-    public Task ShowInfoAsync(string title, string message)
+    public Task ShowInfoAsync(string title, string message,double maxHeight=500)
     {
-        
        var iconPath = new Uri($"avares://AdRasta2/Assets/info.png");
        var bitmap = new Bitmap(AssetLoader.Open(iconPath));
         
@@ -48,6 +47,7 @@ public class MessageBoxService : IMessageBoxService
             ShowInCenter = true,
             WindowStartupLocation = WindowStartupLocation.CenterOwner,
             ImageIcon = bitmap,
+            MaxHeight = maxHeight
         });
 
         return msgBox.ShowAsync();

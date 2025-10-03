@@ -40,11 +40,21 @@
                                Stretch="Uniform">
                             <Image.ContextMenu>
                                 <ContextMenu>
+                                    <MenuItem Header="View Image" 
+                                              Command="{Binding ViewSourceImageAsync}" 
+                                              Margin="10,0,10,0"/>
                                     <MenuItem Header="H-Flip" 
                                               Command="{Binding HFlipSourceImage}" 
                                               Margin="10,0,10,0"/>
+                                    <MenuItem Header="--- Image Analysis ---" 
+                                              IsEnabled="False" 
+                                              FontStyle="Italic" 
+                                              FontWeight="DemiBold" />
                                     <MenuItem Header="Check Colour Bias" 
                                               Command="{Binding CheckColourBias}" 
+                                              Margin="10,0,10,0"/>
+                                    <MenuItem Header="Unique Colours Per Line" 
+                                              Command="{Binding SourceImageUniqueColoursPerLine}" 
                                               Margin="10,0,10,0"/>
                                 </ContextMenu>
                             </Image.ContextMenu>
@@ -182,6 +192,13 @@
                                 <MenuItem Header="View Image" 
                                           Command="{Binding ViewPreviewImageAsync}" 
                                           Margin="10,0,10,0"/>
+                                <MenuItem Header="--- Image Analysis ---" 
+                                          IsEnabled="False" 
+                                          FontStyle="Italic" 
+                                          FontWeight="DemiBold" />
+                                <MenuItem Header="Unique Colours Per Line" 
+                                          Command="{Binding PreviewImageUniqueColoursPerLine}" 
+                                          Margin="10,0,10,0"/>                                
                             </ContextMenu>
                         </Image.ContextMenu>
                     </Image>

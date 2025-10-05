@@ -447,6 +447,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");
+        
+        if (Settings.AutoViewPreview)
+            await ViewPreviewImageAsync();
     }
 
     public async Task ContinueConvertImage()
@@ -462,6 +465,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");
+        
+        if (Settings.AutoViewPreview)
+            await ViewPreviewImageAsync();
     }
 
     public async Task GenerateExecutable()

@@ -39,7 +39,8 @@ public class Settings
             MaxLogEntries = value ? 500 : 100;
         }
     }
-
+    
+    public static bool AutoViewPreview { get; set; }
     
     public static int MaxLogEntries { get; set; } = 100;
 
@@ -88,6 +89,7 @@ public class Settings
         CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
         DebugMode = ini.GetBool("Debug", "DebugMode", false);
+        AutoViewPreview = ini.GetBool("UserDefaults", "AutoViewPreview", false);
 
         
         // RastaConverter Specific

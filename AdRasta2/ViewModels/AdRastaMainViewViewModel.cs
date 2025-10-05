@@ -429,6 +429,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
         await result.Conversion.SetPreviewImage(false);
         ConversionLogger.Log(result.Conversion, ConversionStatus.PreviewGenerated,
             $"({result.Conversion.PreviewImageColoursText})");
+
+        if (Settings.AutoViewPreview)
+            await ViewPreviewImageAsync();
     }
 
     public async Task ConvertImage()

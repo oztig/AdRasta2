@@ -83,6 +83,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<string, Unit> SwitchThemeCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowHelpCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowAboutCommand { get; }
+
+    public ReactiveCommand<Unit, Unit> SourceImageClickCommand { get; }
+    public ReactiveCommand<Unit, Unit> SourceImageDoubleClickCommand { get; }
+    public ReactiveCommand<Unit, Unit> SourceImageMaskClickCommand { get; }
+    public ReactiveCommand<Unit, Unit> SourceImageMaskDoubleClickCommand { get; }
+    
+    public ReactiveCommand<Unit, Unit> PreviewImageDoubleClickCommand { get; }
+    
+
+
     private readonly IFilePickerService _filePickerService;
     private readonly IFolderPickerService _folderPickerService;
     private readonly IMessageBoxService _messageBoxService;
@@ -112,6 +122,21 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
+
+        SourceImageClickCommand = ReactiveCommand.CreateFromTask(() =>
+            SelectSourceImage());
+
+        SourceImageDoubleClickCommand = ReactiveCommand.CreateFromTask(() =>
+            ViewSourceImageAsync());
+        
+        SourceImageMaskClickCommand = ReactiveCommand.CreateFromTask(() =>
+            SelectSourceMask());
+        
+        SourceImageMaskDoubleClickCommand = ReactiveCommand.CreateFromTask(() =>
+            ViewSourceMaskAsync());
+        
+        PreviewImageDoubleClickCommand = ReactiveCommand.CreateFromTask(() =>
+            ViewPreviewImageAsync());
 
         PopulateSprockets();
         CreateInitialEntry();
@@ -193,16 +218,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public async void SourceImageUniqueColoursPerLine()
     {
-        var breakdown = await UniqueColoursPerLine(SelectedConversion.SourceImagePath,"Source Image");
+        var breakdown = await UniqueColoursPerLine(SelectedConversion.SourceImagePath, "Source Image");
     }
-    
+
     public async void PreviewImageUniqueColoursPerLine()
     {
-        var breakdown = await UniqueColoursPerLine(SelectedConversion.ImagePreviewPath,"Preview Image");
+        var breakdown = await UniqueColoursPerLine(SelectedConversion.ImagePreviewPath, "Preview Image");
     }
-    
-    
-    private async Task<bool> UniqueColoursPerLine(string fileName,string hdrText)
+
+
+    private async Task<bool> UniqueColoursPerLine(string fileName, string hdrText)
     {
         try
         {
@@ -217,22 +242,23 @@ public class AdRastaMainViewViewModel : ReactiveObject
                 );
                 return false;
             }
+
             var hdr = new StringBuilder();
             var sb = new StringBuilder();
             foreach (var kvp in breakdown)
             {
                 if (kvp.Value > maxColoursPerLine)
                     maxColoursPerLine = kvp.Value;
-                
+
                 sb.AppendLine($"Line {kvp.Key,3}: {kvp.Value,4}");
             }
-            
+
             hdr.AppendLine($"Image: {Path.GetFileName(fileName)}");
             hdr.AppendLine($"Max Colours in one line: {maxColoursPerLine}");
             hdr.AppendLine(new string('-', 40));
             hdr.AppendLine("");
-                
-            string resultText = hdr.ToString() +  sb?.ToString();
+
+            string resultText = hdr.ToString() + sb?.ToString();
 
             await _messageBoxService.ShowInfoAsync($"{hdrText} - Unique Colours Per Line", resultText);
         }
@@ -241,6 +267,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
             Console.WriteLine(e);
             return false;
         }
+
         return true;
     }
 
@@ -375,14 +402,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
     }
 
 
-    public async void SelectSourceImage()
+    public async Task SelectSourceImage()
     {
-        SelectedConversion.SourceImagePath = await SelectFiles(FilePickerFileTypes.ImageAll);
+        var selectedPath = await SelectFiles(FilePickerFileTypes.ImageAll);
+        if (selectedPath != null && selectedPath != string.Empty)
+            SelectedConversion.SourceImagePath = selectedPath;
     }
 
-    public async void SelectSourceMask()
+    public async Task SelectSourceMask()
     {
-        SelectedConversion.SourceImageMaskPath = await SelectFiles(FilePickerFileTypes.ImageAll);
+        var selectedPath = await SelectFiles(FilePickerFileTypes.ImageAll);
+        if (selectedPath != null && selectedPath != string.Empty)
+            SelectedConversion.SourceImageMaskPath = selectedPath;
     }
 
     public async void SelectRegisterOnOffFile()
@@ -447,7 +478,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");
-        
+
         if (Settings.AutoViewPreview)
             await ViewPreviewImageAsync();
     }
@@ -465,7 +496,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");
-        
+
         if (Settings.AutoViewPreview)
             await ViewPreviewImageAsync();
     }
@@ -506,6 +537,21 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task ViewSourceImageAsync()
     {
         await ImageUtils.ViewImage(SelectedConversion.SourceImagePath);
+    }
+
+    public async Task ViewSourceMaskAsync()
+    {
+        await ImageUtils.ViewImage(SelectedConversion.SourceImageMaskPath);
+    }
+
+    public async Task ClearSourceImageAsync()
+    {
+        SelectedConversion.SourceImagePath = string.Empty;
+    }
+
+    public async Task ClearSourceImageMaskAsync()
+    {
+        SelectedConversion.SourceImageMaskPath = string.Empty;
     }
     
     public async Task ViewPreviewImageAsync()

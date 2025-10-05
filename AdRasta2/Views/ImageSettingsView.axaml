@@ -7,6 +7,7 @@
              xmlns:converters="clr-namespace:AdRasta2.Converters"
              xmlns:views="clr-namespace:AdRasta2.Views"
              xmlns:controls="clr-namespace:AdRasta2.Controls"
+             xmlns:models="clr-namespace:AdRasta2.Models"
              x:DataType="vm:AdRastaMainViewViewModel"
              x:Class="AdRasta2.Views.ImageSettingsView">
 
@@ -15,20 +16,24 @@
     </UserControl.Resources>
 
     <Grid RowDefinitions="*,*" ColumnDefinitions="Auto,Auto,Auto,*">
-
-        <!-- Source -->
+        
+        <!-- Source Image -->
         <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Header="Source"
                                 Margin="0,0,5,5">
             <Grid RowDefinitions="*,Auto" ColumnDefinitions="*,Auto" RowSpacing="5">
-                <Button Grid.Row="0" Grid.Column="0"
-                        Command="{Binding SelectSourceImage}"
+                <Border Grid.Row="0"
+                        Grid.Column="0"
                         BorderBrush="Black"
                         BorderThickness="1"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Margin="0,0,0,3"
                         Padding="1"
-                        Background="Black">
+                        Background="Black"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                    <Interaction.Behaviors>
+                        <models:ClickBehavior SingleClickCommand="{Binding SourceImageClickCommand}"
+                                             DoubleClickCommand="{Binding SourceImageDoubleClickCommand}" />
+                    </Interaction.Behaviors>
                     <Grid>
                         <!-- Source Image -->
                         <Image Source="{Binding SelectedConversion.SourceImage}"
@@ -41,22 +46,25 @@
                                Stretch="Uniform">
                             <Image.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="View Image" 
-                                              Command="{Binding ViewSourceImageAsync}" 
-                                              Margin="10,0,10,0"/>
-                                    <MenuItem Header="H-Flip" 
-                                              Command="{Binding HFlipSourceImage}" 
-                                              Margin="10,0,10,0"/>
-                                    <MenuItem Header="--- Image Analysis ---" 
-                                              IsEnabled="False" 
-                                              FontStyle="Italic" 
+                                    <MenuItem Header="Clear Image"
+                                              Command="{Binding ClearSourceImageAsync}"
+                                              Margin="10,0,10,0" />
+                                    <MenuItem Header="View Image"
+                                              Command="{Binding ViewSourceImageAsync}"
+                                              Margin="10,0,10,0" />
+                                    <MenuItem Header="H-Flip"
+                                              Command="{Binding HFlipSourceImage}"
+                                              Margin="10,0,10,0" />
+                                    <MenuItem Header="--- Image Analysis ---"
+                                              IsEnabled="False"
+                                              FontStyle="Italic"
                                               FontWeight="DemiBold" />
-                                    <MenuItem Header="Check Colour Bias" 
-                                              Command="{Binding CheckColourBias}" 
-                                              Margin="10,0,10,0"/>
-                                    <MenuItem Header="Unique Colours Per Line" 
-                                              Command="{Binding SourceImageUniqueColoursPerLine}" 
-                                              Margin="10,0,10,0"/>
+                                    <MenuItem Header="Check Colour Bias"
+                                              Command="{Binding CheckColourBias}"
+                                              Margin="10,0,10,0" />
+                                    <MenuItem Header="Unique Colours Per Line"
+                                              Command="{Binding SourceImageUniqueColoursPerLine}"
+                                              Margin="10,0,10,0" />
                                 </ContextMenu>
                             </Image.ContextMenu>
                         </Image>
@@ -86,7 +94,7 @@
                             </ItemsControl>
                         </StackPanel>
                     </Grid>
-                </Button>
+                </Border>
                 <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="*,Auto" RowSpan="2" Margin="0,0,0,0">
                     <Slider Orientation="Vertical"
                             Minimum="0"
@@ -129,22 +137,26 @@
                 </Grid>
             </Grid>
         </HeaderedContentControl>
+      
 
         <!-- Mask -->
         <HeaderedContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Header="Mask" Margin="5,0,5,5"
                                 IsVisible="{Binding SelectedConversion.IsSingleFrameMode}">
             <Grid RowDefinitions="*,Auto" RowSpacing="5">
-                <Button Grid.Row="0"
+                <Border Grid.Row="0"
                         IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
                         IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
-                        Command="{Binding SelectSourceMask}"
-                        HorizontalAlignment="Stretch"
+                        BorderBrush="Black"
+                        BorderThickness="1"
                         Margin="0,0,0,3"
                         Padding="1"
                         Background="Black"
-                        BorderBrush="Black"
-                        BorderThickness="1"
-                        DoubleTapped="SourceImage_DoubleTapped">
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                    <Interaction.Behaviors>
+                        <models:ClickBehavior SingleClickCommand="{Binding SourceImageMaskClickCommand}"
+                                              DoubleClickCommand="{Binding SourceImageMaskDoubleClickCommand}" />
+                    </Interaction.Behaviors>
                     <Image Source="{Binding SelectedConversion.SourceImageMask}"
                            MinWidth="160"
                            MinHeight="120"
@@ -154,11 +166,16 @@
                            ToolTip.Tip="{Binding SelectedConversion.SourceImageMaskPath}">
                         <Image.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="H-Flip" Command="{Binding HFlipMaskImage}" />
+                                <MenuItem Header="Clear Image"
+                                          Command="{Binding ClearSourceImageMaskAsync}"
+                                          Margin="10,0,10,0" />                                
+                                <MenuItem Header="H-Flip" 
+                                          Command="{Binding HFlipMaskImage}" 
+                                          Margin="10,0,10,0"/>
                             </ContextMenu>
                         </Image.ContextMenu>
                     </Image>
-                </Button>
+                </Border>
                 <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
                     <Label Grid.Column="0" VerticalAlignment="Center">Strength</Label>
                     <controls:SafeNumericUpDown Grid.Column="1" Maximum="1000" Minimum="0" Increment="1"
@@ -172,7 +189,8 @@
         </HeaderedContentControl>
 
         <!-- Preview -->
-        <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Header="{Binding SelectedConversion.PreviewHeaderTitle}"
+        <HeaderedContentControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="2"
+                                Header="{Binding SelectedConversion.PreviewHeaderTitle}"
                                 Margin="5,0,5,5" HorizontalAlignment="Right">
             <Grid RowDefinitions="*,Auto" RowSpacing="5">
                 <Border Grid.Row="0"
@@ -182,6 +200,9 @@
                         Background="Black"
                         BorderBrush="Black"
                         BorderThickness="1">
+                    <Interaction.Behaviors>
+                        <models:ClickBehavior DoubleClickCommand="{Binding PreviewImageDoubleClickCommand}" />
+                    </Interaction.Behaviors>
                     <Image Source="{Binding SelectedConversion.ImagePreview}"
                            ToolTip.Tip="{Binding SelectedConversion.PreviewImageColoursText}"
                            MinWidth="160"
@@ -191,16 +212,16 @@
                            Stretch="Uniform">
                         <Image.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="View Image" 
-                                          Command="{Binding ViewPreviewImageAsync}" 
-                                          Margin="10,0,10,0"/>
-                                <MenuItem Header="--- Image Analysis ---" 
-                                          IsEnabled="False" 
-                                          FontStyle="Italic" 
+                                <MenuItem Header="View Image"
+                                          Command="{Binding ViewPreviewImageAsync}"
+                                          Margin="10,0,10,0" />
+                                <MenuItem Header="--- Image Analysis ---"
+                                          IsEnabled="False"
+                                          FontStyle="Italic"
                                           FontWeight="DemiBold" />
-                                <MenuItem Header="Unique Colours Per Line" 
-                                          Command="{Binding PreviewImageUniqueColoursPerLine}" 
-                                          Margin="10,0,10,0"/>                                
+                                <MenuItem Header="Unique Colours Per Line"
+                                          Command="{Binding PreviewImageUniqueColoursPerLine}"
+                                          Margin="10,0,10,0" />
                             </ContextMenu>
                         </Image.ContextMenu>
                     </Image>
@@ -213,7 +234,7 @@
                 </Grid>
             </Grid>
         </HeaderedContentControl>
-        
+
         <views:ConversionLogView Grid.Row="0"
                                  Grid.Column="3"
                                  Grid.RowSpan="2"

@@ -22,6 +22,9 @@ public class RastaConverter
             Settings.BaseRastaCommand, false);
 
         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
+            "*.dll", false);
+        
+        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
             "clacon2.ttf", false);
 
         await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);

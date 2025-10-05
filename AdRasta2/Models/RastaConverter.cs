@@ -191,7 +191,7 @@ public class RastaConverter
 
         if (rastaConversion.UnstuckDrift != RastaConverterDefaultValues.DefaultUnstuckDrift)
         {
-            args.Add($"/unstuck_after={rastaConversion.UnstuckDrift}");
+            args.Add($"/unstuck_drift={rastaConversion.UnstuckDrift}");
         }
 
         if (rastaConversion.DualBlending != RastaConverterDefaultValues.DefaultDualBlending)
@@ -335,7 +335,7 @@ public class RastaConverter
 
         if (rastaConversion.UnstuckDrift != RastaConverterDefaultValues.DefaultUnstuckDrift)
         {
-            args.Add($"--unstuck_after={rastaConversion.UnstuckDrift}");
+            args.Add($"--unstuck_drift={rastaConversion.UnstuckDrift}");
         }
 
         if (rastaConversion.DualBlending != RastaConverterDefaultValues.DefaultDualBlending)

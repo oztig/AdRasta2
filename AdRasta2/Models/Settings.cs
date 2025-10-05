@@ -5,7 +5,7 @@ namespace AdRasta2.Models;
 
 public class Settings
 {
-    public static string IniFileLocation = Path.Combine(Directory.GetCurrentDirectory().Trim(), "AdRasta2.ini");
+    public static readonly string IniFileLocation = Path.Combine(Directory.GetCurrentDirectory().Trim(), "AdRasta2.ini");
     public static string RastaConverterCommand { get; set; } = string.Empty;
 
     public static string BaseRastaCommandLocation => Path.GetDirectoryName(RastaConverterCommand);
@@ -89,19 +89,23 @@ public class Settings
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
         DebugMode = ini.GetBool("Debug", "DebugMode", false);
 
+        
         // RastaConverter Specific
         try
         {
             RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 17);
+            float raw = ini.GetFloat("RastaConverter.Defaults", "DefaultUnstuckDrift", 0.00001f);
+            decimal unstuckDrift = (decimal)raw;
+            RastaConverterDefaultValues.DefaultUnstuckDrift = unstuckDrift;
+            RastaConverterDefaultValues.DefaultUnstuckAfter =
+                ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
+            RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
+                string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
         }
-
-        RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
-            string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
-
         return true;
     }
 }

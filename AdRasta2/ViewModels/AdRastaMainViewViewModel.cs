@@ -13,6 +13,7 @@ using AdRasta2.Services;
 using AdRasta2.Utils;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Platform.Storage;
@@ -118,6 +119,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private void CreateInitialEntry()
     {
+        Settings.SetDefaults();
         RastaConversions = new ObservableCollection<RastaConversion>
         {
             new RastaConversion("New Conversion"),

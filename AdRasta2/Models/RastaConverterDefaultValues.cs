@@ -40,6 +40,6 @@ public class RastaConverterDefaultValues
     public static string DefaultConvertedImageName = "output.png";
     public static string DefaultDualModeConvertedImageName = "out_dual_blended.png";
     public static string DefaultRegisterOnOffFilePath = string.Empty;
-    public static decimal DefaultUnstuckDrift = (decimal)0.00001;
+    public static decimal DefaultUnstuckDrift =0.00001M;
     public static int DefaultUnstuckAfter = 1000000;
 }

@@ -52,6 +52,7 @@
             <ComboBox Grid.Row="0" Grid.Column="5"
                       ItemsSource="{Binding SourceData.AutoSavePeriods}"
                       SelectedItem="{Binding SelectedConversion.AutoSavePeriod}"
+                      ToolTip.Tip="0 - Don't Auto Save"
                       HorizontalAlignment="Stretch" />
 
             <Label Grid.Row="1" Grid.Column="2" Content="Threads" VerticalAlignment="Center" />

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
 
 namespace AdRasta2.Models;
 
@@ -26,7 +28,7 @@ public class SourceData
         PopulateInitialState();
         PopulateAutoSavePeriods();
         PopulateThreads();
-        PopulatePalettes();
+        PopulatePalettes("");
         PopulatePreColourDistance();
         PopulateDithering();
         PopulateOptimiser();
@@ -99,18 +101,42 @@ public class SourceData
         }
     }
     
-    private void PopulatePalettes()
+    // private void PopulatePalettes()
+    // {
+    //     Palettes.Clear();
+    //     Palettes.Add("altirra");
+    //     Palettes.Add("altirra_old");
+    //     Palettes.Add("g2f");
+    //     Palettes.Add("jakub");
+    //     Palettes.Add("laoo");
+    //     Palettes.Add("ntsc");
+    //     Palettes.Add("olivierp");
+    //     Palettes.Add("real");
+    // }
+    
+    public void PopulatePalettes(string? destinationPath)
     {
         Palettes.Clear();
-        Palettes.Add("altirra");
-        Palettes.Add("altirra_old");
-        Palettes.Add("g2f");
-        Palettes.Add("jakub");
-        Palettes.Add("laoo");
-        Palettes.Add("ntsc");
-        Palettes.Add("olivierp");
-        Palettes.Add("real");
+
+        var folder = string.IsNullOrWhiteSpace(destinationPath)
+            ? Settings.PaletteDirectory
+            : destinationPath;
+
+        if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
+            folder = Settings.PaletteDirectory;
+
+        if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
+            return;
+
+        var paletteFiles = Directory.EnumerateFiles(folder, "*.act")
+            .Select(f => Path.GetFileNameWithoutExtension(f))
+            .OrderBy(name => name);
+
+        foreach (var name in paletteFiles)
+            Palettes.Add(name);
     }
+
+    
     
     private void PopulatePreColourDistance()
     {

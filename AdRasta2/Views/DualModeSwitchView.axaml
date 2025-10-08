@@ -31,7 +31,18 @@
                     x:Name="btnDestination"
                     Content="{Binding  SelectedConversion.DestinationFilePath}"
                     ToolTip.Tip="{Binding  SelectedConversion.DestinationFilePath}"
-                    Command="{Binding SelectDestinationFoler }" />
+                    Command="{Binding SelectDestinationFoler }">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Clear Path"
+                                  Margin="10,0,10,0"
+                                  Command="{Binding ClearDestinationFolderCommand}"/>
+                        <MenuItem Header="Open in File Explorer"
+                                  Margin="10,0,10,0"
+                                  Command="{Binding OpenDestinationFolderCommand}"/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
             <Button Grid.Row="0" Grid.Column="6"
                     ToolTip.Tip="Folder Already Used For Another Conversion - Please Check"
                     Height="{Binding Height, ElementName = btnDestination}"

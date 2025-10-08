@@ -359,6 +359,10 @@ public class RastaConversion : ReactiveObject
     public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath)
         ? string.Empty
         : DestinationFilePath;
+    
+    public string DestinationPaletteDir =>string.IsNullOrEmpty(DestinationFilePath)
+        ? string.Empty
+        : Path.Combine( DestinationFilePath,"Palettes"); 
 
     public string DestinationImageFileName => Path.Combine(DestinationDirectory, SourceImageBaseName);
 

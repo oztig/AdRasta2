@@ -12,18 +12,22 @@ namespace AdRasta2.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    public AdRastaMainViewViewModel AdRastaMainViewVM { get; } 
+    public AdRastaMainViewViewModel AdRastaMainViewVM { get; }
 
     private WindowIcon? _icon;
+
     public WindowIcon? AppIcon
     {
         get => _icon;
         set => this.RaiseAndSetIfChanged(ref _icon, value);
     }
-    
-    public MainWindowViewModel(Window window,IFilePickerService filePickerService,IFolderPickerService folderPickerService, IMessageBoxService messageBoxService)
+
+    public MainWindowViewModel(Window window, IFilePickerService filePickerService,
+        IFolderPickerService folderPickerService, IMessageBoxService messageBoxService,
+        IFileExplorerService fileExplorerService)
     {
-       AdRastaMainViewVM = new AdRastaMainViewViewModel(window,filePickerService,folderPickerService, messageBoxService);
+        AdRastaMainViewVM = new AdRastaMainViewViewModel(window, filePickerService, folderPickerService,
+            messageBoxService, fileExplorerService);
         SetIcon();
     }
 
@@ -31,7 +35,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         AdRastaMainViewVM.SetWindow(window);
     }
-    
+
     private void SetIcon()
     {
         Uri iconPath;

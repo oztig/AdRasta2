@@ -88,14 +88,16 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> SourceImageDoubleClickCommand { get; }
     public ReactiveCommand<Unit, Unit> SourceImageMaskClickCommand { get; }
     public ReactiveCommand<Unit, Unit> SourceImageMaskDoubleClickCommand { get; }
-    
-    public ReactiveCommand<Unit, Unit> PreviewImageDoubleClickCommand { get; }
-    
 
+    public ReactiveCommand<Unit, Unit> PreviewImageDoubleClickCommand { get; }
+
+    public ReactiveCommand<Unit, Unit> OpenDestinationFolderCommand { get; }
+    public ReactiveCommand<Unit, Unit> ClearDestinationFolderCommand { get; }
 
     private readonly IFilePickerService _filePickerService;
     private readonly IFolderPickerService _folderPickerService;
     private readonly IMessageBoxService _messageBoxService;
+    private readonly IFileExplorerService _fileExplorerService;
 
     public ObservableCollection<int> Sprockets { get; } = new();
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
@@ -112,12 +114,15 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,
         IFolderPickerService folderPickerService,
-        IMessageBoxService messageBoxService)
+        IMessageBoxService messageBoxService,
+        IFileExplorerService fileExplorerService
+    )
     {
         _window = window;
         _filePickerService = filePickerService;
         _folderPickerService = folderPickerService;
         _messageBoxService = messageBoxService;
+        _fileExplorerService = fileExplorerService;
         SwitchThemeCommand = ReactiveCommand.Create<string>(SwitchTheme);
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
@@ -128,15 +133,20 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         SourceImageDoubleClickCommand = ReactiveCommand.CreateFromTask(() =>
             ViewSourceImageAsync());
-        
+
         SourceImageMaskClickCommand = ReactiveCommand.CreateFromTask(() =>
             SelectSourceMask());
-        
+
         SourceImageMaskDoubleClickCommand = ReactiveCommand.CreateFromTask(() =>
             ViewSourceMaskAsync());
-        
+
         PreviewImageDoubleClickCommand = ReactiveCommand.CreateFromTask(() =>
             ViewPreviewImageAsync());
+
+        OpenDestinationFolderCommand = ReactiveCommand.CreateFromTask(() =>
+            OpenDestinationFolerAsync());
+        ClearDestinationFolderCommand = ReactiveCommand.CreateFromTask(() => 
+            ClearDestinationFolderAsync());
 
         PopulateSprockets();
         CreateInitialEntry();
@@ -375,8 +385,20 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public async void SelectDestinationFoler()
     {
-        SelectedConversion.DestinationFilePath = await SelectFolder();
-        UpdateDuplicateDestinationFlags();
+        var folder = await SelectFolder();
+        if (folder != string.Empty)
+        {
+            SelectedConversion.DestinationFilePath = folder;
+            UpdateDuplicateDestinationFlags();
+            await CopyAndSetPalette();
+        }
+    }
+
+    private async Task CopyAndSetPalette()
+    {
+        await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, SelectedConversion.DestinationDirectory);
+        SourceData.PopulatePalettes(SelectedConversion.DestinationPaletteDir);
+        SelectedConversion.Palette = RastaConverterDefaultValues.DefaultPalette;
     }
 
     private void UpdateDuplicateDestinationFlags()
@@ -401,6 +423,15 @@ public class AdRastaMainViewViewModel : ReactiveObject
         }
     }
 
+    public async Task OpenDestinationFolerAsync()
+    {
+        await ShowExplorer();
+    }
+
+    public async Task ClearDestinationFolderAsync()
+    {
+        SelectedConversion.DestinationFilePath = string.Empty;
+    }
 
     public async Task SelectSourceImage()
     {
@@ -444,6 +475,19 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
+    }
+
+    private Task ShowExplorer()
+    {
+        try
+        {
+            _fileExplorerService.OpenFolder(SelectedConversion.DestinationFilePath);
+            return Task.CompletedTask;
+        }
+        catch
+        {
+            return Task.CompletedTask;
+        }
     }
 
     public async Task PreviewImage()
@@ -553,7 +597,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.SourceImageMaskPath = string.Empty;
     }
-    
+
     public async Task ViewPreviewImageAsync()
     {
         await ImageUtils.ViewImage(SelectedConversion.ImagePreviewPath);

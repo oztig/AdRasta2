@@ -24,10 +24,10 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel(Window window, IFilePickerService filePickerService,
         IFolderPickerService folderPickerService, IMessageBoxService messageBoxService,
-        IFileExplorerService fileExplorerService)
+        IFileExplorerService fileExplorerService,IconGlyphService iconService)
     {
         AdRastaMainViewVM = new AdRastaMainViewViewModel(window, filePickerService, folderPickerService,
-            messageBoxService, fileExplorerService);
+            messageBoxService, fileExplorerService, iconService);
         SetIcon();
     }
 

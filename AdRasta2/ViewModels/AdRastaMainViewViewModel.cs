@@ -99,13 +99,14 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private readonly IFolderPickerService _folderPickerService;
     private readonly IMessageBoxService _messageBoxService;
     private readonly IFileExplorerService _fileExplorerService;
+    private readonly IconGlyphService _iconService;
 
     public ObservableCollection<int> Sprockets { get; } = new();
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
-    
+
     public string ConversionSummary
     {
-        get => $"({_selectedIndex +1} / {RastaConversions.Count})";
+        get => $"({_selectedIndex + 1} / {RastaConversions.Count})";
     }
 
     public int MaxThreads => Environment.ProcessorCount;
@@ -116,10 +117,10 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public bool IsThreadOverAllocated =>
         TotalThreadsInUse > MaxThreads;
-    
+
     public IBrush ThreadWarningBrush =>
         IsThreadOverAllocated ? Brushes.Red : Brushes.Black;
-    
+
     public string ThreadsAvailableTooltip =>
         $"Threads in use by conversions: {TotalThreadsInUse} / {MaxThreads}.\n" +
         $"You have {ThreadsAvailable} threads available.";
@@ -132,7 +133,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     //     get => _selectedConversion;
     //     set => this.RaiseAndSetIfChanged(ref _selectedConversion, value);
     // }
-    
+
     private RastaConversion? _selectedConversion;
 
     public RastaConversion? SelectedConversion
@@ -162,16 +163,17 @@ public class AdRastaMainViewViewModel : ReactiveObject
         this.RaisePropertyChanged(nameof(ThreadsAvailableTooltip));
         this.RaisePropertyChanged(nameof(ThreadWarningBrush));
     }
-    
+
     private IDisposable? _selectedConversionSubscription;
-    
+
 
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
 
     public AdRastaMainViewViewModel(Window window, IFilePickerService filePickerService,
         IFolderPickerService folderPickerService,
         IMessageBoxService messageBoxService,
-        IFileExplorerService fileExplorerService
+        IFileExplorerService fileExplorerService,
+        IconGlyphService iconService
     )
     {
         _window = window;
@@ -179,6 +181,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         _folderPickerService = folderPickerService;
         _messageBoxService = messageBoxService;
         _fileExplorerService = fileExplorerService;
+        _iconService = iconService;
         SwitchThemeCommand = ReactiveCommand.Create<string>(SwitchTheme);
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
@@ -201,7 +204,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         OpenDestinationFolderCommand = ReactiveCommand.CreateFromTask(() =>
             OpenDestinationFolerAsync());
-        ClearDestinationFolderCommand = ReactiveCommand.CreateFromTask(() => 
+        ClearDestinationFolderCommand = ReactiveCommand.CreateFromTask(() =>
             ClearDestinationFolderAsync());
 
         PopulateSprockets();
@@ -265,8 +268,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private async void RecalculateThreadsCount()
     {
-       this.RaisePropertyChanged(nameof(ThreadsAvailable));
-       this.RaisePropertyChanged(nameof(TotalThreadsInUse));
+        this.RaisePropertyChanged(nameof(ThreadsAvailable));
+        this.RaisePropertyChanged(nameof(TotalThreadsInUse));
     }
 
     public async void HFlipSourceImage()
@@ -562,6 +565,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
 
+        // Generate the image for the icon
+        await _iconService.GenerateIconAsync(SelectedConversion.SourceImagePath,SelectedConversion.DestinationFilePath,SelectedConversion.Title);
+
         var result = await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 1)
@@ -579,6 +585,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
 
+        // Generate the image for the icon
+        await _iconService.GenerateIconAsync(SelectedConversion.SourceImagePath,SelectedConversion.DestinationFilePath,SelectedConversion.Title);
+        
         var result = await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)
@@ -597,6 +606,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
 
+        // Generate the image for the icon
+        await _iconService.GenerateIconAsync(SelectedConversion.SourceImagePath,SelectedConversion.DestinationFilePath,SelectedConversion.Title);
+        
         var result = await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)

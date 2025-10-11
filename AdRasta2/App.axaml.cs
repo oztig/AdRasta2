@@ -130,8 +130,9 @@ public partial class App : Application
         var folderPickerService = new FolderPickerService(mainWindow);
         var messageBoxService = new MessageBoxService();
         var fileExplorerService = new FileExplorerService();
+        var iconService = new IconGlyphService();
 
-        var viewModel = new MainWindowViewModel(mainWindow, filePickerService, folderPickerService, messageBoxService,fileExplorerService);
+        var viewModel = new MainWindowViewModel(mainWindow, filePickerService, folderPickerService, messageBoxService,fileExplorerService,iconService);
         mainWindow.DataContext = viewModel;
         mainWindow.Show();
 

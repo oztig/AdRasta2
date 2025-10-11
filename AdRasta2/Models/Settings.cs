@@ -41,6 +41,7 @@ public class Settings
     }
     
     public static bool AutoViewPreview { get; set; }
+    public static bool SetConversionIcon { get; set; }
     
     public static int MaxLogEntries { get; set; } = 100;
 
@@ -90,7 +91,7 @@ public class Settings
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
         DebugMode = ini.GetBool("Debug", "DebugMode", false);
         AutoViewPreview = ini.GetBool("UserDefaults", "AutoViewPreview", false);
-
+        SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcom", false);
         
         // RastaConverter Specific
         try

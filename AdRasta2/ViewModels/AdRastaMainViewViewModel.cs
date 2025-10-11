@@ -14,6 +14,7 @@ using AdRasta2.Utils;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Platform.Storage;
@@ -101,14 +102,69 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public ObservableCollection<int> Sprockets { get; } = new();
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
+    
+    public string ConversionSummary
+    {
+        get => $"({_selectedIndex +1} / {RastaConversions.Count})";
+    }
 
+    public int MaxThreads => Environment.ProcessorCount;
+
+    public int TotalThreadsInUse => RastaConversions.Sum(c => c.NumberOfThreads);
+
+    public int ThreadsAvailable => Math.Max(0, MaxThreads - TotalThreadsInUse);
+
+    public bool IsThreadOverAllocated =>
+        TotalThreadsInUse > MaxThreads;
+    
+    public IBrush ThreadWarningBrush =>
+        IsThreadOverAllocated ? Brushes.Red : Brushes.Black;
+    
+    public string ThreadsAvailableTooltip =>
+        $"Threads in use by conversions: {TotalThreadsInUse} / {MaxThreads}.\n" +
+        $"You have {ThreadsAvailable} threads available.";
+
+
+    // private RastaConversion? _selectedConversion;
+    //
+    // public RastaConversion? SelectedConversion
+    // {
+    //     get => _selectedConversion;
+    //     set => this.RaiseAndSetIfChanged(ref _selectedConversion, value);
+    // }
+    
     private RastaConversion? _selectedConversion;
 
     public RastaConversion? SelectedConversion
     {
         get => _selectedConversion;
-        set => this.RaiseAndSetIfChanged(ref _selectedConversion, value);
+        set
+        {
+            if (_selectedConversion == value)
+                return;
+
+            _selectedConversionSubscription?.Dispose();
+
+            _selectedConversion = value;
+            this.RaisePropertyChanged(nameof(SelectedConversion));
+
+            _selectedConversionSubscription = value?
+                .WhenAnyValue(x => x.NumberOfThreads)
+                .Subscribe(_ => RaiseThreadPropertiesChanged());
+
+            RaiseThreadPropertiesChanged();
+        }
     }
+
+    private void RaiseThreadPropertiesChanged()
+    {
+        this.RaisePropertyChanged(nameof(IsThreadOverAllocated));
+        this.RaisePropertyChanged(nameof(ThreadsAvailableTooltip));
+        this.RaisePropertyChanged(nameof(ThreadWarningBrush));
+    }
+    
+    private IDisposable? _selectedConversionSubscription;
+    
 
     public ReactiveCommand<RastaConversion, Unit> PanelClickedCommand { get; }
 
@@ -181,6 +237,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion = conversion;
         SetIsSelected(_selectedIndex);
         SelectedConversion?.ScrollToLatestLogEntry?.Invoke();
+        this.RaisePropertyChanged(nameof(ConversionSummary));
+
+        RecalculateThreadsCount();
 
         // DEBUG
         Console.WriteLine($"Clicked item '{conversion.Title}' at index {_selectedIndex}");
@@ -202,6 +261,12 @@ public class AdRastaMainViewViewModel : ReactiveObject
         RastaConversions.Add(new RastaConversion(userInput.value.Trim()));
         UpdateDuplicateDestinationFlags();
         ChangeSelected(RastaConversions[^1]);
+    }
+
+    private async void RecalculateThreadsCount()
+    {
+       this.RaisePropertyChanged(nameof(ThreadsAvailable));
+       this.RaisePropertyChanged(nameof(TotalThreadsInUse));
     }
 
     public async void HFlipSourceImage()
@@ -351,6 +416,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
             RastaConversions.Remove(SelectedConversion);
             UpdateDuplicateDestinationFlags();
             ChangeSelected(RastaConversions[^1]);
+            this.RaisePropertyChanged(nameof(ConversionSummary));
         }
     }
 

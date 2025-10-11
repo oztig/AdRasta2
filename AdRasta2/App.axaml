@@ -28,6 +28,11 @@
     <!-- Fluent theme with compact density -->
     <FluentTheme DensityStyle="Compact" />
 
+    <Style Selector="ComboBox.thread-warning">
+      <Setter Property="Foreground" Value="Red"/>
+      <Setter Property="BorderBrush" Value="Red"/>
+    </Style>
+
     <!-- Global font scaling -->
     <Style Selector="ContentPresenter">
       <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />

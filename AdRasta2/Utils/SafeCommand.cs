@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using AdRasta2.Models;
 
 namespace AdRasta2.Utils;
 
@@ -18,7 +19,7 @@ public static class SafeCommand
         if (!needsQuotes)
             return value;
 
-        if (OperatingSystem.IsWindows())
+        if (Settings.IsWindows)
         {
             // Escape double quotes for CMD/PowerShell
             value = value.Replace("\"", "\\\"");

@@ -53,18 +53,110 @@ public class FileUtils
     }
 
     public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,
-        bool overwrite = true)
+        RastaConversion conversion, bool overwrite = true)
     {
+        if (string.IsNullOrWhiteSpace(sourceDir))
+        {
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                "Source directory is null or empty. Aborting copy.");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(destinationDir))
+        {
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                "Destination directory is null or empty. Aborting copy.");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(searchPattern))
+        {
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                "Search pattern is null or empty. Aborting copy.");
+            return;
+        }
+
+        if (!Directory.Exists(sourceDir))
+        {
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                $"Source directory '{sourceDir}' does not exist. Aborting copy.");
+            return;
+        }
+
+        if (!Directory.Exists(destinationDir))
+        {
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                $"Destination directory '{destinationDir}' does not exist. Aborting copy.");
+            return;
+        }
+
         var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
+        ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+            $"Found {files.Length} file(s) in '{sourceDir}' matching pattern '{searchPattern}'.");
 
         foreach (var file in files)
         {
-            var destPath = Path.Combine(destinationDir, Path.GetFileName(file));
+            if (string.IsNullOrWhiteSpace(file))
+                continue;
 
-            if (!File.Exists(destPath))
+            var fileName = Path.GetFileName(file);
+            var destPath = Path.Combine(destinationDir, fileName);
+
+            if (!File.Exists(destPath) || overwrite)
+            {
                 File.Copy(file, destPath, overwrite);
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                    $"Copied '{fileName}' to '{destinationDir}' (overwrite: {overwrite}).");
+            }
+            else
+            {
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                    $"Skipped '{fileName}' — already exists and overwrite is false.");
+            }
         }
+
+        await Task.CompletedTask;
     }
+
+
+    /*public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,RastaConversion conversion, bool overwrite = true)
+    {
+        var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
+        ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Found {files.Length} file(s) in '{sourceDir}' matching pattern '{searchPattern}'.");
+
+        foreach (var file in files)
+        {
+            var fileName = Path.GetFileName(file);
+            var destPath = Path.Combine(destinationDir, fileName);
+
+            if (!File.Exists(destPath) || overwrite)
+            {
+                File.Copy(file, destPath, overwrite);
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Copied '{fileName}' to '{destinationDir}' (overwrite: {overwrite}).");
+            }
+            else
+            {
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Skipped '{fileName}' — already exists and overwrite is false.");
+            }
+        }
+
+        await Task.CompletedTask; // ceremonial async completion
+    }*/
+
+
+    // public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,
+    //     bool overwrite = true)
+    // {
+    //     var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
+    //
+    //     foreach (var file in files)
+    //     {
+    //         var destPath = Path.Combine(destinationDir, Path.GetFileName(file));
+    //
+    //         if (!File.Exists(destPath))
+    //             File.Copy(file, destPath, overwrite);
+    //     }
+    // }
 
     /// <summary>
     /// Copy file, converting any 'nasty' chars to underscores
@@ -92,21 +184,23 @@ public class FileUtils
         {
             if (!overwrite && File.Exists(destPath))
             {
-                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Skipped copy: '{finalFileName}' already exists.");
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                    $"Skipped copy: '{finalFileName}' already exists.");
                 return (false, destPath);
             }
 
             File.Copy(sourcePath, destPath, overwrite);
-            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Copied '{originalFileName}' as '{finalFileName}'");
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                $"Copied '{originalFileName}' as '{finalFileName}'");
             return (true, destPath);
         }
         catch (Exception ex)
         {
-            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error, $"Copy failed for '{finalFileName}': {ex.Message}");
+            ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error,
+                $"Copy failed for '{finalFileName}': {ex.Message}");
             return (false, destPath);
         }
     }
-
 
 
     public static string SanitizeFileName(string fileName, bool stripSpaces = true)

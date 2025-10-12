@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using AdRasta2.Interfaces;
+using AdRasta2.Models;
 
 namespace AdRasta2.Services;
 
@@ -11,7 +12,7 @@ public class FileExplorerService : IFileExplorerService
 
     public FileExplorerService()
     {
-        _defaultCommand = OperatingSystem.IsWindows() ? "explorer"
+        _defaultCommand = Settings.IsWindows ? "explorer"
             : OperatingSystem.IsLinux() ? "xdg-open"
             : "explorer"; // fallback
     }

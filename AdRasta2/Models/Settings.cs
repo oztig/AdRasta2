@@ -5,6 +5,7 @@ namespace AdRasta2.Models;
 
 public class Settings
 {
+    public static readonly bool IsWindows = OperatingSystem.IsWindows();
     public static readonly string IniFileLocation = Path.Combine(Directory.GetCurrentDirectory().Trim(), "AdRasta2.ini");
     public static string RastaConverterCommand { get; set; } = string.Empty;
 
@@ -42,7 +43,10 @@ public class Settings
     
     public static bool AutoViewPreview { get; set; }
     public static bool SetConversionIcon { get; set; }
-    
+    public static string RCEditCommand { get; set; }
+    public static string BaseRCEditCommandLocation => Path.GetDirectoryName(RCEditCommand);
+    public static string BaseRCEditCommand => Path.GetFileName(RCEditCommand);
+
     public static int MaxLogEntries { get; set; } = 100;
 
 
@@ -58,7 +62,7 @@ public class Settings
 
     public static bool SetDefaults()
     {
-        if (OperatingSystem.IsWindows())
+        if (Settings.IsWindows)
             DefaultExecuteCommand = "explorer";
         else if (OperatingSystem.IsLinux())
             DefaultExecuteCommand = "xdg-open";
@@ -91,7 +95,10 @@ public class Settings
         PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
         DebugMode = ini.GetBool("Debug", "DebugMode", false);
         AutoViewPreview = ini.GetBool("UserDefaults", "AutoViewPreview", false);
-        SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcom", false);
+        
+        // Experimenatal
+        SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcon", false);
+        RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
         
         // RastaConverter Specific
         try

@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using AdRasta2.Enums;
+using AdRasta2.Services;
 using AdRasta2.Utils;
 using Avalonia.Media.TextFormatting;
 using CliWrap;
@@ -19,19 +20,22 @@ public class RastaConverter
     {
         // Copy supporting files
         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-            Settings.BaseRastaCommand, false);
+            Settings.BaseRastaCommand,conversion, false);
 
         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-            "*.dll", false);
-        
+            "*.dll", conversion,false);
+
         await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-            "clacon2.ttf", false);
+            "clacon2.ttf", conversion,false);
+        
+        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRCEditCommandLocation, conversion.DestinationDirectory,
+            Settings.BaseRCEditCommand, conversion,false);
 
         await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
     }
 
     public static async Task<ProcessRunResult> ExecuteCommand(bool isPreview, bool isContinue,
-        RastaConversion conversion)
+        RastaConversion conversion, IconPatchService iconService)
     {
         var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
         conversion.CommandLineText = await GenerateFullCommandLineString(safeParams);
@@ -39,6 +43,10 @@ public class RastaConverter
         try
         {
             await CopySupportingFiles(conversion);
+
+            // Generate the image for the icon
+            await iconService.GenerateAndPatchAsync(conversion.SourceImagePath, conversion.DestinationFilePath,
+                conversion.Title, conversion);
 
             // Run it and return the completed conversion
             return await ProcessRunner.RunAsync(

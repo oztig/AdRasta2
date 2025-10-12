@@ -99,7 +99,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private readonly IFolderPickerService _folderPickerService;
     private readonly IMessageBoxService _messageBoxService;
     private readonly IFileExplorerService _fileExplorerService;
-    private readonly IconGlyphService _iconService;
+    private readonly IconPatchService _iconService;
 
     public ObservableCollection<int> Sprockets { get; } = new();
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
@@ -173,7 +173,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         IFolderPickerService folderPickerService,
         IMessageBoxService messageBoxService,
         IFileExplorerService fileExplorerService,
-        IconGlyphService iconService
+        IconPatchService iconService
     )
     {
         _window = window;
@@ -565,10 +565,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
 
-        // Generate the image for the icon
-        await _iconService.GenerateIconAsync(SelectedConversion.SourceImagePath,SelectedConversion.DestinationFilePath,SelectedConversion.Title);
-
-        var result = await RastaConverter.ExecuteCommand(true, false, SelectedConversion);
+        var result = await RastaConverter.ExecuteCommand(true, false, SelectedConversion,_iconService);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 1)
             return;
@@ -584,11 +581,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task ConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-
-        // Generate the image for the icon
-        await _iconService.GenerateIconAsync(SelectedConversion.SourceImagePath,SelectedConversion.DestinationFilePath,SelectedConversion.Title);
         
-        var result = await RastaConverter.ExecuteCommand(false, false, SelectedConversion);
+        var result = await RastaConverter.ExecuteCommand(false, false, SelectedConversion,_iconService);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)
             return;
@@ -606,10 +600,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
 
-        // Generate the image for the icon
-        await _iconService.GenerateIconAsync(SelectedConversion.SourceImagePath,SelectedConversion.DestinationFilePath,SelectedConversion.Title);
-        
-        var result = await RastaConverter.ExecuteCommand(false, true, SelectedConversion);
+        var result = await RastaConverter.ExecuteCommand(false, true, SelectedConversion,_iconService);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)
             return;

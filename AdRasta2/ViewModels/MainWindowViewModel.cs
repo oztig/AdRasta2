@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using AdRasta2.Interfaces;
+using AdRasta2.Models;
 using AdRasta2.Services;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
@@ -24,7 +25,7 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel(Window window, IFilePickerService filePickerService,
         IFolderPickerService folderPickerService, IMessageBoxService messageBoxService,
-        IFileExplorerService fileExplorerService,IconGlyphService iconService)
+        IFileExplorerService fileExplorerService,IconPatchService iconService)
     {
         AdRastaMainViewVM = new AdRastaMainViewViewModel(window, filePickerService, folderPickerService,
             messageBoxService, fileExplorerService, iconService);
@@ -44,7 +45,7 @@ public class MainWindowViewModel : ViewModelBase
         {
             if (Debugger.IsAttached)
                 iconPath = new Uri($"avares://AdRasta2/Assets/AdRasta-Debug.png");
-            else if (OperatingSystem.IsWindows())
+            else if (Settings.IsWindows)
                 iconPath = new Uri($"avares://AdRasta2/Assets/AdRasta-Icon2.ico");
             else
                 iconPath = new Uri($"avares://AdRasta2/Assets/AdRasta-Icon2.png");

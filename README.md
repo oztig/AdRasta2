@@ -1,8 +1,9 @@
-(Place Holder)
+(Place holder)
+
 # AdRasta2
 
-AdRasta2 is a modern GUI wrapper for [RastaConverter](https://github.com/Ilmenit/RastaConverter).
-, designed to streamline image conversion workflows.
+AdRasta2 is a modern GUI wrapper for [RastaConverter](https://github.com/Ilmenit/RastaConverter),  
+designed to streamline image conversion workflows.
 
 Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 
@@ -17,14 +18,14 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 
 ## 🛠 Configuration
 
-AdRasta2 uses a simple .ini file to control behavior.
+AdRasta2 uses a simple `.ini` file to control behavior.
 
 
 ## 📦 Requirements
 
-Windows or Linux
-RastaConverter executable (not bundled), available from [here](https://github.com/Ilmenit/RastaConverter).<br>
-Optional: rcedit.exe for Windows icon injection, available from [here](https://github.com/electron/rcedit) 
+- Windows or Linux  
+- RastaConverter executable (not bundled), available from [Ilmenit’s GitHub](https://github.com/Ilmenit/RastaConverter)  
+- Optional: `rcedit.exe` for Windows icon injection, available from [electron/rcedit](https://github.com/electron/rcedit)
 
 
 ## 🧱 Built With
@@ -37,9 +38,6 @@ This project was developed using JetBrains Rider and targets the Microsoft .NET 
 The GUI is built with AvaloniaUI to support both Windows and Linux environments.
 
 
-## Screenshot
+## 📷 Screenshot
 
-<img width="1735" height="1605" alt="image" src="https://github.com/user-attachments/assets/27eb47ae-9967-44ed-bc60-931e5a842775" />
-
-
-
+<img width="1735" height="1605" alt="AdRasta2 UI" src="https://github.com/user-attachments/assets/27eb47ae-9967-44ed-bc60-931e5a842775" />

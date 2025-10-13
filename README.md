@@ -1,7 +1,8 @@
 (Place Holder)
 # AdRasta2
 
-AdRasta2 is a modern GUI wrapper for RastaConverter, designed to streamline image conversion workflows.
+AdRasta2 is a modern GUI wrapper for [RastaConverter](https://github.com/Ilmenit/RastaConverter).
+, designed to streamline image conversion workflows.
 
 The tools uses AvaloniaUI
 

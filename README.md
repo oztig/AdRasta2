@@ -1,4 +1,4 @@
-# AdRasta2
+# AdRasta2   (Place Holder)
 
 AdRasta2 is a modern GUI wrapper for RastaConverter, designed to streamline image conversion workflows.
 

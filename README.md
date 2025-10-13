@@ -27,6 +27,16 @@ RastaConverter executable (not bundled), available from [here](https://github.co
 Optional: rcedit.exe for Windows icon injection, available from [here](https://github.com/electron/rcedit) 
 
 
+## 🧱 Built With
+
+- [JetBrains Rider](https://www.jetbrains.com/rider/) – for development and debugging  
+- [.NET](https://dotnet.microsoft.com/) – core framework powering the application  
+- [AvaloniaUI](https://avaloniaui.net/) – cross-platform GUI framework
+
+This project was developed using JetBrains Rider and targets the Microsoft .NET platform.  
+The GUI is built with AvaloniaUI to support both Windows and Linux environments.
+
+
 ## Screenshot
 
 <img width="1735" height="1605" alt="image" src="https://github.com/user-attachments/assets/27eb47ae-9967-44ed-bc60-931e5a842775" />

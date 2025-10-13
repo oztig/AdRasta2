@@ -3,8 +3,8 @@
 AdRasta2 is a modern GUI wrapper for [RastaConverter](https://github.com/Ilmenit/RastaConverter),  
 designed to streamline image conversion workflows.
 
-Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.  
-<br>
+Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
+
 
 ## ✨ Features
 
@@ -12,20 +12,19 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 - Dynamic icon generation and injection (Windows only)
 - Configurable paths and options via `theme.ini`
 - Experimental feature toggles for advanced users
-&nbsp;
 
 
 ## 🛠 Configuration
 
-AdRasta2 uses a simple `.ini` file to control behavior.  
-<br>
+AdRasta2 uses a simple `.ini` file to control behavior.
+
 
 ## 📦 Requirements
 
 - Windows or Linux  
 - RastaConverter executable (not bundled), available from [Ilmenit’s GitHub](https://github.com/Ilmenit/RastaConverter)  
-- Optional: `rcedit.exe` for Windows icon injection, available from [electron/rcedit](https://github.com/electron/rcedit)  
-<br>
+- Optional: `rcedit.exe` for Windows icon injection, available from [electron/rcedit](https://github.com/electron/rcedit)
+
 
 ## 🧱 Built With
 
@@ -34,8 +33,8 @@ AdRasta2 uses a simple `.ini` file to control behavior.
 - [AvaloniaUI](https://avaloniaui.net/) – cross-platform GUI framework
 
 This project was developed using JetBrains Rider and targets the Microsoft .NET platform.  
-The GUI is built with AvaloniaUI to support both Windows and Linux environments.  
-<br>
+The GUI is built with AvaloniaUI to support both Windows and Linux environments.
+
 
 ## 📷 Screenshot
 

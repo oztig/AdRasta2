@@ -25,7 +25,7 @@ public class IconPatchService
     {
         if (!Settings.SetConversionIcon)
             return;
-        
+
         // Step 1: Generate .bmp and .ico
         await _iconGlyphService.GenerateIconAsync(sourceImagePath, destinationPath, overlayText);
 
@@ -33,7 +33,7 @@ public class IconPatchService
         if (Settings.IsWindows)
         {
             var icoPath = Path.Combine(destinationPath, "RastaConverter.ico");
-            var exeToPatch = Path.Combine(destinationPath, "RastaConverter.exe");
+            var exeToPatch = Path.Combine(destinationPath,Settings.BaseRastaCommand);
 
             if (File.Exists(icoPath) && File.Exists(exeToPatch) && File.Exists(Settings.RCEditCommand))
             {
@@ -59,4 +59,4 @@ public class IconPatchService
             }
         }
     }
-   }
+}

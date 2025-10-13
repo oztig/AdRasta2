@@ -28,7 +28,7 @@ AdRasta2 uses a simple `.ini` file to control behavior.
 - RastaConverter executable (not bundled), available from [Ilmenit’s GitHub](https://github.com/Ilmenit/RastaConverter)  
 - Optional: `rcedit.exe` for Windows icon injection, available from [electron/rcedit](https://github.com/electron/rcedit)
 </br>
-</br>
+
 
 ## 🧱 Built With
 

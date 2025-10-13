@@ -26,7 +26,7 @@ AdRasta2 uses a simple `.ini` file to control behavior.
 - Optional: `rcedit.exe` for Windows icon injection, available from [electron/rcedit](https://github.com/electron/rcedit)  
 <br>
 
-## 🧱 Built With
+## 🧱 Built With 
 
 - [JetBrains Rider](https://www.jetbrains.com/rider/) – for development and debugging  
 - [.NET](https://dotnet.microsoft.com/) – core framework powering the application  

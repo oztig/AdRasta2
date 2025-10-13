@@ -12,3 +12,10 @@ AdRasta2 is a modern GUI wrapper for RastaConverter, designed to streamline imag
 ## 🛠 Configuration
 
 AdRasta2 uses a simple AdRasta2.ini file to control behavior.
+
+
+## Screenshot
+
+<img width="1735" height="1605" alt="image" src="https://github.com/user-attachments/assets/0e784066-d646-4e22-98ee-191654e14d8d" />
+
+

@@ -12,7 +12,7 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 - Dynamic icon generation and injection (Windows only)
 - Configurable paths and options via `theme.ini`
 - Experimental feature toggles for advanced users
-<!-- Spacing -->
+&nbsp;
 
 
 ## 🛠 Configuration

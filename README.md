@@ -20,7 +20,7 @@ AdRasta2 uses a simple .ini file to control behavior.
 ## 📦 Requirements
 
 Windows or Linux
-RastaConverter executable (not bundled), available from [here](https://github.com/Ilmenit/RastaConverter).
+RastaConverter executable (not bundled), available from [here](https://github.com/Ilmenit/RastaConverter).<br>
 Optional: rcedit.exe for Windows icon injection, available from [here](https://github.com/electron/rcedit) 
 
 

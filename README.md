@@ -14,7 +14,7 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 - Configurable paths and options via `theme.ini`
 - Experimental feature toggles for advanced users
 </br>
-</br>
+
 
 ## 🛠 Configuration
 
@@ -29,6 +29,7 @@ AdRasta2 uses a simple `.ini` file to control behavior.
 - Optional: `rcedit.exe` for Windows icon injection, available from [electron/rcedit](https://github.com/electron/rcedit)
 </br>
 </br>
+
 ## 🧱 Built With
 
 - [JetBrains Rider](https://www.jetbrains.com/rider/) – for development and debugging  
@@ -37,7 +38,8 @@ AdRasta2 uses a simple `.ini` file to control behavior.
 
 This project was developed using JetBrains Rider and targets the Microsoft .NET platform.  
 The GUI is built with AvaloniaUI to support both Windows and Linux environments.
-
+</br>
+</br>
 
 ## 📷 Screenshot
 

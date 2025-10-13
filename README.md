@@ -6,6 +6,7 @@ AdRasta2 is a modern GUI wrapper for [RastaConverter](https://github.com/Ilmenit
 
 Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 
+
 ## ✨ Features
 
 - GUI-based invocation of RastaConverter (no command-line required)
@@ -13,9 +14,11 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 - Configurable paths and options via `theme.ini`
 - Experimental feature toggles for advanced users
 
+
 ## 🛠 Configuration
 
 AdRasta2 uses a simple .ini file to control behavior.
+
 
 ## 📦 Requirements
 

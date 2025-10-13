@@ -11,7 +11,7 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 - GUI-based invocation of RastaConverter (no command-line required)
 - Dynamic icon generation and injection (Windows only)
 - Configurable paths and options via `theme.ini`
-- Experimental feature toggles for advanced users
+- Experimental feature toggles for advanced users  
 <br>
 
 ## 🛠 Configuration
@@ -26,7 +26,7 @@ AdRasta2 uses a simple `.ini` file to control behavior.
 - Optional: `rcedit.exe` for Windows icon injection, available from [electron/rcedit](https://github.com/electron/rcedit)  
 <br>
 
-## 🧱 Built With 
+## 🧱 Built With
 
 - [JetBrains Rider](https://www.jetbrains.com/rider/) – for development and debugging  
 - [.NET](https://dotnet.microsoft.com/) – core framework powering the application  

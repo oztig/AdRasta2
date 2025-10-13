@@ -22,6 +22,8 @@ public class MainWindowViewModel : ViewModelBase
         get => _icon;
         set => this.RaiseAndSetIfChanged(ref _icon, value);
     }
+    
+    public string AppVersion=>VersionInfo.Current;
 
     public MainWindowViewModel(Window window, IFilePickerService filePickerService,
         IFolderPickerService folderPickerService, IMessageBoxService messageBoxService,

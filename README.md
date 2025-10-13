@@ -1,5 +1,3 @@
-(Place holder)
-
 # AdRasta2
 
 AdRasta2 is a modern GUI wrapper for [RastaConverter](https://github.com/Ilmenit/RastaConverter),  

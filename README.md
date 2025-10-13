@@ -13,7 +13,6 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 - Configurable paths and options via `theme.ini`
 - Experimental feature toggles for advanced users  
 <br>
-
 ## 🛠 Configuration
 
 AdRasta2 uses a simple `.ini` file to control behavior.  

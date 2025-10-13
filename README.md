@@ -4,7 +4,7 @@
 AdRasta2 is a modern GUI wrapper for [RastaConverter](https://github.com/Ilmenit/RastaConverter).
 , designed to streamline image conversion workflows.
 
-The tools uses AvaloniaUI
+Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 
 ## ✨ Features
 
@@ -16,6 +16,14 @@ The tools uses AvaloniaUI
 ## 🛠 Configuration
 
 AdRasta2 uses a simple .ini file to control behavior.
+
+## 📦 Requirements
+
+    Windows or Linux
+
+    RastaConverter executable (not bundled), available from [here] (https://github.com/Ilmenit/RastaConverter).
+
+    Optional: rcedit.exe for Windows icon injection, available from [here](https://github.com/electron/rcedit).
 
 
 ## Screenshot

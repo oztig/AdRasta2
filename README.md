@@ -13,7 +13,7 @@ The tools uses AvaloniaUI
 
 ## 🛠 Configuration
 
-AdRasta2 uses a simple AdRasta2.ini file to control behavior.
+AdRasta2 uses a simple .ini file to control behavior.
 
 
 ## Screenshot

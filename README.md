@@ -5,7 +5,7 @@ designed to streamline image conversion workflows.
 
 Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 
-
+<br>
 ## ✨ Features
 
 - GUI-based invocation of RastaConverter (no command-line required)
@@ -18,7 +18,7 @@ Built with [AvaloniaUI](https://avaloniaui.net/) for cross-platform support.
 
 AdRasta2 uses a simple `.ini` file to control behavior.
 
-
+<br>
 ## 📦 Requirements
 
 - Windows or Linux  

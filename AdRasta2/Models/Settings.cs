@@ -58,7 +58,7 @@ public class Settings
 
     static Settings()
     {
-        SetDefaults();
+        // SetDefaults(loggingConversion);
     }
 
     public static bool CheckIniFileExists()
@@ -66,7 +66,7 @@ public class Settings
         return File.Exists(IniFileLocation);
     }
 
-    public static bool SetDefaults()
+    public static bool SetDefaults(RastaConversion loggingConversion)
     {
         if (Settings.IsWindows)
             DefaultExecuteCommand = "explorer";
@@ -78,33 +78,33 @@ public class Settings
         if (!CheckIniFileExists())
             return false;
 
-        var ini = new Sini.IniFile(IniFileLocation);
-
-        // Get from settings file, or ideally allow user to select
-        HelpFileLocation =
-            ini.GetStr("Locations", "RastaHelpFile",
-                string.Empty); // "/home/nickp/Downloads/RastaConverter-master/help.txt";
-        RC2MCHCommand =
-            ini.GetStr("Locations", "RC2MCH",
-                string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
-        MadsLocation =
-            ini.GetStr("Locations", "MADS", string.Empty); // "/home/nickp/WUDSN/Tools/ASM/MADS/mads.linux-x86-64";
-        PaletteDirectory =
-            ini.GetStr("Locations", "PalettesDir",
-                string.Empty); // "/home/nickp/Downloads/RastaConverter-master/src/Palettes";
-        NoNameFilesLocation =
-            ini.GetStr("Locations", "NoNameFilesDir",
-                string.Empty); // "/home/nickp/Downloads/RastaConverter-master/Generator";
-        DualModeNoNameFilesLocation =
-            ini.GetStr("Locations", "DualModeNoNameFilesDir", string.Empty);
-        CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
-        PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
-        DebugMode = ini.GetBool("Debug", "DebugMode", false);
-        AutoViewPreview = ini.GetBool("UserDefaults", "AutoViewPreview", false);
-
-        // RastaConverter Specific
         try
         {
+            var ini = new Sini.IniFile(IniFileLocation);
+
+            // Get from settings file, or ideally allow user to select
+            HelpFileLocation =
+                ini.GetStr("Locations", "RastaHelpFile",
+                    string.Empty); // "/home/nickp/Downloads/RastaConverter-master/help.txt";
+            RC2MCHCommand =
+                ini.GetStr("Locations", "RC2MCH",
+                    string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
+            MadsLocation =
+                ini.GetStr("Locations", "MADS", string.Empty); // "/home/nickp/WUDSN/Tools/ASM/MADS/mads.linux-x86-64";
+            PaletteDirectory =
+                ini.GetStr("Locations", "PalettesDir",
+                    string.Empty); // "/home/nickp/Downloads/RastaConverter-master/src/Palettes";
+            NoNameFilesLocation =
+                ini.GetStr("Locations", "NoNameFilesDir",
+                    string.Empty); // "/home/nickp/Downloads/RastaConverter-master/Generator";
+            DualModeNoNameFilesLocation =
+                ini.GetStr("Locations", "DualModeNoNameFilesDir", string.Empty);
+            CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
+            PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
+            DebugMode = ini.GetBool("Debug", "DebugMode", false);
+            AutoViewPreview = ini.GetBool("UserDefaults", "AutoViewPreview", false);
+
+            // RastaConverter Specific
             RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
                 "Cant Find in ini File");
             RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 17);
@@ -113,20 +113,22 @@ public class Settings
             RastaConverterDefaultValues.DefaultUnstuckDrift = unstuckDrift;
             RastaConverterDefaultValues.DefaultUnstuckAfter =
                 ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
+
+
+            // Experimenatal
+            SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcon", false);
+            RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
+            
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            var logPath = Path.Combine(AppContext.BaseDirectory, "AdRasta2_crashlog.txt");
-            Console.WriteLine(e);
+            ConversionLogger.LogIfDebug(loggingConversion, ConversionStatus.Debug,
+                "Error Reading Settings", ex, "", true);
         }
-
-        // Experimenatal
-        SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcon", false);
-        RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
-
+        
         return true;
     }
-    
+
     public static void LogSettingValues(RastaConversion loggingConversion)
     {
         var props = typeof(Settings).GetProperties(System.Reflection.BindingFlags.Public |

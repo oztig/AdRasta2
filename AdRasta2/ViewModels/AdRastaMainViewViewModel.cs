@@ -211,7 +211,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private void CreateInitialEntry()
     {
-        Settings.SetDefaults();
+        Settings.SetDefaults(ApplicationDebugLog);
         LogStartupDetails();
         RastaConversions = new ObservableCollection<RastaConversion>
         {

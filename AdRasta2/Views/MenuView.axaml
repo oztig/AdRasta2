@@ -25,6 +25,9 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
+            <MenuItem Header="View Application Log" 
+                      Command="{Binding ShowApplicationLogCommand}" 
+                      Margin="10,0,10,0" />
         </MenuItem>
 
         <MenuItem Header="Theme">

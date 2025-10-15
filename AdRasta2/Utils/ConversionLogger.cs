@@ -20,9 +20,10 @@ public static class ConversionLogger
         ConversionStatus status,
         string message,
         Exception? ex = null,
-        [CallerMemberName] string caller = "")
+        [CallerMemberName] string caller = "",
+        bool forceDebug=false)
     {
-        if (!Settings.DebugMode)
+        if (!Settings.DebugMode && !forceDebug )
             return;
         
         Log(conversion, status, $"{message} (from {caller})", ex);

@@ -11,8 +11,10 @@ using AdRasta2.Interfaces;
 using AdRasta2.Models;
 using AdRasta2.Services;
 using AdRasta2.Utils;
+using AdRasta2.Views;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
@@ -94,6 +96,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public ReactiveCommand<Unit, Unit> OpenDestinationFolderCommand { get; }
     public ReactiveCommand<Unit, Unit> ClearDestinationFolderCommand { get; }
+    public ReactiveCommand<Unit, Unit> ShowApplicationLogCommand { get; }
 
     private readonly IFilePickerService _filePickerService;
     private readonly IFolderPickerService _folderPickerService;
@@ -103,6 +106,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public ObservableCollection<int> Sprockets { get; } = new();
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
+
+    public RastaConversion ApplicationDebugLog { get; set; } = new RastaConversion("App Debug Log");
 
     public string ConversionSummary
     {
@@ -125,14 +130,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
         $"Threads in use by conversions: {TotalThreadsInUse} / {MaxThreads}.\n" +
         $"You have {ThreadsAvailable} threads available.";
 
-
-    // private RastaConversion? _selectedConversion;
-    //
-    // public RastaConversion? SelectedConversion
-    // {
-    //     get => _selectedConversion;
-    //     set => this.RaiseAndSetIfChanged(ref _selectedConversion, value);
-    // }
 
     private RastaConversion? _selectedConversion;
 
@@ -186,6 +183,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ShowHelpCommand = ReactiveCommand.CreateFromTask(async () => await ShowHelpMessage());
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
+        ShowApplicationLogCommand = ReactiveCommand.CreateFromTask(async () => await ShowApplicationLog());
 
         SourceImageClickCommand = ReactiveCommand.CreateFromTask(() =>
             SelectSourceImage());
@@ -214,13 +212,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private void CreateInitialEntry()
     {
         Settings.SetDefaults();
+        LogStartupDetails();
         RastaConversions = new ObservableCollection<RastaConversion>
         {
             new RastaConversion("New Conversion"),
         };
 
         ChangeSelected(RastaConversions[0]);
-        LogIniFileLocation();
     }
 
     public void SetWindow(Window window)
@@ -228,10 +226,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
         _window = window;
     }
 
-    private void LogIniFileLocation()
+    private void LogStartupDetails()
     {
-        ConversionLogger.LogIfDebug(SelectedConversion, ConversionStatus.Debug,"AdRasta2 Location is:" +  AppContext.BaseDirectory);
-        ConversionLogger.LogIfDebug(SelectedConversion, ConversionStatus.Debug,"Ini File Location is:" + Settings.IniFileLocation);
+        ConversionLogger.LogIfDebug(ApplicationDebugLog, ConversionStatus.Debug,
+            "AdRasta2 Location is:" + AppContext.BaseDirectory);
+        ConversionLogger.LogIfDebug(ApplicationDebugLog, ConversionStatus.Debug,
+            "Ini File Location is:" + Settings.IniFileLocation);
+        Settings.LogSettingValues(ApplicationDebugLog);
     }
 
     private void PopulateSprockets()
@@ -458,6 +459,24 @@ public class AdRastaMainViewViewModel : ReactiveObject
         var result = await messageBox.ShowWindowDialogAsync(_window);
     }
 
+    private async Task ShowApplicationLog()
+    {
+        try
+        {
+            var window = new ApplicationLogView(ApplicationDebugLog.Statuses,_window);
+
+            // // If you have access to the main window:
+            window.ShowDialog(App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
+                ? _window
+                : null);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
 
     public async void SelectDestinationFoler()
     {
@@ -572,7 +591,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.PreviewStarted, "");
         SelectedConversion.ImagePreviewPath = string.Empty;
 
-        var result = await RastaConverter.ExecuteCommand(true, false, SelectedConversion,_iconService);
+        var result = await RastaConverter.ExecuteCommand(true, false, SelectedConversion, _iconService);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 1)
             return;
@@ -588,8 +607,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public async Task ConvertImage()
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
-        
-        var result = await RastaConverter.ExecuteCommand(false, false, SelectedConversion,_iconService);
+
+        var result = await RastaConverter.ExecuteCommand(false, false, SelectedConversion, _iconService);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)
             return;
@@ -607,7 +626,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         SelectedConversion.Statuses.AddEntry(DateTime.Now, ConversionStatus.ConversionStarted, "");
 
-        var result = await RastaConverter.ExecuteCommand(false, true, SelectedConversion,_iconService);
+        var result = await RastaConverter.ExecuteCommand(false, true, SelectedConversion, _iconService);
 
         if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)
             return;

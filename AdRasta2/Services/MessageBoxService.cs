@@ -52,5 +52,31 @@ public class MessageBoxService : IMessageBoxService
 
         return msgBox.ShowAsync();
     }
+    
+    public async Task<string?> ShowRecoveryChoiceAsync(bool includeDual, bool includeStandard)
+    {
+        var buttons = new List<ButtonDefinition>();
+
+        if (includeDual)
+            buttons.Add(new ButtonDefinition { Name = "Dual Mode" });
+
+        if (includeStandard)
+            buttons.Add(new ButtonDefinition { Name = "Standard Mode" });
+
+        buttons.Add(new ButtonDefinition { Name = "Cancel" });
+
+        var messageBox = MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams
+        {
+            ContentTitle = "Recovery Mode",
+            ContentMessage = "Select which conversion to recover:",
+            ButtonDefinitions = buttons,
+            Icon = Icon.Question,
+            ShowInCenter = true,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner
+        });
+
+        return await messageBox.ShowAsync();
+    }
+
 
 }

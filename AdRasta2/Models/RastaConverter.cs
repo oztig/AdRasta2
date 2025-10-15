@@ -155,7 +155,7 @@ public class RastaConverter
 
         if (rastaConversion.Palette != RastaConverterDefaultValues.DefaultPalette)
         {
-            var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.ToString().ToLower().Trim() + ".act");
+            var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.Trim() + ".act");
             args.Add($"/pal={paletteFile}");
         }
 
@@ -299,7 +299,7 @@ public class RastaConverter
 
         if (rastaConversion.Palette != RastaConverterDefaultValues.DefaultPalette)
         {
-            var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.ToString().ToLower().Trim() + ".act");
+            var paletteFile = Path.Combine("Palettes", rastaConversion.Palette.Trim() + ".act");
             args.Add($"-pal={paletteFile}");
         }
 

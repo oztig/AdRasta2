@@ -209,7 +209,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         CreateInitialEntry();
     }
 
-    private void CreateInitialEntry()
+    private async Task CreateInitialEntry()
     {
         Settings.SetDefaults(ApplicationDebugLog);
         LogStartupDetails();
@@ -219,6 +219,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         };
 
         ChangeSelected(RastaConversions[0]);
+        await CopyAndSetPalette();
     }
 
     public void SetWindow(Window window)
@@ -229,9 +230,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private void LogStartupDetails()
     {
         ConversionLogger.LogIfDebug(ApplicationDebugLog, ConversionStatus.Debug,
-            "AdRasta2 Location is:" + AppContext.BaseDirectory);
+            "AdRasta2 Location is:" + AppContext.BaseDirectory,forceDebug:true);
         ConversionLogger.LogIfDebug(ApplicationDebugLog, ConversionStatus.Debug,
-            "Ini File Location is:" + Settings.IniFileLocation);
+            "Ini File Location is:" + Settings.IniFileLocation,forceDebug:true);
         Settings.LogSettingValues(ApplicationDebugLog);
     }
 
@@ -493,7 +494,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, SelectedConversion.DestinationDirectory);
         SourceData.PopulatePalettes(SelectedConversion.DestinationPaletteDir);
-        SelectedConversion.Palette = RastaConverterDefaultValues.DefaultPalette;
+        SelectedConversion.Palette = null;
+        SelectedConversion.Palette =  RastaConverterDefaultValues.DefaultPalette;
     }
 
     private void UpdateDuplicateDestinationFlags()

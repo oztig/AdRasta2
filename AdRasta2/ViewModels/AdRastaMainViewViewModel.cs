@@ -220,11 +220,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
         };
 
         ChangeSelected(RastaConversions[0]);
+        LogIniFileLocation();
     }
 
     public void SetWindow(Window window)
     {
         _window = window;
+    }
+
+    private void LogIniFileLocation()
+    {
+        ConversionLogger.LogIfDebug(SelectedConversion, ConversionStatus.Debug,"AdRasta2 Location is:" +  AppContext.BaseDirectory);
+        ConversionLogger.LogIfDebug(SelectedConversion, ConversionStatus.Debug,"Ini File Location is:" + Settings.IniFileLocation);
     }
 
     private void PopulateSprockets()

@@ -96,26 +96,28 @@ public class Settings
         DebugMode = ini.GetBool("Debug", "DebugMode", false);
         AutoViewPreview = ini.GetBool("UserDefaults", "AutoViewPreview", false);
         
-        // Experimenatal
-        SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcon", false);
-        RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
-        
         // RastaConverter Specific
         try
         {
+            RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
+                "Cant Find in ini File"); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
             RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 17);
             float raw = ini.GetFloat("RastaConverter.Defaults", "DefaultUnstuckDrift", 0.00001f);
             decimal unstuckDrift = (decimal)raw;
             RastaConverterDefaultValues.DefaultUnstuckDrift = unstuckDrift;
             RastaConverterDefaultValues.DefaultUnstuckAfter =
                 ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
-            RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
-                string.Empty); // = "/home/nickp/Downloads/RastaConverter-master/src/rastaconv";
         }
         catch (Exception e)
         {
+            var logPath = Path.Combine(AppContext.BaseDirectory, "AdRasta2_crashlog.txt");
             Console.WriteLine(e);
         }
+        
+        // Experimenatal
+        SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcon", false);
+        RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
+        
         return true;
     }
 }

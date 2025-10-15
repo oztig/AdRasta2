@@ -58,35 +58,35 @@ public class FileUtils
         if (string.IsNullOrWhiteSpace(sourceDir))
         {
             ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
-                "Source directory is null or empty. Aborting copy.");
+                $"Source directory is null or empty. Aborting copy. ({searchPattern})");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(destinationDir))
         {
             ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
-                "Destination directory is null or empty. Aborting copy.");
+                $"Destination directory is null or empty. Aborting copy. ({searchPattern})");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(searchPattern))
         {
             ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
-                "Search pattern is null or empty. Aborting copy.");
+                $"Search pattern is null or empty. Aborting copy.  ({searchPattern})");
             return;
         }
 
         if (!Directory.Exists(sourceDir))
         {
             ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
-                $"Source directory '{sourceDir}' does not exist. Aborting copy.");
+                $"Source directory '{sourceDir}' does not exist. Aborting copy.  ({searchPattern})");
             return;
         }
 
         if (!Directory.Exists(destinationDir))
         {
             ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
-                $"Destination directory '{destinationDir}' does not exist. Aborting copy.");
+                $"Destination directory '{destinationDir}' does not exist. Aborting copy.   ({searchPattern})");
             return;
         }
 

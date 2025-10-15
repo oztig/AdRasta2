@@ -47,4 +47,10 @@
         <HintPath>..\..\..\.nuget\packages\iconpacks.avalonia.materialdesign\1.2.0\lib\net8.0\IconPacks.Avalonia.MaterialDesign.dll</HintPath>
       </Reference>
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\ApplicationLogView.axaml.cs">
+        <DependentUpon>ApplicationLogView.axaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
 </Project>

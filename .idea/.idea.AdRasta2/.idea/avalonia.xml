@@ -14,6 +14,7 @@
         <entry key="AdRasta2/Themes/DarkTheme.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/ActionButtonsView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/AdRastaMainView.axaml" value="AdRasta2/AdRasta2.csproj" />
+        <entry key="AdRasta2/Views/ApplicationLogView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/BottomPanelView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/CommandLineView.axaml" value="AdRasta2/AdRasta2.csproj" />
         <entry key="AdRasta2/Views/ConfigSettingsView.axaml" value="AdRasta2/AdRasta2.csproj" />

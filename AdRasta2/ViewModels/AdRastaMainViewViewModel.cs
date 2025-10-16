@@ -432,6 +432,23 @@ public class AdRastaMainViewViewModel : ReactiveObject
         }
     }
 
+    public async Task CleanupCurrentConversionAsync()
+    {
+        if (SelectedConversion == null)
+            return;
+
+        var confirmation = await _messageBoxService.ShowConfirmationAsync(
+            "Clean Up Conversion",
+            "This will remove temporary and intermediate files from the conversion folder.\nThe final output and source images will be preserved.\n\nProceed?",
+            Icon.Question);
+
+        if (confirmation == "Okay")
+        {
+            await SelectedConversion.CleanUpAsync(true);
+        }
+    }
+
+    
     private async Task ShowAboutMessage()
     {
         var dateNow = DateTime.Now;

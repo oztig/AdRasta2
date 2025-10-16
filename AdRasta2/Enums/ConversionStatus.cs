@@ -25,4 +25,11 @@ public enum ConversionStatus
     Debug,
     FileNotFound,
     Success,
+    CleanupStarted,
+    CleanupInProgress,
+    CleanupComplete,
+    CleanupSkipped,
+    CleanupFailed,
+    ConversionTidied,
+    ConversionRemoved,
 }

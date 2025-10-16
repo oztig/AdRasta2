@@ -68,12 +68,14 @@
             <!-- Divider -->
             <Rectangle Width="1" Height="32" Fill="#444" VerticalAlignment="Center" />
 
-            <!-- Group 3: Reset + Remove -->
+            <!-- Group 3: Reset, Remove, Cleanup -->
             <StackPanel Orientation="Horizontal" Spacing="15">
                 <Button Command="{Binding ResetCurrentConversionValues}">Reset All Settings</Button>
                 <Button Command="{Binding RemoveCurrentConversion}">Remove Conversion</Button>
+                <Button Command="{Binding CleanupCurrentConversionAsync}" 
+                        ToolTip.Tip="Removes temporary and intermediate files from the conversion folder. The final output and source images are preserved" Content="Clean Up Conversion"
+                        IsEnabled="{Binding SelectedConversion.CanProcess}"/>
             </StackPanel>
-
         </StackPanel>
     </HeaderedContentControl>
 

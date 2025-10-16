@@ -359,10 +359,10 @@ public class RastaConversion : ReactiveObject
     public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath)
         ? string.Empty
         : DestinationFilePath;
-    
-    public string DestinationPaletteDir =>string.IsNullOrEmpty(DestinationFilePath)
+
+    public string DestinationPaletteDir => string.IsNullOrEmpty(DestinationFilePath)
         ? string.Empty
-        : Path.Combine( DestinationFilePath,"Palettes"); 
+        : Path.Combine(DestinationFilePath, "Palettes");
 
     public string DestinationImageFileName => Path.Combine(DestinationDirectory, SourceImageBaseName);
 
@@ -895,5 +895,28 @@ public class RastaConversion : ReactiveObject
     public async Task ClearLog()
     {
         Statuses.Clear();
+    }
+
+    public async Task CleanUpAsync(bool dryRun = false)
+    {
+        try
+        {
+            ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupStarted,
+                dryRun ? "Dry run initiated" : "Cleanup initiated");
+
+            var result = await ConversionCleaner.CleanupConversionAsync(this, dryRun);
+
+            var summary = dryRun
+                ? $"[DryRun] {result.RemovedFiles.Count} files and {result.RemovedDirectories.Count} directories would be removed, {result.PreservedFiles.Count} files retained."
+                : $"{result.RemovedFiles.Count} files and {result.RemovedDirectories.Count} directories removed, {result.PreservedFiles.Count} files retained.";
+
+
+            ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupComplete, summary);
+            
+        }
+        catch (Exception ex)
+        {
+            ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupFailed, "Cleanup encountered an error", ex, forceDebug: true);
+        }
     }
 }

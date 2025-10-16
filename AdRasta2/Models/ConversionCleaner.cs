@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using AdRasta2.Config;
 using AdRasta2.Enums;
 using AdRasta2.Utils;
 
@@ -10,16 +12,6 @@ namespace AdRasta2.Models;
 
 public class ConversionCleaner
 {
-    private static readonly string[] PreservedExtensions =
-        { ".png", ".jpg", ".bmp", ".json", ".cfg", ".ini", ".csv", ".xlsx", ".txt", ".webp",".mch",".xex" };
-
-    private static readonly List<string> PreservedPrefixes = new()
-    {
-        "output",
-        "out_"
-        // Add more as needed
-    };
-
     public static async Task<CleanupResult> CleanupConversionAsync(RastaConversion conversion, bool dryRun = false)
     {
         var removedFiles = new List<string>();
@@ -31,24 +23,28 @@ public class ConversionCleaner
             // Sweep files
             foreach (var file in Directory.GetFiles(conversion.DestinationDirectory, "*", SearchOption.AllDirectories))
             {
-                string ext = Path.GetExtension(file).ToLowerInvariant();
-                string name = Path.GetFileName(file).ToLowerInvariant();
+                string fileName = Path.GetFileName(file);
+                string fileDir = Path.GetDirectoryName(file) ?? "";
+                string relativeDir = Path.GetRelativePath(conversion.DestinationDirectory, fileDir);
 
-                bool isPreservedByExtension = PreservedExtensions.Contains(ext);
-                bool isPreservedByPrefix = PreservedPrefixes.Any(prefix => name.StartsWith(prefix));
+                bool matchesScopedWildcard =
+                    AdRastaCleanableManifest.ScopedWildcardRules.TryGetValue(relativeDir, out var patterns)
+                    && patterns.Any(pattern => MatchesWildcard(fileName, pattern));
 
-                if (isPreservedByExtension || isPreservedByPrefix)
-                {
-                    preservedFiles.Add(file);
-                }
-                else
+                var effectiveRemovableNames = AdRastaCleanableManifest.GetEffectiveRemovableFileNames();
+
+                if (effectiveRemovableNames.Contains(fileName) || matchesScopedWildcard)
                 {
                     removedFiles.Add(file);
                     ConversionLogger.LogIfDebug(conversion, ConversionStatus.CleanupInProgress,
-                        dryRun ? $"[DryRun] Would remove: {name}" : $"Removed: {name}");
+                        dryRun ? $"[DryRun] Would remove: {fileName}" : $"Removed: {fileName}");
 
                     if (!dryRun)
                         File.Delete(file);
+                }
+                else
+                {
+                    preservedFiles.Add(file);
                 }
             }
 
@@ -61,24 +57,25 @@ public class ConversionCleaner
 
             foreach (var dir in allDirectories)
             {
+                string dirNameOnly = Path.GetFileName(dir);
+
+                if (!AdRastaCleanableManifest.RemovableDirectoryNames.Contains(dirNameOnly))
+                    continue;
+
                 var entries = Directory.GetFileSystemEntries(dir);
 
-                bool wouldBeEmpty = entries.All(entry =>
-                {
-                    if (Directory.Exists(entry))
-                        return false; // Subdirectory exists
-
-                    return filesToRemove.Contains(entry); // File would be removed
-                });
+                bool wouldBeEmpty = dryRun
+                    ? entries.All(entry => filesToRemove.Contains(entry))
+                    : entries.Length == 0;
 
                 if (wouldBeEmpty)
                 {
                     removedDirectories.Add(dir);
-                    var dirName = Path.GetRelativePath(conversion.DestinationDirectory, dir);
+                    var relativeDir = Path.GetRelativePath(conversion.DestinationDirectory, dir);
                     ConversionLogger.LogIfDebug(conversion, ConversionStatus.CleanupInProgress,
                         dryRun
-                            ? $"[DryRun] Would remove empty directory: {dirName}"
-                            : $"Removed empty directory: {dirName}");
+                            ? $"[DryRun] Would remove empty directory: {relativeDir}"
+                            : $"Removed empty directory: {relativeDir}");
 
                     if (!dryRun)
                         Directory.Delete(dir);
@@ -92,6 +89,14 @@ public class ConversionCleaner
                 : $"Cleanup complete: {removedFiles.Count} files and {removedDirectories.Count} directories removed, {preservedFiles.Count} files retained.");
 
         return new CleanupResult(removedFiles, preservedFiles, removedDirectories);
+    }
+
+    private static bool MatchesWildcard(string fileName, string pattern)
+    {
+        return Regex.IsMatch(
+            fileName,
+            "^" + Regex.Escape(pattern).Replace("\\*", ".*").Replace("\\?", ".") + "$",
+            RegexOptions.IgnoreCase);
     }
 }
 

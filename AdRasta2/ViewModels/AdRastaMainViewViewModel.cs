@@ -444,7 +444,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         if (confirmation == "Okay")
         {
-            await SelectedConversion.CleanUpAsync(true);
+            await SelectedConversion.CleanUpAsync(false);
         }
     }
 

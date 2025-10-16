@@ -2,6 +2,7 @@
 using System.IO;
 using AdRasta2.Enums;
 using AdRasta2.Utils;
+using Sini;
 
 namespace AdRasta2.Models;
 
@@ -99,34 +100,51 @@ public class Settings
                     string.Empty); // "/home/nickp/Downloads/RastaConverter-master/Generator";
             DualModeNoNameFilesLocation =
                 ini.GetStr("Locations", "DualModeNoNameFilesDir", string.Empty);
-            CopyWithoutConfirm = ini.GetBool("Continue", "CopyWithoutConfirm", false);
-            PopulateDefaultFile = ini.GetBool("Continue", "PopulateDefaultFile", false);
-            DebugMode = ini.GetBool("Debug", "DebugMode", false);
-            AutoViewPreview = ini.GetBool("UserDefaults", "AutoViewPreview", false);
+            CopyWithoutConfirm = GetSafeBool(ini, "Continue", "CopyWithoutConfirm", false);
+            PopulateDefaultFile = GetSafeBool(ini, "Continue", "PopulateDefaultFile", false);
+            DebugMode = GetSafeBool(ini, "Debug", "DebugMode", false);
+            AutoViewPreview = GetSafeBool(ini, "UserDefaults", "AutoViewPreview", false);
 
             // RastaConverter Specific
             RastaConverterCommand = ini.GetStr("RastaConverter", "Location",
                 "Cant Find in ini File");
-            RastaConverterVersion = ini.GetDouble("RastaConverter", "Version", 17);
-            float raw = ini.GetFloat("RastaConverter.Defaults", "DefaultUnstuckDrift", 0.00001f);
+            RastaConverterVersion = GetSafeDouble(ini, "RastaConverter", "Version", 17);
+
+            float raw = GetSafeFloat(ini, "RastaConverter.Defaults", "DefaultUnstuckDrift", 0.00001f);
             decimal unstuckDrift = (decimal)raw;
             RastaConverterDefaultValues.DefaultUnstuckDrift = unstuckDrift;
             RastaConverterDefaultValues.DefaultUnstuckAfter =
                 ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
 
-
-            // Experimenatal
-            SetConversionIcon = ini.GetBool("Experimental", "SetConversionIcon", false);
+            // Experimental
+            SetConversionIcon = GetSafeBool(ini, "Experimental", "SetConversionIcon", false);
             RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
-            
         }
         catch (Exception ex)
         {
             ConversionLogger.LogIfDebug(loggingConversion, ConversionStatus.Debug,
                 "Error Reading Settings", ex, "", true);
         }
-        
+
         return true;
+    }
+
+    public static double GetSafeDouble(IniFile ini, string section, string key, double fallback)
+    {
+        var str = ini.GetStr(section, key);
+        return double.TryParse(str, out var result) ? result : fallback;
+    }
+
+    public static bool GetSafeBool(IniFile ini, string section, string key, bool fallback)
+    {
+        var str = ini.GetStr(section, key);
+        return bool.TryParse(str, out var result) ? result : fallback;
+    }
+
+    public static float GetSafeFloat(IniFile ini, string section, string key, float fallback)
+    {
+        var str = ini.GetStr(section, key);
+        return float.TryParse(str, out var result) ? result : fallback;
     }
 
     public static void LogSettingValues(RastaConversion loggingConversion)

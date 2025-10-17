@@ -12,7 +12,7 @@ namespace AdRasta2.Models;
 
 public class ConversionCleaner
 {
-    public static async Task<CleanupResult> CleanupConversionAsync(RastaConversion conversion, bool dryRun = false)
+    public static async Task<CleanupResult> CleanupConversionAsync(RastaConversion conversion, bool dryRunDelete = false)
     {
         var removedFiles = new List<string>();
         var preservedFiles = new List<string>();
@@ -37,9 +37,9 @@ public class ConversionCleaner
                 {
                     removedFiles.Add(file);
                     ConversionLogger.LogIfDebug(conversion, ConversionStatus.CleanupInProgress,
-                        dryRun ? $"[DryRun] Would remove: {fileName}" : $"Removed: {fileName}");
+                        dryRunDelete ? $"[DryRunDelete] Would remove: {fileName}" : $"Removed: {fileName}");
 
-                    if (!dryRun)
+                    if (!dryRunDelete)
                         File.Delete(file);
                 }
                 else
@@ -64,7 +64,7 @@ public class ConversionCleaner
 
                 var entries = Directory.GetFileSystemEntries(dir);
 
-                bool wouldBeEmpty = dryRun
+                bool wouldBeEmpty = dryRunDelete
                     ? entries.All(entry => filesToRemove.Contains(entry))
                     : entries.Length == 0;
 
@@ -73,19 +73,19 @@ public class ConversionCleaner
                     removedDirectories.Add(dir);
                     var relativeDir = Path.GetRelativePath(conversion.DestinationDirectory, dir);
                     ConversionLogger.LogIfDebug(conversion, ConversionStatus.CleanupInProgress,
-                        dryRun
-                            ? $"[DryRun] Would remove empty directory: {relativeDir}"
+                        dryRunDelete
+                            ? $"[DryRunDelete] Would remove empty directory: {relativeDir}"
                             : $"Removed empty directory: {relativeDir}");
 
-                    if (!dryRun)
+                    if (!dryRunDelete)
                         Directory.Delete(dir);
                 }
             }
         });
 
         ConversionLogger.LogIfDebug(conversion, ConversionStatus.CleanupComplete,
-            dryRun
-                ? $"[DryRun] Cleanup preview: {removedFiles.Count} files and {removedDirectories.Count} directories would be removed, {preservedFiles.Count} files retained."
+            dryRunDelete
+                ? $"[DryRunDelete] Cleanup preview: {removedFiles.Count} files and {removedDirectories.Count} directories would be removed, {preservedFiles.Count} files retained."
                 : $"Cleanup complete: {removedFiles.Count} files and {removedDirectories.Count} directories removed, {preservedFiles.Count} files retained.");
 
         return new CleanupResult(removedFiles, preservedFiles, removedDirectories);

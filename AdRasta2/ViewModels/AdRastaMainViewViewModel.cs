@@ -437,14 +437,21 @@ public class AdRastaMainViewViewModel : ReactiveObject
         if (SelectedConversion == null)
             return;
 
+        var title = Settings.DryRunDelete ? "Clean Up Conversion (Dry Run)" : "Clean Up Conversion";
+
         var confirmation = await _messageBoxService.ShowConfirmationAsync(
-            "Clean Up Conversion",
+            title,
             "This will remove temporary and intermediate files from the conversion folder.\nThe final output and source images will be preserved.\n\nProceed?",
             Icon.Question);
 
+        // var confirmation = await _messageBoxService.ShowConfirmationAsync(
+        //     "Clean Up Conversion",
+        //     "This will remove temporary and intermediate files from the conversion folder.\nThe final output and source images will be preserved.\n\nProceed?",
+        //     Icon.Question);
+
         if (confirmation == "Okay")
         {
-            await SelectedConversion.CleanUpAsync(false);
+            await SelectedConversion.CleanUpAsync(Settings.DryRunDelete);
         }
     }
 

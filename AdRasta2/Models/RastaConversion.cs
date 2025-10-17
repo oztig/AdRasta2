@@ -902,16 +902,16 @@ public class RastaConversion : ReactiveObject
         try
         {
             ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupStarted,
-                dryRun ? "Dry run initiated" : "Cleanup initiated");
+                dryRun ? "Dry run initiated" : "Cleanup initiated",forceDebug:true);
 
             var result = await ConversionCleaner.CleanupConversionAsync(this, dryRun);
 
             var summary = dryRun
-                ? $"[DryRun] {result.RemovedFiles.Count} files and {result.RemovedDirectories.Count} directories would be removed, {result.PreservedFiles.Count} files retained."
+                ? $"[DryRunDelete] {result.RemovedFiles.Count} files and {result.RemovedDirectories.Count} directories would be removed, {result.PreservedFiles.Count} files retained."
                 : $"{result.RemovedFiles.Count} files and {result.RemovedDirectories.Count} directories removed, {result.PreservedFiles.Count} files retained.";
 
 
-            ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupComplete, summary);
+            ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupComplete, summary, forceDebug: true);
             
         }
         catch (Exception ex)

@@ -56,6 +56,7 @@ public class Settings
 
     public static int MaxLogEntries { get; set; } = 100;
 
+    public static bool DryRunDelete { get; set; } = true;
 
     static Settings()
     {
@@ -119,6 +120,7 @@ public class Settings
             // Experimental
             SetConversionIcon = GetSafeBool(ini, "Experimental", "SetConversionIcon", false);
             RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
+            DryRunDelete = GetSafeBool(ini, "Experimental", "DryRunDelete", true);
         }
         catch (Exception ex)
         {

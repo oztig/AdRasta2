@@ -23,7 +23,7 @@ public class IconPatchService
         string overlayText,
         RastaConversion conversion)
     {
-        if (!Settings.SetConversionIcon)
+        if (!Settings.Current.SetConversionIcon)
             return;
 
         // Step 1: Generate .bmp and .ico
@@ -33,12 +33,12 @@ public class IconPatchService
         if (Settings.IsWindows)
         {
             var icoPath = Path.Combine(destinationPath, "RastaConverter.ico");
-            var exeToPatch = Path.Combine(destinationPath,Settings.BaseRastaCommand);
+            var exeToPatch = Path.Combine(destinationPath,Settings.Current.BaseRastaCommand);
 
-            if (File.Exists(icoPath) && File.Exists(exeToPatch) && File.Exists(Settings.RCEditCommand))
+            if (File.Exists(icoPath) && File.Exists(exeToPatch) && File.Exists(Settings.Current.RCEditCommand))
             {
                 var workingDirectory = destinationPath;
-                var rceditExeName = Path.GetFileName(Settings.RCEditCommand);
+                var rceditExeName = Path.GetFileName(Settings.Current.RCEditCommand);
 
                 var arguments = new List<string>
                 {
@@ -55,7 +55,7 @@ public class IconPatchService
             else
             {
                 ConversionLogger.LogIfDebug(conversion, ConversionStatus.Error,
-                    $"Missing required files for patching.\nICO: {icoPath}\nEXE: {exeToPatch}\nrcedit: {Settings.RCEditCommand}");
+                    $"Missing required files for patching.\nICO: {icoPath}\nEXE: {exeToPatch}\nrcedit: {Settings.Current.RCEditCommand}");
             }
         }
     }

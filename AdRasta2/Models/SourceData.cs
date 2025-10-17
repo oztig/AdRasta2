@@ -119,11 +119,11 @@ public class SourceData
         Palettes.Clear();
 
         var folder = string.IsNullOrWhiteSpace(destinationPath)
-            ? Settings.PaletteDirectory
+            ? Settings.Current.PaletteDirectory
             : destinationPath;
 
         if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
-            folder = Settings.PaletteDirectory;
+            folder = Settings.Current.PaletteDirectory;
 
         if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
             return;

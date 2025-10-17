@@ -19,19 +19,19 @@ public class RastaConverter
     private static async Task CopySupportingFiles(RastaConversion conversion)
     {
         // Copy supporting files
-        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
-            Settings.BaseRastaCommand,conversion, false);
+        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation, conversion.DestinationDirectory,
+            Settings.Current.BaseRastaCommand,conversion, false);
 
-        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
+        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation, conversion.DestinationDirectory,
             "*.dll", conversion,false);
 
-        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRastaCommandLocation, conversion.DestinationDirectory,
+        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation, conversion.DestinationDirectory,
             "clacon2.ttf", conversion,false);
         
-        await FileUtils.CopyMatchingFilesAsync(Settings.BaseRCEditCommandLocation, conversion.DestinationDirectory,
-            Settings.BaseRCEditCommand, conversion,false);
+        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRCEditCommandLocation, conversion.DestinationDirectory,
+            Settings.Current.BaseRCEditCommand, conversion,false);
 
-        await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, conversion.DestinationDirectory);
+        await FileUtils.CopyDirectoryIncludingRoot(Settings.Current.PaletteDirectory, conversion.DestinationDirectory);
     }
 
     public static async Task<ProcessRunResult> ExecuteCommand(bool isPreview, bool isContinue,
@@ -50,7 +50,7 @@ public class RastaConverter
 
             // Run it and return the completed conversion
             return await ProcessRunner.RunAsync(
-                Settings.BaseRastaCommand,
+                Settings.Current.BaseRastaCommand,
                 conversion.DestinationDirectory,
                 safeParams,
                 conversion);
@@ -76,7 +76,7 @@ public class RastaConverter
     {
         IReadOnlyList<string> args = new List<string>();
 
-        switch (Settings.RastaConverterVersion)
+        switch (Settings.Current.RastaConverterVersion)
         {
             case < 16:
                 args = await GenerateLegacyArguments(isPreview, isContinue, conversion);
@@ -379,7 +379,7 @@ public class RastaConverter
 
     public async static Task<string> GenerateFullCommandLineString(IReadOnlyList<string> argsString)
     {
-        var fullCommandLine = $"{Settings.BaseRastaCommand} {string.Join(" ", argsString)}";
+        var fullCommandLine = $"{Settings.Current.BaseRastaCommand} {string.Join(" ", argsString)}";
         return fullCommandLine;
     }
 }

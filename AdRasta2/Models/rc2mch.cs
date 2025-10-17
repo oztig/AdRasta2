@@ -20,20 +20,20 @@ public class rc2mch
 
         try
         {
-            if (!File.Exists(Settings.RC2MCHCommand))
+            if (!File.Exists(Settings.Current.RC2MCHCommand))
                 return AdRastaStatus.rc2mchNotFound;
 
             args.Add(SafeCommand.QuoteIfNeeded(mchFile));
 
             var result = await ProcessRunner.RunAsync(
-                Settings.RC2MCHCommand,
+                Settings.Current.RC2MCHCommand,
                 conversion.DestinationDirectory,
                 args,
                 conversion);
 
             if (result.Status != AdRastaStatus.Success || result.ExitCode != 0)
             {
-                if (Settings.DebugMode)
+                if (Settings.Current.DebugMode)
                 {
                     ConversionLogger.Log(conversion, ConversionStatus.Error,
                         $"rc2mch failed with status {result.Status} and exit code {result.ExitCode}");
@@ -48,7 +48,7 @@ public class rc2mch
         }
         catch (Exception ex)
         {
-            if (Settings.DebugMode)
+            if (Settings.Current.DebugMode)
             {
                 ConversionLogger.Log(conversion, ConversionStatus.Error, "rc2mch.GenerateMCH", ex);
             }
@@ -71,14 +71,14 @@ public class rc2mch
     //
     //     try
     //     {
-    //         if (!File.Exists(Settings.RC2MCHCommand))
+    //         if (!File.Exists(Settings.Current.RC2MCHCommand))
     //             return AdRastaStatus.rc2mchNotFound;
     //
     //         args.Add(SafeCommand.QuoteIfNeeded(MCHfile));
     //
     //         // Run it and return the completed conversion
     //         var toUpdate = await ProcessRunner.RunAsync(
-    //             Settings.RC2MCHCommand,
+    //             Settings.Current.RC2MCHCommand,
     //             conversion.DestinationDirectory,
     //             args,
     //             conversion);

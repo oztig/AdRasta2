@@ -24,10 +24,10 @@ public class Mads
         var ret = AdRastaStatus.UnknownError;
 
         _copyFromDir = conversion.DualFrameMode
-            ? Settings.DualModeNoNameFilesLocation
-            : Settings.NoNameFilesLocation;
+            ? Settings.Current.DualModeNoNameFilesLocation
+            : Settings.Current.NoNameFilesLocation;
         _copyToDir = conversion.DestinationDirectory;
-        _madsLocation = Path.Combine(_copyToDir, Settings.MadsLocationBaseName);
+        _madsLocation = Path.Combine(_copyToDir, Settings.Current.MadsLocationBaseName);
 
         try
         {
@@ -53,7 +53,7 @@ public class Mads
     private static async Task<AdRastaStatus> GenerateXexAsync(RastaConversion conversion)
     {
         var madsCommandLineArguments = new List<string>();
-        var asqLocation = Path.Combine(_copyToDir, Settings.NoNameAsq);
+        var asqLocation = Path.Combine(_copyToDir, Settings.Current.NoNameAsq);
         
 
         if (!File.Exists(_madsLocation))
@@ -83,12 +83,12 @@ public class Mads
     {
         var filesToCopy = new[]
         {
-            (Source: Path.Combine(_copyFromDir, Settings.NoNameAsq),
-                Destination: Path.Combine(_copyToDir, Settings.NoNameAsq)),
-            (Source: Path.Combine(_copyFromDir, Settings.NoNameHeader),
-                Destination: Path.Combine(_copyToDir, Settings.NoNameHeader)),
-            (Source: Settings.MadsLocation,
-                Destination:Path.Combine(_copyToDir,Settings.MadsLocationBaseName))
+            (Source: Path.Combine(_copyFromDir, Settings.Current.NoNameAsq),
+                Destination: Path.Combine(_copyToDir, Settings.Current.NoNameAsq)),
+            (Source: Path.Combine(_copyFromDir, Settings.Current.NoNameHeader),
+                Destination: Path.Combine(_copyToDir, Settings.Current.NoNameHeader)),
+            (Source: Settings.Current.MadsLocation,
+                Destination:Path.Combine(_copyToDir,Settings.Current.MadsLocationBaseName))
         };
 
         try

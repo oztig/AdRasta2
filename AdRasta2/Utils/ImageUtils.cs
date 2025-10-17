@@ -121,7 +121,7 @@ public class ImageUtils
         {
             if (File.Exists(fileName))
             {
-                var result = await Cli.Wrap(Settings.DefaultExecuteCommand)
+                var result = await Cli.Wrap(Settings.Current.DefaultExecuteCommand)
                     .WithArguments(SafeCommand.QuoteIfNeeded(fileName))
                     .WithValidation(CommandResultValidation.None)
                     .WithStandardOutputPipe(PipeTarget.ToStringBuilder(stdOutBuffer))

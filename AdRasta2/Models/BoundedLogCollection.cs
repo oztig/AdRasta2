@@ -10,7 +10,7 @@ public class BoundedLogCollection<T> : ObservableCollection<T>
 
     public BoundedLogCollection()
     {
-        _maxEntries = Settings.MaxLogEntries;
+        _maxEntries = Settings.Current.MaxLogEntries;
     }
 
     public void AddEntry(DateTime timeStamp, ConversionStatus status, string details)
@@ -30,7 +30,7 @@ public class BoundedLogCollection<T> : ObservableCollection<T>
         if (item is StatusEntry statusEntry)
             statusEntry.ShowOnImageStatusLine = StatusFilter.ShouldIncludeOnImageDotLine(statusEntry.Status);
 
-        if (Count >= Settings.MaxLogEntries)
+        if (Count >= Settings.Current.MaxLogEntries)
             RemoveAt(0); // Remove oldest
 
         Add(item);

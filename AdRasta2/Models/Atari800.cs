@@ -20,7 +20,7 @@ public class Atari800
         try
         {
             // View the output in Atari Emulator
-            var result = await Cli.Wrap(Settings.DefaultExecuteCommand)
+            var result = await Cli.Wrap(Settings.Current.DefaultExecuteCommand)
                 .WithArguments(toViewParams, true)
                 .WithValidation(CommandResultValidation.None)
                 .ExecuteAsync();

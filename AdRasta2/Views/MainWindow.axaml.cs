@@ -20,26 +20,25 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+
+        Settings.Current.LoadFromIni(Settings.ApplicationDebugLog);
+
         this.Opened += (_, _) =>
         {
             var screen = Screens.ScreenFromVisual(this) ?? Screens.Primary;
-            var scale = screen.Scaling; // e.g. 1.5 for 150%
+            var scale = screen.Scaling;
             _initialMaxHeight = (screen.WorkingArea.Height / scale) * 0.75;
             _initialMaxWidth = (screen.WorkingArea.Width / scale) * 0.45;
-            
+
             this.Height = _initialMaxHeight;
             this.Width = _initialMaxWidth;
             this.SizeToContent = SizeToContent.Manual;
-            
-            Dispatcher.UIThread.Post(async () =>
-            {
-                // This runs after the window is painted
-                _ = await CheckIniFileExists();
-            }, DispatcherPriority.Background);
         };
-        
+
         this.GetObservable(ClientSizeProperty).Subscribe(OnClientSizeChanged);
     }
+
+
     
     private void OnClientSizeChanged(Size newSize)
     {

@@ -32,11 +32,11 @@ public static class AdRastaCleanableManifest
     {
         var names = RemovableFileNames.ToList();
 
-        if (!string.IsNullOrEmpty(Settings.BaseRastaCommand))
-            names.Add(Settings.BaseRastaCommand);
+        if (!string.IsNullOrEmpty(Settings.Current.BaseRastaCommand))
+            names.Add(Settings.Current.BaseRastaCommand);
         
-        if (!string.IsNullOrEmpty(Settings.MadsLocationBaseName))
-            names.Add(Settings.MadsLocationBaseName);
+        if (!string.IsNullOrEmpty(Settings.Current.MadsLocationBaseName))
+            names.Add(Settings.Current.MadsLocationBaseName);
         
         return names;
     }

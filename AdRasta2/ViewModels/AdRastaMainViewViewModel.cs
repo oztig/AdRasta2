@@ -36,10 +36,10 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public bool IsDebugEnabled
     {
-        get => Settings.DebugMode;
+        get => Settings.Current.DebugMode;
         set
         {
-            Settings.DebugMode = value;
+            Settings.Current.DebugMode = value;
             this.RaisePropertyChanged();
         }
     }
@@ -107,7 +107,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ObservableCollection<int> Sprockets { get; } = new();
     public ObservableCollection<RastaConversion> RastaConversions { get; private set; }
 
-    public RastaConversion ApplicationDebugLog { get; set; } = new RastaConversion("App Debug Log");
+    // public RastaConversion ApplicationDebugLog { get; set; } = new RastaConversion("App Debug Log");
 
     public string ConversionSummary
     {
@@ -211,7 +211,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private async Task CreateInitialEntry()
     {
-        Settings.SetDefaults(ApplicationDebugLog);
+        // Settings.Current.LoadFromIni(Settings.ApplicationDebugLog);
+
         LogStartupDetails();
         RastaConversions = new ObservableCollection<RastaConversion>
         {
@@ -229,11 +230,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private void LogStartupDetails()
     {
-        ConversionLogger.LogIfDebug(ApplicationDebugLog, ConversionStatus.Debug,
-            "AdRasta2 Location is:" + AppContext.BaseDirectory,forceDebug:true);
-        ConversionLogger.LogIfDebug(ApplicationDebugLog, ConversionStatus.Debug,
-            "Ini File Location is:" + Settings.IniFileLocation,forceDebug:true);
-        Settings.LogSettingValues(ApplicationDebugLog);
+        ConversionLogger.LogIfDebug(Settings.ApplicationDebugLog, ConversionStatus.Debug,
+            "AdRasta2 Location is:" + AppContext.BaseDirectory, forceDebug: true);
+        ConversionLogger.LogIfDebug(Settings.ApplicationDebugLog, ConversionStatus.Debug,
+            "Ini File Location is:" + Settings.IniFileLocation, forceDebug: true);
+        Settings.Current.LogSettingValues(Settings.ApplicationDebugLog);
     }
 
     private void PopulateSprockets()
@@ -373,8 +374,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         try
         {
-            var result = await Cli.Wrap(Settings.DefaultExecuteCommand)
-                .WithArguments(SafeCommand.QuoteIfNeeded(Settings.HelpFileLocation))
+            var result = await Cli.Wrap(Settings.Current.DefaultExecuteCommand)
+                .WithArguments(SafeCommand.QuoteIfNeeded(Settings.Current.HelpFileLocation))
                 .WithValidation(CommandResultValidation.None)
                 .ExecuteAsync();
         }
@@ -437,7 +438,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         if (SelectedConversion == null)
             return;
 
-        var title = Settings.DryRunDelete ? "Clean Up Conversion (Dry Run)" : "Clean Up Conversion";
+        var title = Settings.Current.DryRunDelete ? "Clean Up Conversion (Dry Run)" : "Clean Up Conversion";
 
         var confirmation = await _messageBoxService.ShowConfirmationAsync(
             title,
@@ -451,11 +452,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
         if (confirmation == "Okay")
         {
-            await SelectedConversion.CleanUpAsync(Settings.DryRunDelete);
+            await SelectedConversion.CleanUpAsync(Settings.Current.DryRunDelete);
         }
     }
 
-    
+
     private async Task ShowAboutMessage()
     {
         var dateNow = DateTime.Now;
@@ -488,7 +489,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     {
         try
         {
-            var window = new ApplicationLogView(ApplicationDebugLog.Statuses,_window);
+            var window = new ApplicationLogView(Settings.ApplicationDebugLog.Statuses, _window);
 
             // // If you have access to the main window:
             window.ShowDialog(App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
@@ -516,10 +517,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private async Task CopyAndSetPalette()
     {
-        await FileUtils.CopyDirectoryIncludingRoot(Settings.PaletteDirectory, SelectedConversion.DestinationDirectory);
+        await FileUtils.CopyDirectoryIncludingRoot(Settings.Current.PaletteDirectory,
+            SelectedConversion.DestinationDirectory);
         SourceData.PopulatePalettes(SelectedConversion.DestinationPaletteDir);
         SelectedConversion.Palette = null;
-        SelectedConversion.Palette =  RastaConverterDefaultValues.DefaultPalette;
+        SelectedConversion.Palette = RastaConverterDefaultValues.DefaultPalette;
     }
 
     private void UpdateDuplicateDestinationFlags()
@@ -626,7 +628,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ConversionLogger.Log(result.Conversion, ConversionStatus.PreviewGenerated,
             $"({result.Conversion.PreviewImageColoursText})");
 
-        if (Settings.AutoViewPreview)
+        if (Settings.Current.AutoViewPreview)
             await ViewPreviewImageAsync();
     }
 
@@ -644,7 +646,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");
 
-        if (Settings.AutoViewPreview)
+        if (Settings.Current.AutoViewPreview)
             await ViewPreviewImageAsync();
     }
 
@@ -662,7 +664,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ConversionLogger.Log(result.Conversion, ConversionStatus.ConversionComplete,
             $"({result.Conversion.PreviewImageColoursText})");
 
-        if (Settings.AutoViewPreview)
+        if (Settings.Current.AutoViewPreview)
             await ViewPreviewImageAsync();
     }
 

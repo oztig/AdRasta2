@@ -23,7 +23,7 @@ public static class ConversionLogger
         [CallerMemberName] string caller = "",
         bool forceDebug=false)
     {
-        if (!Settings.DebugMode && !forceDebug )
+        if (!Settings.Current.DebugMode && !forceDebug )
             return;
         
         Log(conversion, status, $"{message} (from {caller})", ex);

@@ -1,0 +1,222 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:iconPacks="clr-namespace:IconPacks.Avalonia.MaterialDesign;assembly=IconPacks.Avalonia.MaterialDesign"
+        xmlns:materialDesign="https://github.com/MahApps/IconPacks.Avalonia"
+        x:Class="AdRasta2.Views.SettingsEditor"
+        WindowStartupLocation="CenterOwner"
+        xmlns:vm="clr-namespace:AdRasta2.ViewModels"
+        xmlns:controls="clr-namespace:AdRasta2.Controls"
+        x:DataType="vm:SettingsEditorViewModel"
+        SizeToContent="WidthAndHeight"
+        Title=".ini Settings">
+
+    <Grid RowDefinitions="*,Auto">
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid Margin="10" RowSpacing="10" ColumnSpacing="7"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+                <!-- RastaConverter Settings -->
+                <Expander Grid.Row="0" IsExpanded="True" HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <TextBlock Text="RastaConverter" IsHitTestVisible="False" />
+                    </Expander.Header>
+
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,Auto,Auto,Auto,*"
+                          RowSpacing="7" ColumnSpacing="5">
+
+                        <!-- RastaConverter -->
+                        <Label Grid.Row="0" Grid.Column="0" Content="RastaConverter Executable"
+                               VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="0" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding RastaConverterCommand, Mode=TwoWay}" />
+
+                        <Button Grid.Row="0" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForCommand}"
+                                CommandParameter="RastaConverterCommand">
+                            <iconPacks:PackIconMaterialDesign Kind="FileOpen"
+                                                              Width="20" Height="20"
+                                                              Background="Transparent"
+                                                              Foreground="Black" />
+                        </Button>
+
+                        <!-- Help File -->
+                        <Label Grid.Row="1" Grid.Column="0" Content="Help File" VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="1" Grid.Column="1"
+                                 Text="{Binding HelpFileLocation, Mode=TwoWay}"
+                                 VerticalContentAlignment="Center" />
+
+                        <Button Grid.Row="1" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForCommand}"
+                                CommandParameter="HelpFileLocation">
+                            <iconPacks:PackIconMaterialDesign Kind="FileOpen"
+                                                              Width="20" Height="20"
+                                                              Background="Transparent"
+                                                              Foreground="Black" />
+                        </Button>
+
+                        <!-- Palettes Dir -->
+                        <Label Grid.Row="2" Grid.Column="0" Content="Palettes Directory"
+                               VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="2" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding PaletteDirectory, Mode=TwoWay}" />
+
+                        <Button Grid.Row="2" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForDirectoryCommand}"
+                                CommandParameter="PaletteDirectory">
+                            <iconPacks:PackIconMaterialDesign Kind="Folder"
+                                                              Width="20" Height="20"
+                                                              Foreground="Black" />
+                        </Button>
+
+                        <!-- No Name File Dir -->
+                        <Label Grid.Row="3" Grid.Column="0" Content="NoName File Directory"
+                               VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="3" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding NoNameFilesLocation, Mode=TwoWay}" />
+
+                        <Button Grid.Row="3" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForDirectoryCommand}"
+                                CommandParameter="NoNameFilesLocation">
+                            <iconPacks:PackIconMaterialDesign Kind="Folder"
+                                                              Width="20" Height="20"
+                                                              Foreground="Black" />
+                        </Button>
+
+                        <!-- Dual Mode No Name File Dir -->
+                        <Label Grid.Row="4" Grid.Column="0" Content="Dual Mode NoName File Directory"
+                               VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="4" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding DualModeNoNameFilesLocation, Mode=TwoWay}" />
+
+                        <Button Grid.Row="4" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForDirectoryCommand}"
+                                CommandParameter="DualModeNoNameFilesLocation">
+                            <iconPacks:PackIconMaterialDesign Kind="Folder"
+                                                              Width="20" Height="20"
+                                                              Foreground="Black" />
+                        </Button>
+
+                    </Grid>
+                </Expander>
+
+                <!-- RastaConverter Defaults -->
+                <Expander Grid.Row="1" IsExpanded="True" HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <TextBlock Text="RastaConverter.Defaults" IsHitTestVisible="False" />
+                    </Expander.Header>
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,Auto,Auto,Auto,*"
+                          RowSpacing="7" ColumnSpacing="5">
+
+                        <!-- Unstuck Drift -->
+                        <Label Grid.Row="0" Grid.Column="0" Content="Unstuck Drift"
+                               VerticalContentAlignment="Center" />
+                        <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="1"
+                                                    x:Name="UnstuckDrift"
+                                                    Minimum="0" Maximum="1"
+                                                    ToolTip.Tip="0 = Off"
+                                                    Value="{ Binding DefaultUnstuckDrift}"
+                                                    Increment="0.00001" />
+                        <!-- Unstuck After -->
+                        <Label Grid.Row="1" Grid.Column="0" Content="Unstuck After" VerticalAlignment="Center" />
+                        <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="1"
+                                                    x:Name="UnstuckAfter"
+                                                    Minimum="0" Maximum="99999999"
+                                                    ToolTip.Tip="0 = Never"
+                                                    Value="{Binding DefaultUnstuckAfter}"
+                                                    Increment="1" />
+                    </Grid>
+                </Expander>
+
+                <!-- Tools -->
+                <Expander Grid.Row="2" IsExpanded="True" HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <TextBlock Text="Tools" />
+                    </Expander.Header>
+
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,Auto,Auto,Auto,*"
+                          RowSpacing="7" ColumnSpacing="5">
+
+                        <!-- RC2MCH -->
+                        <Label Grid.Row="0" Grid.Column="0" Content="RC2MCH Executable"
+                               VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="0" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding RC2MCHCommand, Mode=TwoWay}" />
+
+                        <Button Grid.Row="0" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForCommand}"
+                                CommandParameter="RC2MCHCommand">
+                            <iconPacks:PackIconMaterialDesign Kind="FileOpen"
+                                                              Width="20" Height="20"
+                                                              Background="Transparent"
+                                                              Foreground="Black" />
+                        </Button>
+
+                        <!-- MADS -->
+                        <Label Grid.Row="1" Grid.Column="0" Content="MADS Executable" VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="1" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding MadsLocation, Mode=TwoWay}" />
+
+                        <Button Grid.Row="1" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForCommand}"
+                                CommandParameter="MadsLocation">
+                            <iconPacks:PackIconMaterialDesign Kind="FileOpen"
+                                                              Width="20" Height="20"
+                                                              Foreground="Black" />
+                        </Button>
+                    </Grid>
+                </Expander>
+
+                <Expander Grid.Row="3" IsExpanded="True" HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <TextBlock Text="Debug" IsHitTestVisible="False" />
+                    </Expander.Header>
+                </Expander>
+
+                <Expander Grid.Row="4" IsExpanded="True" HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <TextBlock Text="UserDefaults" IsHitTestVisible="False" />
+                    </Expander.Header>
+                </Expander>
+
+                <Expander Grid.Row="5" IsExpanded="True" HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <TextBlock Text="Experimental" />
+                    </Expander.Header>
+                </Expander>
+            </Grid>
+        </ScrollViewer>
+        <!-- Anchored Buttons -->
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="10"
+                    Spacing="10">
+            <Button>
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <iconPacks:PackIconMaterialDesign Kind="Save"
+                                                      Width="20" Height="20"
+                                                      Foreground="Black" />
+                    <TextBlock Text="Save" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+
+            <Button Content="Cancel" />
+        </StackPanel>
+    </Grid>
+</Window>

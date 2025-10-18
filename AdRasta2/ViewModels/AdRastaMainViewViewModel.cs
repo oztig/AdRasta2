@@ -97,6 +97,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> OpenDestinationFolderCommand { get; }
     public ReactiveCommand<Unit, Unit> ClearDestinationFolderCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowApplicationLogCommand { get; }
+    public ReactiveCommand<Unit, Unit> ShowSettingsEditorCommand { get; }
 
     private readonly IFilePickerService _filePickerService;
     private readonly IFolderPickerService _folderPickerService;
@@ -184,6 +185,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         ShowAboutCommand = ReactiveCommand.CreateFromTask(async () => await ShowAboutMessage());
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         ShowApplicationLogCommand = ReactiveCommand.CreateFromTask(async () => await ShowApplicationLog());
+        ShowSettingsEditorCommand = ReactiveCommand.CreateFromTask(async () => await ShowSettingsEditor());
 
         SourceImageClickCommand = ReactiveCommand.CreateFromTask(() =>
             SelectSourceImage());
@@ -503,6 +505,13 @@ public class AdRastaMainViewViewModel : ReactiveObject
         }
     }
 
+    private async Task ShowSettingsEditor()
+    {
+        var editor = new SettingsEditor();
+        await editor.ShowDialog(App.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
+            ? _window
+            : null);
+    }
 
     public async void SelectDestinationFoler()
     {

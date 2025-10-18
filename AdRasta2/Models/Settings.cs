@@ -152,30 +152,6 @@ public class Settings : INotifyPropertyChanged
         }
     }
 
-    private bool _copyWithoutConfirm;
-
-    public bool CopyWithoutConfirm
-    {
-        get => _copyWithoutConfirm;
-        set
-        {
-            _copyWithoutConfirm = value;
-            Notify();
-        }
-    }
-
-    private bool _populateDefaultFile;
-
-    public bool PopulateDefaultFile
-    {
-        get => _populateDefaultFile;
-        set
-        {
-            _populateDefaultFile = value;
-            Notify();
-        }
-    }
-
     private double _rastaConverterVersion;
 
     public double RastaConverterVersion
@@ -275,26 +251,30 @@ public class Settings : INotifyPropertyChanged
         {
             var ini = new IniFile(IniFileLocation);
 
-            HelpFileLocation = ini.GetStr("Locations", "RastaHelpFile", string.Empty);
-            RC2MCHCommand = ini.GetStr("Locations", "RC2MCH", string.Empty);
-            MadsLocation = ini.GetStr("Locations", "MADS", string.Empty);
-            PaletteDirectory = ini.GetStr("Locations", "PalettesDir", string.Empty);
-            NoNameFilesLocation = ini.GetStr("Locations", "NoNameFilesDir", string.Empty);
-            DualModeNoNameFilesLocation = ini.GetStr("Locations", "DualModeNoNameFilesDir", string.Empty);
-
-            CopyWithoutConfirm = GetSafeBool(ini, "Continue", "CopyWithoutConfirm", false);
-            PopulateDefaultFile = GetSafeBool(ini, "Continue", "PopulateDefaultFile", false);
-            DebugMode = GetSafeBool(ini, "Debug", "DebugMode", false);
-            AutoViewPreview = GetSafeBool(ini, "UserDefaults", "AutoViewPreview", false);
-
+            // RastaConverter related
             RastaConverterCommand = ini.GetStr("RastaConverter", "Location", "Cant Find in ini File");
-            RastaConverterVersion = GetSafeDouble(ini, "RastaConverter", "Version", 17);
+            HelpFileLocation = ini.GetStr("RastaConverter", "HelpFile", string.Empty);
+            PaletteDirectory = ini.GetStr("RastaConverter", "PalettesDir", string.Empty);
+            NoNameFilesLocation = ini.GetStr("RastaConverter", "NoNameFilesDir", string.Empty);
+            DualModeNoNameFilesLocation = ini.GetStr("RastaConverter", "DualModeNoNameFilesDir", string.Empty);
 
+            // Rataconverter Defaults
             float raw = GetSafeFloat(ini, "RastaConverter.Defaults", "DefaultUnstuckDrift", 0.00001f);
             RastaConverterDefaultValues.DefaultUnstuckDrift = (decimal)raw;
             RastaConverterDefaultValues.DefaultUnstuckAfter =
                 ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
+            
+            // Tools
+            RC2MCHCommand = ini.GetStr("Tools", "RC2MCH", string.Empty);
+            MadsLocation = ini.GetStr("Tools", "MADS", string.Empty);
 
+            // Debug
+            DebugMode = GetSafeBool(ini, "Debug", "DebugMode", false);
+            
+            //User Preferences
+            AutoViewPreview = GetSafeBool(ini, "UserPreferences", "AutoViewPreview", false);
+
+            // Experimental
             SetConversionIcon = GetSafeBool(ini, "Experimental", "SetConversionIcon", false);
             RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
             DryRunDelete = GetSafeBool(ini, "Experimental", "DryRunDelete", true);

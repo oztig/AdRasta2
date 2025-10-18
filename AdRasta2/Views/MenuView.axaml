@@ -29,6 +29,13 @@
                       Command="{Binding ShowApplicationLogCommand}" 
                       Margin="10,0,10,0" />
         </MenuItem>
+        
+        <MenuItem Header="_Settings">
+            <MenuItem Header="_Edit INI Settings"
+                      Command="{Binding ShowSettingsEditorCommand}"
+                      Margin="10,0,10,0" />
+        </MenuItem>
+
 
         <MenuItem Header="Theme">
             <MenuItem Header="Font Size">

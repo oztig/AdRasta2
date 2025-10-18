@@ -17,6 +17,9 @@ public partial class SettingsEditor : Window
         InitializeComponent();
         var filePickerService = new FilePickerService(this);
         var folderPickerService = new FolderPickerService(this);
-        DataContext = new SettingsEditorViewModel(filePickerService, folderPickerService);
+        var viewModel = new SettingsEditorViewModel(filePickerService, folderPickerService);
+        DataContext = viewModel;
+        UnstuckAfter.DefaultIfNull = viewModel.DefaultUnstuckAfter;
+        UnstuckDrift.DefaultIfNull = viewModel.DefaultUnstuckDrift;
     }
 }

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using AdRasta2.Models;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Threading;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Models;

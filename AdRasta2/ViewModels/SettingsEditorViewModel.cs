@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using AdRasta2.Attributes;
 using AdRasta2.Models;
 using AdRasta2.Interfaces;
+using AdRasta2.ViewModels.Helpers;
+using AdRasta2.Views;
 using Avalonia.Input;
 using Avalonia.Platform.Storage;
 using Avalonia.Threading;
@@ -24,8 +26,21 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
     private readonly Dictionary<string, List<string>> _errors = new();
     public ReactiveCommand<Unit, Unit> SaveCommand { get; }
     public ReactiveCommand<Unit, Unit> CloseCommand { get; }
-    public Action? CloseEditorAction { get; set; }
+    public Action<SettingsEditorResult>? CloseEditorAction { get; set; }
 
+
+    public ReactiveCommand<string, Unit> BrowseForCommand { get; }
+
+    public ReactiveCommand<string, Unit> BrowseForDirectoryCommand { get; }
+
+    private readonly Dictionary<string, (string[] patterns, string name)> _fileTypes = new()
+    {
+        ["RastaConverterCommand"] = (new[] { "*.exe", "*" }, "Executable"),
+        ["HelpFileLocation"] = (new[] { "*.txt"}, "Text"),
+        ["RC2MCHCommand"] = (new[] { "*.exe", "*" }, "Executable"),
+        ["MadsLocation"] = (new[] { "*.exe", "*" }, "Executable"),
+        ["RCEditCommand"] = (new[] { "*.exe", "*" }, "Executable")
+    };
 
 
     public SettingsEditorViewModel(IFilePickerService filePicker, IFolderPickerService folderPicker)
@@ -33,30 +48,69 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
         _filePicker = filePicker;
         _folderPicker = folderPicker;
 
-        BrowseForCommand = ReactiveCommand.CreateFromTask<string>(ExecuteBrowseForAsync);
+        BrowseForCommand = CreateBrowseForCommand();
         BrowseForDirectoryCommand = ReactiveCommand.CreateFromTask<string>(BrowseForDirectoryAsync);
         SaveCommand = ReactiveCommand.Create(ExecuteSave);
         CloseCommand = ReactiveCommand.Create(ExecuteClose);
     }
 
-    public ReactiveCommand<string, Unit> BrowseForCommand { get; }
-    public ReactiveCommand<string, Unit> BrowseForDirectoryCommand { get; }
-
-    private async Task ExecuteBrowseForAsync(string targetProperty)
+    private ReactiveCommand<string, Unit> CreateBrowseForCommand()
     {
-        var fileType = new FilePickerFileType("Executable") { Patterns = new[] { "*.exe" } };
-        var result = await _filePicker.PickFileAsync(fileType, $"Select file for {targetProperty}");
+        return ReactiveCommand.CreateFromTask<string>(async targetProperty =>
+        {
+            var request = _fileTypes.TryGetValue(targetProperty, out var fileType)
+                ? CreateFileBrowseRequest(targetProperty, fileType.patterns, fileType.name)
+                : CreateFileBrowseRequest(targetProperty);
+
+            await ExecuteBrowseForAsync(request);
+        });
+    }
+
+    private FileBrowseRequest CreateFileBrowseRequest(string targetProperty, string[] patterns = null,
+        string name = "Custom")
+    {
+        return new FileBrowseRequest
+        {
+            TargetProperty = targetProperty,
+            FileType = new FilePickerFileType(name)
+            {
+                Patterns = patterns ?? new[] { "*.*" }
+            }
+        };
+    }
+
+
+    private async Task ExecuteBrowseForAsync(FileBrowseRequest request)
+    {
+        var result = await _filePicker.PickFileAsync(request);
 
         if (!string.IsNullOrWhiteSpace(result))
         {
-            var property = GetType().GetProperty(targetProperty);
+            var property = GetType().GetProperty(request.TargetProperty);
             if (property != null && property.CanWrite && property.PropertyType == typeof(string))
             {
                 property.SetValue(this, result);
-                ValidateProperty(targetProperty, result);
+                ValidateProperty(request.TargetProperty, result);
             }
         }
     }
+
+
+    // private async Task ExecuteBrowseForAsync(string targetProperty)
+    // {
+    //     var fileType = new FilePickerFileType("Executable") { Patterns = new[] { "*.exe" } };
+    //     var result = await _filePicker.PickFileAsync(fileType, $"Select file for {targetProperty}");
+    //
+    //     if (!string.IsNullOrWhiteSpace(result))
+    //     {
+    //         var property = GetType().GetProperty(targetProperty);
+    //         if (property != null && property.CanWrite && property.PropertyType == typeof(string))
+    //         {
+    //             property.SetValue(this, result);
+    //             ValidateProperty(targetProperty, result);
+    //         }
+    //     }
+    // }
 
     private async Task BrowseForDirectoryAsync(string propertyName)
     {
@@ -304,7 +358,7 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
         set => this.RaiseAndSetIfChanged(ref _defaultUnstuckDrift, value);
     }
 
-    private int _defaultUnstuckAfter = 1000000;
+    private int _defaultUnstuckAfter = RastaConverterDefaultValues.DefaultUnstuckAfter;
 
     public int DefaultUnstuckAfter
     {
@@ -333,13 +387,13 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
         RastaConverterDefaultValues.DefaultUnstuckDrift = DefaultUnstuckDrift;
         RastaConverterDefaultValues.DefaultUnstuckAfter = DefaultUnstuckAfter;
 
-      //  Settings.Save();
+        Settings.Current.Save();
 
-        // Optional: close the editor or notify completion
+        CloseEditorAction?.Invoke(SettingsEditorResult.Saved);
     }
 
     private void ExecuteClose()
     {
-        CloseEditorAction?.Invoke();  
+        CloseEditorAction?.Invoke(SettingsEditorResult.Cancelled);
     }
 }

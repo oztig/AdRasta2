@@ -268,44 +268,6 @@
                                       IsChecked="{Binding DryRunDelete, Mode=TwoWay}" />
                     </Grid>
                 </Expander>
-
-
-                <!-- <Expander Grid.Row="5" IsExpanded="True" HorizontalAlignment="Stretch"> -->
-                <!--     <Expander.Header> -->
-                <!--         <TextBlock Text="Experimental" /> -->
-                <!--     </Expander.Header> -->
-                <!--     <Grid RowDefinitions="Auto,Auto,Auto" -->
-                <!--           ColumnDefinitions="Auto,Auto,Auto,Auto,*" -->
-                <!--           RowSpacing="7" ColumnSpacing="5"> -->
-                <!--          -->
-                <!--         ~1~ Conversion Icon @1@ -->
-                <!--         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal"> -->
-                <!--             <TextBlock Text="Show Conversion Icon" VerticalAlignment="Center" Margin="0,0,8,0" /> -->
-                <!--             <ToggleSwitch IsChecked="{Binding SetConversionIcon, Mode=TwoWay}" /> -->
-                <!--         </StackPanel> -->
-                <!--          -->
-                <!--         ~1~ RCEDIT Path @1@ -->
-                <!--         <Label Grid.Row="1" Grid.Column="0" Content="RCEDIT Executable" VerticalContentAlignment="Center" /> -->
-                <!--         <TextBox Grid.Row="1" Grid.Column="1" -->
-                <!--                  VerticalContentAlignment="Center" -->
-                <!--                  Text="{Binding RCEditCommand, Mode=TwoWay}" /> -->
-                <!-- -->
-                <!--         <Button Grid.Row="1" Grid.Column="2" -->
-                <!--                 Background="Transparent" -->
-                <!--                 Command="{Binding BrowseForCommand}" -->
-                <!--                 CommandParameter="RCEditCommand"> -->
-                <!--             <iconPacks:PackIconMaterialDesign Kind="FileOpen" -->
-                <!--                                               Width="20" Height="20" -->
-                <!--                                               Foreground="Black" /> -->
-                <!--         </Button> -->
-                <!--          -->
-                <!--         ~1~ DryRun Delete @1@ -->
-                <!--         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,10,0"> -->
-                <!--             <TextBlock Text="Dry Run Delete" VerticalAlignment="Center" Margin="0,0,8,0" /> -->
-                <!--             <ToggleSwitch IsChecked="{Binding DryRunDelete, Mode=TwoWay}" /> -->
-                <!--         </StackPanel> -->
-                <!--     </Grid> -->
-                <!-- </Expander> -->
             </Grid>
         </ScrollViewer>
 
@@ -315,7 +277,7 @@
                     HorizontalAlignment="Right"
                     Margin="10"
                     Spacing="10">
-            <Button>
+            <Button Command="{Binding SaveCommand}">
                 <StackPanel Orientation="Horizontal" Spacing="5">
                     <iconPacks:PackIconMaterialDesign Kind="Save"
                                                       Width="20" Height="20"

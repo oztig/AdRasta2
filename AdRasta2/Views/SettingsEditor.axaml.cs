@@ -10,6 +10,12 @@ using Avalonia.Threading;
 
 namespace AdRasta2.Views;
 
+public enum SettingsEditorResult
+{
+    Saved,
+    Cancelled
+}
+
 public partial class SettingsEditor : Window
 {
     
@@ -20,7 +26,7 @@ public partial class SettingsEditor : Window
         var folderPickerService = new FolderPickerService(this);
         var viewModel = new SettingsEditorViewModel(filePickerService, folderPickerService);
         
-        viewModel.CloseEditorAction = Close;
+        viewModel.CloseEditorAction = result => Close(result);
         
         DataContext = viewModel;
         UnstuckAfter.DefaultIfNull = viewModel.DefaultUnstuckAfter;

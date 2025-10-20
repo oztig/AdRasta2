@@ -11,6 +11,7 @@ using AdRasta2.Interfaces;
 using AdRasta2.Models;
 using AdRasta2.Services;
 using AdRasta2.Utils;
+using AdRasta2.ViewModels.Helpers;
 using AdRasta2.Views;
 using Avalonia;
 using Avalonia.Controls;
@@ -98,6 +99,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> ClearDestinationFolderCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowApplicationLogCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowSettingsEditorCommand { get; }
+    public ReactiveCommand<Unit, Unit> ReloadInitSettings { get; }
 
     private readonly IFilePickerService _filePickerService;
     private readonly IFolderPickerService _folderPickerService;
@@ -133,6 +135,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
 
     private RastaConversion? _selectedConversion;
+
 
     public RastaConversion? SelectedConversion
     {
@@ -186,6 +189,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         PanelClickedCommand = ReactiveCommand.Create<RastaConversion>(conversion => { ChangeSelected(conversion); });
         ShowApplicationLogCommand = ReactiveCommand.CreateFromTask(async () => await ShowApplicationLog());
         ShowSettingsEditorCommand = ReactiveCommand.CreateFromTask(async () => await ShowSettingsEditor());
+        ReloadInitSettings = ReactiveCommand.CreateFromTask(async () => await ReloadSettings());
 
         SourceImageClickCommand = ReactiveCommand.CreateFromTask(() =>
             SelectSourceImage());
@@ -213,8 +217,6 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private async Task CreateInitialEntry()
     {
-        // Settings.Current.LoadFromIni(Settings.ApplicationDebugLog);
-
         LogStartupDetails();
         RastaConversions = new ObservableCollection<RastaConversion>
         {
@@ -508,9 +510,20 @@ public class AdRastaMainViewViewModel : ReactiveObject
     private async Task ShowSettingsEditor()
     {
         var editor = new SettingsEditor();
-        await editor.ShowDialog(App.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
-            ? _window
-            : null);
+        var result = await editor.ShowDialog<SettingsEditorResult?>(_window);
+
+        if (result == SettingsEditorResult.Saved)
+        {
+            await _messageBoxService.ShowInfoAsync("Settings saved", "Settings saved");
+        }
+    }
+
+    private async Task ReloadSettings()
+    {
+        Settings.Current.LoadFromIni(Settings.ApplicationDebugLog);
+        this.RaisePropertyChanged(nameof(IsDebugEnabled));
+        await CreateInitialEntry();
+        await _messageBoxService.ShowInfoAsync("Settings reloaded", "Settings reloaded");
     }
 
     public async void SelectDestinationFoler()
@@ -604,10 +617,22 @@ public class AdRastaMainViewViewModel : ReactiveObject
         return await _folderPickerService.PickFolderAsync("Select Destination Folder",defaultFolderPath) ?? string.Empty;
     }
 
+    
     private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
-        return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
+        var request = new FileBrowseRequest
+        {
+            TargetProperty = "Anonymous", // or pass in if needed
+            FileType = fileType
+        };
+
+        return await _filePickerService.PickFileAsync(request) ?? string.Empty;
     }
+
+    // private async Task<string> SelectFiles(FilePickerFileType fileType)
+    // {
+    //     return await _filePickerService.PickFileAsync(fileType) ?? string.Empty;
+    // }
 
     private Task ShowExplorer()
     {

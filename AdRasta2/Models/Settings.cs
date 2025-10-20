@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using AdRasta2.Enums;
 using AdRasta2.Utils;
 using ReactiveUI;
@@ -27,6 +29,7 @@ public class Settings : ReactiveObject
     }
 
     private string _rastaConverterCommand = string.Empty;
+
     public string RastaConverterCommand
     {
         get => _rastaConverterCommand;
@@ -37,6 +40,7 @@ public class Settings : ReactiveObject
     public string BaseRastaCommand => Path.GetFileName(RastaConverterCommand);
 
     private string _rc2mchCommand = string.Empty;
+
     public string RC2MCHCommand
     {
         get => _rc2mchCommand;
@@ -44,6 +48,7 @@ public class Settings : ReactiveObject
     }
 
     private string _defaultExecuteCommand = string.Empty;
+
     public string DefaultExecuteCommand
     {
         get => _defaultExecuteCommand;
@@ -51,6 +56,7 @@ public class Settings : ReactiveObject
     }
 
     private string _paletteDirectory = string.Empty;
+
     public string PaletteDirectory
     {
         get => _paletteDirectory;
@@ -58,6 +64,7 @@ public class Settings : ReactiveObject
     }
 
     private string _madsLocation = string.Empty;
+
     public string MadsLocation
     {
         get => _madsLocation;
@@ -67,6 +74,7 @@ public class Settings : ReactiveObject
     public string MadsLocationBaseName => Path.GetFileName(MadsLocation);
 
     private string _noNameFilesLocation = string.Empty;
+
     public string NoNameFilesLocation
     {
         get => _noNameFilesLocation;
@@ -74,6 +82,7 @@ public class Settings : ReactiveObject
     }
 
     private string _dualModeNoNameFilesLocation = string.Empty;
+
     public string DualModeNoNameFilesLocation
     {
         get => _dualModeNoNameFilesLocation;
@@ -81,6 +90,7 @@ public class Settings : ReactiveObject
     }
 
     private string _helpFileLocation = string.Empty;
+
     public string HelpFileLocation
     {
         get => _helpFileLocation;
@@ -88,6 +98,7 @@ public class Settings : ReactiveObject
     }
 
     private double _rastaConverterVersion;
+
     public double RastaConverterVersion
     {
         get => _rastaConverterVersion;
@@ -98,6 +109,7 @@ public class Settings : ReactiveObject
     public string NoNameAsq { get; set; } = "no_name.asq";
 
     private bool _debugMode;
+
     public bool DebugMode
     {
         get => _debugMode;
@@ -107,6 +119,7 @@ public class Settings : ReactiveObject
     public int MaxLogEntries => DebugMode ? 500 : 100;
 
     private bool _autoViewPreview;
+
     public bool AutoViewPreview
     {
         get => _autoViewPreview;
@@ -114,6 +127,7 @@ public class Settings : ReactiveObject
     }
 
     private bool _setConversionIcon;
+
     public bool SetConversionIcon
     {
         get => _setConversionIcon;
@@ -121,6 +135,7 @@ public class Settings : ReactiveObject
     }
 
     private string _rcEditCommand = string.Empty;
+
     public string RCEditCommand
     {
         get => _rcEditCommand;
@@ -131,6 +146,7 @@ public class Settings : ReactiveObject
     public string BaseRCEditCommand => Path.GetFileName(RCEditCommand);
 
     private bool _dryRunDelete = true;
+
     public bool DryRunDelete
     {
         get => _dryRunDelete;
@@ -138,6 +154,7 @@ public class Settings : ReactiveObject
     }
 
     private string _defaultImageDestination = string.Empty;
+
     public string DefaultImageDestination
     {
         get => _defaultImageDestination;
@@ -171,14 +188,13 @@ public class Settings : ReactiveObject
             MadsLocation = ini.GetStr("Tools", "MADS", string.Empty);
 
             DebugMode = GetSafeBool(ini, "Debug", "DebugMode", false);
-            
+
             AutoViewPreview = GetSafeBool(ini, "UserPreferences", "AutoViewPreview", false);
             DefaultImageDestination = ini.GetStr("UserPreferences", "DefaultImageDestination", string.Empty);
-            
+
             SetConversionIcon = GetSafeBool(ini, "Experimental", "SetConversionIcon", false);
             RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
             DryRunDelete = GetSafeBool(ini, "Experimental", "DryRunDelete", true);
-            
         }
         catch (Exception ex)
         {
@@ -227,6 +243,83 @@ public class Settings : ReactiveObject
                 ConversionLogger.LogIfDebug(loggingConversion, ConversionStatus.Debug,
                     $"Settings.{prop.Name} = <error: {ex.Message}>", forceDebug: true);
             }
+        }
+    }
+
+    public async Task<bool> Save()
+    {
+        var iniPath = IniFileLocation;
+        var backupPath = iniPath + ".bak";
+
+        try
+        {
+        // Backup the original
+        if (File.Exists(iniPath))
+        {
+            File.Copy(iniPath, backupPath, overwrite: true);
+            if (File.Exists(backupPath))
+            {
+                File.Delete(IniFileLocation);
+            }
+            else
+                return false;
+        }
+
+        File.WriteAllText(iniPath, "");
+        var ini = new IniFile(iniPath);
+
+        ini.SetValue("RastaConverter", "Location", RastaConverterCommand);
+        ini.SetValue("RastaConverter", "HelpFile", HelpFileLocation);
+        ini.SetValue("RastaConverter", "PalettesDir", PaletteDirectory);
+        ini.SetValue("RastaConverter", "NoNameFilesDir", NoNameFilesLocation);
+        ini.SetValue("RastaConverter", "DualModeNoNameFilesDir", DualModeNoNameFilesLocation);
+
+        ini.SetValue("RastaConverter.Defaults", "DefaultUnstuckDrift", RastaConverterDefaultValues.DefaultUnstuckDrift.ToString());
+        ini.SetValue("RastaConverter.Defaults", "DefaultUnstuckAfter", RastaConverterDefaultValues.DefaultUnstuckAfter.ToString());
+
+        ini.SetValue("Tools", "RC2MCH", RC2MCHCommand);
+        ini.SetValue("Tools", "MADS", MadsLocation);
+
+        ini.SetValue("Debug", "DebugMode", DebugMode.ToString());
+        
+        ini.SetValue("UserPreferences", "AutoViewPreview", AutoViewPreview.ToString());        
+        ini.SetValue("UserPreferences", "DefaultImageDestination", DefaultImageDestination);
+
+        ini.SetValue("Experimental", "SetConversionIcon", SetConversionIcon.ToString());
+        ini.SetValue("Experimental", "RCEditCommand", RCEditCommand);
+        ini.SetValue("Experimental", "DryRunDelete", DryRunDelete.ToString());
+
+        
+        // Save to temp file
+        var iniDIR = Path.GetDirectoryName(IniFileLocation);
+        var tempPath = Path.Combine(iniDIR,"settings_raw.ini");
+        ini.SaveTo(tempPath);
+
+        // Read lines and inject spacing
+        var lines = File.ReadAllLines(tempPath);
+        var spacedLines = new List<string>();
+        string? lastSection = null;
+
+        foreach (var line in lines)
+        {
+            if (line.StartsWith("[") && line.EndsWith("]"))
+            {
+                if (lastSection != null) spacedLines.Add(""); // insert blank line before new section
+                lastSection = line;
+            }
+
+            spacedLines.Add(line);
+        }
+
+        File.WriteAllLines(IniFileLocation, spacedLines);
+        File.Delete(tempPath);
+        
+        return true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return false;
         }
     }
 }

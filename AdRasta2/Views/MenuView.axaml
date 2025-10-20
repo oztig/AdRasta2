@@ -34,6 +34,9 @@
             <MenuItem Header="_Edit INI Settings"
                       Command="{Binding ShowSettingsEditorCommand}"
                       Margin="10,0,10,0" />
+            <MenuItem Header="_Reload INI Settings"
+                      Command="{Binding ReloadInitSettings}"
+                      Margin="10,0,10,0" />
         </MenuItem>
 
 

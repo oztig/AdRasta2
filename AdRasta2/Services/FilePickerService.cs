@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AdRasta2.Interfaces;
+using AdRasta2.ViewModels.Helpers; // Assuming FileBrowseRequest lives here
 using Avalonia.Controls;
 using Avalonia.Platform.Storage;
 
@@ -15,16 +16,16 @@ public class FilePickerService : IFilePickerService
         _window = window ?? throw new ArgumentNullException(nameof(window));
     }
 
-    public async Task<string?> PickFileAsync(FilePickerFileType fileType, string title = "Select a file")
+    public async Task<string?> PickFileAsync(FileBrowseRequest request)
     {
         if (_window.StorageProvider is null)
             return null;
 
         var files = await _window.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
         {
-            Title = title,
+            Title = $"Select file for {request.TargetProperty}",
             AllowMultiple = false,
-            FileTypeFilter = new[] { fileType }
+            FileTypeFilter = new[] { request.FileType }
         });
 
         return files.Count > 0

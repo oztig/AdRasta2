@@ -1,23 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using AdRasta2.Services;
 using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using AdRasta2.ViewModels;
 using AdRasta2.Views;
 using Avalonia.Controls;
-using Avalonia.Controls.Presenters;
-using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Templates;
-using Avalonia.Data;
-using Avalonia.Markup.Xaml.MarkupExtensions;
 using Avalonia.Styling;
-using Avalonia.Markup.Xaml.Styling;
-using Avalonia.Media;
-using Avalonia.Platform;
 using Avalonia.Themes.Fluent;
+
 
 namespace AdRasta2;
 
@@ -132,8 +123,9 @@ public partial class App : Application
         var fileExplorerService = new FileExplorerService();
         var iconService = new IconGlyphService();
         var iconPatchService = new IconPatchService(iconService);
-
-        var viewModel = new MainWindowViewModel(mainWindow, filePickerService, folderPickerService, messageBoxService,fileExplorerService,iconPatchService);
+        
+        var viewModel = new MainWindowViewModel(mainWindow, filePickerService, folderPickerService, messageBoxService,
+            fileExplorerService, iconPatchService);
         mainWindow.DataContext = viewModel;
         mainWindow.Show();
 

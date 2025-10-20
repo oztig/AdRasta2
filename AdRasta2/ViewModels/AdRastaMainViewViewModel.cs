@@ -515,8 +515,8 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     public async void SelectDestinationFoler()
     {
-        var folder = await SelectFolder();
-        if (folder != string.Empty)
+        var folder = await SelectFolder(SelectedConversion.DestinationFilePath);
+        if (!string.IsNullOrWhiteSpace(folder) && Directory.Exists(folder))
         {
             SelectedConversion.DestinationFilePath = folder;
             UpdateDuplicateDestinationFlags();
@@ -599,9 +599,9 @@ public class AdRastaMainViewViewModel : ReactiveObject
         SelectedConversion.Gamma = RastaConverterDefaultValues.DefaultGamma;
     }
 
-    private async Task<string> SelectFolder()
+    private async Task<string> SelectFolder(string? defaultFolderPath)
     {
-        return await _folderPickerService.PickFolderAsync("Select Destination Folder") ?? string.Empty;
+        return await _folderPickerService.PickFolderAsync("Select Destination Folder",defaultFolderPath) ?? string.Empty;
     }
 
     private async Task<string> SelectFiles(FilePickerFileType fileType)

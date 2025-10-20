@@ -864,6 +864,7 @@ public class RastaConversion : ReactiveObject
         RegisterOnOffFilePath = RastaConverterDefaultValues.DefaultRegisterOnOffFilePath;
         UnstuckAfter = RastaConverterDefaultValues.DefaultUnstuckAfter;
         UnstuckDrift = RastaConverterDefaultValues.DefaultUnstuckDrift;
+        DestinationFilePath = Settings.Current.DefaultImageDestination;
         Statuses?.Clear();
     }
 

@@ -182,29 +182,133 @@
                     </Grid>
                 </Expander>
 
+                <!-- DEBUG -->
                 <Expander Grid.Row="3" IsExpanded="True" HorizontalAlignment="Stretch">
                     <Expander.Header>
                         <TextBlock Text="Debug" IsHitTestVisible="False" />
                     </Expander.Header>
-                    <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
                         <TextBlock Text="Debug" VerticalAlignment="Center" Margin="0,0,8,0" />
                         <ToggleSwitch IsChecked="{Binding DebugMode, Mode=TwoWay}" />
                     </StackPanel>
                 </Expander>
 
+                <!-- User Preferences -->
                 <Expander Grid.Row="4" IsExpanded="True" HorizontalAlignment="Stretch">
                     <Expander.Header>
-                        <TextBlock Text="UserDefaults" IsHitTestVisible="False" />
+                        <TextBlock Text="UserPreferences" IsHitTestVisible="False" />
                     </Expander.Header>
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,Auto,Auto,Auto,*"
+                          RowSpacing="7" ColumnSpacing="5">
+
+                        <!-- Auto View Preview -->
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Content="Auto View Preview"
+                               VerticalContentAlignment="Center" />
+
+                        <ToggleSwitch Grid.Row="0" Grid.Column="1"
+                                      IsChecked="{Binding AutoViewPreview, Mode=TwoWay}" />
+
+                        <!-- Default Image Destination Dir -->
+                        <Label Grid.Row="1" Grid.Column="0" Content="Default Image Destination Directory"
+                               VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="1" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding DefaultImageDestination, Mode=TwoWay}" />
+
+                        <Button Grid.Row="1" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForDirectoryCommand}"
+                                CommandParameter="DefaultImageDestination">
+                            <iconPacks:PackIconMaterialDesign Kind="Folder"
+                                                              Width="20" Height="20"
+                                                              Foreground="Black" />
+                        </Button>
+                    </Grid>
                 </Expander>
 
+                <!-- Experimental -->
                 <Expander Grid.Row="5" IsExpanded="True" HorizontalAlignment="Stretch">
                     <Expander.Header>
                         <TextBlock Text="Experimental" />
                     </Expander.Header>
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,Auto,Auto,Auto,*"
+                          RowSpacing="7" ColumnSpacing="5">
+
+                        <!-- Conversion Icon -->
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Content="Show Conversion Icon"
+                               VerticalContentAlignment="Center" />
+                        <ToggleSwitch Grid.Row="0" Grid.Column="1"
+                                      IsChecked="{Binding SetConversionIcon, Mode=TwoWay}" />
+
+                        <!-- RCEDIT Path -->
+                        <Label Grid.Row="1" Grid.Column="0"
+                               Content="RCEDIT Executable"
+                               VerticalContentAlignment="Center" />
+                        <TextBox Grid.Row="1" Grid.Column="1"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding RCEditCommand, Mode=TwoWay}" />
+                        <Button Grid.Row="1" Grid.Column="2"
+                                Background="Transparent"
+                                Command="{Binding BrowseForCommand}"
+                                CommandParameter="RCEditCommand">
+                            <iconPacks:PackIconMaterialDesign Kind="FileOpen"
+                                                              Width="20" Height="20"
+                                                              Foreground="Black" />
+                        </Button>
+
+                        <!-- DryRun Delete -->
+                        <Label Grid.Row="2" Grid.Column="0"
+                               Content="Dry Run Delete"
+                               VerticalContentAlignment="Center" />
+                        <ToggleSwitch Grid.Row="2" Grid.Column="1"
+                                      IsChecked="{Binding DryRunDelete, Mode=TwoWay}" />
+                    </Grid>
                 </Expander>
+
+
+                <!-- <Expander Grid.Row="5" IsExpanded="True" HorizontalAlignment="Stretch"> -->
+                <!--     <Expander.Header> -->
+                <!--         <TextBlock Text="Experimental" /> -->
+                <!--     </Expander.Header> -->
+                <!--     <Grid RowDefinitions="Auto,Auto,Auto" -->
+                <!--           ColumnDefinitions="Auto,Auto,Auto,Auto,*" -->
+                <!--           RowSpacing="7" ColumnSpacing="5"> -->
+                <!--          -->
+                <!--         ~1~ Conversion Icon @1@ -->
+                <!--         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal"> -->
+                <!--             <TextBlock Text="Show Conversion Icon" VerticalAlignment="Center" Margin="0,0,8,0" /> -->
+                <!--             <ToggleSwitch IsChecked="{Binding SetConversionIcon, Mode=TwoWay}" /> -->
+                <!--         </StackPanel> -->
+                <!--          -->
+                <!--         ~1~ RCEDIT Path @1@ -->
+                <!--         <Label Grid.Row="1" Grid.Column="0" Content="RCEDIT Executable" VerticalContentAlignment="Center" /> -->
+                <!--         <TextBox Grid.Row="1" Grid.Column="1" -->
+                <!--                  VerticalContentAlignment="Center" -->
+                <!--                  Text="{Binding RCEditCommand, Mode=TwoWay}" /> -->
+                <!-- -->
+                <!--         <Button Grid.Row="1" Grid.Column="2" -->
+                <!--                 Background="Transparent" -->
+                <!--                 Command="{Binding BrowseForCommand}" -->
+                <!--                 CommandParameter="RCEditCommand"> -->
+                <!--             <iconPacks:PackIconMaterialDesign Kind="FileOpen" -->
+                <!--                                               Width="20" Height="20" -->
+                <!--                                               Foreground="Black" /> -->
+                <!--         </Button> -->
+                <!--          -->
+                <!--         ~1~ DryRun Delete @1@ -->
+                <!--         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,10,0"> -->
+                <!--             <TextBlock Text="Dry Run Delete" VerticalAlignment="Center" Margin="0,0,8,0" /> -->
+                <!--             <ToggleSwitch IsChecked="{Binding DryRunDelete, Mode=TwoWay}" /> -->
+                <!--         </StackPanel> -->
+                <!--     </Grid> -->
+                <!-- </Expander> -->
             </Grid>
         </ScrollViewer>
+
         <!-- Anchored Buttons -->
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
@@ -220,7 +324,14 @@
                 </StackPanel>
             </Button>
 
-            <Button Content="Cancel" />
+            <Button Command="{Binding CloseCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <iconPacks:PackIconMaterialDesign Kind="ExitToApp"
+                                                      Width="20" Height="20"
+                                                      Foreground="Black" />
+                    <TextBlock Text="Close" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

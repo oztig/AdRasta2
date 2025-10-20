@@ -1,248 +1,153 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
-using System.Runtime.CompilerServices;
 using AdRasta2.Enums;
 using AdRasta2.Utils;
+using ReactiveUI;
 using Sini;
 
 namespace AdRasta2.Models;
 
-public class Settings : INotifyPropertyChanged
+public class Settings : ReactiveObject
 {
-    /// <summary>
-    /// Next properties are static,as they are used before Current is initialised!
-    /// </summary>
     public static readonly string IniFileLocation =
         Path.Combine(Directory.GetCurrentDirectory().Trim(), "AdRasta2.ini");
 
-    public static bool CheckIniFileExists()
-    {
-        return File.Exists(IniFileLocation);
-    }
-    
+    public static bool CheckIniFileExists() => File.Exists(IniFileLocation);
     public static bool IsWindows => OperatingSystem.IsWindows();
-    
+
     public static RastaConversion ApplicationDebugLog { get; } =
         new RastaConversion("App Debug Log");
 
-    /// End
-    
-    // ─────────────────────────────────────────────
-    // Singleton instance (lazy initialization)
-    // ─────────────────────────────────────────────
     private static Settings? _current;
     public static Settings Current => _current ??= new Settings();
 
-    // ─────────────────────────────────────────────
-    // Constructor
-    // ─────────────────────────────────────────────
     public Settings()
     {
         Console.WriteLine("Settings constructor reached");
     }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    private void Notify([CallerMemberName] string? name = null) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    
-
     private string _rastaConverterCommand = string.Empty;
-
     public string RastaConverterCommand
     {
         get => _rastaConverterCommand;
-        set
-        {
-            _rastaConverterCommand = value;
-            Notify();
-            Notify(nameof(BaseRastaCommandLocation));
-            Notify(nameof(BaseRastaCommand));
-        }
+        set => this.RaiseAndSetIfChanged(ref _rastaConverterCommand, value);
     }
 
     public string BaseRastaCommandLocation => Path.GetDirectoryName(RastaConverterCommand);
     public string BaseRastaCommand => Path.GetFileName(RastaConverterCommand);
 
     private string _rc2mchCommand = string.Empty;
-
     public string RC2MCHCommand
     {
         get => _rc2mchCommand;
-        set
-        {
-            _rc2mchCommand = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _rc2mchCommand, value);
     }
 
     private string _defaultExecuteCommand = string.Empty;
-
     public string DefaultExecuteCommand
     {
         get => _defaultExecuteCommand;
-        set
-        {
-            _defaultExecuteCommand = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _defaultExecuteCommand, value);
     }
 
     private string _paletteDirectory = string.Empty;
-
     public string PaletteDirectory
     {
         get => _paletteDirectory;
-        set
-        {
-            _paletteDirectory = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _paletteDirectory, value);
     }
 
     private string _madsLocation = string.Empty;
-
     public string MadsLocation
     {
         get => _madsLocation;
-        set
-        {
-            _madsLocation = value;
-            Notify();
-            Notify(nameof(MadsLocationBaseName));
-        }
+        set => this.RaiseAndSetIfChanged(ref _madsLocation, value);
     }
 
     public string MadsLocationBaseName => Path.GetFileName(MadsLocation);
 
     private string _noNameFilesLocation = string.Empty;
-
     public string NoNameFilesLocation
     {
         get => _noNameFilesLocation;
-        set
-        {
-            _noNameFilesLocation = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _noNameFilesLocation, value);
     }
 
     private string _dualModeNoNameFilesLocation = string.Empty;
-
     public string DualModeNoNameFilesLocation
     {
         get => _dualModeNoNameFilesLocation;
-        set
-        {
-            _dualModeNoNameFilesLocation = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _dualModeNoNameFilesLocation, value);
     }
 
     private string _helpFileLocation = string.Empty;
-
     public string HelpFileLocation
     {
         get => _helpFileLocation;
-        set
-        {
-            _helpFileLocation = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _helpFileLocation, value);
     }
 
     private double _rastaConverterVersion;
-
     public double RastaConverterVersion
     {
         get => _rastaConverterVersion;
-        set
-        {
-            _rastaConverterVersion = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _rastaConverterVersion, value);
     }
 
     public string NoNameHeader { get; set; } = "no_name.h";
     public string NoNameAsq { get; set; } = "no_name.asq";
 
     private bool _debugMode;
-
     public bool DebugMode
     {
         get => _debugMode;
-        set
-        {
-            _debugMode = value;
-            Notify();
-            Notify(nameof(MaxLogEntries));
-        }
+        set => this.RaiseAndSetIfChanged(ref _debugMode, value);
     }
 
     public int MaxLogEntries => DebugMode ? 500 : 100;
 
     private bool _autoViewPreview;
-
     public bool AutoViewPreview
     {
         get => _autoViewPreview;
-        set
-        {
-            _autoViewPreview = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _autoViewPreview, value);
     }
 
     private bool _setConversionIcon;
-
     public bool SetConversionIcon
     {
         get => _setConversionIcon;
-        set
-        {
-            _setConversionIcon = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _setConversionIcon, value);
     }
 
     private string _rcEditCommand = string.Empty;
-
     public string RCEditCommand
     {
         get => _rcEditCommand;
-        set
-        {
-            _rcEditCommand = value;
-            Notify();
-            Notify(nameof(BaseRCEditCommandLocation));
-            Notify(nameof(BaseRCEditCommand));
-        }
+        set => this.RaiseAndSetIfChanged(ref _rcEditCommand, value);
     }
 
     public string BaseRCEditCommandLocation => Path.GetDirectoryName(RCEditCommand);
     public string BaseRCEditCommand => Path.GetFileName(RCEditCommand);
 
     private bool _dryRunDelete = true;
-
     public bool DryRunDelete
     {
         get => _dryRunDelete;
-        set
-        {
-            _dryRunDelete = value;
-            Notify();
-        }
+        set => this.RaiseAndSetIfChanged(ref _dryRunDelete, value);
+    }
+
+    private string _defaultImageDestination = string.Empty;
+    public string DefaultImageDestination
+    {
+        get => _defaultImageDestination;
+        set => this.RaiseAndSetIfChanged(ref _defaultImageDestination, value);
     }
 
     public void LoadFromIni(RastaConversion loggingConversion)
     {
-        if (IsWindows)
-            DefaultExecuteCommand = "explorer";
-        else if (OperatingSystem.IsLinux())
-            DefaultExecuteCommand = "xdg-open";
-        else
-            DefaultExecuteCommand = "explorer";
+        DefaultExecuteCommand = IsWindows ? "explorer" :
+            OperatingSystem.IsLinux() ? "xdg-open" : "explorer";
 
         if (!File.Exists(IniFileLocation))
             return;
@@ -251,33 +156,29 @@ public class Settings : INotifyPropertyChanged
         {
             var ini = new IniFile(IniFileLocation);
 
-            // RastaConverter related
             RastaConverterCommand = ini.GetStr("RastaConverter", "Location", "Cant Find in ini File");
             HelpFileLocation = ini.GetStr("RastaConverter", "HelpFile", string.Empty);
             PaletteDirectory = ini.GetStr("RastaConverter", "PalettesDir", string.Empty);
             NoNameFilesLocation = ini.GetStr("RastaConverter", "NoNameFilesDir", string.Empty);
             DualModeNoNameFilesLocation = ini.GetStr("RastaConverter", "DualModeNoNameFilesDir", string.Empty);
 
-            // Rataconverter Defaults
             float raw = GetSafeFloat(ini, "RastaConverter.Defaults", "DefaultUnstuckDrift", 0.00001f);
             RastaConverterDefaultValues.DefaultUnstuckDrift = (decimal)raw;
             RastaConverterDefaultValues.DefaultUnstuckAfter =
                 ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
-            
-            // Tools
+
             RC2MCHCommand = ini.GetStr("Tools", "RC2MCH", string.Empty);
             MadsLocation = ini.GetStr("Tools", "MADS", string.Empty);
 
-            // Debug
             DebugMode = GetSafeBool(ini, "Debug", "DebugMode", false);
             
-            //User Preferences
             AutoViewPreview = GetSafeBool(ini, "UserPreferences", "AutoViewPreview", false);
-
-            // Experimental
+            DefaultImageDestination = ini.GetStr("UserPreferences", "DefaultImageDestination", string.Empty);
+            
             SetConversionIcon = GetSafeBool(ini, "Experimental", "SetConversionIcon", false);
             RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
             DryRunDelete = GetSafeBool(ini, "Experimental", "DryRunDelete", true);
+            
         }
         catch (Exception ex)
         {
@@ -313,6 +214,9 @@ public class Settings : INotifyPropertyChanged
         {
             try
             {
+                if (prop.Name is "Changing" or "Changed" or "ThrownExceptions")
+                    continue;
+
                 var value = prop.GetValue(this);
                 var display = value is string s && string.IsNullOrWhiteSpace(s) ? "<empty>" : value?.ToString();
                 ConversionLogger.LogIfDebug(loggingConversion, ConversionStatus.Debug,

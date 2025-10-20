@@ -42,4 +42,21 @@ sealed class Program
             .With(new Win32PlatformOptions
                 { DpiAwareness = Win32DpiAwareness.PerMonitorDpiAware })
             .UseReactiveUI();
+    
+    // Below is for switching to GTK file browser on linux to overcome the issue with SuggestedStartLocation issue
+    // public static AppBuilder BuildAvaloniaApp()
+    //     => AppBuilder.Configure<App>()
+    //         .UsePlatformDetect()
+    //         .WithInterFont()
+    //         .LogToTrace()
+    //         .With(new Win32PlatformOptions
+    //         {
+    //             DpiAwareness = Win32DpiAwareness.PerMonitorDpiAware
+    //         })
+    //         .With(new X11PlatformOptions
+    //         {
+    //             UseDBusFilePicker = false
+    //         })
+    //         .UseReactiveUI();
+
 }

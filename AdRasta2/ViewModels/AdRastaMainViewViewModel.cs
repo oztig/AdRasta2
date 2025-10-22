@@ -523,6 +523,7 @@ public class AdRastaMainViewViewModel : ReactiveObject
         Settings.Current.LoadFromIni(Settings.ApplicationDebugLog);
         this.RaisePropertyChanged(nameof(IsDebugEnabled));
         await CreateInitialEntry();
+        this.RaisePropertyChanged(nameof(RastaConversions));
         await _messageBoxService.ShowInfoAsync("Settings reloaded", "Settings reloaded");
     }
 

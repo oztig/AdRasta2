@@ -7,16 +7,18 @@
         xmlns:vm="clr-namespace:AdRasta2.ViewModels"
         xmlns:controls="clr-namespace:AdRasta2.Controls"
         x:DataType="vm:SettingsEditorViewModel"
-        SizeToContent="WidthAndHeight"
+        SizeToContent="Width"
         Title=".ini Settings">
 
     <Grid RowDefinitions="*,Auto">
-        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
             <Grid Margin="10" RowSpacing="10" ColumnSpacing="7"
                   RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
 
                 <!-- RastaConverter Settings -->
-                <Expander Grid.Row="0" IsExpanded="True" HorizontalAlignment="Stretch">
+                <Expander Grid.Row="0" IsExpanded="True" HorizontalAlignment="Stretch" 
+                          ToolTip.Tip="Set the RastaConverter executable, and the rest of the paths will be set to their default locations">
                     <Expander.Header>
                         <TextBlock Text="RastaConverter" IsHitTestVisible="False" />
                     </Expander.Header>
@@ -110,12 +112,13 @@
                 </Expander>
 
                 <!-- RastaConverter Defaults -->
-                <Expander Grid.Row="1" IsExpanded="True" HorizontalAlignment="Stretch">
+                <Expander Grid.Row="1" IsExpanded="True" HorizontalAlignment="Stretch" 
+                          ToolTip.Tip="You can leave these alone, unless RastaConverter Defaults Change">
                     <Expander.Header>
                         <TextBlock Text="RastaConverter.Defaults" IsHitTestVisible="False" />
                     </Expander.Header>
                     <Grid RowDefinitions="Auto,Auto,Auto"
-                          ColumnDefinitions="Auto,Auto,Auto,Auto,*"
+                          ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*"
                           RowSpacing="7" ColumnSpacing="5">
 
                         <!-- Unstuck Drift -->
@@ -135,11 +138,30 @@
                                                     ToolTip.Tip="0 = Never"
                                                     Value="{Binding DefaultUnstuckAfter}"
                                                     Increment="1" />
+
+                        <!-- PreColour Distance -->
+                        <Label Grid.Row="0" Grid.Column="3" Content="Pre Colour Distance"
+                               VerticalAlignment="Center" />
+
+                        <ComboBox Grid.Row="0" Grid.Column="4"
+                                  ItemsSource="{Binding DataSource.PreColourDistance}"
+                                  SelectedItem="{Binding DefaultPreColourDistance}"
+                                  HorizontalAlignment="Stretch" />
+
+                        <!-- PreColour Distance -->
+                        <Label Grid.Row="1" Grid.Column="3" Content="Colour Distance"
+                               VerticalAlignment="Center" />
+
+                        <ComboBox Grid.Row="1" Grid.Column="4"
+                                  ItemsSource="{Binding DataSource.ColourDistance}"
+                                  SelectedItem="{Binding DefaultColourDistance}"
+                                  HorizontalAlignment="Stretch" />
                     </Grid>
                 </Expander>
 
                 <!-- Tools -->
-                <Expander Grid.Row="2" IsExpanded="True" HorizontalAlignment="Stretch">
+                <Expander Grid.Row="2" IsExpanded="True" HorizontalAlignment="Stretch"
+                          ToolTip.Tip="RC2MCH -> Used to generate G2F compatible files, MADS-> used to generate .xex (atari compatible executable files)">
                     <Expander.Header>
                         <TextBlock Text="Tools" />
                     </Expander.Header>

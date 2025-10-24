@@ -105,46 +105,6 @@ public class IconGlyphService
         stream.Write(pngBytes, 0, pngBytes.Length);
     }
 
-
-    // Invocation from bitmap
-    // public async Task GenerateIconAsync(SKBitmap sourceBitmap, string destinationPath, string overlayText = "β18")
-    // {
-    //     var info = new SKImageInfo(IconSize, IconSize);
-    //     using var surface = SKSurface.Create(info);
-    //     var canvas = surface.Canvas;
-    //     canvas.Clear(SKColors.Black);
-    //
-    //     try
-    //     {
-    //         var fullIconPath= Path.Combine(destinationPath, "RastaConverter.bmp");
-    //         var scaledRect = GetScaledRect(sourceBitmap.Width, sourceBitmap.Height, IconSize, IconSize);
-    //         canvas.DrawBitmap(sourceBitmap, scaledRect);
-    //
-    //         var textPaint = new SKPaint
-    //         {
-    //             Color = SKColors.White,
-    //             TextSize = 10,
-    //             IsAntialias = true,
-    //             Typeface = SKTypeface.Default
-    //         };
-    //         canvas.DrawText(overlayText, 2, IconSize - 4, textPaint);
-    //
-    //         // Encode to PNG in memory
-    //         using var pngStream = new MemoryStream();
-    //         surface.Snapshot().Encode(SKEncodedImageFormat.Png, 100)?.SaveTo(pngStream);
-    //         pngStream.Seek(0, SeekOrigin.Begin);
-    //
-    //         // Load PNG and save as BMP using ImageSharp
-    //         using var image = await Image.LoadAsync<Rgba32>(pngStream);
-    //         await image.SaveAsBmpAsync(fullIconPath);
-    //     }
-    //     catch (Exception e)
-    //     {
-    //         Console.WriteLine(e);
-    //         throw;
-    //     }
-    // }
-
     private SKRect GetScaledRect(int srcWidth, int srcHeight, int targetWidth, int targetHeight)
     {
         float scale = Math.Min((float)targetWidth / srcWidth, (float)targetHeight / srcHeight);

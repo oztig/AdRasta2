@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
@@ -23,6 +24,7 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
 {
     private readonly IFilePickerService _filePicker;
     private readonly IFolderPickerService _folderPicker;
+    public SourceData DataSource { get; set; }
     private readonly Dictionary<string, List<string>> _errors = new();
     public ReactiveCommand<Unit, Unit> SaveCommand { get; }
     public ReactiveCommand<Unit, Unit> CloseCommand { get; }
@@ -43,10 +45,11 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
     };
 
 
-    public SettingsEditorViewModel(IFilePickerService filePicker, IFolderPickerService folderPicker)
+    public SettingsEditorViewModel(IFilePickerService filePicker, IFolderPickerService folderPicker,SourceData source)
     {
         _filePicker = filePicker;
         _folderPicker = folderPicker;
+        DataSource = source;
 
         BrowseForCommand = CreateBrowseForCommand();
         BrowseForDirectoryCommand = ReactiveCommand.CreateFromTask<string>(BrowseForDirectoryAsync);
@@ -94,23 +97,6 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
             }
         }
     }
-
-
-    // private async Task ExecuteBrowseForAsync(string targetProperty)
-    // {
-    //     var fileType = new FilePickerFileType("Executable") { Patterns = new[] { "*.exe" } };
-    //     var result = await _filePicker.PickFileAsync(fileType, $"Select file for {targetProperty}");
-    //
-    //     if (!string.IsNullOrWhiteSpace(result))
-    //     {
-    //         var property = GetType().GetProperty(targetProperty);
-    //         if (property != null && property.CanWrite && property.PropertyType == typeof(string))
-    //         {
-    //             property.SetValue(this, result);
-    //             ValidateProperty(targetProperty, result);
-    //         }
-    //     }
-    // }
 
     private async Task BrowseForDirectoryAsync(string propertyName)
     {
@@ -365,7 +351,23 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
         get => _defaultUnstuckAfter;
         set => this.RaiseAndSetIfChanged(ref _defaultUnstuckAfter, value);
     }
+    
+    private string _defaultPreColourDistance = RastaConverterDefaultValues.DefaultPreColourDistance;
 
+    public string DefaultPreColourDistance
+    {
+        get => _defaultPreColourDistance;
+        set => this.RaiseAndSetIfChanged(ref _defaultPreColourDistance, value);
+    }
+    
+    private string _defaultColourDistance =  RastaConverterDefaultValues.DefaultColourDistance;
+
+    public string DefaultColourDistance
+    {
+        get => _defaultColourDistance;
+        set => this.RaiseAndSetIfChanged(ref _defaultColourDistance, value);
+    }
+    
     private void ExecuteSave()
     {
         // Apply current view model values to Settings
@@ -386,6 +388,8 @@ public class SettingsEditorViewModel : ReactiveObject, INotifyDataErrorInfo
         Settings.Current.DryRunDelete = DryRunDelete;
         RastaConverterDefaultValues.DefaultUnstuckDrift = DefaultUnstuckDrift;
         RastaConverterDefaultValues.DefaultUnstuckAfter = DefaultUnstuckAfter;
+        RastaConverterDefaultValues.DefaultPreColourDistance = DefaultPreColourDistance;
+        RastaConverterDefaultValues.DefaultColourDistance = DefaultColourDistance;
 
         Settings.Current.Save();
 

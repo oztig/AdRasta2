@@ -62,10 +62,12 @@ public class SourceData
     private void PopulateColourDistance()
     {
         ColourDistance.Clear();
-        ColourDistance.Add("cie94");
-        ColourDistance.Add("ciede");
-        ColourDistance.Add("euclid");
         ColourDistance.Add("yuv");
+        ColourDistance.Add("euclid");
+        ColourDistance.Add("ciede");
+        ColourDistance.Add("cie94");
+        ColourDistance.Add("oklab");
+        ColourDistance.Add("rasta");
     }
     
     private void PopulateInitialState()
@@ -141,10 +143,12 @@ public class SourceData
     private void PopulatePreColourDistance()
     {
         PreColourDistance.Clear();
+        PreColourDistance.Add("yuv");
+        PreColourDistance.Add("euclid");
         PreColourDistance.Add("ciede");
         PreColourDistance.Add("cie94");
-        PreColourDistance.Add("euclid");
-        PreColourDistance.Add("yuv");
+        PreColourDistance.Add("oklab");
+        PreColourDistance.Add("rasta");
     }
     
     private void PopulateDithering()

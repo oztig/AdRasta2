@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading.Tasks;
+using AdRasta2.Interfaces;
 using AdRasta2.Models;
+using AdRasta2.Services;
 using Avalonia;
 using Avalonia.Controls;
 using MsBox.Avalonia;
@@ -15,6 +18,10 @@ public partial class MainWindow : Window
     private double _initialMaxHeight;
     private double _initialMaxWidth;
     private bool _userResized = false;
+    private readonly IMessageBoxService _messageBoxService = new MessageBoxService();
+    private bool _isClosingConfirmed = false;
+
+    
     
     public MainWindow()
     {
@@ -33,11 +40,31 @@ public partial class MainWindow : Window
             this.Width = _initialMaxWidth;
             this.SizeToContent = SizeToContent.Manual;
         };
-
+        
         this.GetObservable(ClientSizeProperty).Subscribe(OnClientSizeChanged);
+        
+        this.Closing += async (_, e) =>
+        {
+            if (_isClosingConfirmed)
+                return;
+
+            e.Cancel = true;
+
+            var result = await _messageBoxService.ShowConfirmationAsync(
+                "Confirm Exit",
+                "Are you sure you wish to exit?",
+                MsBox.Avalonia.Enums.Icon.Question
+            );
+
+            if (result == "Okay")
+            {
+                _isClosingConfirmed = true;
+                Close();
+            }
+        };
+
     }
-
-
+    
     
     private void OnClientSizeChanged(Size newSize)
     {

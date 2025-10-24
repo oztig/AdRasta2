@@ -509,7 +509,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private async Task ShowSettingsEditor()
     {
-        var editor = new SettingsEditor();
+        var editor = new SettingsEditor(SourceData);
+        // Scale height to 75% of the current window
+        var currentHeight = _window.Bounds.Height;
+        editor.Height = currentHeight * 0.75;
+        
         var result = await editor.ShowDialog<SettingsEditorResult?>(_window);
 
         if (result == SettingsEditorResult.Saved)
@@ -520,11 +524,18 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private async Task ReloadSettings()
     {
-        Settings.Current.LoadFromIni(Settings.ApplicationDebugLog);
-        this.RaisePropertyChanged(nameof(IsDebugEnabled));
-        await CreateInitialEntry();
-        this.RaisePropertyChanged(nameof(RastaConversions));
-        await _messageBoxService.ShowInfoAsync("Settings reloaded", "Settings reloaded");
+        var result = await _messageBoxService.ShowConfirmationAsync("Reload Settings?",
+            "This will clear ALL current conversions!" + Environment.NewLine + "Are You Sure?",
+            Icon.Question);
+
+        if (result.ToLower() == "okay")
+        {
+            Settings.Current.LoadFromIni(Settings.ApplicationDebugLog);
+            this.RaisePropertyChanged(nameof(IsDebugEnabled));
+            await CreateInitialEntry();
+            this.RaisePropertyChanged(nameof(RastaConversions));
+            await _messageBoxService.ShowInfoAsync("Settings reloaded", "Settings reloaded");
+        }
     }
 
     public async void SelectDestinationFoler()
@@ -615,10 +626,11 @@ public class AdRastaMainViewViewModel : ReactiveObject
 
     private async Task<string> SelectFolder(string? defaultFolderPath)
     {
-        return await _folderPickerService.PickFolderAsync("Select Destination Folder",defaultFolderPath) ?? string.Empty;
+        return await _folderPickerService.PickFolderAsync("Select Destination Folder", defaultFolderPath) ??
+               string.Empty;
     }
 
-    
+
     private async Task<string> SelectFiles(FilePickerFileType fileType)
     {
         var request = new FileBrowseRequest

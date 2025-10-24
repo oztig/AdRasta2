@@ -183,6 +183,9 @@ public class Settings : ReactiveObject
             RastaConverterDefaultValues.DefaultUnstuckDrift = (decimal)raw;
             RastaConverterDefaultValues.DefaultUnstuckAfter =
                 ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
+             RastaConverterDefaultValues.DefaultPreColourDistance = ini.GetStr("RastaConverter.Defaults", "DefaultPreColourDistance", "ciede");
+             RastaConverterDefaultValues.DefaultColourDistance = ini.GetStr("RastaConverter.Defaults", "DefaultColourDistance", "yuv");
+            
 
             RC2MCHCommand = ini.GetStr("Tools", "RC2MCH", string.Empty);
             MadsLocation = ini.GetStr("Tools", "MADS", string.Empty);
@@ -276,6 +279,8 @@ public class Settings : ReactiveObject
 
         ini.SetValue("RastaConverter.Defaults", "DefaultUnstuckDrift", RastaConverterDefaultValues.DefaultUnstuckDrift.ToString());
         ini.SetValue("RastaConverter.Defaults", "DefaultUnstuckAfter", RastaConverterDefaultValues.DefaultUnstuckAfter.ToString());
+        ini.SetValue("RastaConverter.Defaults", "DefaultPreColourDistance", RastaConverterDefaultValues.DefaultPreColourDistance.ToString());
+        ini.SetValue("RastaConverter.Defaults", "DefaultColourDistance", RastaConverterDefaultValues.DefaultColourDistance.ToString());
 
         ini.SetValue("Tools", "RC2MCH", RC2MCHCommand);
         ini.SetValue("Tools", "MADS", MadsLocation);

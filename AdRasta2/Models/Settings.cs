@@ -179,10 +179,10 @@ public class Settings : ReactiveObject
             NoNameFilesLocation = ini.GetStr("RastaConverter", "NoNameFilesDir", string.Empty);
             DualModeNoNameFilesLocation = ini.GetStr("RastaConverter", "DualModeNoNameFilesDir", string.Empty);
 
-            float raw = GetSafeFloat(ini, "RastaConverter.Defaults", "DefaultUnstuckDrift", 0.00001f);
+            float raw = GetSafeFloat(ini, "RastaConverter.Defaults", "DefaultUnstuckDrift", 0.1f);
             RastaConverterDefaultValues.DefaultUnstuckDrift = (decimal)raw;
             RastaConverterDefaultValues.DefaultUnstuckAfter =
-                ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 100000);
+                ini.GetInt("RastaConverter.Defaults", "DefaultUnstuckAfter", 1000);
              RastaConverterDefaultValues.DefaultPreColourDistance = ini.GetStr("RastaConverter.Defaults", "DefaultPreColourDistance", "ciede");
              RastaConverterDefaultValues.DefaultColourDistance = ini.GetStr("RastaConverter.Defaults", "DefaultColourDistance", "yuv");
             

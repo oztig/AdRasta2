@@ -205,7 +205,9 @@
                 </Expander>
 
                 <!-- DEBUG -->
-                <Expander Grid.Row="3" IsExpanded="True" HorizontalAlignment="Stretch">
+                <Expander Grid.Row="3" IsExpanded="True" 
+                          HorizontalAlignment="Stretch"
+                          ToolTip.Tip="Enable more verbose logging">
                     <Expander.Header>
                         <TextBlock Text="Debug" IsHitTestVisible="False" />
                     </Expander.Header>
@@ -230,12 +232,14 @@
                                VerticalContentAlignment="Center" />
 
                         <ToggleSwitch Grid.Row="0" Grid.Column="1"
-                                      IsChecked="{Binding AutoViewPreview, Mode=TwoWay}" />
-
+                                      IsChecked="{Binding AutoViewPreview, Mode=TwoWay}" 
+                                      ToolTip.Tip="On completion of Preview or Conversion, open the result in the default image viewer"/>
+                        
                         <!-- Default Image Destination Dir -->
                         <Label Grid.Row="1" Grid.Column="0" Content="Default Image Destination Directory"
                                VerticalContentAlignment="Center" />
                         <TextBox Grid.Row="1" Grid.Column="1"
+                                 ToolTip.Tip="Default (Base Directory) for storing converted images"
                                  VerticalContentAlignment="Center"
                                  Text="{Binding DefaultImageDestination, Mode=TwoWay}" />
 
@@ -264,6 +268,7 @@
                                Content="Show Conversion Icon"
                                VerticalContentAlignment="Center" />
                         <ToggleSwitch Grid.Row="0" Grid.Column="1"
+                                      ToolTip.Tip="Show an icon in the Taskbar when a conversion is running (unique per conversion)"
                                       IsChecked="{Binding SetConversionIcon, Mode=TwoWay}" />
 
                         <!-- RCEDIT Path -->
@@ -271,6 +276,7 @@
                                Content="RCEDIT Executable"
                                VerticalContentAlignment="Center" />
                         <TextBox Grid.Row="1" Grid.Column="1"
+                                 ToolTip.Tip="(Windows Only) - used to Generate the Conversion Icon, if Enabled"
                                  VerticalContentAlignment="Center"
                                  Text="{Binding RCEditCommand, Mode=TwoWay}" />
                         <Button Grid.Row="1" Grid.Column="2"
@@ -287,6 +293,7 @@
                                Content="Dry Run Delete"
                                VerticalContentAlignment="Center" />
                         <ToggleSwitch Grid.Row="2" Grid.Column="1"
+                                      ToolTip.Tip="Used by 'Clean Up Conversion - If Enabled, shows what would be deleted rather than actually doing the delete.  If disabled, actual deletes will be performed!"
                                       IsChecked="{Binding DryRunDelete, Mode=TwoWay}" />
                     </Grid>
                 </Expander>

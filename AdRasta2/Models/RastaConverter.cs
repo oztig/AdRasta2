@@ -19,17 +19,20 @@ public class RastaConverter
     private static async Task CopySupportingFiles(RastaConversion conversion)
     {
         // Copy supporting files
-        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation, conversion.DestinationDirectory,
-            Settings.Current.BaseRastaCommand,conversion, false);
+        FileUtils.CopyFile(Settings.Current.RastaConverterCommand,
+            Path.Combine(conversion.DestinationFilePath, conversion.RastaConverterFileName), true);
 
-        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation, conversion.DestinationDirectory,
-            "*.dll", conversion,false);
+        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation,
+            conversion.DestinationDirectory,
+            "*.dll", conversion, false);
 
-        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation, conversion.DestinationDirectory,
-            "clacon2.ttf", conversion,false);
-        
-        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRCEditCommandLocation, conversion.DestinationDirectory,
-            Settings.Current.BaseRCEditCommand, conversion,false);
+        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRastaCommandLocation,
+            conversion.DestinationDirectory,
+            "clacon2.ttf", conversion, false);
+
+        await FileUtils.CopyMatchingFilesAsync(Settings.Current.BaseRCEditCommandLocation,
+            conversion.DestinationDirectory,
+            Settings.Current.BaseRCEditCommand, conversion, false);
 
         await FileUtils.CopyDirectoryIncludingRoot(Settings.Current.PaletteDirectory, conversion.DestinationDirectory);
     }
@@ -50,7 +53,7 @@ public class RastaConverter
 
             // Run it and return the completed conversion
             return await ProcessRunner.RunAsync(
-                Settings.Current.BaseRastaCommand,
+                conversion.RastaConverterFileName,
                 conversion.DestinationDirectory,
                 safeParams,
                 conversion);

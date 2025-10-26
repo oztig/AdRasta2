@@ -33,7 +33,7 @@ public class IconPatchService
         if (Settings.IsWindows)
         {
             var icoPath = Path.Combine(destinationPath, "RastaConverter.ico");
-            var exeToPatch = Path.Combine(destinationPath,Settings.Current.BaseRastaCommand);
+            var exeToPatch = Path.Combine(destinationPath,conversion.RastaConverterFileName);
 
             if (File.Exists(icoPath) && File.Exists(exeToPatch) && File.Exists(Settings.Current.RCEditCommand))
             {

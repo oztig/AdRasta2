@@ -28,12 +28,12 @@ public static class AdRastaCleanableManifest
         { "Palettes", ["*.act"] }  // Can also be specific filenames, without wild cards!
     };
 
-    public static IEnumerable<string> GetEffectiveRemovableFileNames()
+    public static IEnumerable<string> GetEffectiveRemovableFileNames(RastaConversion conversion)
     {
         var names = RemovableFileNames.ToList();
 
-        if (!string.IsNullOrEmpty(Settings.Current.BaseRastaCommand))
-            names.Add(Settings.Current.BaseRastaCommand);
+        if (!string.IsNullOrEmpty(conversion.RastaConverterFileName))
+            names.Add(conversion.RastaConverterFileName);
         
         if (!string.IsNullOrEmpty(Settings.Current.MadsLocationBaseName))
             names.Add(Settings.Current.MadsLocationBaseName);

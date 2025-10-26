@@ -11,23 +11,22 @@ namespace AdRasta2.Utils;
 
 public class FileUtils
 {
-    public static bool CopyFile(string sourceFile, string destination)
+    public static bool CopyFile(string sourceFile, string destination, bool overwrite = true)
     {
-        if (sourceFile != null && destination != null)
-        {
-            var destinationDirectory = Path.GetDirectoryName(destination);
-            return File.Exists(sourceFile) && Directory.Exists(destinationDirectory) &&
-                   TryCopy(sourceFile, destination);
-        }
+        if (!File.Exists(sourceFile)) return false;
 
-        return false;
+        var destinationDirectory = Path.GetDirectoryName(destination);
+        if (!Directory.Exists(destinationDirectory)) return false;
+
+        return TryCopy(sourceFile, destination, overwrite);
     }
 
-    private static bool TryCopy(string source, string destination)
+
+    private static bool TryCopy(string source, string destination,bool overwrite=true)
     {
         try
         {
-            File.Copy(source, destination, true);
+            File.Copy(source, destination,overwrite);
             return true;
         }
         catch (Exception e)
@@ -117,50 +116,12 @@ public class FileUtils
 
         await Task.CompletedTask;
     }
-
-
-    /*public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,RastaConversion conversion, bool overwrite = true)
-    {
-        var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
-        ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Found {files.Length} file(s) in '{sourceDir}' matching pattern '{searchPattern}'.");
-
-        foreach (var file in files)
-        {
-            var fileName = Path.GetFileName(file);
-            var destPath = Path.Combine(destinationDir, fileName);
-
-            if (!File.Exists(destPath) || overwrite)
-            {
-                File.Copy(file, destPath, overwrite);
-                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Copied '{fileName}' to '{destinationDir}' (overwrite: {overwrite}).");
-            }
-            else
-            {
-                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug, $"Skipped '{fileName}' — already exists and overwrite is false.");
-            }
-        }
-
-        await Task.CompletedTask; // ceremonial async completion
-    }*/
-
-
-    // public static async Task CopyMatchingFilesAsync(string sourceDir, string destinationDir, string searchPattern,
-    //     bool overwrite = true)
-    // {
-    //     var files = Directory.GetFiles(sourceDir, searchPattern, SearchOption.TopDirectoryOnly);
-    //
-    //     foreach (var file in files)
-    //     {
-    //         var destPath = Path.Combine(destinationDir, Path.GetFileName(file));
-    //
-    //         if (!File.Exists(destPath))
-    //             File.Copy(file, destPath, overwrite);
-    //     }
-    // }
+    
 
     /// <summary>
     /// Copy file, converting any 'nasty' chars to underscores
     /// </summary>
+    /// <para name="conversion"></para>
     /// <param name="sourcePath"></param>
     /// <param name="destinationDirectory"></param>
     /// <param name="sanitise"></param>
@@ -219,8 +180,9 @@ public class FileUtils
     }
 
 
-    public static void DeleteMatchingFiles(string directory, string searchPattern)
+    public static void DeleteMatchingFiles(RastaConversion conversion,string directory, string searchPattern)
     {
+        
         var files = Directory.GetFiles(directory, searchPattern, SearchOption.TopDirectoryOnly);
 
         foreach (var file in files)
@@ -228,9 +190,13 @@ public class FileUtils
             try
             {
                 File.Delete(file);
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                    $"Deleted File: ({searchPattern})");
             }
             catch (Exception ex)
             {
+                ConversionLogger.LogIfDebug(conversion, ConversionStatus.Debug,
+                    $"Failed to Delete File: ({searchPattern})");
                 // Optional: log the failure, but don't interrupt the ritual
                 // Debug.WriteLine($"Failed to delete {file}: {ex.Message}");
             }

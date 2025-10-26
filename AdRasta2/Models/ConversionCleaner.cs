@@ -31,7 +31,7 @@ public class ConversionCleaner
                     AdRastaCleanableManifest.ScopedWildcardRules.TryGetValue(relativeDir, out var patterns)
                     && patterns.Any(pattern => MatchesWildcard(fileName, pattern));
 
-                var effectiveRemovableNames = AdRastaCleanableManifest.GetEffectiveRemovableFileNames();
+                var effectiveRemovableNames = AdRastaCleanableManifest.GetEffectiveRemovableFileNames(conversion);
 
                 if (effectiveRemovableNames.Contains(fileName) || matchesScopedWildcard)
                 {

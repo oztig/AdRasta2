@@ -160,7 +160,7 @@ public class RastaConversion : ReactiveObject
     {
         get => _sourceImagePath;
         set
-        {
+        {   
             // Manually check if changed, so we can force re-load of the Image.
             if (_sourceImagePath != value)
             {
@@ -185,6 +185,23 @@ public class RastaConversion : ReactiveObject
                         : ConversionStatus.SourceAdded,
                     _sourceImagePath + " - (" + SourceImageColoursText + ")" ?? string.Empty
                 );
+
+                // Clear any existing RataConverter.exe 
+                if (RastaConverterFileName != string.Empty)
+                {
+                    FileUtils.DeleteMatchingFiles(this, DestinationDirectory, RastaConverterFileName);
+                }
+
+                // Generate new Unique Filename for RastaConverter
+                if (SourceImagePath != string.Empty)
+                {
+                    // RastConversion now needs a unique filename (for icon purposes !)
+                    var newRastaCommandFileName =
+                        Path.GetFileNameWithoutExtension(Settings.Current.BaseRastaCommand) + "_" +
+                        DateTime.Now.ToString("yyyyMMddHHmmss") +
+                        Path.GetExtension(Settings.Current.BaseRastaCommand);
+                    RastaConverterFileName = newRastaCommandFileName;
+                }
             }
         }
     }
@@ -354,6 +371,14 @@ public class RastaConversion : ReactiveObject
                 );
             }
         }
+    }
+
+    private string _rastaConverterFileName = string.Empty;
+
+    public string RastaConverterFileName
+    {
+        get => _rastaConverterFileName;
+        set => this.RaiseAndSetIfChanged(ref _rastaConverterFileName, value);
     }
 
     public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath)
@@ -903,7 +928,7 @@ public class RastaConversion : ReactiveObject
         try
         {
             ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupStarted,
-                dryRun ? "Dry run initiated" : "Cleanup initiated",forceDebug:true);
+                dryRun ? "Dry run initiated" : "Cleanup initiated", forceDebug: true);
 
             var result = await ConversionCleaner.CleanupConversionAsync(this, dryRun);
 
@@ -913,11 +938,11 @@ public class RastaConversion : ReactiveObject
 
 
             ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupComplete, summary, forceDebug: true);
-            
         }
         catch (Exception ex)
         {
-            ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupFailed, "Cleanup encountered an error", ex, forceDebug: true);
+            ConversionLogger.LogIfDebug(this, ConversionStatus.CleanupFailed, "Cleanup encountered an error", ex,
+                forceDebug: true);
         }
     }
 }

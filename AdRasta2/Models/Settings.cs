@@ -134,6 +134,14 @@ public class Settings : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _setConversionIcon, value);
     }
 
+    private bool _updateDesktopDatabase;
+
+    public bool UpdateDesktopDatabase
+    {
+        get => _updateDesktopDatabase;
+        set  => this.RaiseAndSetIfChanged(ref _updateDesktopDatabase, value);
+    }
+
     private string _rcEditCommand = string.Empty;
 
     public string RCEditCommand
@@ -197,6 +205,7 @@ public class Settings : ReactiveObject
 
             SetConversionIcon = GetSafeBool(ini, "Experimental", "SetConversionIcon", false);
             RCEditCommand = ini.GetStr("Experimental", "RCEditCommand", string.Empty);
+            UpdateDesktopDatabase =  GetSafeBool(ini, "UserPreferences", "UpdateDesktopDatabase", false);
             DryRunDelete = GetSafeBool(ini, "Experimental", "DryRunDelete", true);
         }
         catch (Exception ex)

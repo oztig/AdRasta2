@@ -32,4 +32,5 @@ public enum ConversionStatus
     CleanupFailed,
     ConversionTidied,
     ConversionRemoved,
+    Preparation
 }

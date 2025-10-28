@@ -37,7 +37,67 @@ public class RastaConverter
         await FileUtils.CopyDirectoryIncludingRoot(Settings.Current.PaletteDirectory, conversion.DestinationDirectory);
     }
 
-    public static async Task<ProcessRunResult> ExecuteCommand(bool isPreview, bool isContinue,
+    public static async Task<ProcessRunResult> ExecuteCommand(
+        bool isPreview,
+        bool isContinue,
+        RastaConversion conversion,
+        IconPatchService iconService)
+    {
+        var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
+        conversion.CommandLineText = await GenerateFullCommandLineString(safeParams);
+
+        try
+        {
+            await CopySupportingFiles(conversion);
+
+            // 1. Generate icon
+            await iconService.GenerateAndPatchAsync(
+                conversion.SourceImagePath,
+                conversion.DestinationFilePath,
+                conversion.Title,
+                conversion);
+
+            // 2. Generate .desktop file
+            string desktopFilePath = await DesktopFileGenerator.GenerateDesktopFileAsync(conversion,
+                safeParams
+            );
+            
+            // 3. Re-Generate Desktop database
+            if (Settings.Current.UpdateDesktopDatabase)
+            {
+                await ProcessRunner.RunAsync(
+                    "update-desktop-database",
+                    "/",
+                    Array.Empty<string>(),
+                    conversion);
+            }
+
+            // 4. Launch RastaConverter
+            var result = await ProcessRunner.RunAsync(
+                conversion.RastaConverterFileName,
+                conversion.DestinationDirectory,
+                safeParams,
+                conversion);
+
+            return result;
+        }
+        catch (Exception e)
+        {
+            ConversionLogger.Log(conversion, ConversionStatus.Error, "RastaConverter.ExecuteCommand", e);
+            conversion.ProcessID = 0;
+
+            return new ProcessRunResult
+            {
+                Conversion = conversion,
+                Status = AdRastaStatus.UnknownError,
+                ExitCode = -1,
+                StandardOutput = null,
+                StandardError = e.ToString()
+            };
+        }
+    }
+
+    /*public static async Task<ProcessRunResult> ExecuteCommand(bool isPreview, bool isContinue,
         RastaConversion conversion, IconPatchService iconService)
     {
         var safeParams = await GenerateRastaArguments(isPreview, isContinue, conversion);
@@ -72,7 +132,7 @@ public class RastaConverter
                 StandardError = e.ToString()
             };
         }
-    }
+    }*/
 
     public async static Task<IReadOnlyList<string>> GenerateRastaArguments(bool isPreview, bool isContinue,
         RastaConversion conversion)

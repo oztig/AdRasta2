@@ -191,17 +191,34 @@ public class RastaConversion : ReactiveObject
                 {
                     FileUtils.DeleteMatchingFiles(this, DestinationDirectory, RastaConverterFileName);
                 }
-
+                
                 // Generate new Unique Filename for RastaConverter
-                if (SourceImagePath != string.Empty)
+                if (!string.IsNullOrEmpty(SourceImagePath))
                 {
-                    // RastConversion now needs a unique filename (for icon purposes !)
-                    var newRastaCommandFileName =
-                        Path.GetFileNameWithoutExtension(Settings.Current.BaseRastaCommand) + "_" +
-                        DateTime.Now.ToString("yyyyMMddHHmmss") +
-                        Path.GetExtension(Settings.Current.BaseRastaCommand);
-                    RastaConverterFileName = newRastaCommandFileName;
+                    if (Settings.IsWindows)
+                    {
+                        // Windows: use unique filename
+                        var newRastaCommandFileName =
+                            Path.GetFileNameWithoutExtension(Settings.Current.BaseRastaCommand) + "_" +
+                            DateTime.Now.ToString("yyyyMMddHHmmss") +
+                            Path.GetExtension(Settings.Current.BaseRastaCommand);
+
+                        RastaConverterFileName = newRastaCommandFileName;
+
+                        ConversionLogger.LogIfDebug(this, ConversionStatus.Preparation,
+                            $"[Windows] Generated unique RastaConverter filename: {RastaConverterFileName}");
+                    }
+                    else
+                    {
+                        // Non-Windows: use static base filename
+                        RastaConverterFileName = Settings.Current.BaseRastaCommand;
+
+                        ConversionLogger.LogIfDebug(this, ConversionStatus.Preparation,
+                            $"[Non-Windows] Using static RastaConverter filename: {RastaConverterFileName}");
+                    }
                 }
+                
+
             }
         }
     }
@@ -379,6 +396,14 @@ public class RastaConversion : ReactiveObject
     {
         get => _rastaConverterFileName;
         set => this.RaiseAndSetIfChanged(ref _rastaConverterFileName, value);
+    }
+    
+    private string _iconFilePath = string.Empty;
+
+    public string IconFilePath
+    {
+        get => _iconFilePath;
+        set => this.RaiseAndSetIfChanged(ref _iconFilePath, value);
     }
 
     public string DestinationDirectory => string.IsNullOrEmpty(DestinationFilePath)

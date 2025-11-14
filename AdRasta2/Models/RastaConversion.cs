@@ -800,6 +800,30 @@ public class RastaConversion : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _unstuckAfter, value);
     }
 
+    private string _dualDither;
+
+    public string DualDither
+    {
+        get => _dualDither;
+        set => this.RaiseAndSetIfChanged(ref _dualDither, value);
+    }
+
+    private decimal _dualDitherStrength = 0.125M;
+
+    public decimal DualDitherStrength
+    {
+        get => _dualDitherStrength;
+        set => this.RaiseAndSetIfChanged(ref _dualDitherStrength, value);
+    }
+
+    private decimal _dualDitherRand = 0.0M;
+
+    public decimal DualDitherRand
+    {
+        get => _dualDitherRand;
+        set => this.RaiseAndSetIfChanged(ref _dualDitherRand, value);
+    }
+    
     private string _PreviewHeaderTitle = "Preview";
 
     public string PreviewHeaderTitle
@@ -915,6 +939,9 @@ public class RastaConversion : ReactiveObject
         UnstuckAfter = RastaConverterDefaultValues.DefaultUnstuckAfter;
         UnstuckDrift = RastaConverterDefaultValues.DefaultUnstuckDrift;
         DestinationFilePath = Settings.Current.DefaultImageDestination;
+        DualDither = RastaConverterDefaultValues.DefaultDualModeDither;
+        DualDitherStrength = RastaConverterDefaultValues.DefaultDualDitheringStrength;
+        DualDitherRand = RastaConverterDefaultValues.DefaultDualDitheringRandomness;
         Statuses?.Clear();
     }
 

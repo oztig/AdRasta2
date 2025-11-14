@@ -19,6 +19,8 @@ public class SourceData
     public ObservableCollection<string> Dithering { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> Optimiser { get; } = new ObservableCollection<string>();
     
+    public ObservableCollection<string> DualModeDithering { get; } = new ObservableCollection<string>();
+    
     public void Populate()
     {
         PopulateAfterDualSteps();
@@ -32,6 +34,7 @@ public class SourceData
         PopulatePreColourDistance();
         PopulateDithering();
         PopulateOptimiser();
+        PopulateDualModeDithering();
     }
 
     private void PopulateAfterDualSteps()
@@ -170,6 +173,17 @@ public class SourceData
         Optimiser.Add("dlas");
         Optimiser.Add("lahc");
         Optimiser.Add("legacy");
+    }
+    
+    private void PopulateDualModeDithering()
+    {
+        DualModeDithering.Clear();
+        DualModeDithering.Add("chess");
+        DualModeDithering.Add("knoll");
+        DualModeDithering.Add("line");
+        DualModeDithering.Add("line2");
+        DualModeDithering.Add("none");
+        DualModeDithering.Add("random");
     }
 
     public SourceData()

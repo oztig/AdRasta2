@@ -282,7 +282,22 @@ public class RastaConverter
         {
             args.Add($"/dc={rastaConversion.DualChroma}");
         }
+        
+        if (rastaConversion.DualDither != RastaConverterDefaultValues.DefaultDualModeDither)
+        {
+            args.Add($"/dd={rastaConversion.DualDither}");
+        }
 
+        if (rastaConversion.DualDitherStrength != RastaConverterDefaultValues.DefaultDualDitheringStrength)
+        {
+            args.Add($"/ddv={rastaConversion.DualDitherStrength}");
+        }
+        
+        if (rastaConversion.DualDitherRand != RastaConverterDefaultValues.DefaultDualDitheringRandomness)
+        {
+            args.Add($"/ddr={rastaConversion.DualDitherRand}");
+        }
+        
         args.Add($"/i={rastaConversion.SourceImageBaseName}");
 
         if (!string.IsNullOrWhiteSpace(rastaConversion.SourceImageMaskBaseName))
@@ -425,6 +440,21 @@ public class RastaConverter
         if (rastaConversion.DualChroma != RastaConverterDefaultValues.DefaultDualChroma)
         {
             args.Add($"--dual_chroma={rastaConversion.DualChroma}");
+        }
+
+        if (rastaConversion.DualDither != RastaConverterDefaultValues.DefaultDualModeDither)
+        {
+            args.Add($"--dual_dither={rastaConversion.DualDither}");
+        }
+
+        if (rastaConversion.DualDitherStrength != RastaConverterDefaultValues.DefaultDualDitheringStrength)
+        {
+            args.Add($"--dual_dither_val={rastaConversion.DualDitherStrength}");
+        }
+        
+        if (rastaConversion.DualDitherRand != RastaConverterDefaultValues.DefaultDualDitheringRandomness)
+        {
+            args.Add($"--dual_dither_rand={rastaConversion.DualDitherRand}");
         }
 
         args.Add($"--input={SafeCommand.QuoteIfNeeded(rastaConversion.SourceImageBaseName)}");

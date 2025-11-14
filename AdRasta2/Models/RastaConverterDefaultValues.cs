@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace AdRasta2.Models;
 
@@ -42,4 +43,7 @@ public class RastaConverterDefaultValues
     public static string DefaultRegisterOnOffFilePath = string.Empty;
     public static decimal DefaultUnstuckDrift =0.1M;
     public static int DefaultUnstuckAfter = 1000;
+    public static string DefaultDualModeDither = "none";
+    public static decimal DefaultDualDitheringStrength = (decimal)0.125;
+    public static decimal DefaultDualDitheringRandomness = 0;
 }

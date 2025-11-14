@@ -20,5 +20,7 @@ public partial class DualModeSettingsView : UserControl
         AlteringSteps.DefaultIfNull = RastaConverterDefaultValues.DefaultAlternatingDualSteps;
         Luma.DefaultIfNull = RastaConverterDefaultValues.DefaultDualLuma;
         Chroma.DefaultIfNull = RastaConverterDefaultValues.DefaultDualChroma;
+        DitherStrength.DefaultIfNull = RastaConverterDefaultValues.DefaultDualDitheringStrength;
+        DitherRandomness.DefaultIfNull = RastaConverterDefaultValues.DefaultDualDitheringRandomness;
     }
 }

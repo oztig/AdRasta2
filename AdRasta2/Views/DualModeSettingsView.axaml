@@ -14,7 +14,7 @@
         Margin="5"
         IsExpanded="{Binding SelectedConversion.IsDualModeExpanded,Mode=TwoWay}"
         IsEnabled="{Binding SelectedConversion.DualFrameMode}">
-        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
+        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10"
               RowSpacing="10">
             <Label Grid.Row="0" Grid.Column="0" Content="First Steps" />
             <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Minimum="0" Maximum="100000000"
@@ -51,6 +51,23 @@
                            Increment="0.1" Value="{Binding SelectedConversion.DualChroma}">
             </controls:SafeNumericUpDown>
 
+            <Label Grid.Row="0" Grid.Column="6" Content="Dither" />
+            <ComboBox Grid.Row="0" Grid.Column="7" ItemsSource="{Binding SourceData.DualModeDithering}"
+                      SelectedItem="{Binding SelectedConversion.DualDither}"
+                      HorizontalAlignment="Stretch" />
+            
+            <Label Grid.Row="0" Grid.Column="8" Content="Strength" />
+            <controls:SafeNumericUpDown Grid.Row="0" Grid.Column="9" HorizontalAlignment="Stretch" Minimum="0" Maximum="2"
+                                        x:Name="DitherStrength"
+                                        Increment="0.001" Value="{Binding SelectedConversion.DualDitherStrength}">
+            </controls:SafeNumericUpDown>
+            
+            <Label Grid.Row="1" Grid.Column="6" Content="Randomness" />
+            <controls:SafeNumericUpDown Grid.Row="1" Grid.Column="7" HorizontalAlignment="Stretch" Minimum="0" Maximum="1"
+                                        x:Name="DitherRandomness"
+                                        Increment="0.1" Value="{Binding SelectedConversion.DualDitherRand}">
+            </controls:SafeNumericUpDown>
+            
         </Grid>
     </Expander>
 

@@ -140,12 +140,9 @@
       
 
         <!-- Mask -->
-        <HeaderedContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Header="Mask" Margin="5,0,5,5"
-                                IsVisible="{Binding SelectedConversion.IsSingleFrameMode}">
+        <HeaderedContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Header="Mask" Margin="5,0,5,5">
             <Grid RowDefinitions="*,Auto" RowSpacing="5">
                 <Border Grid.Row="0"
-                        IsEnabled="{Binding SelectedConversion.IsSingleFrameMode}"
-                        IsVisible="{Binding SelectedConversion.IsSingleFrameMode}"
                         BorderBrush="Black"
                         BorderThickness="1"
                         Margin="0,0,0,3"

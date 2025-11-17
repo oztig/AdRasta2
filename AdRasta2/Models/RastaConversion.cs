@@ -1,18 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Globalization;
-using Avalonia;
 using Avalonia.Media.Imaging;
-using Avalonia.Platform;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AdRasta2.Enums;
 using AdRasta2.Utils;
-using Avalonia.Controls.Converters;
 using Avalonia.Media;
 using ReactiveUI;
 

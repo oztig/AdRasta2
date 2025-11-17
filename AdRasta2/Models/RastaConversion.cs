@@ -725,7 +725,6 @@ public class RastaConversion : ReactiveObject
             if (DualFrameMode != value)
             {
                 _dualFrameMode = value;
-                SourceImageMaskPath = null;
                 ImagePreviewPath = null;
                 this.RaisePropertyChanged();
                 this.RaisePropertyChanged(nameof(IsSingleFrameMode));

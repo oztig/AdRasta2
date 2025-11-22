@@ -156,10 +156,10 @@
 
                 <Slider Grid.Row="2" Grid.Column="1"
                         x:Name="SliderGamma"
-                        Minimum="-100" Maximum="100"
+                        Minimum="0" Maximum="8"
                         HorizontalAlignment="Stretch"
                         Value="{Binding SelectedConversion.Gamma}"
-                        TickFrequency="1" IsSnapToTickEnabled="True"
+                        TickFrequency="0.1" IsSnapToTickEnabled="True"
                         IsTabStop="False" />
 
                 <controls:SafeNumericUpDown Grid.Row="2" Grid.Column="2"
